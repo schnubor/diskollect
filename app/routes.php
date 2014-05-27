@@ -11,7 +11,23 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', array(
+  'as' => 'welcome',
+  'uses' => 'HomeController@showWelcome'
+));
+
+/*
+| Unauthenticated group
+*/
+Route::group(array('before' => 'guest'), function(){
+
+  /*
+  | CSRF protection
+  */
+  Route::group(array('before' => 'csrf'), function(){
+
+  });
+
+  Route::resource('user', 'UserController');
+
 });
