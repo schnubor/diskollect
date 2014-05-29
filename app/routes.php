@@ -28,6 +28,8 @@ Route::group(array('before' => 'guest'), function(){
 
   });
 
-  Route::resource('user', 'UserController');
+  Route::resource('user', 'UsersController');
+
+  Route::resource('user.vinyl', 'VinylsController');
 
 });

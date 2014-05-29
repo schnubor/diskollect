@@ -1,0 +1,1 @@
+/Users/christiankorndoerfer/Projekte/diskollect/app/views/vinyls/show.blade.php

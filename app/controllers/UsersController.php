@@ -1,9 +1,10 @@
 <?php
 
-class UserController extends \BaseController {
+class UsersController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
+	 * GET /users
 	 *
 	 * @return Response
 	 */
@@ -12,9 +13,9 @@ class UserController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Show the form for creating a new resource.
+	 * GET /users/create
 	 *
 	 * @return Response
 	 */
@@ -23,9 +24,9 @@ class UserController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Store a newly created resource in storage.
+	 * POST /users
 	 *
 	 * @return Response
 	 */
@@ -34,9 +35,9 @@ class UserController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Display the specified resource.
+	 * GET /users/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -46,9 +47,9 @@ class UserController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Show the form for editing the specified resource.
+	 * GET /users/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -58,9 +59,9 @@ class UserController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Update the specified resource in storage.
+	 * PUT /users/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -70,9 +71,9 @@ class UserController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Remove the specified resource from storage.
+	 * DELETE /users/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -81,6 +82,5 @@ class UserController extends \BaseController {
 	{
 		//
 	}
-
 
 }
