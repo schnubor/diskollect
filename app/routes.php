@@ -24,12 +24,15 @@ Route::group(array('before' => 'guest'), function(){
   /*
   | CSRF protection
   */
-  Route::group(array('before' => 'csrf'), function(){
+  Route::when('*', 'csrf', array('post', 'put', 'delete'));
 
-  });
+  Route::resource('users', 'UsersController');
 
-  Route::resource('user', 'UsersController');
+  Route::get('users/activate/{code}', array(
+    'as' => 'account-activate',
+    'uses' => 'UsersController@activate'
+  ));
 
-  Route::resource('user.vinyl', 'VinylsController');
+  Route::resource('users.vinyls', 'VinylsController');
 
 });

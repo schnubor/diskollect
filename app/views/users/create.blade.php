@@ -10,27 +10,50 @@
   </div>
 
   <div class="form-wrapper">
-    <form role="form">
+    {{ Form::open(array('url' => 'users')) }}
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        {{ Form::label('username', 'User name') }}
+        {{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'placeholder' => 'Enter your user name')); }}
+
+        @if($errors->has('username'))
+          <div class="alert alert-danger">
+            {{ $errors->first('username') }}
+          </div>
+        @endif
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        {{ Form::label('email', 'Email adress') }}
+        {{ Form::email('email', Input::old('email'), array('class' => 'form-control', 'placeholder' => 'example@mail.com')); }}
+
+        @if($errors->has('email'))
+          <div class="alert alert-danger">
+            {{ $errors->first('email') }}
+          </div>
+        @endif
       </div>
       <div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" id="exampleInputFile">
-        <p class="help-block">Example block-level help text here.</p>
+        {{ Form::label('password', 'Password') }}
+        {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Choose a password')); }}
+
+        @if($errors->has('password'))
+          <div class="alert alert-danger">
+            {{ $errors->first('password') }}
+          </div>
+        @endif
       </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Check me out
-        </label>
+      <div class="form-group">
+        {{ Form::label('password_again', 'Confirm password') }}
+        {{ Form::password('password_again', array('class' => 'form-control', 'placeholder' => 'Enter password again')); }}
+
+        @if($errors->has('password_again'))
+          <div class="alert alert-danger">
+            {{ $errors->first('password_again') }}
+          </div>
+        @endif
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+
+      {{ Form::submit('Sign up', array('class' => 'btn btn-primary')) }}
+    {{ Form::close() }}
   </div>
 @stop
 
