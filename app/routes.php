@@ -17,6 +17,16 @@ Route::get('/', array(
 ));
 
 /*
+| Authenticated group
+*/
+Route::group(array('before' => 'auth'), function(){
+  Route::get('users/signout', array(
+    'as' => 'get-signout',
+    'uses' => 'UsersController@getSignout'
+  ));
+});
+
+/*
 | Unauthenticated group
 */
 Route::group(array('before' => 'guest'), function(){
@@ -26,13 +36,29 @@ Route::group(array('before' => 'guest'), function(){
   */
   Route::when('*', 'csrf', array('post', 'put', 'delete'));
 
-  Route::resource('users', 'UsersController');
+  /*
+  | User routes (order is important!)
+  */
+  Route::get('users/signin', array(
+    'as' => 'get-signin',
+    'uses' => 'UsersController@getSignin'
+  ));
+
+  Route::post('users/signin', array(
+    'as' => 'post-signin',
+    'uses' => 'UsersController@postSignin'
+  ));
 
   Route::get('users/activate/{code}', array(
     'as' => 'account-activate',
     'uses' => 'UsersController@activate'
   ));
 
+  Route::resource('users', 'UsersController');  
+
+  /*
+  | Vinyl routes
+  */
   Route::resource('users.vinyls', 'VinylsController');
 
 });

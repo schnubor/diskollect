@@ -105,6 +105,73 @@ class UsersController extends \BaseController {
 	}
 
 	/**
+	 * Sign-in Form
+	 * GET /users/signin
+	 *
+	 * @return Response
+	 */
+
+	public function getSignin()
+	{
+		return View::make('users.signin');
+	}
+
+	/**
+	 * Signin Form Submit
+	 * POST /users/signin
+	 *
+	 * @return Response
+	 */
+
+	public function postSignin()
+	{
+		$validator = Validator::make(Input::all(), array(
+			'email' => 'required|email',
+			'password' => 'required'
+		));
+
+		if($validator->fails()){
+			return Redirect::route('get-signin')
+				->withErrors($validator)
+				->withInput(Input::except('password'));
+		}
+		else{
+			$auth = Auth::attempt(array(
+				'email' => input::get('email'),
+				'password' => Input::get('password'),
+				'active' => 1
+			));
+
+			if($auth){
+				//Redirect to intended page
+				return Redirect::intended('/')
+					->with('success-alert', 'Welcome! You have been signed in.');
+			}
+			else{
+				return Redirect::to('/users/signin')
+					->with('danger-alert', 'Oops! Email/Password incorrect or your account is not activated.');
+			}
+
+		}
+
+		return Redirect::to('/users/signin')
+			->with('danger-alert', 'Oops! There was a problem signing you in.');
+	}
+
+	/**
+	 * Sign-out
+	 * GET /users/signout
+	 *
+	 * @return Response
+	 */
+
+	public function getSignout()
+	{
+		Auth::logout();
+		return Redirect::to('/');
+	}
+
+	/**
 	 * Display the specified resource.
 	 * GET /users/{id}
 	 *
@@ -113,7 +180,7 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		return $id;
 	}
 
 	/**

@@ -15,10 +15,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         @if(Auth::check())
-          <li><a href="#">Logout</a></li>
+          <li><a href="{{ URL::to('users/signout') }}">Logout</a></li>
           <li><a href="{{ URL::to('users') }}">Your Profile</a></li>
         @else
-          <li><a href="#">Login</a></li>
+          <li><a href="{{ URL::to('users/signin') }}">Login</a></li>
           <li><a href="{{ URL::to('users/create') }}">Register</a></li>
         @endif
         
