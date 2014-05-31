@@ -28,6 +28,11 @@
       @endif
     </div>
 
+    <div class="checkbox">
+      {{ Form::checkbox('remember', 'value', null, array('id' => 'remember')); }}
+      {{ Form::label('remember', 'Remember me') }}
+    </div>
+
     {{ Form::submit('Sign in', array('class' => 'btn btn-primary')) }}
 
   {{ Form::close() }}

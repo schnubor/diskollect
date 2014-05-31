@@ -136,11 +136,14 @@ class UsersController extends \BaseController {
 				->withInput(Input::except('password'));
 		}
 		else{
+
+			$remember = (Input::has('remember')) ? true : false;
+
 			$auth = Auth::attempt(array(
 				'email' => input::get('email'),
 				'password' => Input::get('password'),
 				'active' => 1
-			));
+			), $remember);
 
 			if($auth){
 				//Redirect to intended page
