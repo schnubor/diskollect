@@ -20,6 +20,26 @@ Route::get('/', array(
 | Authenticated group
 */
 Route::group(array('before' => 'auth'), function(){
+
+  /*
+  | GET change password form
+  */
+  Route::get('users/change-password', array(
+    'as' => 'get-change-password',
+    'uses' => 'UsersController@getChangePassword'
+  ));
+
+  /*
+  | POST change password
+  */
+  Route::post('users/change-password', array(
+    'as' => 'post-change-password',
+    'uses' => 'UsersController@postChangePassword'
+  ));
+
+  /*
+  | Sign out
+  */
   Route::get('users/signout', array(
     'as' => 'get-signout',
     'uses' => 'UsersController@getSignout'
@@ -54,11 +74,12 @@ Route::group(array('before' => 'guest'), function(){
     'uses' => 'UsersController@activate'
   ));
 
-  Route::resource('users', 'UsersController');  
-
-  /*
-  | Vinyl routes
-  */
-  Route::resource('users.vinyls', 'VinylsController');
-
 });
+
+/*
+| Everyone
+*/
+
+Route::resource('users', 'UsersController');  
+
+Route::resource('users.vinyls', 'VinylsController');

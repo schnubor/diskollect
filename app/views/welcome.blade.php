@@ -6,14 +6,16 @@
 
 @section('body')
   <div class="jumbotron">
-    <h1>Hello there!</h1>
-    <p>This is a simple introduction to diskollect.com. Please feel free to go ahead an register an account to add some vinyls.</p>
     
     @if(Auth::check())
+      <h1>Hello, {{ Auth::user()->username }}!</h1>
+      <p>Good to see you again :)</p>
       <p>
-        Hello, {{ Auth::user()->username }}! Good to see you again :)
+        <a class="btn btn-default btn-lg" role="button" href="{{ URL::to('users/change-password') }}">Change Password</a>
       </p>
     @else
+      <h1>Hello there!</h1>
+      <p>This is a simple introduction to diskollect.com. Please feel free to go ahead an register an account to add some vinyls.</p>
       <p>
         <a class="btn btn-primary btn-lg" role="button" href="{{ URL::to('users/signin') }}">Login</a>
         <a class="btn btn-default btn-lg" role="button" href="{{ URL::to('users/create') }}">Register</a>

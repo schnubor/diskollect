@@ -10,7 +10,9 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$users = User::get();
+		return View::make('users.index')
+			->with('users', $users);
 	}
 
 	/**
@@ -172,6 +174,55 @@ class UsersController extends \BaseController {
 	{
 		Auth::logout();
 		return Redirect::to('/');
+	}
+
+	/**
+	 * Change password
+	 * GET /users/change-password
+	 *
+	 * @return Response
+	 */
+
+	public function getChangePassword()
+	{
+		return View::make('users/password');
+	}
+
+	public function postChangePassword()
+	{
+		$validator = Validator::make(Input::all(), array(
+			'old_password' 		=> 'required',
+			'password' 				=> 'required|min:6',
+			'password_again' 	=> 'required|same:password'
+		));
+
+		if($validator->fails()){
+			return Redirect::to('users/change-password')
+				->withErrors($validator);
+		}
+		else{
+			$user 				= User::find(Auth::user()->id);
+
+			$old_password = Input::get('old_password');
+			$password 		= Input::get('password');
+
+			if(Hash::check($old_password, $user->getAuthPassword())){
+				$user->password = Hash::make($password);
+
+				if($user->save()){
+					return Redirect::to('/')
+						->with('success-alert', 'Congratulations! You successfully changed your password');
+				}
+			}
+			else{
+				// old password incorrect
+				return Redirect::to('users/change-password')
+					->with('danger-alert', 'Old password provided is incorrect.');
+			}
+		}
+
+		return Redirect::to('users/change-password')
+			->with('danger-alert', 'Your password could not be changed. Unknown Error.');
 	}
 
 	/**

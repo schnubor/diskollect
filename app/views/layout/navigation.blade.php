@@ -16,6 +16,7 @@
       <ul class="nav navbar-nav navbar-right">
         @if(Auth::check())
           <li><a href="{{ URL::to('users/signout') }}">Logout</a></li>
+          <li><a href="{{ URL::to('users/change-password') }}">Change password</a></li>
           <li><a href="{{ URL::to('users') }}">Your Profile</a></li>
         @else
           <li><a href="{{ URL::to('users/signin') }}">Login</a></li>
