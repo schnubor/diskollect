@@ -191,6 +191,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/config/app.php",
+			"settings":
+			{
+				"buffer_size": 7413,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/UsersController.php",
+			"settings":
+			{
+				"buffer_size": 5590,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -232,6 +248,7 @@
 	},
 	"file_history":
 	[
+		"/Users/korndoerfer/Development/diskollect/app/controllers/UserController.php",
 		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/tape-app.js",
 		"/Users/korndoerfer/Development/tape-web/Gemfile",
 		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/tiles.css.scss",
@@ -358,8 +375,7 @@
 		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/templates/artist-detail-prompt.jst.eco",
 		"/Users/korndoerfer/Development/tape-web/app/workers/artist_image_processing_worker.rb",
 		"/Users/korndoerfer/Development/tape-web/test/models/weekly_newsletter_email_test.rb",
-		"/Users/korndoerfer/Development/tape-web/vendor/player/fonts/font-awesome-4.0.3/less/font-awesome.less",
-		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/views/application/embedded_share_view.js.coffee"
+		"/Users/korndoerfer/Development/tape-web/vendor/player/fonts/font-awesome-4.0.3/less/font-awesome.less"
 	],
 	"find":
 	{
@@ -529,8 +545,71 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/config/app.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4346,
+								4346
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 656.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/controllers/UsersController.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5590,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
