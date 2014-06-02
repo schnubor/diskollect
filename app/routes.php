@@ -44,6 +44,7 @@ Route::group(array('before' => 'auth'), function(){
     'as' => 'get-signout',
     'uses' => 'UsersController@getSignout'
   ));
+
 });
 
 /*
@@ -80,6 +81,6 @@ Route::group(array('before' => 'guest'), function(){
 | Everyone
 */
 
-Route::resource('users', 'UsersController');  
+Route::resource('users', 'UsersController');
 
 Route::resource('users.vinyls', 'VinylsController');
