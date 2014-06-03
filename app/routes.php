@@ -45,7 +45,13 @@ Route::group(array('before' => 'auth'), function(){
     'uses' => 'UsersController@getSignout'
   ));
 
-  Route::resource('users.vinyls', 'VinylsController');
+  /*
+  | Search
+  */
+  Route::get('search', array(
+    'as' => 'get-search',
+    'uses' => 'VinylsController@getSearch'
+  ));
 
 });
 
