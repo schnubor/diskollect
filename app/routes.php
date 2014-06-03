@@ -53,6 +53,11 @@ Route::group(array('before' => 'auth'), function(){
     'uses' => 'VinylsController@getSearch'
   ));
 
+  Route::post('search', array(
+    'as' => 'post-search',
+    'uses' => 'VinylsController@postSearch'
+  ));
+
 });
 
 /*

@@ -15,6 +15,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="{{ URL::to('users') }}">Collectors</a></li>
+        @if(Auth::check())
+          <li><a href="{{ URL::to('search') }}">Search Vinyl</a></li>
+        @endif
       </ul>
       <ul class="nav navbar-nav navbar-right">
         @if(Auth::check())

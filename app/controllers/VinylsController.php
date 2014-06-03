@@ -4,7 +4,14 @@ class VinylsController extends \BaseController {
 
 	public function getSearch()
 	{
+		return View::make('vinyls.search');
+	}
 
+	public function postSearch()
+	{
+		
+		
+		// Discogs
 		$service = new \Discogs\Service();
 
 		$resultset = $service->search(array(
@@ -15,6 +22,7 @@ class VinylsController extends \BaseController {
 		$results = $resultset->getResults();
 
 		return $results[0]->getThumb();
+
 	}
 
 }
