@@ -9,20 +9,36 @@ class VinylsController extends \BaseController {
 
 	public function postSearch()
 	{
-		
-		
-		// Discogs
-		$service = new \Discogs\Service();
-
-		$resultset = $service->search(array(
-	    'q'     => 'Meagashira',
-	    'label' => 'Enzyme'
+		$validator = Validator::make(Input::all(), array(
+			'artist' => 'required'
 		));
 
-		$results = $resultset->getResults();
+		if($validator->fails()){
+			return Redirect::to('search')
+				->withErrors($validator)
+				->withInput();
+		}
+		else{
 
-		return $results[0]->getThumb();
+			$artist = Input::get('artist');
+			$title = Input::get('title');
 
+			// Discogs
+			$service = new \Discogs\Service();
+
+			$resultset = $service->search(array(
+		    'artist' 	=> $artist,
+		    'title' 	=> $title,
+		    'format' 	=> 'Vinyl'
+			));
+
+			$results = $resultset->getResults();
+
+			return View::make('vinyls.results')
+				->with('results', $results);
+		}
+
+		return Redirect::to('search')->with('danger-alert', 'Oops! Something went wrong the search was posted.');
 	}
 
 }

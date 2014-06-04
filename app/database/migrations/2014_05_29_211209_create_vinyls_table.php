@@ -23,7 +23,7 @@ class CreateVinylsTable extends Migration {
 			$table->string('genre');
 			$table->float('price');
 			$table->string('videos');
-			$table->string('tracklist');
+			$table->text('tracklist');
 			$table->integer('duration');
 			$table->integer('size');
 			$table->integer('count');

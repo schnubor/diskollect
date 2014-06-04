@@ -25,7 +25,7 @@
 
       <div class="panel panel-default">
         <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-        <div class="panel-body"><a href="{{ $user->website }}">{{ $user->website }}</a></div>
+        <div class="panel-body"><a href="http://{{ $user->website }}" target="_blank">{{ $user->website }}</a></div>
       </div>
 
       <div class="panel panel-default">

@@ -1,12 +1,12 @@
 @extends('layout.main')
 
 @section('title')
-  Search Vinyl
+  Search results
 @stop
 
 @section('body')
   <div class="page-header">
-    <h1>Search Vinyl</h1>
+    <h1>Search results</h1>
   </div>
 
   <div class="form-wrapper">
@@ -35,6 +35,12 @@
       {{ Form::submit('Search', array('class' => 'btn btn-primary')) }}
     {{ Form::close() }}
   </div>
+
+  @foreach($results as $result)
+    <?php $url = str_replace('api.discogs','s.pixogs',$result->getThumb()); ?>
+    <img src="{{ $url }}" alt="artwork">
+  @endforeach
+
 
 @stop
 
