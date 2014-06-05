@@ -192,18 +192,10 @@
 	"buffers":
 	[
 		{
-			"file": "app/config/app.php",
+			"file": "app/views/vinyls/results.blade.php",
 			"settings":
 			{
-				"buffer_size": 7413,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/UsersController.php",
-			"settings":
-			{
-				"buffer_size": 5590,
+				"buffer_size": 1978,
 				"line_ending": "Unix"
 			}
 		}
@@ -211,15 +203,15 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 47.0,
+		"height": 87.0,
 		"selected_items":
 		[
 			[
-				"install",
+				"insta",
 				"Package Control: Install Package"
 			],
 			[
-				"insta",
+				"install",
 				"Package Control: Install Package"
 			],
 			[
@@ -227,7 +219,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 476.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -248,6 +240,33 @@
 	},
 	"file_history":
 	[
+		"/Users/korndoerfer/Development/diskollect/readme.md",
+		"/Users/korndoerfer/Development/diskollect/app/routes.php",
+		"/Users/korndoerfer/Development/diskollect/app/views/layout/main.blade.php",
+		"/Users/korndoerfer/Development/diskollect/app/database/seeds/UsersTableSeeder.php",
+		"/Users/korndoerfer/Development/diskollect/app/database/migrations/2014_05_27_220934_create_users_table.php",
+		"/Users/korndoerfer/Development/diskollect/app/config/app.php",
+		"/Users/korndoerfer/Development/diskollect/app/views/layout/navigation.blade.php",
+		"/Users/korndoerfer/Development/diskollect/app/controllers/UsersController.php",
+		"/Users/korndoerfer/Development/diskollect/app/views/users/show.blade.php",
+		"/Users/korndoerfer/Development/diskollect/vendor/predis/predis/examples/SessionHandler.php",
+		"/Users/korndoerfer/Development/diskollect/bootstrap/start.php",
+		"/Users/korndoerfer/Development/diskollect/app/models/User.php",
+		"/Users/korndoerfer/Development/diskollect/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/UriSigner.php",
+		"/Users/korndoerfer/Development/diskollect/app/controllers/VinylsController.php",
+		"/Users/korndoerfer/Development/diskollect/app/database/migrations/2014_05_29_211209_create_vinyls_table.php",
+		"/Users/korndoerfer/Development/diskollect/app/database/seeds/DatabaseSeeder.php",
+		"/Users/korndoerfer/Development/diskollect/app/database/seeds/VinylsTableSeeder.php",
+		"/Users/korndoerfer/Development/diskollect/app/config/mail.php",
+		"/Users/korndoerfer/Development/diskollect/vendor/laravel/framework/src/Illuminate/Database/Eloquent/MassAssignmentException.php",
+		"/Users/korndoerfer/Development/diskollect/composer.json",
+		"/Users/korndoerfer/Development/diskollect/vendor/phpseclib/phpseclib/build/code-sniffer-ruleset.xml",
+		"/Users/korndoerfer/Development/diskollect/app/views/users/create.blade.php",
+		"/Users/korndoerfer/Development/diskollect/vendor/nikic/php-parser/lib/PHPParser/NodeAbstract.php",
+		"/Users/korndoerfer/Development/diskollect/vendor/predis/predis/lib/Predis/ResponseObjectInterface.php",
+		"/Users/korndoerfer/Development/diskollect/vendor/nesbot/carbon/tests/SubTest.php",
+		"/Users/korndoerfer/Development/diskollect/server.php",
+		"/Users/korndoerfer/Development/diskollect/app/views/emails/auth/activate.blade.php",
 		"/Users/korndoerfer/Development/diskollect/app/controllers/UserController.php",
 		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/tape-app.js",
 		"/Users/korndoerfer/Development/tape-web/Gemfile",
@@ -348,34 +367,7 @@
 		"/Users/korndoerfer/Development/tape-web/app/models/label.rb",
 		"/Users/korndoerfer/Development/tape-web/app/views/suggestions/facebook_friends.json.jbuilder",
 		"/Users/korndoerfer/Development/tape-web/app/views/suggestions/_facebook_friend.json.jbuilder",
-		"/Users/korndoerfer/Development/tape-web/tmp/cache/assets/test/sass/7eb9ae2c68b2ebbefe8895c105d6619b8e9f5046/suggestions.css.scssc",
-		"/Users/korndoerfer/Development/tape-web/tmp/cache/assets/development/sass/7eb9ae2c68b2ebbefe8895c105d6619b8e9f5046/suggestions.css.scssc",
-		"/Users/korndoerfer/Development/tape-web/app/views/notification_mailer/weekly_newsletter_email.html.erb",
-		"/Users/korndoerfer/Development/tape-web/app/views/users/show.html.erb",
-		"/Users/korndoerfer/Development/tape-web/test/integration/.keep",
-		"/Users/korndoerfer/Development/tape-web/test/factories/likes.rb",
-		"/Users/korndoerfer/Development/tape-web/app/views/artists/show.html.erb",
-		"/Users/korndoerfer/Development/tape-web/app/views/shows/show.json.jbuilder",
-		"/Users/korndoerfer/Development/tape-web/app/views/shows/show.html.erb",
-		"/Users/korndoerfer/Development/tape-web/app/views/playlists/show.json.jbuilder",
-		"/Users/korndoerfer/Development/tape-web/app/views/playlists/show.html.erb",
-		"/Users/korndoerfer/Development/tape-web/app/views/episodes/show.json.jbuilder",
-		"/Users/korndoerfer/Development/tape-web/app/views/episodes/show.html.erb",
-		"/Users/korndoerfer/Development/tape-web/app/views/artists/show.json.jbuilder",
-		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/search.css.scss",
-		"/Users/korndoerfer/Development/tape-web/app/controllers/videos_controller.rb",
-		"/Users/korndoerfer/Development/tape-web/db/migrate/20131216105643_add_video_count_to_artist.rb",
-		"/Users/korndoerfer/Development/tape-web/app/models/video_identifier.rb",
-		"/Users/korndoerfer/Development/tape-web/app/views/shared/_video_list_item.html.erb",
-		"/Users/korndoerfer/Development/tape-web/app/models/weekly_newsletter.rb",
-		"/Users/korndoerfer/Development/tape-web/tmp/cache/assets/development/sass/7eb9ae2c68b2ebbefe8895c105d6619b8e9f5046/header.css.scssc",
-		"/Users/korndoerfer/Development/tape-web/tmp/cache/assets/test/sass/7eb9ae2c68b2ebbefe8895c105d6619b8e9f5046/header.css.scssc",
-		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/templates/header-loading-icon.jst.eco",
-		"/Users/korndoerfer/Development/tape-web/deploy/after_restart.rb",
-		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/templates/artist-detail-prompt.jst.eco",
-		"/Users/korndoerfer/Development/tape-web/app/workers/artist_image_processing_worker.rb",
-		"/Users/korndoerfer/Development/tape-web/test/models/weekly_newsletter_email_test.rb",
-		"/Users/korndoerfer/Development/tape-web/vendor/player/fonts/font-awesome-4.0.3/less/font-awesome.less"
+		"/Users/korndoerfer/Development/tape-web/tmp/cache/assets/test/sass/7eb9ae2c68b2ebbefe8895c105d6619b8e9f5046/suggestions.css.scssc"
 	],
 	"find":
 	{
@@ -545,65 +537,35 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/config/app.php",
+					"file": "app/views/vinyls/results.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7413,
+						"buffer_size": 1978,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4346,
-								4346
+								1550,
+								1550
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
 							"is_xml": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 656.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/controllers/UsersController.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 5590,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
-							"is_xml": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -659,6 +621,34 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"resu",
+				"app/views/vinyls/results.blade.php"
+			],
+			[
+				"main",
+				"app/views/layout/main.blade.php"
+			],
+			[
+				"show",
+				"app/views/users/show.blade.php"
+			],
+			[
+				"users",
+				"app/controllers/UsersController.php"
+			],
+			[
+				"navi",
+				"app/views/layout/navigation.blade.php"
+			],
+			[
+				"routes",
+				"app/routes.php"
+			],
+			[
+				"start",
+				"bootstrap/start.php"
+			],
 			[
 				"tiles",
 				"app/assets/stylesheets/web/tiles.css.scss"
@@ -748,10 +738,6 @@
 				"app/assets/stylesheets/web/popups.css.scss"
 			],
 			[
-				"users",
-				"app/assets/stylesheets/web/users.css.scss"
-			],
-			[
 				"pop",
 				"app/assets/stylesheets/web/popups.css.scss"
 			],
@@ -836,10 +822,6 @@
 				"app/assets/stylesheets/web/tiles.css.scss"
 			],
 			[
-				"show",
-				"app/views/users/show.html.erb"
-			],
-			[
 				"seed",
 				"db/seeds.rb"
 			],
@@ -894,10 +876,6 @@
 			[
 				"impre",
 				"app/views/pages/impressum.html.erb"
-			],
-			[
-				"navi",
-				"app/views/shared/_navigation.html.erb"
 			],
 			[
 				"signinview",
@@ -1154,22 +1132,6 @@
 			[
 				"flash",
 				"app/views/shared/_flash.html.erb"
-			],
-			[
-				"newhtml",
-				"app/views/sessions/new.html.erb"
-			],
-			[
-				"spinner",
-				"app/assets/javascripts/backbone/templates/spinner.jst.eco"
-			],
-			[
-				"playlist-vide",
-				"app/assets/javascripts/backbone/templates/playlist-video-list-item.jst.eco"
-			],
-			[
-				"sidebarright",
-				"app/views/episodes/_sidebar_right.html.erb"
 			]
 		],
 		"width": 0.0

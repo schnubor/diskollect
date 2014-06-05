@@ -38,6 +38,22 @@ Route::group(array('before' => 'auth'), function(){
   ));
 
   /*
+  | GET edit user form
+  */
+  Route::get('users/edit', array(
+    'as' => 'edit-userprofile',
+    'uses' => 'UsersController@edit'
+  ));
+
+  /*
+  | UPDATE edit user
+  */
+  Route::any('users/update', array(
+    'as' => 'update-user',
+    'uses' => 'UsersController@update'
+  ));
+
+  /*
   | Sign out
   */
   Route::get('users/signout', array(
@@ -94,5 +110,13 @@ Route::group(array('before' => 'guest'), function(){
 | Everyone
 */
 
-Route::resource('users', 'UsersController');
+Route::get('users', array(
+  'as' => 'get-all-users',
+  'uses' => 'UsersController@index'
+));
+
+Route::get('users/{id}', array(
+  'as' => 'get-user',
+  'uses' => 'UsersController@show'
+));
 
