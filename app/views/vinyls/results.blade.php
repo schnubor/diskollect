@@ -43,16 +43,20 @@
   <div class="row">
     
     @foreach($results as $result)
-
       <?php $url = str_replace('api.discogs.com/image/R-90','s.pixogs.com/image/R-150',$result->getThumb()); ?>
-      <div class="col-xs-6 col-md-2">
-        <div class="thumbnail">
-          <img src="{{ $url }}" alt="artwork">
-          <div class="caption">
-            <h5>{{ $result->getTitle() }}</h5>
-            <p>{{ $result->getYear() }}</p>
-            <p>{{ $result->getId() }}</p>
-            <p><a href="#" class="btn btn-primary" role="button">Details</a></p>
+
+      <div class="col-md-4">
+        <div class="well well-sm">
+          <div class="media">
+            <a class="thumbnail pull-left" href="#" style="margin-bottom: 0;">
+              <img class="media-object" src="{{ $url }}" style="max-width: 150px;">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">{{ $result->getTitle() }}</h4>
+              <p>
+                <span class="label label-info">{{ $result->getYear() }}</span> <span class="label label-primary">Electronic</span></p>
+              </p>
+            </div>
           </div>
         </div>
       </div>
