@@ -49,10 +49,10 @@
         <div class="well well-sm">
           <div class="media">
             <a class="thumbnail pull-left" href="#" style="margin-bottom: 0;">
-              <img class="media-object" src="{{ $url }}" style="max-width: 150px;">
+              <img class="media-object" src="{{ $url }}" style="width: 150px; height: 150px;">
             </a>
             <div class="media-body">
-              <h4 class="media-heading">{{ $result->getTitle() }}</h4>
+              <h5 class="media-heading">{{ $result->getTitle() }}</h5>
               <p>
                 <span class="label label-info">{{ $result->getYear() }}</span> <span class="label label-primary">Electronic</span></p>
               </p>
