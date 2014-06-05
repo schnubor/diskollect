@@ -1,12 +1,12 @@
 @extends('layout.main')
 
 @section('title')
-  Search results
+  Search
 @stop
 
 @section('body')
   <div class="page-header">
-    <h1>Search results</h1>
+    <h1>Search vinyl</h1>
   </div>
 
   <div class="form-wrapper">
@@ -36,11 +36,29 @@
     {{ Form::close() }}
   </div>
 
-  @foreach($results as $result)
-    <?php $url = str_replace('api.discogs','s.pixogs',$result->getThumb()); ?>
-    <img src="{{ $url }}" alt="artwork">
-  @endforeach
+  <div class="page-header">
+    <h2>Found {{ $count }} Vinyls</h2>
+  </div>
 
+  <div class="row">
+    
+    @foreach($results as $result)
+
+      <?php $url = str_replace('api.discogs.com/image/R-90','s.pixogs.com/image/R-150',$result->getThumb()); ?>
+      <div class="col-xs-6 col-md-2">
+        <div class="thumbnail">
+          <img src="{{ $url }}" alt="artwork">
+          <div class="caption">
+            <h5>{{ $result->getTitle() }}</h5>
+            <p>{{ $result->getYear() }}</p>
+            <p>{{ $result->getId() }}</p>
+            <p><a href="#" class="btn btn-primary" role="button">Details</a></p>
+          </div>
+        </div>
+      </div>
+    @endforeach
+  </div>
+  
 
 @stop
 

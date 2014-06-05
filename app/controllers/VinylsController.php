@@ -32,10 +32,13 @@ class VinylsController extends \BaseController {
 		    'format' 	=> 'Vinyl'
 			));
 
+			$count = $resultset->count();
+
 			$results = $resultset->getResults();
 
 			return View::make('vinyls.results')
-				->with('results', $results);
+				->with('results', $results)
+				->with('count', $count);
 		}
 
 		return Redirect::to('search')->with('danger-alert', 'Oops! Something went wrong the search was posted.');
