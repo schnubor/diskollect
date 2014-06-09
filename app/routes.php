@@ -120,3 +120,11 @@ Route::get('users/{id}', array(
   'uses' => 'UsersController@show'
 ));
 
+/*
+| Collection
+*/
+Route::get('users/{id}/collection', array(
+  'as' => 'get-collection',
+  'uses' => 'VinylsController@showCollection'  
+));
+

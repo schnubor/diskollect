@@ -6,7 +6,7 @@
 
 @section('body')
   <div class="page-header">
-    <h1>Search vinyl</h1>
+    <h1>Search Vinyl</h1>
   </div>
 
   <div class="form-wrapper">

@@ -268,7 +268,7 @@ class UsersController extends \BaseController {
 			'location' => 'max:50',
 			'website' => 'url|max:50',
 			'description' => 'max:140',
-			'profilepic' => 'image|size:2000'
+			'profilepic' => 'image|max:2000'
 		));
 
 		if($validator->fails()){
@@ -279,12 +279,9 @@ class UsersController extends \BaseController {
 		else{
 			$file = Input::file('profilepic');
 			$path = public_path() . '/profile_images/';
-			$filename = $file->getClientOriginalName() . '_user' . Auth::user()->id;
+			$filename = 'user_' . Auth::user()->id . '_' . $file->getClientOriginalName();
 
-			if(!$file->move($path,$filename)){
-				return Redirect::to('/users/'.Auth::user()->id)
-					->with('danger-alert', 'Oops! Could not upload specified.');
-			}
+			$file->move($path,$filename);
 
 			$user = User::find(Auth::user()->id);
 			$user->name = Input::get('name');

@@ -10,7 +10,7 @@
   </div>
 
   <div class="form-wrapper">
-    {{ Form::model($user, array('route' => array('update-user', $user->id, 'files'=> true), 'method' => 'PUT')) }}
+    {{ Form::model($user, array('route' => array('update-user', $user->id), 'method' => 'PUT', 'files' => true)) }}
       <div class="form-group">
         {{ Form::label('profilepic', 'Profile Picture') }}
         {{ Form::file('profilepic', array('class' => 'form-control')); }}

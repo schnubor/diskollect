@@ -11,7 +11,8 @@
       <h1>Hello, {{ Auth::user()->username }}!</h1>
       <p>Good to see you again :)</p>
       <p>
-        <a class="btn btn-default btn-lg" role="button" href="{{ URL::to('users/change-password') }}">Change Password</a>
+        <a class="btn btn-primary btn-lg" role="button" href="{{ URL::to('users') }}/{{ Auth::user()->id }}/collection">Your Collection</a>
+        <a class="btn btn-success btn-lg" role="button" href="{{ URL::to('users') }}/{{ Auth::user()->id }}">Your Profile</a>
       </p>
     @else
       <h1>Hello there!</h1>

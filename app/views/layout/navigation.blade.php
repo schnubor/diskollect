@@ -14,9 +14,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to('users') }}">Collectors</a></li>
+        <li><a href="{{ URL::to('users') }}">Members</a></li>
         @if(Auth::check())
           <li><a href="{{ URL::to('search') }}">Search Vinyl</a></li>
+          <li><a href="{{ URL::to('users') }}/{{ Auth::user()->id }}/collection">Collection</a></li>
         @endif
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -25,9 +26,10 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->username }}<b class="caret"></b></a>
             <ul class="dropdown-menu">
+              <li><a href="{{ URL::to('collection') }}">Your Collection</a></li>
               <li><a href="{{ URL::to('users') }}/{{ Auth::user()->id }}">Your Profile</a></li>
-              <li><a href="{{ URL::to('users/change-password') }}">Change password</a></li>
               <li class="divider"></li>
+              <li><a href="{{ URL::to('users/change-password') }}">Change password</a></li>
               <li><a href="{{ URL::to('users/signout') }}">Logout</a></li>
             </ul>
           </li>
