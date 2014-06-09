@@ -10,7 +10,17 @@
   </div>
 
   <div class="form-wrapper">
-    {{ Form::model($user, array('route' => array('update-user', $user->id), 'method' => 'PUT')) }}
+    {{ Form::model($user, array('route' => array('update-user', $user->id, 'files'=> true), 'method' => 'PUT')) }}
+      <div class="form-group">
+        {{ Form::label('profilepic', 'Profile Picture') }}
+        {{ Form::file('profilepic', array('class' => 'form-control')); }}
+
+        @if($errors->has('profilepic'))
+          <div class="alert alert-danger">
+            {{ $errors->first('profilepic') }}
+          </div>
+        @endif
+      </div>
       <div class="form-group">
         {{ Form::label('name', 'Name') }}
         {{ Form::text('name', Input::old('name'), array('class' => 'form-control', 'placeholder' => 'Your real name')); }}
