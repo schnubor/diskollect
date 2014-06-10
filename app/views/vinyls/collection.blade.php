@@ -15,7 +15,7 @@
 
   @foreach($vinyls as $vinyl)
     <p>
-      {{ $vinyl->title }}
+      {{ $vinyl->artist }} - {{ $vinyl->title }}
     </p>
   @endforeach
 
