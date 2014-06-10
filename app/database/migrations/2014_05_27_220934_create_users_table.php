@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration {
 		    $table->string('username', 20)->unique();
 		    $table->string('name', 50);
 		    $table->string('website', 50);
-		    $table->string('country', 50);
+		    $table->string('location', 50);
 		    $table->string('image');
 		    $table->string('description', 140);
 		    $table->string('password', 60);

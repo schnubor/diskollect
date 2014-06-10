@@ -156,6 +156,7 @@
 	"buffers":
 	[
 		{
+<<<<<<< HEAD
 			"file": "app/controllers/UsersController.php",
 			"settings":
 			{
@@ -176,6 +177,12 @@
 			"settings":
 			{
 				"buffer_size": 1408,
+=======
+			"file": "app/views/vinyls/results.blade.php",
+			"settings":
+			{
+				"buffer_size": 1978,
+>>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 				"line_ending": "Unix"
 			}
 		}
@@ -183,23 +190,32 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 47.0,
+		"height": 87.0,
 		"selected_items":
 		[
 			[
+<<<<<<< HEAD
 				"instal",
 				"Package Control: Install Package"
 			],
 			[
 				"pref",
 				"Preferences: Settings - Default"
+=======
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+>>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 			],
 			[
 				"install",
 				"Package Control: Install Package"
 			]
 		],
-		"width": 476.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -220,6 +236,7 @@
 	},
 	"file_history":
 	[
+<<<<<<< HEAD
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/show.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/index.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/password.blade.php",
@@ -348,6 +365,136 @@
 		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/js/plugins.js",
 		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/php/discogs_oauth.php",
 		"/Users/christiankorndoerfer/Downloads/oauth-php/example/client/twolegged.php"
+=======
+		"/Users/korndoerfer/Development/diskollect/readme.md",
+		"/Users/korndoerfer/Development/diskollect/app/routes.php",
+		"/Users/korndoerfer/Development/diskollect/app/views/layout/main.blade.php",
+		"/Users/korndoerfer/Development/diskollect/app/database/seeds/UsersTableSeeder.php",
+		"/Users/korndoerfer/Development/diskollect/app/database/migrations/2014_05_27_220934_create_users_table.php",
+		"/Users/korndoerfer/Development/diskollect/app/config/app.php",
+		"/Users/korndoerfer/Development/diskollect/app/views/layout/navigation.blade.php",
+		"/Users/korndoerfer/Development/diskollect/app/controllers/UsersController.php",
+		"/Users/korndoerfer/Development/diskollect/app/views/users/show.blade.php",
+		"/Users/korndoerfer/Development/diskollect/vendor/predis/predis/examples/SessionHandler.php",
+		"/Users/korndoerfer/Development/diskollect/bootstrap/start.php",
+		"/Users/korndoerfer/Development/diskollect/app/models/User.php",
+		"/Users/korndoerfer/Development/diskollect/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/UriSigner.php",
+		"/Users/korndoerfer/Development/diskollect/app/controllers/VinylsController.php",
+		"/Users/korndoerfer/Development/diskollect/app/database/migrations/2014_05_29_211209_create_vinyls_table.php",
+		"/Users/korndoerfer/Development/diskollect/app/database/seeds/DatabaseSeeder.php",
+		"/Users/korndoerfer/Development/diskollect/app/database/seeds/VinylsTableSeeder.php",
+		"/Users/korndoerfer/Development/diskollect/app/config/mail.php",
+		"/Users/korndoerfer/Development/diskollect/vendor/laravel/framework/src/Illuminate/Database/Eloquent/MassAssignmentException.php",
+		"/Users/korndoerfer/Development/diskollect/composer.json",
+		"/Users/korndoerfer/Development/diskollect/vendor/phpseclib/phpseclib/build/code-sniffer-ruleset.xml",
+		"/Users/korndoerfer/Development/diskollect/app/views/users/create.blade.php",
+		"/Users/korndoerfer/Development/diskollect/vendor/nikic/php-parser/lib/PHPParser/NodeAbstract.php",
+		"/Users/korndoerfer/Development/diskollect/vendor/predis/predis/lib/Predis/ResponseObjectInterface.php",
+		"/Users/korndoerfer/Development/diskollect/vendor/nesbot/carbon/tests/SubTest.php",
+		"/Users/korndoerfer/Development/diskollect/server.php",
+		"/Users/korndoerfer/Development/diskollect/app/views/emails/auth/activate.blade.php",
+		"/Users/korndoerfer/Development/diskollect/app/controllers/UserController.php",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/tape-app.js",
+		"/Users/korndoerfer/Development/tape-web/Gemfile",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/tiles.css.scss",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/forms.css.scss",
+		"/Users/korndoerfer/Development/tape-web/test/integration/native_signup_test.rb",
+		"/Users/korndoerfer/Development/tape-web/app/views/shared/_navigation.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/views/users/new.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/controllers/facebook_authentication_controller.rb",
+		"/Users/korndoerfer/Development/tape-web/app/views/pages/embed.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/views/playlists/edit.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/views/application/header_view.coffee",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/views/playlists/edit_view.coffee",
+		"/Users/korndoerfer/Development/tape-web/vendor/assets/bower/masonry/dist/masonry.pkgd.js",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/views/application.coffee",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/tape-web.coffee",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/tape-config.js.erb",
+		"/Users/korndoerfer/Development/tape-web/bower.json",
+		"/Users/korndoerfer/Development/tape-web/vendor/assets/bower/jqueryui-touch-punch/jquery.ui.touch-punch.js",
+		"/Users/korndoerfer/Development/tape-web/tmp/tape-config.js",
+		"/Users/korndoerfer/Development/tape-web/test/models/patron_lookup_test.rb",
+		"/Users/korndoerfer/Development/tape-web/test/integration/managing_playlist_test.rb",
+		"/Users/korndoerfer/Development/tape-web/test/integration/tape_mail_delivery_test.rb",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/views/list/masonry_view.coffee",
+		"/Users/korndoerfer/Development/tape-web/vendor/assets/bower/masonry/masonry.js",
+		"/Users/korndoerfer/Development/tape-web/vendor/assets/bower/matches-selector/matches-selector.js",
+		"/Users/korndoerfer/Development/tape-web/app/mailers/mail_preview.rb",
+		"/Users/korndoerfer/Development/tape-web/vendor/assets/bower/jquery.ui/tests/unit/button/button_options.js",
+		"/Users/korndoerfer/Development/tape-web/app/controllers/application_controller.rb",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/views/playlists/edit_view.js.coffee",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/views/application/header_view.js.coffee",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/application.js",
+		"/Users/korndoerfer/Development/tape-web/config/initializers/tape-connect.rb",
+		"/Users/korndoerfer/Development/tape-web/app/tape/ads/preroll_config_generator.rb",
+		"/Users/korndoerfer/Development/tape-web/test/javascripts/acceptance/player/playing-a-video.js.coffee",
+		"/Users/korndoerfer/Development/tape-web/vendor/player/tapePlayer.css",
+		"/Users/korndoerfer/Development/tape-web/app/helpers/application_helper.rb",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/application.scss",
+		"/Users/korndoerfer/Development/tape-web/config/application.rb",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/_globals.css.scss",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/profile.css.scss",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/users.css.scss",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/views/episodes/edit_view.coffee",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/popups.css.scss",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/templates/signin-prompt.jst.eco",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/templates/signup-prompt.jst.eco",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/header.css.scss",
+		"/Users/korndoerfer/Development/tape-web/app/views/shared/_head.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/mailer/html_email.css.erb",
+		"/Users/korndoerfer/Development/tape-web/app/controllers/playlists_controller.rb",
+		"/Users/korndoerfer/Development/tape-web/app/views/shows/new.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/views/sessions/new.html.erb",
+		"/Users/korndoerfer/Development/tape-web/test/integration/ajaxified_signin_test.rb",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/views/users/signin_view.js.coffee",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/views/shared/signin_prompt_view.js.coffee",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/templates/user-signin.jst.eco",
+		"/Users/korndoerfer/Development/tape-web/db/seeds.rb",
+		"/Users/korndoerfer/Development/tape-web/vendor/player/flex/src/org/openvideoplayer/net/OvpCuePointManager.as",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/player.css.scss",
+		"/Users/korndoerfer/Development/tape-web/config/locales/de.yml",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/templates/playlist-list-item.jst.eco.erb",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/content.css.scss",
+		"/Users/korndoerfer/Development/tape-web/config.ru",
+		"/Users/korndoerfer/Development/tape-web/app/views/shared/_global_navigation.html.erb",
+		"/Users/korndoerfer/Development/tape-web/vendor/assets/bower/jquery/src/exports/global.js",
+		"/Users/korndoerfer/Development/tape-web/app/views/layouts/global.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/mailer/global.scss",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/views/shared/playlist_list_view.js.coffee",
+		"/Users/korndoerfer/Development/tape-web/app/views/shared/_playlist_list_item.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/playlists.css.scss",
+		"/Users/korndoerfer/.ssh/id_rsa.pub",
+		"/Users/korndoerfer/Development/tape-web/db/migrate/20140121135525_rename_explanation_to_description_on_curated_item.rb",
+		"/Users/korndoerfer/Development/tape-web/db/migrate/20140228104920_add_index_to_playlists_user_id_and_default.rb",
+		"/Users/korndoerfer/Development/tape-web/config/environments/development.rb",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/player/_geoblock.css.scss",
+		"/Users/korndoerfer/Development/tape-web/app/views/layouts/application.html.erb",
+		"/Users/korndoerfer/Development/tape-web/test/fixtures/primary_artist_examples.csv",
+		"/Users/korndoerfer/Development/tape-web/app/controllers/pages_controller.rb",
+		"/Users/korndoerfer/Development/tape-web/app/views/pages/impressum.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/views/suggestions/index.html.erb",
+		"/Users/korndoerfer/Development/tape-web/vendor/assets/javascripts/jquery.ui.touch-punch.min.js",
+		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/suggestions.css.scss",
+		"/Users/korndoerfer/Development/tape-web/app/views/users/edit.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/templates/playlist-video-list-item.jst.eco",
+		"/Users/korndoerfer/Development/tape-web/app/views/playlists/edit.json.jbuilder",
+		"/Users/korndoerfer/Development/tape-web/app/views/playlists/_sidebar_right.html.erb",
+		"/Users/korndoerfer/Development/tape-web/vendor/player/js/ads_player.js",
+		"/Users/korndoerfer/Development/tape-web/app/views/passwords/edit.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/views/episodes/edit.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/controllers/playlist_videos_controller.rb",
+		"/Users/korndoerfer/Development/tape-web/app/views/embed/playlist.html.erb",
+		"/Users/korndoerfer/Development/tape-web/test/legacy/playlist_importer_test.rb",
+		"/Users/korndoerfer/Development/tape-web/test/controllers/playlist_videos_controller_test.rb",
+		"/Users/korndoerfer/Development/tape-web/config/environments/production.rb",
+		"/Users/korndoerfer/Development/tape-web/app/views/users/_form.html.erb",
+		"/Users/korndoerfer/Development/tape-web/app/views/playlists/_form.html.erb",
+		"/Users/korndoerfer/Development/tape-web/config/initializers/simple_form.rb",
+		"/Users/korndoerfer/Development/tape-web/app/models/label.rb",
+		"/Users/korndoerfer/Development/tape-web/app/views/suggestions/facebook_friends.json.jbuilder",
+		"/Users/korndoerfer/Development/tape-web/app/views/suggestions/_facebook_friend.json.jbuilder",
+		"/Users/korndoerfer/Development/tape-web/tmp/cache/assets/test/sass/7eb9ae2c68b2ebbefe8895c105d6619b8e9f5046/suggestions.css.scssc"
+>>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 	],
 	"find":
 	{
@@ -391,30 +538,44 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+<<<<<<< HEAD
 					"file": "app/controllers/UsersController.php",
 					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 5590,
+=======
+					"file": "app/views/vinyls/results.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1978,
+>>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								5017,
 								5017
+=======
+								1550,
+								1550
+>>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 							]
 						],
 						"settings":
 						{
 							"is_xml": false,
 							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+<<<<<<< HEAD
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -450,6 +611,13 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 532.0,
+=======
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+>>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -536,8 +704,97 @@
 		"selected_items":
 		[
 			[
+<<<<<<< HEAD
 				"navi",
 				"app/views/layout/navigation.blade.php"
+=======
+				"resu",
+				"app/views/vinyls/results.blade.php"
+			],
+			[
+				"main",
+				"app/views/layout/main.blade.php"
+			],
+			[
+				"show",
+				"app/views/users/show.blade.php"
+			],
+			[
+				"users",
+				"app/controllers/UsersController.php"
+			],
+			[
+				"navi",
+				"app/views/layout/navigation.blade.php"
+			],
+			[
+				"routes",
+				"app/routes.php"
+			],
+			[
+				"start",
+				"bootstrap/start.php"
+			],
+			[
+				"tiles",
+				"app/assets/stylesheets/web/tiles.css.scss"
+			],
+			[
+				"globa",
+				"app/assets/stylesheets/web/_globals.css.scss"
+			],
+			[
+				"native",
+				"test/integration/native_signup_test.rb"
+			],
+			[
+				"form",
+				"app/assets/stylesheets/web/forms.css.scss"
+			],
+			[
+				"tmptape",
+				"tmp/tape-config.js"
+			],
+			[
+				"mason",
+				"vendor/assets/bower/masonry/dist/masonry.pkgd.js"
+			],
+			[
+				"bower",
+				"bower.json"
+			],
+			[
+				"tape-c",
+				"app/assets/javascripts/tape-config.js.erb"
+			],
+			[
+				"tape-config",
+				"tmp/tape-config.js"
+			],
+			[
+				"tape-w",
+				"app/assets/javascripts/tape-web.coffee"
+			],
+			[
+				"tapea",
+				"app/assets/javascripts/tape-app.js"
+			],
+			[
+				"tapecoffee",
+				"app/assets/javascripts/tape-web.coffee"
+			],
+			[
+				"tape-con",
+				"app/assets/javascripts/tape-config.js.erb"
+			],
+			[
+				"applica",
+				"app/assets/javascripts/views/application.coffee"
+			],
+			[
+				"applic",
+				"app/assets/javascripts/application.js"
+>>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 			],
 			[
 				"main",
@@ -560,12 +817,17 @@
 				"app/views/users/signin.blade.php"
 			],
 			[
+<<<<<<< HEAD
 				"routes",
 				"app/routes.php"
 			],
 			[
 				"index",
 				"public/index.php"
+=======
+				"pop",
+				"app/assets/stylesheets/web/popups.css.scss"
+>>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 			],
 			[
 				"start",
@@ -612,8 +874,185 @@
 				"app/views/hello.php"
 			],
 			[
+<<<<<<< HEAD
 				"path",
 				"bootstrap/paths.php"
+=======
+				"headerv",
+				"app/assets/javascripts/backbone/views/application/header_view.js.coffee"
+			],
+			[
+				"playlistedit",
+				"app/views/playlists/edit.html.erb"
+			],
+			[
+				"playlist",
+				"app/assets/stylesheets/web/playlists.css.scss"
+			],
+			[
+				"suggest",
+				"app/assets/stylesheets/web/suggestions.css.scss"
+			],
+			[
+				"sugge",
+				"app/views/suggestions/index.html.erb"
+			],
+			[
+				"newsle",
+				"app/views/notification_mailer/weekly_newsletter_email.html.erb"
+			],
+			[
+				"forms",
+				"app/assets/stylesheets/web/forms.css.scss"
+			],
+			[
+				"header",
+				"app/assets/stylesheets/web/header.css.scss"
+			],
+			[
+				"tile",
+				"app/assets/stylesheets/web/tiles.css.scss"
+			],
+			[
+				"seed",
+				"db/seeds.rb"
+			],
+			[
+				"video_con",
+				"app/controllers/videos_controller.rb"
+			],
+			[
+				"newsletter",
+				"app/views/notification_mailer/weekly_newsletter_email.html.erb"
+			],
+			[
+				"newl",
+				"app/models/weekly_newsletter.rb"
+			],
+			[
+				"nav",
+				"app/views/shared/_navigation.html.erb"
+			],
+			[
+				"weekly",
+				"app/views/notification_mailer/weekly_newsletter_email.html.erb"
+			],
+			[
+				"develop",
+				"config/environments/development.rb"
+			],
+			[
+				"notificationmailer",
+				"app/mailers/notification_mailer.rb"
+			],
+			[
+				"mailpreview",
+				"app/mailers/mail_preview.rb"
+			],
+			[
+				"email",
+				"app/assets/stylesheets/mailer/html_email.css.erb"
+			],
+			[
+				"heade",
+				"app/assets/stylesheets/web/header.css.scss"
+			],
+			[
+				"sessionnew",
+				"app/views/sessions/new.html.erb"
+			],
+			[
+				"developer",
+				"config/environments/development.rb"
+			],
+			[
+				"impre",
+				"app/views/pages/impressum.html.erb"
+			],
+			[
+				"signinview",
+				"app/assets/javascripts/backbone/views/users/signin_view.js.coffee"
+			],
+			[
+				"signu",
+				"app/assets/javascripts/backbone/templates/signup-prompt.jst.eco"
+			],
+			[
+				"sign",
+				"app/assets/javascripts/backbone/templates/signin-prompt.jst.eco"
+			],
+			[
+				"applicationconrt",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"videocontr",
+				"app/controllers/videos_controller.rb"
+			],
+			[
+				"html",
+				"app/assets/stylesheets/mailer/html_email.css.erb"
+			],
+			[
+				"news",
+				"app/views/notification_mailer/weekly_newsletter_email.html.erb"
+			],
+			[
+				"navigation",
+				"app/views/shared/_navigation.html.erb"
+			],
+			[
+				"htmle",
+				"app/assets/stylesheets/mailer/html_email.css.erb"
+			],
+			[
+				"head",
+				"app/views/shared/_head.html.erb"
+			],
+			[
+				"mail",
+				"app/views/layouts/email.html.erb"
+			],
+			[
+				"users_contr",
+				"app/controllers/users_controller.rb"
+			],
+			[
+				"playercoffee",
+				"app/assets/javascripts/backbone/views/application/player_view.js.coffee.erb"
+			],
+			[
+				"de.y",
+				"config/locales/de.yml"
+			],
+			[
+				"tapepl",
+				"vendor/assets/bower/tapePlayer/tapePlayer.js"
+			],
+			[
+				"editinguser",
+				"test/integration/editing_user_test.rb"
+			],
+			[
+				"geoblock",
+				"app/assets/stylesheets/web/player/_geoblock.css.scss"
+			],
+			[
+				"content.c",
+				"app/assets/stylesheets/web/content.css.scss"
+			],
+			[
+				"agb",
+				"app/views/pages/agb.html.erb"
+			],
+			[
+				"embed",
+				"app/views/pages/embed.html.erb"
+			],
+			[
+				"share",
+				"app/assets/javascripts/backbone/views/shared/share_button_view.js.coffee"
+>>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 			],
 			[
 				"glo",
@@ -724,6 +1163,7 @@
 				"views/editvinyl.html"
 			],
 			[
+<<<<<<< HEAD
 				"view",
 				"views/addvinyl.html"
 			],
@@ -742,6 +1182,10 @@
 			[
 				"glob",
 				"sass/global.scss"
+=======
+				"flash",
+				"app/views/shared/_flash.html.erb"
+>>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 			]
 		],
 		"width": 0.0

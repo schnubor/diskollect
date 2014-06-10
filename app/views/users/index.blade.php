@@ -5,7 +5,9 @@
 @stop
 
 @section('body')
-  <h1>All users</h1>
+  <div class="page-header">
+    <h1>All users</h1>
+  </div>
 
   <table class="table table-striped table-responsive">
     <thead>

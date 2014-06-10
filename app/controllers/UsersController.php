@@ -247,9 +247,11 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit()
 	{
-		//
+		$user = User::find(Auth::user()->id);
+		return View::make('users.edit')
+			->with('user', $user);
 	}
 
 	/**
@@ -259,9 +261,44 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
-		//
+		$validator = Validator::make(Input::all(), array(
+			'name' => 'max:50',
+			'location' => 'max:50',
+			'website' => 'url|max:50',
+			'description' => 'max:140',
+			'profilepic' => 'image|max:2000'
+		));
+
+		if($validator->fails()){
+			return Redirect::to('users/edit')
+				->withInput()
+				->withErrors($validator);
+		}
+		else{
+			$file = Input::file('profilepic');
+			$path = public_path() . '/profile_images/';
+			$filename = 'user_' . Auth::user()->id . '_' . $file->getClientOriginalName();
+
+			$file->move($path,$filename);
+
+			$user = User::find(Auth::user()->id);
+			$user->name = Input::get('name');
+			$user->location = Input::get('location');
+			$user->website = Input::get('website');
+			$user->description = Input::get('description');
+			$user->image = $path . $filename;
+
+			if($user->save()){
+				return Redirect::to('/users/'.Auth::user()->id)
+					->with('success-alert', 'Success! Profile updated.');
+			}
+
+		}
+
+		return Redirect::to('/users/'.Auth::user()->id)
+			->with('danger-alert', 'Unknown Error! Could not update profile.');
 	}
 
 	/**
