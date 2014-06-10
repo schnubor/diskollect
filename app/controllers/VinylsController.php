@@ -44,9 +44,13 @@ class VinylsController extends \BaseController {
 		return Redirect::to('search')->with('danger-alert', 'Oops! Something went wrong the search was posted.');
 	}
 
-	public function showCollection()
+	public function showCollection($id)
 	{
-		return View::make('vinyls.collection');
+		$vinyls = User::find($id)->vinyls;
+		$user = User::find($id);
+
+		$data = array('user' => $user, 'vinyls' => $vinyls);
+		return View::make('vinyls.collection', $data);
 	}
 
 }

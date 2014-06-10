@@ -45,6 +45,25 @@ class VinylsTableSeeder extends Seeder {
 				'notes' => 'mint rare'
 			),
 
+			array(
+				'user_id' => 2,
+				'artwork' => 'http://s.pixogs.com/image/R-150-2879-1236035472.jpeg',
+				'artist' => 'Daft Punk',
+				'title' => 'Human After All',
+				'label' => 'Virgin',
+				'genre' => 'Electronic',
+				'price' => 15,
+				'videos' => 'http://www.youtube.com/watch?v=FGBhQbmPwH8',
+				'tracklist' => 'A1. One More Time; A2. Aerodynamic; A3. Digital Love; B1. Harder, Better, Faster, Stronger; B2. Crescendolls; B3. Nightvision; B4. Superheroes; C1. High Life; C2. Something About Us; C3. Voyager; C4. Veridis Quo; D1. Short Circuit; D2. Face To Face; D3. Too Long',
+				'duration' => 3200,
+				'size' => 12,
+				'count' => 2,
+				'color' => '#000000',
+				'releasetype' => 'release',
+				'releasedate' => '2004-06-03',
+				'notes' => 'mint super rare'
+			),
+
 		);
 
 		DB::table('vinyls')->insert($vinyls);
