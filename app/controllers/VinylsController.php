@@ -2,11 +2,17 @@
 
 class VinylsController extends \BaseController {
 
+	/*
+	| GET search form
+	*/
 	public function getSearch()
 	{
 		return View::make('vinyls.search');
 	}
 
+	/*
+	| POST search and render results
+	*/
 	public function postSearch()
 	{
 		$validator = Validator::make(Input::all(), array(
@@ -44,6 +50,9 @@ class VinylsController extends \BaseController {
 		return Redirect::to('search')->with('danger-alert', 'Oops! Something went wrong the search was posted.');
 	}
 
+	/*
+	| GET Collection
+	*/
 	public function showCollection($id)
 	{
 		$vinyls = User::find($id)->vinyls;
@@ -51,6 +60,17 @@ class VinylsController extends \BaseController {
 
 		$data = array('user' => $user, 'vinyls' => $vinyls);
 		return View::make('vinyls.collection', $data);
+	}
+
+	/*
+	| GET single vinyl
+	*/
+	public function showVinyl($id)
+	{
+		$vinyl = Vinyl::find($id);
+
+		return View::make('vinyls.show')
+			->with('vinyl', $vinyl);
 	}
 
 }

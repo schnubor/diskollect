@@ -1,24 +1,19 @@
 @extends('layout.main')
 
 @section('title')
-  Collection
+  {{ $vinyl->artist }} - {{ $vinyl->title }}
 @stop
 
 @section('body')
   <div class="page-header">
-    @if($user->id == Auth::user()->id)
-      <h1>Your Collection</h1>
-    @else
-      <h1>{{ $user->name }}´s Collection</h1>
-    @endif
+      <h1>{{ $vinyl->artist }} - {{ $vinyl->title }}</h1>
   </div>
 
   <div class="row">
-    @foreach($vinyls as $vinyl)
       <div class="col-md-4">
         <div class="well well-sm">
           <div class="media">
-            <a class="thumbnail pull-left" href="{{ URL::to('vinyls') }}/{{ $vinyl->id }}" style="margin-bottom: 0;">
+            <a class="thumbnail pull-left" href="#" style="margin-bottom: 0;">
               <img class="media-object" src="{{ $vinyl->artwork }}" style="width: 150px; height: 150px;">
             </a>
             <div class="media-body">
@@ -30,8 +25,9 @@
           </div>
         </div>
       </div>
-    @endforeach
   </div>
+
+  <a class="btn btn-default btn-md" role="button" href="{{ URL::to('users') }}/{{ Auth::user()->id }}/collection">Back to collection</a>
 
 @stop
 

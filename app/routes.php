@@ -128,3 +128,11 @@ Route::get('users/{id}/collection', array(
   'uses' => 'VinylsController@showCollection'  
 ));
 
+/*
+| Single Vinyl
+*/
+Route::get('vinyls/{id}', array(
+  'as' => 'get-vinyl',
+  'uses' => 'VinylsController@showVinyl'  
+));
+
