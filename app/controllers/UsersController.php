@@ -279,16 +279,18 @@ class UsersController extends \BaseController {
 		else{
 			$file = Input::file('profilepic');
 			$path = public_path() . '/profile_images/';
-			$filename = 'user_' . Auth::user()->id . '_' . $file->getClientOriginalName();
 
-			$file->move($path,$filename);
+			if($file){
+				$filename = 'user_' . Auth::user()->id . '_' . $file->getClientOriginalName();
+				$file->move($path,$filename);
+				$user->image = $path . $filename;
+			}
 
 			$user = User::find(Auth::user()->id);
 			$user->name = Input::get('name');
 			$user->location = Input::get('location');
 			$user->website = Input::get('website');
 			$user->description = Input::get('description');
-			$user->image = $path . $filename;
 
 			if($user->save()){
 				return Redirect::to('/users/'.Auth::user()->id)

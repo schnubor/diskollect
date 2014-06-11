@@ -19,7 +19,7 @@
             <div class="media-body">
               <h5 class="media-heading">{{ $vinyl->artist }} - {{ $vinyl->title }}</h5>
               <p>
-                <span class="label label-info">{{ $vinyl->releasedate }}</span> <span class="label label-primary">{{ $vinyl->genre }}</span></p>
+                <span class="label label-info">{{ $vinyl->releasedate }}</span> <span class="label label-primary">{{ $vinyl->genre }}</span> <span class="label label-success">{{ $vinyl->label }}</span> <span class="label label-default">{{ $vinyl->count }}x {{ $vinyl->size }}inch</span></p>
               </p>
             </div>
           </div>
@@ -27,7 +27,7 @@
       </div>
   </div>
 
-  <a class="btn btn-default btn-md" role="button" href="{{ URL::to('users') }}/{{ Auth::user()->id }}/collection">Back to collection</a>
+  <a class="btn btn-default btn-md" role="button" href="{{ URL::to('users') }}/{{ Auth::user()->id }}/collection"><i class="fa fa-angle-double-left"></i> Back to collection</a>
 
 @stop
 
