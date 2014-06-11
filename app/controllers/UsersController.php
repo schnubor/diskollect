@@ -235,9 +235,11 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		$user = User::find($id);
+		$vinyls = $user->vinyls;
 
 		return View::make('users.show')
-			->with('user', $user);
+			->with('user', $user)
+			->with('vinyls', $vinyls);
 	}
 
 	/**

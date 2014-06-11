@@ -35,9 +35,23 @@
     </div>
 
     <div class="col-sm-8">
-    	<div class="col-sm-4">
-          
-      </div>
+      @foreach($vinyls as $vinyl)
+      	<div class="col-sm-6">
+          <div class="well well-sm">
+            <div class="media">
+              <a class="thumbnail pull-left" href="#" style="margin-bottom: 0;">
+                <img class="media-object" src="{{ $vinyl->artwork }}" style="width: 150px; height: 150px;">
+              </a>
+              <div class="media-body">
+                <h5 class="media-heading">{{ $vinyl->artist }} - {{ $vinyl->title }}</h5>
+                <p>
+                  <span class="label label-info">{{ $vinyl->releasedate }}</span> <span class="label label-primary">{{ $vinyl->genre }}</span> <span class="label label-success">{{ $vinyl->label }}</span> <span class="label label-default">{{ $vinyl->count }}x {{ $vinyl->size }}inch</span></p>
+                </p>
+              </div>
+            </div>
+          </div>  
+        </div>
+      @endforeach
     </div>
 
   </div>
