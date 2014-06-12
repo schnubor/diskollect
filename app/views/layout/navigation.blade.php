@@ -26,10 +26,10 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->username }}<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="{{ URL::to('users/edit') }}"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
               <li><a href="{{ URL::to('users') }}/{{ Auth::user()->id }}"><i class="fa fa-user fa-fw"></i> Your Profile</a></li>
-              <li class="divider"></li>
+              <li><a href="{{ URL::to('users/edit') }}"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
               <li><a href="{{ URL::to('users/change-password') }}"><i class="fa fa-lock fa-fw"></i> Change password</a></li>
+              <li class="divider"></li>
               <li><a href="{{ URL::to('users/signout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
             </ul>
           </li>

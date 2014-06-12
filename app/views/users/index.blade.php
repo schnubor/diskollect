@@ -15,7 +15,7 @@
         <th>ID</th>
         <th>User name</th>
         <th>Email</th>
-        <th>Profile</th>
+        <th>Collection</th>
         <th>Status</th>
       </tr>
     </thead>
@@ -23,9 +23,9 @@
       @foreach($users as $user)
       <tr>
         <td>{{ $user->id }}</td>
-        <td>{{ $user->username }}</td>
+        <td><a href="{{ URL::to('users') }}/{{ $user->id }}">{{ $user->username }}</a></td>
         <td>{{ $user->email }}</td>
-        <td><a href="users/{{ $user->id }}">{{ $user->username }}</a></td>
+        <td><a href="{{ URL::to('users') }}/{{ $user->id }}/collection">200 Vinyls</a></td>
         @if($user->active == 1)
           <td class="success">active</td>
         @else
