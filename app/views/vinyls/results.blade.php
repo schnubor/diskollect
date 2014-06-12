@@ -54,7 +54,13 @@
             <div class="media-body">
               <h5 class="media-heading">{{ $result->getTitle() }}</h5>
               <p>
-                <span class="label label-info">{{ $result->getYear() }}</span> <span class="label label-primary">Electronic</span></p>
+                <span class="label label-info">{{ $result->getYear() }}</span>
+                @foreach($result->getGenre() as $genre)
+                  <span class="label label-primary">{{ $genre }}</span>
+                @endforeach
+                <span class="label label-warning">{{ $result->getLabel()[0] }}</span>
+                <span class="label label-success">{{ $result->getCountry() }}</span>
+                <span class="label label-default">{{ $result->getType() }}</span>
               </p>
             </div>
           </div>
@@ -62,7 +68,12 @@
       </div>
     @endforeach
   </div>
-  
+
+  <hr>
+
+  <p>Pages {{ $page->getPages() }}</p>
+  <p>Items {{ $page->getItems() }}</p>
+  <p>Page {{ $page->getPage() }}</p>
 
 @stop
 

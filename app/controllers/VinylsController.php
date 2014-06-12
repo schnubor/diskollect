@@ -16,7 +16,7 @@ class VinylsController extends \BaseController {
 	public function postSearch()
 	{
 		$validator = Validator::make(Input::all(), array(
-			'artist' => 'required'
+			'artist' => 'max:50'
 		));
 
 		if($validator->fails()){
@@ -39,12 +39,13 @@ class VinylsController extends \BaseController {
 			));
 
 			$count = $resultset->count();
-
+			$page = $resultset->getPagination();
 			$results = $resultset->getResults();
 
 			return View::make('vinyls.results')
 				->with('results', $results)
-				->with('count', $count);
+				->with('count', $count)
+				->with('page', $page);
 		}
 
 		return Redirect::to('search')->with('danger-alert', 'Oops! Something went wrong the search was posted.');
