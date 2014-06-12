@@ -74,4 +74,20 @@ class VinylsController extends \BaseController {
 			->with('vinyl', $vinyl);
 	}
 
+	/*
+	| GET create Vinyl Form
+	*/
+	public function createVinyl()
+	{
+		return View::make('vinyls.create');
+	}
+
+	/*
+	| POST store Vinyl Form
+	*/
+	public function storeVinyl()
+	{
+		return 'store';
+	}
+
 }

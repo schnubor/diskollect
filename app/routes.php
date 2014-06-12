@@ -74,6 +74,10 @@ Route::group(array('before' => 'auth'), function(){
     'uses' => 'VinylsController@postSearch'
   ));
 
+  /*
+  | Add Vinyl
+  */
+
 });
 
 /*

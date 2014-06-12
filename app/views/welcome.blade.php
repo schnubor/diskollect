@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('title')
-  Diskollect
+  Home
 @stop
 
 @section('body')
