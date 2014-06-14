@@ -25,7 +25,7 @@
         <td>{{ $user->id }}</td>
         <td><a href="{{ URL::to('users') }}/{{ $user->id }}">{{ $user->username }}</a></td>
         <td>{{ $user->email }}</td>
-        <td><a href="{{ URL::to('users') }}/{{ $user->id }}/collection">200 Vinyls</a></td>
+        <td><a href="{{ URL::to('users') }}/{{ $user->id }}/collection">{{ $user->vinyls()->count() }} Vinyls</a></td>
         @if($user->active == 1)
           <td class="success">active</td>
         @else
