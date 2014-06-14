@@ -28,7 +28,7 @@ class CreateVinylsTable extends Migration {
 			$table->integer('size');
 			$table->integer('count');
 			$table->string('color');
-			$table->string('releasetype');
+			$table->string('type');
 			$table->date('releasedate');
 			$table->string('notes');
 			$table->timestamps();

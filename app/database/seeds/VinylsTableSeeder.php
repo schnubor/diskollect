@@ -21,7 +21,7 @@ class VinylsTableSeeder extends Seeder {
 				'size' => 12,
 				'count' => 2,
 				'color' => '#000000',
-				'releasetype' => 'release',
+				'type' => 'release',
 				'releasedate' => '2014-06-03 16:19:31',
 				'notes' => 'mint'
 			),
@@ -40,7 +40,7 @@ class VinylsTableSeeder extends Seeder {
 				'size' => 12,
 				'count' => 2,
 				'color' => '#000000',
-				'releasetype' => 'release',
+				'type' => 'release',
 				'releasedate' => '2004-06-03',
 				'notes' => 'mint rare'
 			),
@@ -59,7 +59,7 @@ class VinylsTableSeeder extends Seeder {
 				'size' => 12,
 				'count' => 2,
 				'color' => '#000000',
-				'releasetype' => 'release',
+				'type' => 'release',
 				'releasedate' => '2004-06-03',
 				'notes' => 'mint super rare'
 			),
