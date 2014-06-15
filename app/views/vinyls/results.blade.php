@@ -40,13 +40,15 @@
     <h2>Found {{ $count }} Vinyls</h2>
   </div>
 
+  <?php
+    $service = new \Discogs\Service();
+  ?>
+
   <div class="row">
     
     @foreach($results as $result)
       <?php 
         $url = str_replace('api.discogs.com/image/R-90','s.pixogs.com/image/R-150',$result->getThumb());
-
-        $service = new \Discogs\Service();
 
         switch($result->getType()) {
           case 'release':
