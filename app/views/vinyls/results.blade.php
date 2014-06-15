@@ -57,7 +57,7 @@
       <div class="col-md-4">
         <div class="well well-sm">
           <div class="media">
-            <a class="thumbnail pull-left" href="{{ URL::to('search/vinyl') }}?artist={{ $artist }}?title={{ $vinylTitle }}" style="margin-bottom: 0;">
+            <a class="thumbnail pull-left" href="{{ URL::to('search/vinyl') }}?id={{ $result->getId() }}&type={{ $result->getType() }}" style="margin-bottom: 0;">
               <img class="media-object" src="{{ $url }}" style="width: 150px; height: 150px;">
             </a>
             <div class="media-body">

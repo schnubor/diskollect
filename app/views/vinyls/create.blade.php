@@ -13,7 +13,7 @@
     {{ Form::open(array('url' => 'vinyls/create')) }}
       <div class="form-group">
         {{ Form::label('artist', 'Artist') }}
-        {{ Form::text('username', $vinyl['artist'], array('class' => 'form-control', 'placeholder' => 'Enter your user name')); }}
+        {{ Form::text('username', Input::old('artist'), array('class' => 'form-control', 'placeholder' => 'Enter your user name')); }}
 
         @if($errors->has('username'))
           <div class="alert alert-danger">
