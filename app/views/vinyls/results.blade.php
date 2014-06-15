@@ -50,25 +50,18 @@
       <?php 
         $url = str_replace('api.discogs.com/image/R-90','s.pixogs.com/image/R-150',$result->getThumb());
 
-        switch($result->getType()) {
-          case 'release':
-            $release = $service->getRelease($result->getId());
-            break;
-
-          case 'master':
-            $release = $service->getMaster($result->getId());
-            break;
-        }
+        $title = $result->getTitle();
+        list($artist, $vinylTitle) = explode(' - ', $title);
       ?>
 
       <div class="col-md-4">
         <div class="well well-sm">
           <div class="media">
-            <a class="thumbnail pull-left" href="{{ URL::to('search/vinyl') }}?artist={{ $release->getArtists()[0]->getName() }}" style="margin-bottom: 0;">
+            <a class="thumbnail pull-left" href="{{ URL::to('search/vinyl') }}?artist={{ $artist }}?title={{ $vinylTitle }}" style="margin-bottom: 0;">
               <img class="media-object" src="{{ $url }}" style="width: 150px; height: 150px;">
             </a>
             <div class="media-body">
-              <h5 class="media-heading">{{ $result->getTitle() }}</h5>
+              <h5 class="media-heading">{{ $title }}</h5>
               <p>
                 <span class="label label-info">{{ $result->getYear() }}</span>
                 @foreach($result->getGenre() as $genre)

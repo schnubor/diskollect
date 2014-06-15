@@ -6,8 +6,12 @@
 
 @section('body')
   <div class="page-header">
-    @if($user->id == Auth::user()->id)
-      <h1>Your Collection</h1>
+    @if(Auth::check())
+      @if($user->id == Auth::user()->id)
+        <h1>Your Collection</h1>
+      @else
+        <h1>{{ $user->name }}´s Collection</h1>
+      @endif
     @else
       <h1>{{ $user->name }}´s Collection</h1>
     @endif
