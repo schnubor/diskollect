@@ -43,6 +43,8 @@ class VinylsController extends \BaseController {
 			$results = $resultset->getResults();
 
 			return View::make('vinyls.results')
+				->with('artist', $artist)
+				->with('title', $title)
 				->with('results', $results)
 				->with('count', $count)
 				->with('page', $page);
@@ -79,7 +81,9 @@ class VinylsController extends \BaseController {
 	*/
 	public function createVinyl()
 	{
-		return View::make('vinyls.create');
+		$vinyl = Input::all();
+		return View::make('vinyls.create')
+			->with('vinyl', $vinyl);
 	}
 
 	/*

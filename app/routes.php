@@ -78,6 +78,11 @@ Route::group(array('before' => 'auth'), function(){
   | Add Vinyl
   */
 
+  Route::get('search/vinyl', array(
+    'as' => 'get-createVinyl',
+    'uses' => 'VinylsController@createVinyl'
+  ));
+
 });
 
 /*

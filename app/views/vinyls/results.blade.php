@@ -13,7 +13,7 @@
     {{ Form::open(array('url' => 'search')) }}
       <div class="form-group">
         {{ Form::label('artist', 'Artist') }}
-        {{ Form::text('artist', Input::old('artist'), array('class' => 'form-control', 'placeholder' => 'Daft Punk')); }}
+        {{ Form::text('artist', $artist, array('class' => 'form-control', 'placeholder' => 'Daft Punk')); }}
 
         @if($errors->has('artist'))
           <div class="alert alert-danger">
@@ -23,7 +23,7 @@
       </div>
       <div class="form-group">
         {{ Form::label('title', 'Title') }}
-        {{ Form::text('title', Input::old('title'), array('class' => 'form-control', 'placeholder' => 'Random Access Memories')); }}
+        {{ Form::text('title', $title, array('class' => 'form-control', 'placeholder' => 'Random Access Memories')); }}
 
         @if($errors->has('title'))
           <div class="alert alert-danger">
@@ -43,12 +43,26 @@
   <div class="row">
     
     @foreach($results as $result)
-      <?php $url = str_replace('api.discogs.com/image/R-90','s.pixogs.com/image/R-150',$result->getThumb()); ?>
+      <?php 
+        $url = str_replace('api.discogs.com/image/R-90','s.pixogs.com/image/R-150',$result->getThumb());
+
+        $service = new \Discogs\Service();
+
+        switch($result->getType()) {
+          case 'release':
+            $release = $service->getRelease($result->getId());
+            break;
+
+          case 'master':
+            $release = $service->getMaster($result->getId());
+            break;
+        }
+      ?>
 
       <div class="col-md-4">
         <div class="well well-sm">
           <div class="media">
-            <a class="thumbnail pull-left" href="#" style="margin-bottom: 0;">
+            <a class="thumbnail pull-left" href="{{ URL::to('search/vinyl') }}?artist={{ $release->getArtists()[0]->getName() }}" style="margin-bottom: 0;">
               <img class="media-object" src="{{ $url }}" style="width: 150px; height: 150px;">
             </a>
             <div class="media-body">
@@ -62,6 +76,7 @@
                 <span class="label label-success">{{ $result->getCountry() }}</span>
                 <span class="label label-default">{{ $result->getType() }}</span>
               </p>
+
             </div>
           </div>
         </div>
@@ -70,10 +85,8 @@
   </div>
 
   <hr>
+  
 
-  <p>Pages {{ $page->getPages() }}</p>
-  <p>Items {{ $page->getItems() }}</p>
-  <p>Page {{ $page->getPage() }}</p>
 
 @stop
 
