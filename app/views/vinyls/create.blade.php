@@ -5,55 +5,111 @@
 @stop
 
 @section('body')
+  <?php
+    // Discogs
+    $service = new \Discogs\Service();
+
+    $data = Input::all();
+    $id = $data['id'];
+    $type = $data['type'];
+
+    if($type == 'release'){
+      $release = $service->getRelease($id);
+    }
+    else{
+      $release = $service->getMaster($id);
+    }
+
+    $artist = $release->getArtists()[0]->getName();
+    $title = $release->getTitle();
+    $labels = $release->getLabels();
+    $year = $release->getYear();
+    $country = $release->getCountry();
+
+  ?>
+
   <div class="page-header">
     <h1>Add new vinyl</h1>
   </div>
 
-  <div class="form-wrapper">
-    {{ Form::open(array('url' => 'vinyls/create')) }}
-      <div class="form-group">
-        {{ Form::label('artist', 'Artist') }}
-        {{ Form::text('username', Input::old('artist'), array('class' => 'form-control', 'placeholder' => 'Enter your user name')); }}
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-wrapper">
+        {{ Form::open(array('url' => 'vinyls/create')) }}
+          <div class="form-group">
+            {{ Form::label('artist', 'Artist') }}
+            {{ Form::text('artist', $artist, array('class' => 'form-control', 'placeholder' => 'Enter artist name' )); }}
 
-        @if($errors->has('username'))
-          <div class="alert alert-danger">
-            {{ $errors->first('username') }}
+            @if($errors->has('artist'))
+              <div class="alert alert-danger">
+                {{ $errors->first('artist') }}
+              </div>
+            @endif
           </div>
-        @endif
-      </div>
-      <div class="form-group">
-        {{ Form::label('email', 'Email adress') }}
-        {{ Form::email('email', Input::old('email'), array('class' => 'form-control', 'placeholder' => 'example@mail.com')); }}
 
-        @if($errors->has('email'))
-          <div class="alert alert-danger">
-            {{ $errors->first('email') }}
+          <div class="form-group">
+            {{ Form::label('title', 'Title') }}
+            {{ Form::text('title', $title, array('class' => 'form-control', 'placeholder' => 'Enter vinyl title')); }}
+
+            @if($errors->has('title'))
+              <div class="alert alert-danger">
+                {{ $errors->first('title') }}
+              </div>
+            @endif
           </div>
-        @endif
-      </div>
-      <div class="form-group">
-        {{ Form::label('password', 'Password') }}
-        {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Choose a password')); }}
 
-        @if($errors->has('password'))
-          <div class="alert alert-danger">
-            {{ $errors->first('password') }}
+          <div class="form-group">
+            {{ Form::label('labels', 'Labels') }}
+            {{ Form::text('labels', $title, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
+
+            @if($errors->has('labels'))
+              <div class="alert alert-danger">
+                {{ $errors->first('labels') }}
+              </div>
+            @endif
           </div>
-        @endif
-      </div>
-      <div class="form-group">
-        {{ Form::label('password_again', 'Confirm password') }}
-        {{ Form::password('password_again', array('class' => 'form-control', 'placeholder' => 'Enter password again')); }}
 
-        @if($errors->has('password_again'))
-          <div class="alert alert-danger">
-            {{ $errors->first('password_again') }}
+          <div class="form-group">
+            {{ Form::label('genres', 'Genres') }}
+            {{ Form::text('genres', $title, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
+
+            @if($errors->has('genres'))
+              <div class="alert alert-danger">
+                {{ $errors->first('genres') }}
+              </div>
+            @endif
           </div>
-        @endif
-      </div>
 
-      {{ Form::submit('Add Vinyl', array('class' => 'btn btn-primary')) }}
-    {{ Form::close() }}
+          <div class="form-group">
+            {{ Form::label('year', 'Release year') }}
+            {{ Form::text('year', $year, array('class' => 'form-control', 'placeholder' => 'Enter release year')); }}
+
+            @if($errors->has('year'))
+              <div class="alert alert-danger">
+                {{ $errors->first('year') }}
+              </div>
+            @endif
+          </div>
+
+          <div class="form-group">
+            {{ Form::label('country', 'Country') }}
+            {{ Form::text('country', $country, array('class' => 'form-control', 'placeholder' => 'Enter country')); }}
+
+            @if($errors->has('country'))
+              <div class="alert alert-danger">
+                {{ $errors->first('country') }}
+              </div>
+            @endif
+          </div>
+          
+          {{ Form::hidden('user_id', Auth::user()->id) }}
+
+      </div>
+    </div>
   </div>
+
+  <hr>
+  {{ Form::submit('Add Vinyl', array('class' => 'btn btn-primary')) }}
+  {{ Form::close() }}
 @stop
 
