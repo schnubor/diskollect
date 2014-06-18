@@ -6,7 +6,7 @@
 
 @section('body')
   <?php
-    // Discogs
+    // --- get release from Discogs ----------
     $service = new \Discogs\Service();
 
     $data = Input::all();
@@ -20,9 +20,23 @@
       $release = $service->getMaster($id);
     }
 
+    // --- get release data ------------------ 
+
     $artist = $release->getArtists()[0]->getName();
     $title = $release->getTitle();
-    $labels = $release->getLabels();
+
+    $artwork = str_replace('api.discogs.com/image/R-','s.pixogs.com/image/R-',$release->getImages()[0]->getUri());
+
+    // fetch ALL labels
+
+    /*$labelsObj = $release->getLabels();
+    $tmp_labels = [];
+    foreach ($labelsObj as $label) {
+      array_push($tmp_labels, $label->getName());
+    }
+    $labels = implode(';', $tmp_labels);*/
+
+    $label = $release->getLabels()[0]->getName();
     $genres = implode(';', $release->getGenres());
     $year = $release->getYear();
     $country = $release->getCountry();
@@ -34,8 +48,20 @@
   </div>
 
   <div class="row">
+    <!-- Artwork and Videos -->
+    <div class="col-md-4">
+      <h3>Artwork and Videos</h3>
+      <hr>
+      <div class="thumbnail">
+        <img src="{{ $artwork }}" alt="Cover">
+      </div>
+    </div>
+
+    <!-- Fetched Data -->
     <div class="col-md-4">
       <div class="form-wrapper">
+        <h3>Fetched Data</h3>
+        <hr>
         {{ Form::open(array('url' => 'vinyls/create')) }}
           <div class="form-group">
             {{ Form::label('artist', 'Artist') }}
@@ -61,7 +87,7 @@
 
           <div class="form-group">
             {{ Form::label('labels', 'Labels') }}
-            {{ Form::text('labels', $title, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
+            {{ Form::text('labels', $label, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
 
             @if($errors->has('labels'))
               <div class="alert alert-danger">
@@ -107,10 +133,27 @@
 
       </div>
     </div>
+
+    <!-- User Data -->
+    <div class="col-md-4">
+      <h3>Your Data</h3>
+      <hr>
+
+      <div class="form-group">
+        {{ Form::label('price', 'Price') }}
+        {{ Form::text('price', Input::old('price'), array('class' => 'form-control', 'placeholder' => 'What did you pay?')); }}
+
+        @if($errors->has('price'))
+          <div class="alert alert-danger">
+            {{ $errors->first('price') }}
+          </div>
+        @endif
+      </div>
+    </div>
   </div>
 
   <hr>
-  {{ Form::submit('Add Vinyl', array('class' => 'btn btn-primary')) }}
+  {{ Form::submit('Add Vinyl', array('class' => 'btn btn-primary pull-right')) }}
   {{ Form::close() }}
 @stop
 
