@@ -52,6 +52,8 @@
 
         $title = $result->getTitle();
         list($artist, $vinylTitle) = explode(' - ', $title);
+
+        $i = 0; // foreach counter
       ?>
 
       <div class="col-md-4">
@@ -71,7 +73,6 @@
                 <span class="label label-success">{{ $result->getCountry() }}</span>
                 <span class="label label-default">{{ $result->getType() }}</span>
               </p>
-
             </div>
           </div>
         </div>

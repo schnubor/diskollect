@@ -23,6 +23,7 @@
     $artist = $release->getArtists()[0]->getName();
     $title = $release->getTitle();
     $labels = $release->getLabels();
+    $genres = implode(';', $release->getGenres());
     $year = $release->getYear();
     $country = $release->getCountry();
 
@@ -71,7 +72,7 @@
 
           <div class="form-group">
             {{ Form::label('genres', 'Genres') }}
-            {{ Form::text('genres', $title, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
+            {{ Form::text('genres', $genres, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
 
             @if($errors->has('genres'))
               <div class="alert alert-danger">
