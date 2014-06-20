@@ -27,6 +27,9 @@ class CreateUsersTable extends Migration {
 		    $table->string('code', 60)->nullable();
 		    $table->boolean('active');
 		    $table->string('remember_token')->nullable();
+		    $table->string('discogs_access_token')->nullable();
+		    $table->string('discogs_access_token_secret')->nullable();
+		    $table->string('discogs_uri')->nullable();
 		    $table->timestamps();
 		});
 	}
