@@ -19,7 +19,7 @@
       <p>This is a simple introduction to diskollect.com. Please feel free to go ahead an register an account to add some vinyls.</p>
       <p>
         <a class="btn btn-primary btn-lg" role="button" href="{{ URL::to('users/signin') }}">Login</a>
-        <a class="btn btn-default btn-lg" role="button" href="{{ URL::to('users/create') }}">Register</a>
+        <a class="btn btn-default btn-lg" role="button" href="{{ URL::to('users/register') }}">Register</a>
       </p>
     @endif
   </div>
