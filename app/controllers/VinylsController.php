@@ -28,7 +28,7 @@ class VinylsController extends \BaseController {
     $client->debug_http = true;
     $client->server = 'Discogs';
     $client->redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].
-        dirname(strtok($_SERVER['REQUEST_URI'],'?'));
+        dirname(strtok($_SERVER['REQUEST_URI'],'?')).'/discogs';
 
     $client->client_id = 'iLHTUYXHgeToxDaAWpAX'; $application_line = __LINE__;
     $client->client_secret = 'dPaSaHBIyyNgNqZuPFPpBTCentqzPxPj';
@@ -46,19 +46,25 @@ class VinylsController extends \BaseController {
       {
         if(strlen($client->access_token))
         {
-          $success = $client->CallAPI(
+          
+          if($success = $client->CallAPI(
             'http://api.discogs.com/oauth/identity', 
-            'GET', array(), array('FailOnAccessError'=>true), $DiscogsUser);
+            'GET', array(), array('FailOnAccessError'=>true), $DiscogsUser))
+          {
+	          $user = User::find(Auth::user()->id); // Find current user
+	          $user->discogs_access_token = $client->access_token;
+	          $user->discogs_access_token_secret = $client->access_token_secret;
+	          $user->discogs_uri = $DiscogsUser->resource_url;
 
-          $user = User::find(Auth::user()->id); // Find current user
-          $user->discogs_access_token = $client->access_token;
-          $user->discogs_access_token_secret = $client->access_token_secret;
-          $user->discogs_uri = $DiscogsUser->resource_url;
-
-          if(!$user->save()){
-          	return Redirect::to('/search')
-          		->with('danger-alert','Oops! Something went wrong while writing oAuth Data to the database.');
-          }
+	          if(!$user->save()){
+	          	return Redirect::to('/search')
+	          		->with('danger-alert','Oops! Something went wrong while writing oAuth Data to the database.');
+	          }
+	        }
+	        else{
+	        	return Redirect::to('/search')
+	        		->with('danger-alert','Oops! Discogs API call failed.');
+	        }
         }
       }
       $success = $client->Finalize($success);
@@ -70,7 +76,7 @@ class VinylsController extends \BaseController {
     if($success)
     {
 			return Redirect::to('/search')
-				->with('success-altert', 'Success! You have successfully authenticated with Discogs and may now use the search.');
+				->with('success-alert', 'Success! You have successfully authenticated with Discogs and may now use the search.');
 		}
 	}
 
