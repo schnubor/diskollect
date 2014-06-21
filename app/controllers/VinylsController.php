@@ -69,6 +69,9 @@ class VinylsController extends \BaseController {
       }
       $success = $client->Finalize($success);
     }
+    else{
+      dd($client->error);
+    }
     
     if($client->exit)
        exit;
