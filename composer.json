@@ -5,7 +5,9 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"ricbra/php-discogs-api": "0.6"
+		"ricbra/php-discogs-api": "0.6",
+		"phpclasses/httpclient": ">=1.0.1",
+		"schnubor/phpclasses-oauth-api": "dev-master"
 	},
 	"require-dev": {
     "panique/laravel-sass": "dev-master",
@@ -37,5 +39,16 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "stable",
+	"repositories":
+  [
+    {
+      "type": "composer",
+      "url": "http:\/\/www.phpclasses.org\/"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/schnubor/phpclasses-oauth-api.git"
+    }
+  ]
 }

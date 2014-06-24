@@ -7,7 +7,80 @@ class VinylsController extends \BaseController {
 	*/
 	public function getSearch()
 	{
-		return View::make('vinyls.search');
+		$user = User::find(Auth::user()->id);
+		// Check if user already obtained Discogs Access Token
+
+		if($user->discogs_access_token){
+			return View::make('vinyls.search');
+		}
+		else{
+			return View::make('vinyls.discogs');
+		}
+	}
+
+	/*
+	| GET Discogs oAuth Access Token
+	*/
+	public function oAuthDiscogs(){
+		// oAuth to Discogs to enable search
+		$client = new oauth_client_class;
+		$client->debug = true;
+    $client->debug_http = true;
+    $client->server = 'Discogs';
+    $client->redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].
+        dirname(strtok($_SERVER['REQUEST_URI'],'?')).'/discogs';
+
+    $client->client_id = 'iLHTUYXHgeToxDaAWpAX'; $application_line = __LINE__;
+    $client->client_secret = 'dPaSaHBIyyNgNqZuPFPpBTCentqzPxPj';
+
+    if(strlen($client->client_id) == 0
+    || strlen($client->client_secret) == 0)
+        die('Please go to Discogs Developers page http://www.discogs.com/applications/edit , '.
+            'create an application, and in the line '.$application_line.
+            ' set the client_id to Consumer key and client_secret with Consumer secret. '.
+            'The Callback URL must be '.$client->redirect_uri);
+
+    if(($success = $client->Initialize()))
+    {
+      if(($success = $client->Process()))
+      {
+        if(strlen($client->access_token))
+        {
+          
+          if($success = $client->CallAPI(
+            'http://api.discogs.com/oauth/identity', 
+            'GET', array(), array('FailOnAccessError'=>true), $DiscogsUser))
+          {
+	          $user = User::find(Auth::user()->id); // Find current user
+	          $user->discogs_access_token = $client->access_token;
+	          $user->discogs_access_token_secret = $client->access_token_secret;
+	          $user->discogs_uri = $DiscogsUser->resource_url;
+
+	          if(!$user->save()){
+	          	return Redirect::to('/search')
+	          		->with('danger-alert','Oops! Something went wrong while writing oAuth Data to the database.');
+	          }
+	        }
+	        else{
+	        	return Redirect::to('/search')
+	        		->with('danger-alert','Oops! Discogs API call failed.');
+	        }
+        }
+      }
+      $success = $client->Finalize($success);
+    }
+    else{
+      dd($client->error);
+    }
+    
+    if($client->exit)
+       exit;
+
+    if($success)
+    {
+			return Redirect::to('/search')
+				->with('success-alert', 'Success! You have successfully authenticated with Discogs and may now use the search.');
+		}
 	}
 
 	/*

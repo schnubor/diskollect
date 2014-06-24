@@ -83,6 +83,15 @@ Route::group(array('before' => 'auth'), function(){
     'uses' => 'VinylsController@createVinyl'
   ));
 
+  /*
+  | Discogs oAuth
+  */
+
+  Route::get('oauth/discogs', array(
+    'as' => 'get-oAuthDiscogs',
+    'uses' => 'VinylsController@oAuthDiscogs'
+  ));
+
 });
 
 /*
@@ -98,6 +107,16 @@ Route::group(array('before' => 'guest'), function(){
   /*
   | User routes (order is important!)
   */
+  Route::get('users/register', array(
+    'as' => 'get-user-create',
+    'uses' => 'UsersController@create'
+  ));
+
+  Route::post('users/register', array(
+    'as' => 'get-user-create',
+    'uses' => 'UsersController@store'
+  ));
+
   Route::get('users/signin', array(
     'as' => 'get-signin',
     'uses' => 'UsersController@getSignin'

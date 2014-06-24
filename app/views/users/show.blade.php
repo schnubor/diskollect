@@ -36,6 +36,12 @@
 
     <div class="col-sm-8">
       @foreach($vinyls as $vinyl)
+
+        <?php
+          $genres = explode(';',$vinyl->genre);
+          $labels = explode(';',$vinyl->label);
+        ?>
+
       	<div class="col-sm-6">
           <div class="well well-sm">
             <div class="media">
@@ -45,9 +51,13 @@
               <div class="media-body">
                 <h5 class="media-heading">{{ $vinyl->artist }} - {{ $vinyl->title }}</h5>
                 <p>
-                  <span class="label label-info">{{ $vinyl->releasedate }}</span> 
-                  <span class="label label-primary">{{ $vinyl->genre }}</span> 
-                  <span class="label label-warning">{{ $vinyl->label }}</span> 
+                  <span class="label label-info">{{ $vinyl->releasedate }}</span>
+                  @foreach($genres as $genre)
+                    <span class="label label-primary">{{ $genre }}</span>
+                  @endforeach
+                  @foreach($labels as $label)
+                    <span class="label label-warning">{{ $label }}</span> 
+                  @endforeach
                   <span class="label label-success">{{ $vinyl->country }}</span> 
                   <span class="label label-default">{{ $vinyl->type }}</span> 
                   <span class="label label-default">{{ $vinyl->count }}x {{ $vinyl->size }}inch</span>

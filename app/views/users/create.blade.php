@@ -10,7 +10,7 @@
   </div>
 
   <div class="form-wrapper">
-    {{ Form::open(array('url' => 'users')) }}
+    {{ Form::open(array('url' => 'users/register')) }}
       <div class="form-group">
         {{ Form::label('username', 'User name') }}
         {{ Form::text('username', Input::old('username'), array('class' => 'form-control', 'placeholder' => 'Enter your user name')); }}
