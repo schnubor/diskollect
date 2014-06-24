@@ -4,148 +4,184 @@
 		"selected_items":
 		[
 			[
-				"root",
-				"root"
-			],
-			[
-				"Acc",
-				"AccountController"
-			],
-			[
-				"te",
-				"text-align"
-			],
-			[
-				"webkit-fo",
-				"webkit-font-smoothing"
-			],
-			[
-				"pagination",
-				"paginationVinyls"
-			],
-			[
-				"dis",
-				"displayVinylData"
-			],
-			[
-				"remove",
-				"removeClass"
-			],
-			[
-				"sorting",
-				"sortingFilter"
-			],
-			[
-				"inlin",
-				"inline-block"
-			],
-			[
-				"list-st",
-				"list-style-type"
-			],
-			[
-				"in",
-				"inline-block"
-			],
-			[
-				"i",
-				"i	Tag"
-			],
-			[
-				"bott",
-				"bottomBound"
-			],
-			[
-				"sorte",
-				"sortedVinyls"
-			],
-			[
 				"margin",
 				"margin-left"
 			],
 			[
-				"fi",
-				"filedetails"
+				"profile",
+				"profile-content"
 			],
 			[
-				"font",
-				"font-size"
+				"pad",
+				"padding"
 			],
 			[
-				"log",
-				"loggedInWrapper"
+				"text",
+				"text-align-last"
 			],
 			[
-				"lo",
-				"loggedInWrapper"
+				"pa",
+				"padding"
 			],
 			[
-				"tr",
-				"transparent"
+				"padding-",
+				"padding-left"
 			],
 			[
-				"backgrou",
-				"background-color"
+				"padd",
+				"padding"
 			],
 			[
-				"mar",
-				"margin-top"
+				"profile-",
+				"profile-img"
+			],
+			[
+				"mo",
+				"close-mobile-search-btn"
+			],
+			[
+				"clo",
+				"close-mobile-search-btn"
+			],
+			[
+				"e",
+				"e"
+			],
+			[
+				"moi",
+				"mobile-nav"
+			],
+			[
+				"list-sty",
+				"list-style-type"
 			],
 			[
 				"backgr",
 				"background-color"
 			],
 			[
-				"proxy",
-				"proxyURL"
+				"list-s",
+				"list-style-type"
 			],
 			[
-				"rele",
-				"releaseID"
+				"margin-",
+				"margin-right"
 			],
 			[
-				"pric",
-				"priceString"
+				"p",
+				"p	padding"
 			],
 			[
-				"latest",
-				"latestVinyl"
+				"image",
+				"image_tag"
 			],
 			[
-				"top",
-				"top-artist"
+				"font-s",
+				"font-size"
 			],
 			[
-				"craw",
-				"crawledArtist"
+				"marg",
+				"margin-left"
 			],
 			[
-				"mysql_re",
-				"mysql_real_escape_string"
+				"paddin",
+				"padding-bottom"
 			],
 			[
-				"text-",
-				"text-decoration"
+				"max",
+				"max-width"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"sta",
+				"status-notification"
+			],
+			[
+				"dark",
+				"dark-green"
+			],
+			[
+				"bc",
+				"background-color"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"video",
+				"video-details"
+			],
+			[
+				"inlin",
+				"inline-block"
 			],
 			[
 				"list-",
 				"list-style-type"
 			],
 			[
-				"artWor",
-				"artworkUrl"
+				"remove",
+				"removeClass"
 			],
 			[
-				"reset",
-				"resetAddForm"
+				"sideb",
+				"sidebarHovered"
 			],
 			[
-				"fun",
-				"function"
+				"handleLogoM",
+				"handleLogoMouseOut"
 			],
 			[
-				"iTunes",
-				"itunesUrl"
+				"class",
+				"className"
+			],
+			[
+				"Play",
+				"PlaylistPopupListView"
+			],
+			[
+				"Pla",
+				"PlaylistListView"
+			],
+			[
+				"po",
+				"pointer"
+			],
+			[
+				"handle",
+				"handlePlaylistMouseEnter"
+			],
+			[
+				"hand",
+				"handlePlaylistHovered"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"pla",
+				"player-popup"
+			],
+			[
+				"cur",
+				"cursor"
 			],
 			[
 				"wid",
@@ -156,11 +192,26 @@
 	"buffers":
 	[
 		{
-<<<<<<< HEAD
+			"file": "app/views/vinyls/results.blade.php",
+			"settings":
+			{
+				"buffer_size": 2554,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "app/controllers/UsersController.php",
 			"settings":
 			{
-				"buffer_size": 5590,
+				"buffer_size": 6804,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/users/edit.blade.php",
+			"settings":
+			{
+				"buffer_size": 2291,
 				"line_ending": "Unix"
 			}
 		},
@@ -168,21 +219,7 @@
 			"file": "app/routes.php",
 			"settings":
 			{
-				"buffer_size": 1753,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/layout/navigation.blade.php",
-			"settings":
-			{
-				"buffer_size": 1408,
-=======
-			"file": "app/views/vinyls/results.blade.php",
-			"settings":
-			{
-				"buffer_size": 1978,
->>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
+				"buffer_size": 2774,
 				"line_ending": "Unix"
 			}
 		}
@@ -194,24 +231,15 @@
 		"selected_items":
 		[
 			[
-<<<<<<< HEAD
-				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"pref",
-				"Preferences: Settings - Default"
-=======
 				"insta",
 				"Package Control: Install Package"
 			],
 			[
 				"install",
 				"Package Control: Install Package"
->>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 			],
 			[
-				"install",
+				"instal",
 				"Package Control: Install Package"
 			]
 		],
@@ -236,145 +264,15 @@
 	},
 	"file_history":
 	[
-<<<<<<< HEAD
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/show.blade.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/index.blade.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/password.blade.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/layout/main.blade.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/create.blade.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/composer.json",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/welcome.blade.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/layout/navigation.blade.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/signin.blade.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/symfony/security-core/Symfony/Component/Security/Core/User/UserChecker.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/models/User.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/UriSigner.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/swiftmailer/swiftmailer/lib/swift_init.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/bootstrap/start.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/nikic/php-parser/lib/PHPParser/NodeAbstract.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/routes.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/controllers/UsersController.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/config/workbench.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/config/mail.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/laravel/framework/src/Illuminate/Database/Eloquent/MassAssignmentException.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpseclib/phpseclib/build/code-sniffer-ruleset.xml",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/controllers/UserController.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/config/local/database.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/config/database.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/welcome.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/controllers/HomeController.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/public/index.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/database/migrations/2014_05_27_220934_create_users_table.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/nesbot/carbon/tests/SubTest.php",
-		"/Users/christiankorndoerfer/Projekte/restful/public/css/style.css",
-		"/Users/christiankorndoerfer/Projekte/restful/vendor/nesbot/carbon/tests/SubTest.php",
-		"/Users/christiankorndoerfer/Projekte/restful/bootstrap/start.php",
-		"/Users/christiankorndoerfer/Projekte/restful/public/scss/main.scss",
-		"/Users/christiankorndoerfer/Projekte/restful/public/css/main.css",
-		"/Users/christiankorndoerfer/Projekte/restful/app/config/mail.php",
-		"/Users/christiankorndoerfer/Projekte/restful/vendor/laravel/framework/src/Illuminate/Database/Eloquent/MassAssignmentException.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/views/bikes/index.blade.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/views/bikewheels/index.blade.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/config/database.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/controllers/BikeController.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/routes.php",
-		"/Users/christiankorndoerfer/Projekte/restful/vendor/nikic/php-parser/lib/PHPParser/Node/Stmt/Static.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/models/Bike.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/views/bikes/edit.blade.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/views/wheels/edit.blade.php",
-		"/Users/christiankorndoerfer/Projekte/restful/vendor/symfony/event-dispatcher/Symfony/Component/EventDispatcher/EventDispatcherInterface.php",
-		"/Users/christiankorndoerfer/Projekte/restful/vendor/symfony/event-dispatcher/Symfony/Component/EventDispatcher/EventDispatcher.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/tests/ExampleTest.php",
-		"/Users/christiankorndoerfer/Projekte/restful/server.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/config/local/database.php",
-		"/Users/christiankorndoerfer/Projekte/laravel/vendor/predis/predis/lib/Predis/ResponseObjectInterface.php",
-		"/Users/christiankorndoerfer/Projekte/laravel/readme.md",
-		"/Users/christiankorndoerfer/Projekte/laravel/vendor/composer/autoload_classmap.php",
-		"/Users/christiankorndoerfer/Projekte/laravel/artisan",
-		"/Users/christiankorndoerfer/Projekte/restful/app/controllers/WheelController.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/controllers/BikesWheelsController.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/views/wheels/create.blade.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/views/bikes/create.blade.php",
-		"/Users/christiankorndoerfer/Projekte/restful/vendor/predis/predis/bin/create-pear",
-		"/Users/christiankorndoerfer/Projekte/restful/vendor/phpseclib/phpseclib/build/code-sniffer-ruleset.xml",
-		"/Users/christiankorndoerfer/Projekte/restful/composer.json",
-		"/Users/christiankorndoerfer/Projekte/restful/app/views/wheels/index.blade.php",
-		"/Users/christiankorndoerfer/Projekte/restful/public/index.php",
-		"/Users/christiankorndoerfer/Projekte/restful/vendor/phpseclib/phpseclib/phpseclib/Math/BigInteger.php",
-		"/Users/christiankorndoerfer/Projekte/restful/Boxfile",
-		"/Users/christiankorndoerfer/Projekte/restful/app/models/Wheel.php",
-		"/Users/christiankorndoerfer/Projekte/restful/vendor/symfony/css-selector/Symfony/Component/CssSelector/Parser/Handler/WhitespaceHandler.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/config/workbench.php",
-		"/Users/christiankorndoerfer/Projekte/restful/app/views/hello.php",
-		"/Users/christiankorndoerfer/Projekte/restful/public/scss/style.scss",
-		"/Users/christiankorndoerfer/Projekte/restful/app/config/app.php",
-		"/Users/christiankorndoerfer/Projekte/restful/vendor/predis/predis/lib/Predis/Command/HashExists.php",
-		"/Users/christiankorndoerfer/Projekte/Websites/RESTful/bootstrap/start.php",
-		"/Users/christiankorndoerfer/Projekte/Websites/RESTful/app/config/database.php",
-		"/Users/christiankorndoerfer/Projekte/Websites/RESTful/vendor/nesbot/carbon/tests/SubTest.php",
-		"/Users/christiankorndoerfer/Projekte/Websites/RESTful/server.php",
-		"/Users/christiankorndoerfer/Projekte/Websites/RESTful/bootstrap/paths.php",
-		"/Users/christiankorndoerfer/Projekte/Websites/RESTful/vendor/symfony/finder/Symfony/Component/Finder/Adapter/PhpAdapter.php",
-		"/Users/christiankorndoerfer/Projekte/Websites/RESTful/phpunit.xml",
-		"/Users/christiankorndoerfer/Desktop/id_rsa.pub",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/views/import.html",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/views/addvinyl.html",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/js/actions.js",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/sass/global.scss",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/index.html",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/js/facebook.js",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/js/main.js",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/stylesheets/footable.standalone.css",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/sass/vinyls.scss",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/sass/header_footer.scss",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/stylesheets/select-theme-default.css",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/sass/sorting.scss",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/stylesheets/select-theme-dark.css",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/stylesheets/select-theme-chosen.css",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/js/vendor/select.js",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/php/addvinyl.php",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/js/footable.striping.js",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/js/footable.sort.js",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/js/footable.js",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/sass/overlay.scss",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/js/import.js",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/stylesheets/import.css",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/sass/import.scss",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/impressum.html",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/php/importvinyl.php",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/vinylr.sublime-project",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/js/indexTable.js",
-		"/Users/christiankorndoerfer/Downloads/Plattensammlung_vinylr.csv",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/login/models/settings.php",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/stylesheets/font-awesome-4.0.3/css/font-awesome.css",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/doc/faq.md",
-		"/Users/christiankorndoerfer/Desktop/example.csv",
-		"/Users/christiankorndoerfer/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/christiankorndoerfer/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/views/userprofile.html",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/sass/profile.scss",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/stylesheets/screen.css",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/sass/welcome.scss",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/humans.txt",
-		"/Users/christiankorndoerfer/Projekte/Websites/Esotalk/addons/plugins/Soundcloud/resources/soundcloud.js",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/.sass-cache/350bc88095f38e95a71dbc853e7ba533db853fc8/profile.scssc",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/stylesheets/profile.css",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/views/editvinyl.html",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/php/editvinyl.php",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/sass/print.scss",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/js/plugins.js",
-		"/Users/christiankorndoerfer/Projekte/Websites/vinylr/php/discogs_oauth.php",
-		"/Users/christiankorndoerfer/Downloads/oauth-php/example/client/twolegged.php"
-=======
+		"/Users/korndoerfer/Development/diskollect/app/views/users/show.blade.php",
+		"/Users/korndoerfer/Development/diskollect/app/database/seeds/UsersTableSeeder.php",
+		"/Users/korndoerfer/Development/diskollect/app/database/migrations/2014_05_27_220934_create_users_table.php",
 		"/Users/korndoerfer/Development/diskollect/readme.md",
 		"/Users/korndoerfer/Development/diskollect/app/routes.php",
 		"/Users/korndoerfer/Development/diskollect/app/views/layout/main.blade.php",
-		"/Users/korndoerfer/Development/diskollect/app/database/seeds/UsersTableSeeder.php",
-		"/Users/korndoerfer/Development/diskollect/app/database/migrations/2014_05_27_220934_create_users_table.php",
 		"/Users/korndoerfer/Development/diskollect/app/config/app.php",
 		"/Users/korndoerfer/Development/diskollect/app/views/layout/navigation.blade.php",
 		"/Users/korndoerfer/Development/diskollect/app/controllers/UsersController.php",
-		"/Users/korndoerfer/Development/diskollect/app/views/users/show.blade.php",
 		"/Users/korndoerfer/Development/diskollect/vendor/predis/predis/examples/SessionHandler.php",
 		"/Users/korndoerfer/Development/diskollect/bootstrap/start.php",
 		"/Users/korndoerfer/Development/diskollect/app/models/User.php",
@@ -494,7 +392,6 @@
 		"/Users/korndoerfer/Development/tape-web/app/views/suggestions/facebook_friends.json.jbuilder",
 		"/Users/korndoerfer/Development/tape-web/app/views/suggestions/_facebook_friend.json.jbuilder",
 		"/Users/korndoerfer/Development/tape-web/tmp/cache/assets/test/sass/7eb9ae2c68b2ebbefe8895c105d6619b8e9f5046/suggestions.css.scssc"
->>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 	],
 	"find":
 	{
@@ -505,6 +402,9 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"",
+			"*.coffee",
+			".coffee",
 			""
 		]
 	},
@@ -513,21 +413,144 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"env",
-			"main.init",
-			"redraw",
-			"GOOGLE",
-			"vinyls[index]",
+			"flush",
+			"tiles-flush",
+			"event",
+			"#new-user",
+			"#new",
+			"jquery",
+			"#agb",
+			"delete",
+			"jquery.ui.sortable",
+			"jquery-ui-sortable",
+			"jquery-ui",
+			"playlist-v",
+			"playlist",
+			"sortable",
+			"#edit",
+			"#play",
+			"#",
+			"ui-sortable",
+			"sort",
+			"drag",
+			"5",
+			"edit",
+			"right-link",
+			"HEAD",
+			"center-content",
+			"center-contn",
+			"#new-session",
+			"avatar",
+			"show-image",
+			"popular",
+			"15px 0",
+			"titi",
+			"left",
+			"line-header",
+			"wir konnten",
+			"viewport",
+			"padding: 15px",
 			"content",
-			"updateform"
+			"hover",
+			"metatags_opengraph",
+			"og:type",
+			"new_follower_email",
+			"newsletter",
+			"hint",
+			"two_up",
+			"new_follower_email",
+			"user_new_follower_email",
+			"as: boolean",
+			"boolean",
+			"checkbox",
+			"two_up",
+			"checkbox",
+			"new_follower_email",
+			"plus",
+			"pauze",
+			"error-list",
+			"vergeben",
+			"Benutzername",
+			"Benutzername ist bereits",
+			"error-list",
+			".error-list",
+			".error-lost",
+			"#geoblock",
+			"#embed-tos",
+			"#embed-tos header",
+			"share-url",
+			"mehr erfahren ...",
+			"180x180",
+			"50x50",
+			"180",
+			"api.tape.tv",
+			"180x180",
+			"scrolllock",
+			"activity",
+			"devider",
+			"Stephan",
+			"kunden",
+			"stefa",
+			"stephan",
+			"vertragserklärung",
+			"rechtsbeziehung",
+			"nutzung",
+			">\n",
+			"webtree",
+			"#impressum",
+			"js-show-details",
+			"scrolllock",
+			"scroll lock",
+			"artist-detail-prompt",
+			"artist-de",
+			"#303030",
+			".line-header",
+			"folgt dir jetzt",
+			".search-results",
+			"collapse",
+			"image_tag(",
+			"image_tag(asset",
+			"image_tag",
+			"asset-path",
+			"titi",
+			"titillium",
+			"#player + div",
+			"#player div",
+			"#player + div",
+			"MIXPANEL_PROJECT_TOKEN",
+			"fa-",
+			"font",
+			"head",
+			"fa-",
+			"Titillium",
+			"font-family",
+			"loading",
+			"fa-",
+			"facebook-connect",
+			"fa-",
+			"fa-angle-down",
+			".line-header",
+			"top",
+			"53",
+			"border-ra",
+			"rückgängig",
+			"excla",
+			"delete-playlist-prompt",
+			"Benutzername",
+			":avatar",
+			"Erforderlich",
+			"<attr>",
+			"attr"
 		],
-		"highlight": true,
+		"highlight": false,
 		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
 		[
-			"DISCOGS"
+			"Vertragserklärung",
+			"Rechtsbeziehung",
+			"Nutzung"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -538,110 +561,92 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-<<<<<<< HEAD
-					"file": "app/controllers/UsersController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5590,
-=======
 					"file": "app/views/vinyls/results.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1978,
->>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
+						"buffer_size": 2554,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-<<<<<<< HEAD
-								5017,
-								5017
-=======
-								1550,
-								1550
->>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
+								0,
+								0
 							]
 						],
 						"settings":
 						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
 							"is_xml": false,
 							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-<<<<<<< HEAD
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/controllers/UsersController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6804,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"is_xml": false,
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3066.0,
+						"translation.y": 3331.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "app/routes.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1753,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1698,
-								1698
-							]
-						],
-						"settings":
-						{
-							"is_xml": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 532.0,
-=======
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
->>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
 					"buffer": 2,
-					"file": "app/views/layout/navigation.blade.php",
+					"file": "app/views/users/edit.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1408,
+						"buffer_size": 2291,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								801,
-								801
+								0,
+								0
 							]
 						],
 						"settings":
 						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
 							"is_xml": false,
 							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
 							"tab_size": 2,
@@ -652,6 +657,38 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2774,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								437,
+								437
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"is_xml": false,
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -704,24 +741,24 @@
 		"selected_items":
 		[
 			[
-<<<<<<< HEAD
-				"navi",
-				"app/views/layout/navigation.blade.php"
-=======
+				"show",
+				"app/views/users/show.blade.php"
+			],
+			[
+				"route",
+				"app/routes.php"
+			],
+			[
+				"users",
+				"app/controllers/UsersController.php"
+			],
+			[
 				"resu",
 				"app/views/vinyls/results.blade.php"
 			],
 			[
 				"main",
 				"app/views/layout/main.blade.php"
-			],
-			[
-				"show",
-				"app/views/users/show.blade.php"
-			],
-			[
-				"users",
-				"app/controllers/UsersController.php"
 			],
 			[
 				"navi",
@@ -794,90 +831,84 @@
 			[
 				"applic",
 				"app/assets/javascripts/application.js"
->>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 			],
 			[
-				"main",
-				"app/views/layout/main.blade.php"
+				"edit_view",
+				"app/assets/javascripts/backbone/views/playlists/edit_view.js.coffee"
 			],
 			[
-				"create",
-				"app/views/users/create.blade.php"
+				"headervi",
+				"app/assets/javascripts/backbone/views/application/header_view.js.coffee"
 			],
 			[
-				"welcome",
-				"app/views/welcome.blade.php"
+				"prof",
+				"app/assets/stylesheets/web/profile.css.scss"
 			],
 			[
-				"usercon",
-				"app/controllers/UsersController.php"
+				"new",
+				"app/views/users/new.html.erb"
 			],
 			[
 				"signin",
-				"app/views/users/signin.blade.php"
+				"app/assets/javascripts/backbone/templates/signin-prompt.jst.eco"
 			],
 			[
-<<<<<<< HEAD
-				"routes",
-				"app/routes.php"
+				"signup",
+				"app/assets/javascripts/backbone/templates/signup-prompt.jst.eco"
 			],
 			[
-				"index",
-				"public/index.php"
-=======
+				"popup",
+				"app/assets/stylesheets/web/popups.css.scss"
+			],
+			[
 				"pop",
 				"app/assets/stylesheets/web/popups.css.scss"
->>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 			],
 			[
-				"start",
-				"bootstrap/start.php"
+				"content",
+				"app/assets/stylesheets/web/content.css.scss"
 			],
 			[
-				"compo",
-				"composer.json"
+				"yml",
+				"config/locales/de.yml"
 			],
 			[
-				"sty",
-				"public/scss/style.scss"
+				"global",
+				"app/assets/stylesheets/web/_globals.css.scss"
 			],
 			[
-				"he",
-				"app/views/hello.php"
+				"player",
+				"app/assets/stylesheets/web/player.css.scss"
 			],
 			[
-				"bikecon",
-				"app/controllers/BikeController.php"
+				"playlistlist",
+				"app/assets/javascripts/backbone/templates/playlist-list-item.jst.eco.erb"
 			],
 			[
 				"edit",
-				"app/views/wheels/edit.blade.php"
+				"app/views/playlists/edit.html.erb"
 			],
 			[
-				"acc",
-				"app/controllers/AccountController.php"
+				"profile",
+				"app/assets/stylesheets/web/profile.css.scss"
 			],
 			[
-				"bik",
-				"app/controllers/BikeController.php"
+				"gemfil",
+				"Gemfile"
 			],
 			[
-				"crea",
-				"app/views/wheels/create.blade.php"
+				"deve",
+				"config/environments/development.rb"
 			],
 			[
-				"whee",
-				"app/controllers/WheelController.php"
+				"appl",
+				"app/controllers/application_controller.rb"
 			],
 			[
-				"hello",
-				"app/views/hello.php"
+				"datenschutz",
+				"app/views/pages/datenschutz.html.erb"
 			],
 			[
-<<<<<<< HEAD
-				"path",
-				"bootstrap/paths.php"
-=======
 				"headerv",
 				"app/assets/javascripts/backbone/views/application/header_view.js.coffee"
 			],
@@ -1052,140 +1083,174 @@
 			[
 				"share",
 				"app/assets/javascripts/backbone/views/shared/share_button_view.js.coffee"
->>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
 			],
 			[
 				"glo",
-				"sass/global.scss"
+				"app/assets/stylesheets/web/_globals.css.scss"
 			],
 			[
-				"vinyl",
-				"sass/vinyls.scss"
+				"artistshow",
+				"app/views/artists/show.html.erb"
 			],
 			[
-				"globa",
-				"sass/global.scss"
+				"newletter",
+				"app/models/weekly_newsletter.rb"
 			],
 			[
-				"header",
-				"sass/header_footer.scss"
+				"mailcss",
+				"app/assets/stylesheets/mailer/html_email.css.erb"
 			],
 			[
-				"face",
-				"js/facebook.js"
+				"follow",
+				"app/views/notification_mailer/followed_email.html.erb"
+			],
+			[
+				"show_view",
+				"app/assets/javascripts/backbone/views/artists/show_view.js.coffee"
+			],
+			[
+				"artistdetail",
+				"app/assets/javascripts/backbone/templates/artist-detail-prompt.jst.eco"
+			],
+			[
+				"emailcss",
+				"app/assets/stylesheets/mailer/html_email.css.erb"
+			],
+			[
+				"notific",
+				"app/mailers/notification_mailer.rb"
+			],
+			[
+				"newsleet",
+				"app/views/notification_mailer/weekly_newsletter_email.html.erb"
+			],
+			[
+				"impress",
+				"app/views/pages/impressum.html.erb"
+			],
+			[
+				"daten",
+				"app/views/pages/datenschutz.html.erb"
+			],
+			[
+				"artistdrt",
+				"app/assets/javascripts/backbone/templates/artist-detail-prompt.jst.eco"
+			],
+			[
+				"content.",
+				"app/assets/stylesheets/web/content.css.scss"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"search",
+				"app/assets/stylesheets/web/search.css.scss"
+			],
+			[
+				"popups",
+				"app/assets/stylesheets/web/popups.css.scss"
+			],
+			[
+				"artist-deta",
+				"app/assets/javascripts/backbone/templates/artist-detail-prompt.jst.eco"
+			],
+			[
+				"artisthowhtml",
+				"app/views/artists/show.html.erb"
+			],
+			[
+				"artistshowvi",
+				"app/assets/javascripts/backbone/views/artists/show_view.js.coffee"
+			],
+			[
+				"playlistcontrol",
+				"app/controllers/playlists_controller.rb"
+			],
+			[
+				"followed",
+				"app/views/notification_mailer/followed_email.html.erb"
+			],
+			[
+				"notifi",
+				"app/mailers/notification_mailer.rb"
 			],
 			[
 				"actions",
-				"js/actions.js"
+				"app/assets/stylesheets/web/actionsbuttons.css.scss"
 			],
 			[
-				"selectthemede",
-				"stylesheets/select-theme-default.css"
+				"actionbu",
+				"app/assets/stylesheets/web/actionsbuttons.css.scss"
 			],
 			[
-				"addv",
-				"views/addvinyl.html"
+				"emailtml",
+				"app/views/layouts/email.html.erb"
 			],
 			[
-				"footablestand",
-				"stylesheets/footable.standalone.css"
+				"weekht",
+				"app/views/notification_mailer/weekly_digest_email.html.erb"
 			],
 			[
-				"imprt",
-				"views/import.html"
+				"mailpre",
+				"app/mailers/mail_preview.rb"
 			],
 			[
-				"import",
-				"js/import.js"
+				"sidebar",
+				"app/views/playlists/_sidebar_right.html.erb"
 			],
 			[
-				"overlay",
-				"sass/overlay.scss"
+				"empty",
+				"app/assets/javascripts/backbone/templates/empty-playlist-list-item.jst.eco"
 			],
 			[
-				"global",
-				"sass/global.scss"
+				"applicat",
+				"app/assets/stylesheets/application.scss"
 			],
 			[
-				"vinyls",
-				"sass/vinyls.scss"
+				"devep",
+				"config/environments/development.rb"
 			],
 			[
-				"act",
-				"js/actions.js"
+				"faceauthcontro",
+				"app/controllers/facebook_authentication_controller.rb"
 			],
 			[
-				"action",
-				"js/actions.js"
+				"til",
+				"app/assets/stylesheets/web/tiles.css.scss"
 			],
 			[
-				"facebok",
-				"js/facebook.js"
+				"confirm",
+				"app/assets/javascripts/backbone/templates/confirm-dialog.jst.eco"
 			],
 			[
-				"impo",
-				"php/importvinyl.php"
+				"appli",
+				"app/assets/javascripts/application.js"
 			],
 			[
-				"imp",
-				"views/import.html"
+				"playlistssc",
+				"app/assets/stylesheets/web/playlists.css.scss"
 			],
 			[
-				"add",
-				"views/addvinyl.html"
+				"suggestion",
+				"app/views/suggestions/index.html.erb"
 			],
 			[
-				"overla",
-				"sass/overlay.scss"
+				"likebuttonplayer",
+				"spec/javascripts/fixtures/like_button_player.html"
 			],
 			[
-				"actio",
-				"js/actions.js"
+				"usersshow",
+				"app/views/users/show.html.erb"
 			],
 			[
-				"over",
-				"sass/overlay.scss"
+				"usersnew",
+				"app/views/users/new.html.erb"
 			],
 			[
-				"ba",
-				"php/vendor/ba-simple-proxy.php"
-			],
-			[
-				"profil",
-				"sass/profile.scss"
-			],
-			[
-				"profi",
-				"views/userprofile.html"
-			],
-			[
-				"editvin",
-				"views/editvinyl.html"
-			],
-			[
-<<<<<<< HEAD
-				"view",
-				"views/addvinyl.html"
-			],
-			[
-				"ac",
-				"js/actions.js"
-			],
-			[
-				"viny",
-				"sass/vinyls.scss"
-			],
-			[
-				"ove",
-				"sass/overlay.scss"
-			],
-			[
-				"glob",
-				"sass/global.scss"
-=======
-				"flash",
-				"app/views/shared/_flash.html.erb"
->>>>>>> edbd9a68e57f1545482353812d0e1a0a8b66bb2a
+				"suggestionindex",
+				"app/views/suggestions/index.html.erb"
 			]
 		],
 		"width": 0.0
@@ -1213,7 +1278,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 256.0,
+	"side_bar_width": 273.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
