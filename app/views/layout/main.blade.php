@@ -6,7 +6,6 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <?= stylesheet_link_tag() ?>
   <?= javascript_include_tag() ?>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <title>
     Diskollect | @yield('title')
@@ -36,5 +35,7 @@
     <!-- Actual content -->
     @yield('body')
   </div>
+
+  @yield('scripts')
 </body>
 </html>
