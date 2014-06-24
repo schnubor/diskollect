@@ -11,7 +11,6 @@
 		"schnubor/phpclasses-oauth-api": "dev-master"
 	},
 	"require-dev": {
-    "panique/laravel-sass": "dev-master",
 		"way/generators": "2.*"
 	},
 	"autoload": {
