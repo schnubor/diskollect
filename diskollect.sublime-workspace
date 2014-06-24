@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"discogs",
+				"discogs_access_token"
+			],
+			[
+				"Dic",
+				"DiscogsUser"
+			],
+			[
 				"email",
 				"email"
 			],
@@ -196,26 +204,18 @@
 	"buffers":
 	[
 		{
-			"file": "app/views/vinyls/results.blade.php",
+			"file": "app/controllers/HomeController.php",
 			"settings":
 			{
-				"buffer_size": 2554,
+				"buffer_size": 592,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/vinyls/create.blade.php",
+			"file": "app/controllers/UsersController.php",
 			"settings":
 			{
-				"buffer_size": 1872,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/users/show.blade.php",
-			"settings":
-			{
-				"buffer_size": 2554,
+				"buffer_size": 6804,
 				"line_ending": "Unix"
 			}
 		},
@@ -223,23 +223,58 @@
 			"file": "app/routes.php",
 			"settings":
 			{
-				"buffer_size": 2774,
+				"buffer_size": 3155,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/controllers/VinylsController.php",
+			"file": "app/views/users/create.blade.php",
 			"settings":
 			{
-				"buffer_size": 1752,
+				"buffer_size": 1880,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/vinyls/collection.blade.php",
+			"file": "app/views/welcome.blade.php",
 			"settings":
 			{
-				"buffer_size": 470,
+				"buffer_size": 934,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/database/migrations/2014_05_27_220934_create_users_table.php",
+			"settings":
+			{
+				"buffer_size": 1193,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n/*\n * login_with_discogs.php\n *\n * @(#) $Id: login_with_discogs.php,v 1.1 2014/03/17 09:45:08 mlemos Exp $\n *\n */\n\n	/*\n	 *  Get the http.php file from http://www.phpclasses.org/httpclient\n	 */\n	require('http.php');\n	require('oauth_client.php');\n\n	$client = new oauth_client_class;\n	$client->debug = false;\n	$client->debug_http = true;\n	$client->server = 'Discogs';\n	$client->redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].\n		dirname(strtok($_SERVER['REQUEST_URI'],'?')).'/login_with_discogs.php';\n\n	$client->client_id = ''; $application_line = __LINE__;\n	$client->client_secret = '';\n\n	if(strlen($client->client_id) == 0\n	|| strlen($client->client_secret) == 0)\n		die('Please go to Discogs Developers page http://www.discogs.com/applications/edit , '.\n			'create an application, and in the line '.$application_line.\n			' set the client_id to Consumer key and client_secret with Consumer secret. '.\n			'The Callback URL must be '.$client->redirect_uri);\n\n	if(($success = $client->Initialize()))\n	{\n		if(($success = $client->Process()))\n		{\n			if(strlen($client->access_token))\n			{\n				$success = $client->CallAPI(\n					'http://api.discogs.com/oauth/identity', \n					'GET', array(), array('FailOnAccessError'=>true), $user);\n			}\n		}\n		$success = $client->Finalize($success);\n	}\n	if($client->exit)\n		exit;\n	if($success)\n	{\n?>\n<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n<html>\n<head>\n<title>Discogs OAuth client results</title>\n</head>\n<body>\n<?php\n		echo '<h1>', HtmlSpecialChars($user->username), \n			' you have logged in successfully with Discogs!</h1>';\n		echo '<pre>', HtmlSpecialChars(print_r($user, 1)), '</pre>';\n?>\n</body>\n</html>\n<?php\n	}\n	else\n	{\n?>\n<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n<html>\n<head>\n<title>OAuth client error</title>\n</head>\n<body>\n<h1>OAuth client error</h1>\n<pre>Error: <?php echo HtmlSpecialChars($client->error); ?></pre>\n</body>\n</html>\n<?php\n	}\n\n?>",
+			"file": "vendor/phpclasses/oauth-api/login_with_discogs.php",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 1935,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "composer.json",
+			"settings":
+			{
+				"buffer_size": 1120,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/christiankorndoerfer/Projekte/Websites/phpclasses/composer.json",
+			"settings":
+			{
+				"buffer_size": 421,
 				"line_ending": "Unix"
 			}
 		}
@@ -284,24 +319,59 @@
 	},
 	"file_history":
 	[
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/create.blade.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/composer.json",
+		"/Users/christiankorndoerfer/.ssh/id_rsa.pub",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/httpclient/composer.json",
+		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/vinyls/create.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/composer.json",
+		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/vinyls/results.blade.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/app/controllers/VinylsController.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/d11wtq/boris/lib/Boris/DumpInspector.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/diskollect.sublime-project",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/login_with_discogs.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/login_with_disqus.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/login_with_dailymotion.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/login_with_buffer.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/login_with_box.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/login_with_bitly.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/login_with_bitbucket.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/login_with_amazon.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/login_with_37signals.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/login_with_github.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/login_with_odesk.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/app/start/local.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/vinyls/collection.blade.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/app/controllers/UsersController.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/ricbra/php-discogs-api/lib/Discogs/Model/Release.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/ricbra/php-discogs-api/lib/Discogs/Service.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/test_oauth_client.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/vinyls/discogs.blade.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/app/routes.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/vinyls/search.blade.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/readme.md",
+		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/show.blade.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/ricbra/php-discogs-api/lib/Discogs/Model/Image.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/way/generators/src/Way/Generators/InvalidMigrationName.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/public/index.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/oauth_client.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/app/database/migrations/2014_05_27_220934_create_users_table.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/cookie_oauth_client.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/symfony/console/Symfony/Component/Console/Output/Output.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/oauth.sql",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/laravel/framework/src/Illuminate/Auth/AuthServiceProvider.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/phpclasses/oauth-api/mysqli_offline_access_to_google.php",
+		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/create.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/ricbra/php-discogs-api/lib/Discogs/Model/Resultset.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/ricbra/php-discogs-api/lib/Discogs/Model/Result.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/vinyls/results.blade.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/readme.md",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/layout/card.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/layout/main.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/symfony/console/Symfony/Component/Console/Tests/Fixtures/command_astext.txt",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/vinyls/card.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/ricbra/php-discogs-api/lib/Discogs/Model/Pagination.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/controllers/UsersController.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/controllers/VinylsController.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/index.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/layout/navigation.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/artisan",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/laravel/framework/src/Illuminate/Foundation/AliasLoader.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/public/index.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/swiftmailer/swiftmailer/tests/fixtures/MimeEntityFixture.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/laravel/framework/src/Illuminate/Cache/MemcachedConnector.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/predis/predis/lib/Predis/Command/SetMembers.php",
@@ -313,11 +383,8 @@
 		"/Users/christiankorndoerfer/Projekte/diskollect/phpunit.xml",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/models/Vinyl.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/welcome.blade.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/routes.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/vinyls/collection.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/vinyls/show.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/database/seeds/VinylsTableSeeder.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/vinyls/search.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/models/User.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/database/seeds/UsersTableSeeder.php",
 		"/Users/christiankorndoerfer/Projekte/Websites/RESTful/app/controllers/BikesWheelsController.php",
@@ -327,13 +394,11 @@
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/tests/ExampleTest.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/config/view.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/laravel/framework/src/Illuminate/View/ViewServiceProvider.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/show.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/symfony/finder/Symfony/Component/Finder/Expression/ValueInterface.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/predis/predis/lib/Predis/ServerException.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/predis/predis/examples/SessionHandler.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/bootstrap/start.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/database/migrations/2014_05_29_211209_create_vinyls_table.php",
-		"/Users/christiankorndoerfer/Projekte/diskollect/app/database/migrations/2014_05_27_220934_create_users_table.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/views/users/signin.blade.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/app/filters.php",
 		"/Users/christiankorndoerfer/Projekte/diskollect/vendor/symfony/finder/Symfony/Component/Finder/Iterator/FilterIterator.php",
@@ -381,41 +446,11 @@
 		"/Users/korndoerfer/Development/tape-web/test/integration/managing_playlist_test.rb",
 		"/Users/korndoerfer/Development/tape-web/test/integration/tape_mail_delivery_test.rb",
 		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/views/list/masonry_view.coffee",
-		"/Users/korndoerfer/Development/tape-web/vendor/assets/bower/masonry/masonry.js",
-		"/Users/korndoerfer/Development/tape-web/vendor/assets/bower/matches-selector/matches-selector.js",
-		"/Users/korndoerfer/Development/tape-web/app/mailers/mail_preview.rb",
-		"/Users/korndoerfer/Development/tape-web/vendor/assets/bower/jquery.ui/tests/unit/button/button_options.js",
-		"/Users/korndoerfer/Development/tape-web/app/controllers/application_controller.rb",
-		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/views/playlists/edit_view.js.coffee",
-		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/views/application/header_view.js.coffee",
-		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/application.js",
-		"/Users/korndoerfer/Development/tape-web/config/initializers/tape-connect.rb",
-		"/Users/korndoerfer/Development/tape-web/app/tape/ads/preroll_config_generator.rb",
-		"/Users/korndoerfer/Development/tape-web/test/javascripts/acceptance/player/playing-a-video.js.coffee",
-		"/Users/korndoerfer/Development/tape-web/vendor/player/tapePlayer.css",
-		"/Users/korndoerfer/Development/tape-web/app/helpers/application_helper.rb",
-		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/application.scss",
-		"/Users/korndoerfer/Development/tape-web/config/application.rb",
-		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/_globals.css.scss",
-		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/profile.css.scss",
-		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/users.css.scss",
-		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/views/episodes/edit_view.coffee",
-		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/popups.css.scss",
-		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/templates/signin-prompt.jst.eco",
-		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/templates/signup-prompt.jst.eco",
-		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/web/header.css.scss",
-		"/Users/korndoerfer/Development/tape-web/app/views/shared/_head.html.erb",
-		"/Users/korndoerfer/Development/tape-web/app/assets/stylesheets/mailer/html_email.css.erb",
-		"/Users/korndoerfer/Development/tape-web/app/controllers/playlists_controller.rb",
-		"/Users/korndoerfer/Development/tape-web/app/views/shows/new.html.erb",
-		"/Users/korndoerfer/Development/tape-web/app/views/sessions/new.html.erb",
-		"/Users/korndoerfer/Development/tape-web/test/integration/ajaxified_signin_test.rb",
-		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/views/users/signin_view.js.coffee",
-		"/Users/korndoerfer/Development/tape-web/app/assets/javascripts/backbone/views/shared/signin_prompt_view.js.coffee"
+		"/Users/korndoerfer/Development/tape-web/vendor/assets/bower/masonry/masonry.js"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -433,6 +468,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Authorization",
+			"header",
+			"SendAPIRequest",
+			"CallAPI",
+			"CallAPI()",
+			"CallAPI",
+			"expire",
+			"initialize",
+			"configuration",
+			"initialize",
+			"discogs",
+			"initialize",
+			"init",
 			"flush",
 			"tiles-flush",
 			"event",
@@ -547,20 +595,7 @@
 			"loading",
 			"fa-",
 			"facebook-connect",
-			"fa-",
-			"fa-angle-down",
-			".line-header",
-			"top",
-			"53",
-			"border-ra",
-			"rückgängig",
-			"excla",
-			"delete-playlist-prompt",
-			"Benutzername",
-			":avatar",
-			"Erforderlich",
-			"<attr>",
-			"attr"
+			"fa-"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -581,110 +616,47 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/views/vinyls/results.blade.php",
+					"file": "app/controllers/HomeController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2554,
+						"buffer_size": 592,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1680,
-								1680
+								592,
+								592
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
 							"is_xml": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 25.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/views/vinyls/create.blade.php",
+					"file": "app/controllers/UsersController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1872,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								356,
-								356
-							]
-						],
-						"settings":
-						{
-							"is_xml": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/views/users/show.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2554,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1437,
-								1437
-							]
-						],
-						"settings":
-						{
-							"is_xml": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/routes.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2774,
+						"buffer_size": 6804,
 						"regions":
 						{
 						},
@@ -699,66 +671,61 @@
 						{
 							"is_xml": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 969.0,
+						"translation.x": 0.0,
+						"translation.y": 508.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/controllers/VinylsController.php",
+					"buffer": 2,
+					"file": "app/routes.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1752,
+						"buffer_size": 3155,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								315,
-								315
+								2223,
+								2223
 							]
 						],
 						"settings":
 						{
 							"is_xml": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1214.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"sheets":
-			[
+				},
 				{
-					"buffer": 5,
-					"file": "app/views/vinyls/collection.blade.php",
+					"buffer": 3,
+					"file": "app/views/users/create.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 470,
+						"buffer_size": 1880,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								470,
-								470
+								223,
+								223
 							]
 						],
 						"settings":
@@ -772,7 +739,162 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/views/welcome.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 934,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								878,
+								878
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/database/migrations/2014_05_27_220934_create_users_table.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1193,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								632,
+								632
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "vendor/phpclasses/oauth-api/login_with_discogs.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1935,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								475,
+								501
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 7,
+					"file": "composer.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								247,
+								247
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/christiankorndoerfer/Projekte/Websites/phpclasses/composer.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 421,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								378,
+								378
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -832,12 +954,68 @@
 		"selected_items":
 		[
 			[
+				"welcome",
+				"app/views/welcome.blade.php"
+			],
+			[
 				"create",
-				"app/views/vinyls/create.blade.php"
+				"app/views/users/create.blade.php"
+			],
+			[
+				"route",
+				"app/routes.php"
+			],
+			[
+				"users",
+				"app/controllers/UsersController.php"
+			],
+			[
+				"discogs",
+				"vendor/phpclasses/oauth-api/login_with_discogs.php"
+			],
+			[
+				"login",
+				"vendor/phpclasses/oauth-api/login_with_discogs.php"
+			],
+			[
+				"composer",
+				"composer.json"
+			],
+			[
+				"resul",
+				"app/views/vinyls/results.blade.php"
+			],
+			[
+				"search",
+				"app/views/vinyls/search.blade.php"
+			],
+			[
+				"release",
+				"vendor/ricbra/php-discogs-api/lib/Discogs/Model/Release.php"
+			],
+			[
+				"image",
+				"vendor/ricbra/php-discogs-api/lib/Discogs/Model/Image.php"
 			],
 			[
 				"routes",
 				"app/routes.php"
+			],
+			[
+				"use",
+				"app/controllers/UsersController.php"
+			],
+			[
+				"vinyl",
+				"app/controllers/VinylsController.php"
+			],
+			[
+				"oauth",
+				"vendor/phpclasses/oauth-api/oauth_client.php"
+			],
+			[
+				"home",
+				"app/controllers/HomeController.php"
 			],
 			[
 				"collec",
@@ -876,10 +1054,6 @@
 				"vendor/ricbra/php-discogs-api/lib/Discogs/Model/Resultset.php"
 			],
 			[
-				"vinyl",
-				"app/controllers/VinylsController.php"
-			],
-			[
 				"wel",
 				"app/views/welcome.blade.php"
 			],
@@ -904,10 +1078,6 @@
 				"app/views/welcome.blade.php"
 			],
 			[
-				"resul",
-				"app/views/vinyls/results.blade.php"
-			],
-			[
 				"edit",
 				"app/views/users/edit.blade.php"
 			],
@@ -920,10 +1090,6 @@
 				"app/controllers/VinylsController.php"
 			],
 			[
-				"search",
-				"app/views/vinyls/search.blade.php"
-			],
-			[
 				"show",
 				"app/views/users/show.blade.php"
 			],
@@ -932,28 +1098,12 @@
 				"app/filters.php"
 			],
 			[
-				"welcome",
-				"app/views/welcome.blade.php"
-			],
-			[
-				"users",
-				"app/controllers/UsersController.php"
-			],
-			[
 				"welcom",
 				"app/views/welcome.blade.php"
 			],
 			[
-				"route",
-				"app/routes.php"
-			],
-			[
 				"welco",
 				"app/views/welcome.php"
-			],
-			[
-				"home",
-				"app/controllers/HomeController.php"
 			],
 			[
 				"test",
@@ -1314,34 +1464,6 @@
 			[
 				"daten",
 				"app/views/pages/datenschutz.html.erb"
-			],
-			[
-				"artistdrt",
-				"app/assets/javascripts/backbone/templates/artist-detail-prompt.jst.eco"
-			],
-			[
-				"content.",
-				"app/assets/stylesheets/web/content.css.scss"
-			],
-			[
-				"index",
-				"index.html"
-			],
-			[
-				"popups",
-				"app/assets/stylesheets/web/popups.css.scss"
-			],
-			[
-				"artist-deta",
-				"app/assets/javascripts/backbone/templates/artist-detail-prompt.jst.eco"
-			],
-			[
-				"artisthowhtml",
-				"app/views/artists/show.html.erb"
-			],
-			[
-				"artistshowvi",
-				"app/assets/javascripts/backbone/views/artists/show_view.js.coffee"
 			]
 		],
 		"width": 0.0
