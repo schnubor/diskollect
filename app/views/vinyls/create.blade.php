@@ -40,6 +40,7 @@
     $genres = implode(';', $release->getGenres());
     $year = $release->getYear();
     $country = $release->getCountry();
+    $tracklist = $release->getTracklist();
 
   ?>
 
@@ -125,6 +126,17 @@
             @if($errors->has('country'))
               <div class="alert alert-danger">
                 {{ $errors->first('country') }}
+              </div>
+            @endif
+          </div>
+
+          <div class="form-group">
+            {{ Form::label('tracklist', 'Tracklist') }}
+            {{ Form::text('tracklist', $tracklist[0]->getTitle(), array('class' => 'form-control', 'placeholder' => 'Enter tracklist')); }}
+
+            @if($errors->has('tracklist'))
+              <div class="alert alert-danger">
+                {{ $errors->first('tracklist') }}
               </div>
             @endif
           </div>
