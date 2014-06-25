@@ -146,6 +146,8 @@
             @endif
           </div>
           
+          {{ Form::hidden('artwork', $artwork) }}
+          {{ Form::hidden('type', $type) }}
           {{ Form::hidden('user_id', Auth::user()->id) }}
 
       </div>
