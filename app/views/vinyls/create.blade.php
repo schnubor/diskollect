@@ -40,7 +40,12 @@
     $genres = implode(';', $release->getGenres());
     $year = $release->getYear();
     $country = $release->getCountry();
-    $tracklist = $release->getTracklist();
+    $tracklistItems = $release->getTracklist();
+    $tmp_tracklist = [];
+    foreach ($tracklistItems as $item) {
+      array_push($tmp_tracklist, $item->getPosition() . ' ' . $item->getTitle() . ' ' . $item->getDuration());
+    }
+    $tracklist = implode(';', $tmp_tracklist);
 
   ?>
 
@@ -132,7 +137,7 @@
 
           <div class="form-group">
             {{ Form::label('tracklist', 'Tracklist') }}
-            {{ Form::text('tracklist', $tracklist[0]->getTitle(), array('class' => 'form-control', 'placeholder' => 'Enter tracklist')); }}
+            {{ Form::text('tracklist', $tracklist, array('class' => 'form-control', 'placeholder' => 'Enter tracklist')); }}
 
             @if($errors->has('tracklist'))
               <div class="alert alert-danger">
