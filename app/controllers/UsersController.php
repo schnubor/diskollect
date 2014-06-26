@@ -280,7 +280,7 @@ class UsersController extends \BaseController {
 		}
 		else{
 			$file = Input::file('profilepic');
-			$path = public_path() . '/profile_images/';
+			$path = public_path() . '/images/users';
 
 			if($file){
 				$filename = 'user_' . Auth::user()->id . '_' . $file->getClientOriginalName();
