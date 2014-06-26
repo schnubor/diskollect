@@ -265,6 +265,8 @@ class UsersController extends \BaseController {
 	 */
 	public function update()
 	{
+		$user = User::find(Auth::user()->id);
+
 		$validator = Validator::make(Input::all(), array(
 			'name' => 'max:50',
 			'location' => 'max:50',
@@ -285,10 +287,9 @@ class UsersController extends \BaseController {
 			if($file){
 				$filename = 'user_' . Auth::user()->id . '_' . $file->getClientOriginalName();
 				$file->move($path,$filename);
-				$user->image = $path . $filename;
+				$user->image = '/images/users/' . $filename;
 			}
 
-			$user = User::find(Auth::user()->id);
 			$user->name = Input::get('name');
 			$user->location = Input::get('location');
 			$user->website = Input::get('website');
