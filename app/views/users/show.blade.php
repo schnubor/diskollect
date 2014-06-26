@@ -43,14 +43,17 @@
 
     <div class="col-sm-9">
       <div class="page-header profile-user-name">
-        <h2>{{ $user->username }} 
+        <h2>{{ $user->username }} <small>{{ $user->vinyls->count() }} vinyls</small>
         @if(Auth::check() && Auth::user()->id == $user->id)
           <a href="{{ URL::to('users/edit')}}" class="btn btn-default btn-sm pull-right" role="button">Edit Profile</a>
         @endif
         </h2>
       </div>
-      
-      @include('vinyls.table')
+      @if($vinyls->count() == 0)
+        <small>This user doesn't have any vinyls yet.</small>
+      @else
+        @include('vinyls.table')
+      @endif
     </div>
 
   </div>
