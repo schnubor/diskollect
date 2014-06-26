@@ -16,7 +16,7 @@
       <h1>{{ $user->name }}´s Collection</h1>
     @endif
   </div>
-
+  
   @include('vinyls.table')
 @stop
 
