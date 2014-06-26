@@ -10,7 +10,6 @@
   </div>
 
   <div class="row">
-    @include('vinyls.card')
 
     <!-- Tracklist -->
     <div class="col-md-4">

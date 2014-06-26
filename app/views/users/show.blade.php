@@ -5,68 +5,52 @@
 @stop
 
 @section('body')
-  <div class="page-header">
-  	<h1>{{ $user->username }} 
-  	@if(Auth::check())
-  		<a href="{{ URL::to('users/edit')}}" class="btn btn-default btn-sm" role="button">Edit Profile</a>
-  	@endif
-  	</h1>
-  </div>
 
   <div class="row">
-		<div class="col-sm-4"><!--left col-->  
+		<div class="col-sm-3"><!--left col-->  
 
       <ul class="list-group">
-        <li class="list-group-item text-muted"><img src="{{ $user->image }}" alt="{{ $user->username }}" class="img-responsive"></li>
+        <li class="list-group-item text-muted">
+          @if($user->image)
+          <img src="{{ $user->image }}" alt="{{ $user->username }}" class="img-responsive profile-pic">
+          @else
+          <img src="/assets/PH_user_large.png" alt="{{ $user->username }}" class="img-responsive profile-pic"> 
+          @endif
+        </li>
+        @if($user->name)
         <li class="list-group-item text-right"><span class="pull-left"><strong>Name</strong></span> {{ $user->name }}</li>
+        @endif
         <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span> {{ $user->email }}</li>
+        @if($user->location)
         <li class="list-group-item text-right"><span class="pull-left"><strong>Location</strong></span> {{ $user->location }}</li>
+        @endif
       </ul>
+      
+      @if($user->website)
+        <div class="panel panel-default">
+          <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+          <div class="panel-body"><a href="{{ $user->website }}" target="_blank">{{ $user->website }}</a></div>
+        </div>
+      @endif
 
-      <div class="panel panel-default">
-        <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-        <div class="panel-body"><a href="{{ $user->website }}" target="_blank">{{ $user->website }}</a></div>
-      </div>
-
+      @if($user->description)
       <div class="panel panel-default">
         <div class="panel-heading">Description</div>
         <div class="panel-body">{{ $user->description }}</div>
       </div>
+      @endif
     </div>
 
-    <div class="col-sm-8">
-      @foreach($vinyls as $vinyl)
-
-        <?php
-          $genres = explode(';',$vinyl->genre);
-          $labels = explode(';',$vinyl->label);
-        ?>
-
-      	<div class="col-sm-6">
-          <div class="well well-sm">
-            <div class="media">
-              <a class="thumbnail pull-left" href="{{ URL::to('vinyls') }}/{{ $vinyl->id }}" style="margin-bottom: 0;">
-                <img class="media-object" src="{{ $vinyl->artwork }}" style="width: 150px; height: 150px;">
-              </a>
-              <div class="media-body">
-                <h5 class="media-heading">{{ $vinyl->artist }} - {{ $vinyl->title }}</h5>
-                <p>
-                  <span class="label label-info">{{ $vinyl->releasedate }}</span>
-                  @foreach($genres as $genre)
-                    <span class="label label-primary">{{ $genre }}</span>
-                  @endforeach
-                  @foreach($labels as $label)
-                    <span class="label label-warning">{{ $label }}</span> 
-                  @endforeach
-                  <span class="label label-success">{{ $vinyl->country }}</span> 
-                  <span class="label label-default">{{ $vinyl->type }}</span> 
-                  <span class="label label-default">{{ $vinyl->count }}x {{ $vinyl->size }}inch</span>
-                </p>
-              </div>
-            </div>
-          </div>  
-        </div>
-      @endforeach
+    <div class="col-sm-9">
+      <div class="page-header profile-user-name">
+        <h2>{{ $user->username }} 
+        @if(Auth::check() && Auth::user()->id == $user->id)
+          <a href="{{ URL::to('users/edit')}}" class="btn btn-default btn-sm pull-right" role="button">Edit Profile</a>
+        @endif
+        </h2>
+      </div>
+      
+      @include('vinyls.table')
     </div>
 
   </div>

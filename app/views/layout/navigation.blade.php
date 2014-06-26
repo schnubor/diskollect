@@ -14,10 +14,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to('users') }}"><i class="fa fa-users fa-fw"></i> Members</a></li>
+        <li><a href="{{ URL::route('get-all-users') }}"><i class="fa fa-users fa-fw"></i> Members</a></li>
         @if(Auth::check())
-          <li><a href="{{ URL::to('users') }}/{{ Auth::user()->id }}/collection"><i class="fa fa-database fa-fw"></i> Collection</a></li>
-          <li><a href="{{ URL::to('search') }}"><i class="fa fa-search fa-fw"></i> Search Vinyl</a></li>
+          <li><a href="{{ URL::route('get-collection', Auth::user()->id) }}"><i class="fa fa-database fa-fw"></i> Collection</a></li>
+          <li><a href="{{ URL::route('get-search') }}"><i class="fa fa-search fa-fw"></i> Search Vinyl</a></li>
         @endif
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -26,17 +26,17 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->username }}<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="{{ URL::to('users') }}/{{ Auth::user()->id }}"><i class="fa fa-user fa-fw"></i> Your Profile</a></li>
-              <li><a href="{{ URL::to('users/edit') }}"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
-              <li><a href="{{ URL::to('users/change-password') }}"><i class="fa fa-lock fa-fw"></i> Change password</a></li>
+              <li><a href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i> Your Profile</a></li>
+              <li><a href="{{ URL::route('get-edit-user') }}"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
+              <li><a href="{{ URL::route('get-change-password') }}"><i class="fa fa-lock fa-fw"></i> Change password</a></li>
               <li class="divider"></li>
-              <li><a href="{{ URL::to('users/signout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+              <li><a href="{{ URL::route('get-signout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
             </ul>
           </li>
           
         @else
-          <li><a href="{{ URL::to('users/signin') }}"><i class="fa fa-sign-in"></i> Login</a></li>
-          <li><a href="{{ URL::to('users/create') }}"><i class="fa fa-edit"></i> Register</a></li>
+          <li><a href="{{ URL::route('get-signin') }}"><i class="fa fa-sign-in"></i> Login</a></li>
+          <li><a href="{{ URL::route('get-user-create') }}"><i class="fa fa-edit"></i> Register</a></li>
         @endif
         
       </ul>

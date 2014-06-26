@@ -153,14 +153,14 @@ class UsersController extends \BaseController {
 					->with('success-alert', 'Welcome! You have been signed in.');
 			}
 			else{
-				return Redirect::to('/users/signin')
-					->with('danger-alert', 'Oops! Email/Password incorrect or your account is not activated.');
+				return Redirect::to('/signin')
+					->with('login-alert', 'Wrong email or password.');
 			}
 
 		}
 
-		return Redirect::to('/users/signin')
-			->with('danger-alert', 'Oops! There was a problem signing you in.');
+		return Redirect::to('/signin')
+			->with('login-alert', 'There was a problem signing you in.');
 	}
 
 	/**

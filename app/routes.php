@@ -41,7 +41,7 @@ Route::group(array('before' => 'auth'), function(){
   | GET edit user form
   */
   Route::get('users/edit', array(
-    'as' => 'edit-userprofile',
+    'as' => 'get-edit-user',
     'uses' => 'UsersController@edit'
   ));
 
@@ -56,7 +56,7 @@ Route::group(array('before' => 'auth'), function(){
   /*
   | Sign out
   */
-  Route::get('users/signout', array(
+  Route::get('signout', array(
     'as' => 'get-signout',
     'uses' => 'UsersController@getSignout'
   ));
@@ -107,27 +107,27 @@ Route::group(array('before' => 'guest'), function(){
   /*
   | User routes (order is important!)
   */
-  Route::get('users/register', array(
+  Route::get('register', array(
     'as' => 'get-user-create',
     'uses' => 'UsersController@create'
   ));
 
-  Route::post('users/register', array(
-    'as' => 'get-user-create',
+  Route::post('register', array(
+    'as' => 'post-user-create',
     'uses' => 'UsersController@store'
   ));
 
-  Route::get('users/signin', array(
+  Route::get('signin', array(
     'as' => 'get-signin',
     'uses' => 'UsersController@getSignin'
   ));
 
-  Route::post('users/signin', array(
+  Route::post('signin', array(
     'as' => 'post-signin',
     'uses' => 'UsersController@postSignin'
   ));
 
-  Route::get('users/activate/{code}', array(
+  Route::get('activate/{code}', array(
     'as' => 'account-activate',
     'uses' => 'UsersController@activate'
   ));
