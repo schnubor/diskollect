@@ -128,7 +128,7 @@ class UsersController extends \BaseController {
 	public function postSignin()
 	{
 		$validator = Validator::make(Input::all(), array(
-			'email' => 'required|email',
+			'user-email' => 'required',
 			'password' => 'required'
 		));
 
@@ -140,9 +140,10 @@ class UsersController extends \BaseController {
 		else{
 
 			$remember = (Input::has('remember')) ? true : false;
+			$field = filter_var(input::get('user-email'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
 			$auth = Auth::attempt(array(
-				'email' => input::get('email'),
+				$field => input::get('user-email'),
 				'password' => Input::get('password'),
 				'active' => 1
 			), $remember);
