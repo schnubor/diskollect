@@ -8,7 +8,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{ URL::to('/') }}" style="font-weight: bold;">Diskollect</a>
+      <a class="navbar-brand" href="{{ URL::to('/') }}" style="font-weight: bold;">
+        <img src="/assets/logo.png" alt="Logo" class="logo"> Diskollect
+      </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
