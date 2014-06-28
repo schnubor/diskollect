@@ -26,6 +26,8 @@
     $title = $release->getTitle();
 
     $artwork = str_replace('api.discogs.com/image/R-','s.pixogs.com/image/R-',$release->getImages()[0]->getUri());
+    $video = $release->getVideos()[0]->getUri();
+    $videoId = substr($video, -11);
 
     // fetch ALL labels
 
@@ -49,124 +51,139 @@
 
   ?>
 
-  <div class="page-header">
-    <h1>Add new vinyl</h1>
-  </div>
-
   <div class="row">
     <!-- Artwork and Videos -->
     <div class="col-md-4">
-      <h3>Artwork and Videos</h3>
-      <hr>
-      <div class="thumbnail">
-        <img src="{{ $artwork }}" alt="Cover">
+      <div class="well">
+        <legend>Artwork and Videos</legend>
+        <div class="thumbnail">
+          <img src="{{ $artwork }}" alt="Cover">
+        </div>
+        <div class="thumbnail">
+          <iframe width="300" height="169" src="//www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
 
     <!-- Fetched Data -->
     <div class="col-md-4">
-      <div class="form-wrapper">
-        <h3>Fetched Data</h3>
-        <hr>
-        {{ Form::open(array('url' => 'vinyls/create')) }}
-          <div class="form-group">
-            {{ Form::label('artist', 'Artist') }}
-            {{ Form::text('artist', $artist, array('class' => 'form-control', 'placeholder' => 'Enter artist name' )); }}
+      <div class="well">
+        <div class="form-wrapper">
+          <legend>Fetched Data</legend>
 
-            @if($errors->has('artist'))
-              <div class="alert alert-danger">
-                {{ $errors->first('artist') }}
-              </div>
-            @endif
-          </div>
+          {{ Form::open(array('route' => 'post-create-vinyl')) }}
+            <div class="form-group">
+              {{ Form::label('artist', 'Artist') }}
+              {{ Form::text('artist', $artist, array('class' => 'form-control', 'placeholder' => 'Enter artist name' )); }}
 
-          <div class="form-group">
-            {{ Form::label('title', 'Title') }}
-            {{ Form::text('title', $title, array('class' => 'form-control', 'placeholder' => 'Enter vinyl title')); }}
+              @if($errors->has('artist'))
+                <div class="alert alert-danger">
+                  {{ $errors->first('artist') }}
+                </div>
+              @endif
+            </div>
 
-            @if($errors->has('title'))
-              <div class="alert alert-danger">
-                {{ $errors->first('title') }}
-              </div>
-            @endif
-          </div>
+            <div class="form-group">
+              {{ Form::label('title', 'Title') }}
+              {{ Form::text('title', $title, array('class' => 'form-control', 'placeholder' => 'Enter vinyl title')); }}
 
-          <div class="form-group">
-            {{ Form::label('labels', 'Labels') }}
-            {{ Form::text('labels', $label, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
+              @if($errors->has('title'))
+                <div class="alert alert-danger">
+                  {{ $errors->first('title') }}
+                </div>
+              @endif
+            </div>
 
-            @if($errors->has('labels'))
-              <div class="alert alert-danger">
-                {{ $errors->first('labels') }}
-              </div>
-            @endif
-          </div>
+            <div class="form-group">
+              {{ Form::label('labels', 'Labels') }}
+              {{ Form::text('labels', $label, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
 
-          <div class="form-group">
-            {{ Form::label('genres', 'Genres') }}
-            {{ Form::text('genres', $genres, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
+              @if($errors->has('labels'))
+                <div class="alert alert-danger">
+                  {{ $errors->first('labels') }}
+                </div>
+              @endif
+            </div>
 
-            @if($errors->has('genres'))
-              <div class="alert alert-danger">
-                {{ $errors->first('genres') }}
-              </div>
-            @endif
-          </div>
+            <div class="form-group">
+              {{ Form::label('genres', 'Genres') }}
+              {{ Form::text('genres', $genres, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
 
-          <div class="form-group">
-            {{ Form::label('year', 'Release year') }}
-            {{ Form::text('year', $year, array('class' => 'form-control', 'placeholder' => 'Enter release year')); }}
+              @if($errors->has('genres'))
+                <div class="alert alert-danger">
+                  {{ $errors->first('genres') }}
+                </div>
+              @endif
+            </div>
 
-            @if($errors->has('year'))
-              <div class="alert alert-danger">
-                {{ $errors->first('year') }}
-              </div>
-            @endif
-          </div>
+            <div class="form-group">
+              {{ Form::label('year', 'Release year') }}
+              {{ Form::text('year', $year, array('class' => 'form-control', 'placeholder' => 'Enter release year')); }}
 
-          <div class="form-group">
-            {{ Form::label('country', 'Country') }}
-            {{ Form::text('country', $country, array('class' => 'form-control', 'placeholder' => 'Enter country')); }}
+              @if($errors->has('year'))
+                <div class="alert alert-danger">
+                  {{ $errors->first('year') }}
+                </div>
+              @endif
+            </div>
 
-            @if($errors->has('country'))
-              <div class="alert alert-danger">
-                {{ $errors->first('country') }}
-              </div>
-            @endif
-          </div>
+            <div class="form-group">
+              {{ Form::label('country', 'Country') }}
+              {{ Form::text('country', $country, array('class' => 'form-control', 'placeholder' => 'Enter country')); }}
 
-          <div class="form-group">
-            {{ Form::label('tracklist', 'Tracklist') }}
-            {{ Form::text('tracklist', $tracklist, array('class' => 'form-control', 'placeholder' => 'Enter tracklist')); }}
+              @if($errors->has('country'))
+                <div class="alert alert-danger">
+                  {{ $errors->first('country') }}
+                </div>
+              @endif
+            </div>
 
-            @if($errors->has('tracklist'))
-              <div class="alert alert-danger">
-                {{ $errors->first('tracklist') }}
-              </div>
-            @endif
-          </div>
-          
-          {{ Form::hidden('artwork', $artwork) }}
-          {{ Form::hidden('type', $type) }}
-          {{ Form::hidden('user_id', Auth::user()->id) }}
+            <div class="form-group">
+              {{ Form::label('tracklist', 'Tracklist') }}
+              {{ Form::text('tracklist', $tracklist, array('class' => 'form-control', 'placeholder' => 'Enter tracklist')); }}
 
+              @if($errors->has('tracklist'))
+                <div class="alert alert-danger">
+                  {{ $errors->first('tracklist') }}
+                </div>
+              @endif
+            </div>
+            
+            {{ Form::hidden('artwork', $artwork) }}
+            {{ Form::hidden('videos', $video) }}
+            {{ Form::hidden('type', $type) }}
+            {{ Form::hidden('user_id', Auth::user()->id) }}
+
+        </div>
       </div>
     </div>
 
     <!-- User Data -->
     <div class="col-md-4">
-      <h3>Your Data</h3>
-      <hr>
+      <div class="well">
+        <legend>Your Data</legend>
 
-      <div class="form-group">
-        {{ Form::label('price', 'Price') }}
-        {{ Form::text('price', Input::old('price'), array('class' => 'form-control', 'placeholder' => 'What did you pay?')); }}
+        <div class="form-group">
+          {{ Form::label('price', 'Price') }}
+          {{ Form::text('price', Input::old('price'), array('class' => 'form-control', 'placeholder' => 'What did you pay?')); }}
 
-        @if($errors->has('price'))
-          <div class="alert alert-danger">
-            {{ $errors->first('price') }}
-          </div>
-        @endif
+          @if($errors->has('price'))
+            <div class="alert alert-danger">
+              {{ $errors->first('price') }}
+            </div>
+          @endif
+        </div>
+
+        <div class="form-group">
+          {{ Form::label('color', 'Color') }}
+          {{ Form::color() }}
+
+          @if($errors->has('price'))
+            <div class="alert alert-danger">
+              {{ $errors->first('price') }}
+            </div>
+          @endif
+        </div>
       </div>
     </div>
   </div>

@@ -83,6 +83,11 @@ Route::group(array('before' => 'auth'), function(){
     'uses' => 'VinylsController@createVinyl'
   ));
 
+  Route::post('search/vinyl', array(
+    'as' => 'post-create-vinyl',
+    'uses' => 'VinylsController@storeVinyl'
+  ));
+
   /*
   | Discogs oAuth
   */

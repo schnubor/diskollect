@@ -164,7 +164,8 @@ class VinylsController extends \BaseController {
 	*/
 	public function storeVinyl()
 	{
-		return 'store';
+		return Redirect::route('get-collection', Auth::user()->id )
+      ->with('success-alert', 'Success! blablalba is now in your collection.');
 	}
 
 }

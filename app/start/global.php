@@ -79,3 +79,14 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+/*
+|--------------------------------------------------------------------------
+| Costum Macros
+|--------------------------------------------------------------------------
+*/
+
+Form::macro('color', function(){
+  return '<input type="color" name="color" class="form-control" id="colorpicker">';
+});
+

@@ -1,3 +1,3 @@
 $(function(){
-  console.log('Hello, world.');
+  $('#colorpicker').spectrum();
 });
