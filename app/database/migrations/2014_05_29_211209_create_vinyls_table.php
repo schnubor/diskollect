@@ -16,21 +16,21 @@ class CreateVinylsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id');
-			$table->string('artwork');
+			$table->string('artwork')->nullable();
 			$table->string('artist');
 			$table->string('title');
-			$table->string('label');
-			$table->string('genre');
-			$table->float('price');
-			$table->string('videos');
-			$table->text('tracklist');
-			$table->text('country');
+			$table->string('label')->nullable();
+			$table->string('genre')->nullable();
+			$table->float('price')->nullable();
+			$table->string('videos')->nullable();
+			$table->text('tracklist')->nullable();
+			$table->text('country')->nullable();
 			$table->integer('size');
-			$table->integer('count');
+			$table->integer('count')->nullable();
 			$table->string('color');
 			$table->string('type');
-			$table->date('releasedate');
-			$table->string('notes');
+			$table->date('releasedate')->nullable();
+			$table->string('notes')->nullable();
 			$table->timestamps();
 		});
 	}

@@ -40,8 +40,9 @@
 
     $label = $release->getLabels()[0]->getName();
     $genres = implode(';', $release->getGenres());
-    $year = $release->getYear();
+    $year = $release->getReleased();
     $country = $release->getCountry();
+    $count = $release->getFormats()[0]->qty;
     $tracklistItems = $release->getTracklist();
     $tmp_tracklist = [];
     foreach ($tracklistItems as $item) {
@@ -95,23 +96,23 @@
             </div>
 
             <div class="form-group">
-              {{ Form::label('labels', 'Labels') }}
-              {{ Form::text('labels', $label, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
+              {{ Form::label('label', 'Labels') }}
+              {{ Form::text('label', $label, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
 
-              @if($errors->has('labels'))
+              @if($errors->has('label'))
                 <div class="alert alert-danger">
-                  {{ $errors->first('labels') }}
+                  {{ $errors->first('label') }}
                 </div>
               @endif
             </div>
 
             <div class="form-group">
-              {{ Form::label('genres', 'Genres') }}
-              {{ Form::text('genres', $genres, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
+              {{ Form::label('genre', 'Genres') }}
+              {{ Form::text('genre', $genres, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
 
-              @if($errors->has('genres'))
+              @if($errors->has('genre'))
                 <div class="alert alert-danger">
-                  {{ $errors->first('genres') }}
+                  {{ $errors->first('genre') }}
                 </div>
               @endif
             </div>
@@ -184,6 +185,40 @@
             </div>
           @endif
         </div>
+
+        <div class="form-group">
+          {{ Form::label('size', 'Size') }}
+          {{ Form::select('size', array('7' => '7"', '10' => '10"', '12' => '12"'), '12', array('class' => 'form-control')); }}
+
+          @if($errors->has('size'))
+            <div class="alert alert-danger">
+              {{ $errors->first('size') }}
+            </div>
+          @endif
+        </div>
+
+        <div class="form-group">
+          {{ Form::label('count', 'Count') }}
+          {{ Form::text('count', $count, array('class' => 'form-control', 'placeholder' => 'Quantity of vinyls')); }}
+
+          @if($errors->has('count'))
+            <div class="alert alert-danger">
+              {{ $errors->first('count') }}
+            </div>
+          @endif
+        </div>
+
+        <div class="form-group">
+          {{ Form::label('notes', 'Notes') }}
+          {{ Form::text('notes', Input::old('notes'), array('class' => 'form-control', 'placeholder' => '140 characters')); }}
+
+          @if($errors->has('notes'))
+            <div class="alert alert-danger">
+              {{ $errors->first('notes') }}
+            </div>
+          @endif
+        </div>
+
       </div>
     </div>
   </div>

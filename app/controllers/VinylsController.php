@@ -164,8 +164,47 @@ class VinylsController extends \BaseController {
 	*/
 	public function storeVinyl()
 	{
-		return Redirect::route('get-collection', Auth::user()->id )
-      ->with('success-alert', 'Success! blablalba is now in your collection.');
+    $validator = Validator::make(Input::all(), array(
+      'artist' => 'required',
+      'title' => 'required'
+    ));
+
+    if($validator->fails()){
+
+    }
+    else{
+      // Create vinyl
+
+
+      $vinyl = Vinyl::create(array(
+        'user_id' => input::get('user_id'),
+        'artwork' => input::get('artwork'),
+        'artist' => Input::get('artist'),
+        'title' => Input::get('title'),
+        'label' => input::get('label'),
+        'genre' => input::get('genre'),
+        'price' => input::get('price'),
+        'videos' => input::get('videos'),
+        'tracklist' => input::get('tracklist'),
+        'country' => input::get('country'),
+        'size' => input::get('size'),
+        'count' => input::get('count'),
+        'color' => input::get('color'),
+        'type' => input::get('type'),
+        'releasedate' => input::get('year'),
+        'notes' => input::get('notes')
+      ));
+
+      if($vinyl){
+        return Redirect::route('get-collection', Auth::user()->id )
+          ->with('success-alert', 'Success! <strong>' . Input::get('artist') . ' - ' . Input::get('title') . '</strong> is now in your collection.');
+      }
+    }
+
+		return Redirect::route('get-create-vinyl')
+      ->withInput()
+      ->withErrors()
+      ->with('danger-alert', 'Oops! The vinyl could not be added.');
 	}
 
 }
