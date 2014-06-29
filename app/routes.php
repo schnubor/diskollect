@@ -89,6 +89,15 @@ Route::group(array('before' => 'auth'), function(){
   ));
 
   /*
+  | Delete Vinyl
+  */
+
+  Route::delete('vinyl/{id}', array(
+    'as' => 'delete-vinyl',
+    'uses' => 'VinylsController@deleteVinyl'
+  ));
+
+  /*
   | Discogs oAuth
   */
 
@@ -154,7 +163,7 @@ Route::get('users/{id}', array(
 ));
 
 /*
-| Collection
+| Show Collection
 */
 Route::get('users/{id}/collection', array(
   'as' => 'get-collection',
@@ -162,7 +171,7 @@ Route::get('users/{id}/collection', array(
 ));
 
 /*
-| Single Vinyl
+| Show Single Vinyl
 */
 Route::get('vinyls/{id}', array(
   'as' => 'get-vinyl',

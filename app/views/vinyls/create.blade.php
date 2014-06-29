@@ -74,7 +74,7 @@
 
           {{ Form::open(array('route' => 'post-create-vinyl')) }}
             <div class="form-group">
-              {{ Form::label('artist', 'Artist') }}
+              {{ Form::label('artist', 'Artist') }} <span style="color: red;">*</span>
               {{ Form::text('artist', $artist, array('class' => 'form-control', 'placeholder' => 'Enter artist name' )); }}
 
               @if($errors->has('artist'))
@@ -85,7 +85,7 @@
             </div>
 
             <div class="form-group">
-              {{ Form::label('title', 'Title') }}
+              {{ Form::label('title', 'Title') }} <span style="color: red;">*</span>
               {{ Form::text('title', $title, array('class' => 'form-control', 'placeholder' => 'Enter vinyl title')); }}
 
               @if($errors->has('title'))
@@ -165,7 +165,7 @@
         <legend>Your Data</legend>
 
         <div class="form-group">
-          {{ Form::label('price', 'Price') }}
+          {{ Form::label('price', 'Price') }} <span style="color: red;">*</span>
           {{ Form::text('price', Input::old('price'), array('class' => 'form-control', 'placeholder' => 'What did you pay?')); }}
 
           @if($errors->has('price'))

@@ -166,15 +166,16 @@ class VinylsController extends \BaseController {
 	{
     $validator = Validator::make(Input::all(), array(
       'artist' => 'required',
-      'title' => 'required'
+      'title' => 'required',
+      'price' => 'required|numeric'
     ));
 
     if($validator->fails()){
-
+      return Redirect::back()
+        ->with('danger-alert', 'Oops! Artist, Title and Price are required.');
     }
     else{
       // Create vinyl
-
 
       $vinyl = Vinyl::create(array(
         'user_id' => input::get('user_id'),
@@ -203,8 +204,23 @@ class VinylsController extends \BaseController {
 
 		return Redirect::route('get-create-vinyl')
       ->withInput()
-      ->withErrors()
       ->with('danger-alert', 'Oops! The vinyl could not be added.');
 	}
+
+  /*
+  | Delete Vinyl
+  */
+  public function deleteVinyl($id){
+    $vinyl = Vinyl::find($id);
+    
+    if($vinyl->delete()){
+      return Redirect::route('get-collection', Auth::user()->id )
+        ->with('info-alert', 'All done! Vinyl deleted successfully.');
+    }
+    else{
+      return Redirect::route('get-collection', Auth::user()->id )
+        ->with('danger-alert', 'Oops! Vinyl could not be deleted.');
+    }
+  }
 
 }

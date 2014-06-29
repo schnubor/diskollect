@@ -15,7 +15,7 @@
         {{ Form::open(array('url' => 'search')) }}
           <div class="form-group">
             {{ Form::label('artist', 'Artist') }}
-            {{ Form::text('artist', Input::old('artist'), array('class' => 'form-control', 'placeholder' => 'Daft Punk')); }}
+            {{ Form::text('artist', Input::old('artist'), array('class' => 'form-control')); }}
 
             @if($errors->has('artist'))
               <div class="alert alert-danger">
@@ -25,7 +25,7 @@
           </div>
           <div class="form-group">
             {{ Form::label('title', 'Title') }}
-            {{ Form::text('title', Input::old('title'), array('class' => 'form-control', 'placeholder' => 'Random Access Memories')); }}
+            {{ Form::text('title', Input::old('title'), array('class' => 'form-control')); }}
 
             @if($errors->has('title'))
               <div class="alert alert-danger">
