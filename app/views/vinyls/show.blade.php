@@ -25,36 +25,42 @@
     </div>
 
     <div class="col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">{{ $vinyl->artist }} - {{ $vinyl->title }} <small>released {{ $vinyl->releasedate }}</small></h3>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-12">
-              @foreach($labels as $label)
-                <span class="label-primary label">{{ $label }}</span>
-              @endforeach
-              @foreach($genres as $genre)
-                <span class="label-warning label">{{ $genre }}</span>
-              @endforeach
-              <span class="label-success label">{{ $vinyl->country }}</span>
-              <span class="label-default label">{{ $vinyl->count . 'x ' . $vinyl->size . '" ' . $vinyl->type }}</span>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{ $vinyl->artist }} - {{ $vinyl->title }} <small>released {{ $vinyl->releasedate }}</small></h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">
+                  @foreach($labels as $label)
+                    <span class="label-primary label">{{ $label }}</span>
+                  @endforeach
+                  @foreach($genres as $genre)
+                    <span class="label-warning label">{{ $genre }}</span>
+                  @endforeach
+                  <span class="label-success label">{{ $vinyl->country }}</span>
+                  <span class="label-default label">{{ $vinyl->count . 'x ' . $vinyl->size . '" ' . $vinyl->type }}</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-3">
-              <p class="h3">
+        </div>
+
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Price</h3>
+            </div>
+            <div class="panel-body">
+              <p class="vinyl-detail price">
                 {{ round($vinyl->price, 2) }} EUR
               </p>
             </div>
-            <div class="col-md-9">
-              <p class="h3">
-                <small>added</small> {{ $vinyl->created_at }}
-              </p>
-            </div>
           </div>
         </div>
+
       </div>
     </div>
   
@@ -75,7 +81,7 @@
   <div class="row">
 
     <!-- User -->
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Added by</h3>
@@ -102,7 +108,7 @@
     </div>
 
     <!-- Video -->
-    <div class="col-md-6">
+    <div class="col-md-5">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Videos</h3>

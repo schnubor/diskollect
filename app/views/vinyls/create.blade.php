@@ -17,7 +17,7 @@
       $release = $service->getRelease($id);
     }
     else{
-      $release = $service->getMaster($id);
+      $release = $service->getRelease($service->getMaster($id)->getMainRelease());
     }
 
     // --- get release data ------------------ 
@@ -26,8 +26,13 @@
     $title = $release->getTitle();
 
     $artwork = str_replace('api.discogs.com/image/R-','s.pixogs.com/image/R-',$release->getImages()[0]->getUri());
-    $video = $release->getVideos()[0]->getUri();
-    $videoId = substr($video, -11);
+    if($release->getVideos()[0]){
+      $video = $release->getVideos()[0]->getUri();
+      $videoId = substr($video, -11);
+    }
+    else{
+      $video = 'none';
+    }
 
     // fetch ALL labels
 
@@ -53,16 +58,23 @@
   ?>
 
   <div class="row">
+    {{ Form::open(array('route' => 'post-create-vinyl')) }}
     <!-- Artwork and Videos -->
     <div class="col-md-4">
       <div class="well">
         <legend>Artwork and Videos</legend>
         <div class="thumbnail">
-          <img src="{{ $artwork }}" alt="Cover">
+          <img src="{{ $artwork }}" id="vinyl-artwork" alt="Cover">
         </div>
-        <div class="thumbnail">
-          <iframe width="300" height="169" src="//www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
+        <div class="form-group">
+          {{ Form::label('artwork', 'Artwork URL') }}
+          {{ Form::text('artwork', $artwork, array('class' => 'form-control', 'id' => 'vinyl-artwork-url', 'placeholder' => 'Paste Artwork URL')) }}
         </div>
+        @if($video != 'none')
+          <div class="thumbnail">
+            <iframe width="300" height="169" src="//www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
+          </div>
+        @endif
       </div>
     </div>
 
@@ -72,7 +84,7 @@
         <div class="form-wrapper">
           <legend>Fetched Data</legend>
 
-          {{ Form::open(array('route' => 'post-create-vinyl')) }}
+          
             <div class="form-group">
               {{ Form::label('artist', 'Artist') }} <span style="color: red;">*</span>
               {{ Form::text('artist', $artist, array('class' => 'form-control', 'placeholder' => 'Enter artist name' )); }}
@@ -150,7 +162,6 @@
               @endif
             </div>
             
-            {{ Form::hidden('artwork', $artwork) }}
             {{ Form::hidden('videos', $video) }}
             {{ Form::hidden('type', $type) }}
             {{ Form::hidden('user_id', Auth::user()->id) }}
