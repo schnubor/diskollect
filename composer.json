@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"ricbra/php-discogs-api": "0.6",
-		"phpclasses/httpclient": ">=1.0.1",
+    "schnubor/phpclasses-sasl": "dev-master",
+		"schnubor/phpclasses-httpclient": "dev-master",
     "codesleeve/asset-pipeline": "dev-master",
 		"schnubor/phpclasses-oauth-api": "dev-master"
 	},
@@ -43,12 +44,16 @@
 	"repositories":
   [
     {
-      "type": "composer",
-      "url": "http:\/\/www.phpclasses.org\/"
+      "type": "vcs",
+      "url": "https://github.com/schnubor/phpclasses-oauth-api.git"
     },
     {
       "type": "vcs",
-      "url": "https://github.com/schnubor/phpclasses-oauth-api.git"
+      "url": "https://github.com/schnubor/phpclasses-httpclient.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/schnubor/phpclasses-sasl.git"
     }
   ]
 }
