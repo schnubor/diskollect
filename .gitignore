@@ -8,3 +8,4 @@ composer.lock
 Thumbs.db
 diskollect.sublime-workspace
 diskollect.sublime-project
+.env.local.php
