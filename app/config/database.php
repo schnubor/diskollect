@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => '95.85.10.10',
-			'database'  => 'diskollect',
-			'username'  => 'forge',
-			'password'  => 'amLF4DS60ICOew267yuC',
+			'host'      => $_ENV['DB_HOST'],
+			'database'  => $_ENV['DB_NAME'],
+			'username'  => $_ENV['DB_USERNAME'],
+			'password'  => $_ENV['DB_PASSWORD'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
