@@ -1,7 +1,9 @@
 .vinyl-detail{
-  &.price{
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
+  &.vinyl-title{
+    margin-top: 0;
+  }
+
+  &.notes{
+    font-style: italic;
   }
 }
