@@ -235,12 +235,22 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
+		$lvlFactor = 10; // bigger = slower leveling
+
 		$user = User::find($id);
 		$vinyls = $user->vinyls;
+		$level = floor(($lvlFactor+sqrt($lvlFactor*$lvlFactor+4*$lvlFactor+$vinyls->count()))/(2*$lvlFactor));
+
+		$currentLvlVinyls = $lvlFactor*$level*$level-$lvlFactor*$level;
+		$nextLvlVinyls = $lvlFactor*($level+1)*($level+1)-$lvlFactor*($level+1);
+
+		$progress = floor($vinyls->count() / (($nextLvlVinyls - $currentLvlVinyls) / 100));
 
 		return View::make('users.show')
 			->with('user', $user)
-			->with('vinyls', $vinyls);
+			->with('vinyls', $vinyls)
+			->with('level', $level)
+			->with('progress', $progress);
 	}
 
 	/**
