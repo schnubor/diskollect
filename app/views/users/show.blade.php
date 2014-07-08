@@ -43,22 +43,28 @@
 
     <div class="col-sm-9">
       <div class="page-header profile-user-name">
-        <h2>{{ $user->username }} <small>{{ $user->vinyls->count() }} vinyls | Level {{ $level }}</small>
+        <h1>{{ $user->username }} <small>{{ $user->vinyls->count() }} vinyls</small>
+        <a href="{{ URL::to('users/edit') }}" class="btn btn-primary btn-sm pull-right" role="button"><i class="fa fa-database fa-fw"></i> View Collection</a>
         @if(Auth::check() && Auth::user()->id == $user->id)
-          <a href="{{ URL::to('users/edit')}}" class="btn btn-default btn-sm pull-right" role="button">Edit Profile</a>
+          <a href="{{ URL::to('users/edit') }}" class="btn btn-default btn-sm pull-right" role="button" style="margin-right: 10px;"><i class="fa fa-gear fa-fw"></i> Edit Profile</a>
         @endif
-        </h2>
+        </h1>
       </div>
 
       <!-- Level progress -->
-
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2>Level {{ $level }}</h2>
+          <div class="profile-user-rank">Beginner</div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-1">
           <strong>Lvl {{ $level }}</strong>
         </div>
         <div class="col-md-10">
           <div class="progress">
-            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $progress }}%;">
+            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{ $progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $progress }}%;">
               {{ $progress }}%
             </div>
           </div>
