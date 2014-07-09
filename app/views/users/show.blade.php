@@ -63,7 +63,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="progress">
-            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{ $progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $progress }}%;">
+            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{ $progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $progress }}%; min-width: 30px;">
               {{ $progress }}%
             </div>
           </div>
