@@ -17,6 +17,7 @@
           <img src="/assets/PH_user_large.png" alt="{{ $user->username }}" class="img-responsive profile-pic">
           @endif
         </li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Username</strong></span> {{ $user->username }}</li>
         @if($user->name)
         <li class="list-group-item text-right"><span class="pull-left"><strong>Name</strong></span> {{ $user->name }}</li>
         @endif
@@ -49,12 +50,12 @@
 
     <div class="col-sm-9">
       <div class="page-header profile-user-name">
-        <h1>{{ $user->username }} <small>{{ $user->vinyls->count() }} vinyls</small></h1>
+        <h1>{{ $user->vinyls->count() }} vinyls</h1>
       </div>
 
       <!-- Level progress -->
       <div class="row">
-        <div class="col-md-12 text-center">
+        <div class="col-xs-6 col-xs-offset-3 text-center well">
           <h2>Level {{ $level }}</h2>
           <div class="profile-user-rank">Beginner</div>
         </div>
@@ -66,6 +67,17 @@
               {{ $progress }}%
             </div>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          <strong>Lvl {{ $level }}</strong>
+        </div>
+        <div class="col-xs-4 text-center">
+          <span class="progress-count">{{ $user->vinyls->count() }}/{{ $nextLvlVinyls }} Vinyls</span>
+        </div>
+        <div class="col-xs-4">
+          <strong class="pull-right">Lvl {{ $level+1 }}</strong>
         </div>
       </div>
 

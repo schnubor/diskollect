@@ -29,7 +29,7 @@ class CreateVinylsTable extends Migration {
 			$table->integer('count')->nullable();
 			$table->string('color');
 			$table->string('type');
-			$table->date('releasedate')->nullable();
+			$table->string('releasedate')->nullable();
 			$table->string('notes')->nullable();
 			$table->timestamps();
 		});

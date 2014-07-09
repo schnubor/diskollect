@@ -250,7 +250,8 @@ class UsersController extends \BaseController {
 			->with('user', $user)
 			->with('vinyls', $vinyls)
 			->with('level', $level)
-			->with('progress', $progress);
+			->with('progress', $progress)
+			->with('nextLvlVinyls', $nextLvlVinyls);
 	}
 
 	/**
