@@ -46,9 +46,9 @@ class VinylsController extends \BaseController {
       {
         if(strlen($client->access_token))
         {
-          
+
           if($success = $client->CallAPI(
-            'http://api.discogs.com/oauth/identity', 
+            'http://api.discogs.com/oauth/identity',
             'GET', array(), array('FailOnAccessError'=>true), $DiscogsUser))
           {
 	          $user = User::find(Auth::user()->id); // Find current user
@@ -72,7 +72,7 @@ class VinylsController extends \BaseController {
     else{
       dd($client->error);
     }
-    
+
     if($client->exit)
        exit;
 
@@ -197,7 +197,7 @@ class VinylsController extends \BaseController {
       ));
 
       if($vinyl){
-        return Redirect::route('get-collection', Auth::user()->id )
+        return Redirect::route('get-user', Auth::user()->id )
           ->with('success-alert', 'Success! <strong>' . Input::get('artist') . ' - ' . Input::get('title') . '</strong> is now in your collection.');
       }
     }
@@ -212,7 +212,7 @@ class VinylsController extends \BaseController {
   */
   public function deleteVinyl($id){
     $vinyl = Vinyl::find($id);
-    
+
     if($vinyl->delete()){
       return Redirect::route('get-collection', Auth::user()->id )
         ->with('info-alert', 'All done! Vinyl deleted successfully.');
