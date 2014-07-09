@@ -237,6 +237,9 @@ class UsersController extends \BaseController {
 	{
 		$lvlFactor = 10; // bigger = slower leveling
 
+		// Ranks
+		$rank = ["1" => "Beginner", "2" => "Rookie", "3" => "Advanced Rookie", "4" => "Enthusiast", "5" => "Lover", "6" => "Expert", "7" => "Collector", "8" => "Master Collector", "9" => "Nerd", "10" => "Vinyl Guru"];
+
 		$user = User::find($id);
 		$vinyls = $user->vinyls;
 		$level = floor(($lvlFactor+sqrt($lvlFactor*$lvlFactor+4*$lvlFactor*$vinyls->count()))/(2*$lvlFactor));
@@ -251,7 +254,8 @@ class UsersController extends \BaseController {
 			->with('vinyls', $vinyls)
 			->with('level', $level)
 			->with('progress', $progress)
-			->with('nextLvlVinyls', $nextLvlVinyls);
+			->with('nextLvlVinyls', $nextLvlVinyls)
+			->with('rank', $rank[$level]);
 	}
 
 	/**
