@@ -38,7 +38,8 @@ class UsersController extends \BaseController {
 			'email' => 'required|max:50|email|unique:users',
 			'username' => 'required|max:20|min:3|unique:users',
 			'password' => 'required|min:6',
-			'password_again' => 'required|same:password'
+			'password_again' => 'required|same:password',
+			'currency' => 'required'
 		));
 
 		if($validator->fails()){
@@ -52,6 +53,7 @@ class UsersController extends \BaseController {
 			$email 		= Input::get('email');
 			$username = Input::get('username');
 			$password = Input::get('password');
+			$currency = Input::get('currency');
 
 			// Activation Code
 			$code 		= str_random(60);
@@ -59,6 +61,7 @@ class UsersController extends \BaseController {
 			$user = User::create(array(
 				'email' => $email,
 				'username' => $username,
+				'currency' => $currency,
 				'password' => Hash::make($password),
 				'code' => $code,
 				'active' => 0
@@ -70,7 +73,7 @@ class UsersController extends \BaseController {
 				});
 
 				return Redirect::to('/')
-					->with('success-alert', 'Your account hast been created! We have sent you an email.');
+					->with('success-alert', 'Your account hast been created! We have sent you an email.' . $currency);
 			}
 
 		}
@@ -284,11 +287,12 @@ class UsersController extends \BaseController {
 		$user = User::find(Auth::user()->id);
 
 		$validator = Validator::make(Input::all(), array(
-			'name' => 'max:50',
-			'location' => 'max:50',
-			'website' => 'url|max:50',
+			'name' 				=> 'max:50',
+			'location' 		=> 'max:50',
+			'website' 		=> 'url|max:50',
 			'description' => 'max:140',
-			'profilepic' => 'image|max:2000'
+			'profilepic' 	=> 'image|max:2000',
+			'currency'		=> 'required'
 		));
 
 		if($validator->fails()){
@@ -310,6 +314,7 @@ class UsersController extends \BaseController {
 			$user->location = Input::get('location');
 			$user->website = Input::get('website');
 			$user->description = Input::get('description');
+			$user->currency = Input::get('currency');
 
 			if($user->save()){
 				return Redirect::to('/users/'.Auth::user()->id)

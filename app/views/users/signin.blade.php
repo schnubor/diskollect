@@ -6,7 +6,7 @@
 
 @section('body')
   <div class="row">
-    <div class="col-lg-offset-4 col-md-4 well">
+    <div class="col-md-offset-4 col-md-4 well">
       <legend>Please Sign In</legend>
       @if(Session::has('login-alert'))
         <div class="alert alert-danger alert-dismissable">
