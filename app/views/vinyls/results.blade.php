@@ -71,7 +71,7 @@
               <td>{{ $artist }}</td>
               <td>{{ $vinylTitle }}</td>
               <td>
-                <a href="{{ URL::route('get-create-vinyl') }}?id={{ $result->getId() }}&type={{ $result->getType() }}"><button class="btn btn-sm btn-success">Add</button></a>
+                <a href="{{ URL::route('get-create-vinyl-search') }}?id={{ $result->getId() }}&type={{ $result->getType() }}"><button class="btn btn-sm btn-success">Add</button></a>
               </td>
             </tr>
           @endforeach

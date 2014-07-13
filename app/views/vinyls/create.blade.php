@@ -6,54 +6,71 @@
 
 @section('body')
   <?php
-    // --- get release from Discogs ----------
-    $service = new \Discogs\Service();
 
-    $data = Input::all();
-    $id = $data['id'];
-    $type = $data['type'];
+    if($data = Input::all()){
+      // --- get release from Discogs ----------
+      $service = new \Discogs\Service();
 
-    if($type == 'release'){
-      $release = $service->getRelease($id);
+      $id = $data['id'];
+      $type = $data['type'];
+
+      if($type == 'release'){
+        $release = $service->getRelease($id);
+      }
+      else{
+        $release = $service->getRelease($service->getMaster($id)->getMainRelease());
+      }
+
+      // --- get release data ------------------ 
+
+      $artist = $release->getArtists()[0]->getName();
+      $title = $release->getTitle();
+
+      $artwork = str_replace('api.discogs.com/image/R-','s.pixogs.com/image/R-',$release->getImages()[0]->getUri());
+      if($release->getVideos()[0]){
+        $video = $release->getVideos()[0]->getUri();
+        $videoId = substr($video, -11);
+      }
+      else{
+        $video = null;
+      }
+
+      // fetch ALL labels
+
+      /*$labelsObj = $release->getLabels();
+      $tmp_labels = [];
+      foreach ($labelsObj as $label) {
+        array_push($tmp_labels, $label->getName());
+      }
+      $labels = implode(';', $tmp_labels);*/
+
+      $label = $release->getLabels()[0]->getName();
+      $genres = implode(';', $release->getGenres());
+      $year = $release->getReleased();
+      $country = $release->getCountry();
+      $count = $release->getFormats()[0]->qty;
+      $tracklistItems = $release->getTracklist();
+      $tmp_tracklist = [];
+      foreach ($tracklistItems as $item) {
+        array_push($tmp_tracklist, $item->getPosition() . ' ' . $item->getTitle() . ' ' . $item->getDuration());
+      }
+      $tracklist = implode(';', $tmp_tracklist);
     }
     else{
-      $release = $service->getRelease($service->getMaster($id)->getMainRelease());
+      $id = null;
+      $type = null;
+      $artist = null;
+      $title = null;
+      $artwork = null;
+      $video = null;
+      $videoId = null;
+      $label = null;
+      $genres = null;
+      $year = null;
+      $country = null;
+      $count = null;
+      $tracklist = null;
     }
-
-    // --- get release data ------------------ 
-
-    $artist = $release->getArtists()[0]->getName();
-    $title = $release->getTitle();
-
-    $artwork = str_replace('api.discogs.com/image/R-','s.pixogs.com/image/R-',$release->getImages()[0]->getUri());
-    if($release->getVideos()[0]){
-      $video = $release->getVideos()[0]->getUri();
-      $videoId = substr($video, -11);
-    }
-    else{
-      $video = 'none';
-    }
-
-    // fetch ALL labels
-
-    /*$labelsObj = $release->getLabels();
-    $tmp_labels = [];
-    foreach ($labelsObj as $label) {
-      array_push($tmp_labels, $label->getName());
-    }
-    $labels = implode(';', $tmp_labels);*/
-
-    $label = $release->getLabels()[0]->getName();
-    $genres = implode(';', $release->getGenres());
-    $year = $release->getReleased();
-    $country = $release->getCountry();
-    $count = $release->getFormats()[0]->qty;
-    $tracklistItems = $release->getTracklist();
-    $tmp_tracklist = [];
-    foreach ($tracklistItems as $item) {
-      array_push($tmp_tracklist, $item->getPosition() . ' ' . $item->getTitle() . ' ' . $item->getDuration());
-    }
-    $tracklist = implode(';', $tmp_tracklist);
 
   ?>
 
@@ -64,13 +81,13 @@
       <div class="well">
         <legend>Artwork and Videos</legend>
         <div class="thumbnail">
-          <img src="{{ $artwork }}" id="vinyl-artwork" alt="Cover">
+          <img src="{{ $artwork }}" id="vinyl-artwork">
         </div>
         <div class="form-group">
           {{ Form::label('artwork', 'Artwork URL') }}
           {{ Form::text('artwork', $artwork, array('class' => 'form-control', 'id' => 'vinyl-artwork-url', 'placeholder' => 'Paste Artwork URL')) }}
         </div>
-        @if($video != 'none')
+        @if($video != null)
           <div class="thumbnail">
             <iframe width="300" height="169" src="//www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
           </div>

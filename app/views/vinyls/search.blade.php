@@ -11,7 +11,7 @@
   
   <div class="row">
     <div class="col-md-3">
-      <div class="well">
+      <div class="well" style="margin-bottom: 0;">
         <div class="form-wrapper">
           {{ Form::open(array('url' => 'search')) }}
             <div class="form-group">
@@ -39,6 +39,13 @@
           {{ Form::close() }}
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <hr>
+      <a href="{{ URL::route('get-create-vinyl') }}" class="btn btn-lg btn-primary" style="width: 100%"><i class="fa fa-plus fa-fw"></i> Add manually</a>
     </div>
   </div>
 

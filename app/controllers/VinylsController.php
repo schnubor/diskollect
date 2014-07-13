@@ -202,7 +202,7 @@ class VinylsController extends \BaseController {
       }
     }
 
-		return Redirect::route('get-create-vinyl')
+		return Redirect::route('get-create-vinyl-search')
       ->withInput()
       ->with('danger-alert', 'Oops! The vinyl could not be added.');
 	}
