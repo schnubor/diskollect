@@ -159,6 +159,61 @@ class VinylsController extends \BaseController {
 			->with('vinyl', $vinyl);
 	}
 
+  /*
+  | GET edit Vinyl Form
+  */
+  public function editVinyl($id){
+    $vinyl = Vinyl::find($id);
+
+    return View::make('vinyls.edit')
+      ->with('vinyl', $vinyl);
+  }
+
+  /*
+  | UPDATE Vinyl
+  */
+  public function updateVinyl($id){
+    $validator = Validator::make(Input::all(), array(
+      'artist' => 'required',
+      'title' => 'required',
+      'price' => 'required|numeric'
+    ));
+
+    if($validator->fails()){
+      return Redirect::back()
+        ->with('danger-alert', 'Oops! Artist, Title and Price are required.');
+    }
+    else{
+      // Update vinyl
+      $vinyl = Vinyl::find($id);
+
+      $vinyl->artwork = input::get('artwork');
+      $vinyl->artist = Input::get('artist');
+      $vinyl->title = Input::get('title');
+      $vinyl->label = input::get('label');
+      $vinyl->genre = input::get('genre');
+      $vinyl->price = input::get('price');
+      $vinyl->videos = input::get('videos');
+      $vinyl->tracklist = input::get('tracklist');
+      $vinyl->country = input::get('country');
+      $vinyl->size = input::get('size');
+      $vinyl->count = input::get('count');
+      $vinyl->color = input::get('color');
+      $vinyl->type = input::get('type');
+      $vinyl->releasedate = input::get('year');
+      $vinyl->notes = input::get('notes');
+
+      if($vinyl->save()){
+        return Redirect::route('get-collection', Auth::user()->id )
+          ->with('success-alert', 'Success! <strong>' . Input::get('artist') . ' - ' . Input::get('title') . '</strong> was updated.');
+      }
+    }
+
+    return Redirect::route('get-edit-vinyl')
+      ->withInput()
+      ->with('danger-alert', 'Oops! The vinyl could not be updated.');
+  }
+
 	/*
 	| POST store Vinyl Form
 	*/
@@ -202,7 +257,7 @@ class VinylsController extends \BaseController {
       }
     }
 
-		return Redirect::route('get-create-vinyl')
+		return Redirect::route('get-create-vinyl-search')
       ->withInput()
       ->with('danger-alert', 'Oops! The vinyl could not be added.');
 	}

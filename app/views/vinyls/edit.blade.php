@@ -1,93 +1,28 @@
 @extends('layout.main')
 
 @section('title')
-  New Vinyl
+  Edit Vinyl
 @stop
 
 @section('body')
-  <?php
-
-    if($data = Input::all()){
-      // --- get release from Discogs ----------
-      $service = new \Discogs\Service();
-
-      $id = $data['id'];
-      $type = $data['type'];
-
-      if($type == 'release'){
-        $release = $service->getRelease($id);
-      }
-      else{
-        $release = $service->getRelease($service->getMaster($id)->getMainRelease());
-      }
-
-      // --- get release data ------------------ 
-
-      $artist = $release->getArtists()[0]->getName();
-      $title = $release->getTitle();
-
-      $artwork = str_replace('api.discogs.com/image/R-','s.pixogs.com/image/R-',$release->getImages()[0]->getUri());
-      if($release->getVideos()[0]){
-        $video = $release->getVideos()[0]->getUri();
-        $videoId = substr($video, -11);
-      }
-      else{
-        $video = null;
-      }
-
-      // fetch ALL labels
-
-      /*$labelsObj = $release->getLabels();
-      $tmp_labels = [];
-      foreach ($labelsObj as $label) {
-        array_push($tmp_labels, $label->getName());
-      }
-      $labels = implode(';', $tmp_labels);*/
-
-      $label = $release->getLabels()[0]->getName();
-      $genres = implode(';', $release->getGenres());
-      $year = $release->getReleased();
-      $country = $release->getCountry();
-      $count = $release->getFormats()[0]->qty;
-      $tracklistItems = $release->getTracklist();
-      $tmp_tracklist = [];
-      foreach ($tracklistItems as $item) {
-        array_push($tmp_tracklist, $item->getPosition() . ' ' . $item->getTitle() . ' ' . $item->getDuration());
-      }
-      $tracklist = implode(';', $tmp_tracklist);
-    }
-    else{
-      $id = null;
-      $type = null;
-      $artist = null;
-      $title = null;
-      $artwork = null;
-      $video = null;
-      $videoId = null;
-      $label = null;
-      $genres = null;
-      $year = null;
-      $country = null;
-      $count = null;
-      $tracklist = null;
-    }
-
-  ?>
 
   <div class="row">
-    {{ Form::open(array('route' => 'post-create-vinyl')) }}
+    {{ Form::model($vinyl, array('route' => array('update-vinyl', $vinyl->id), 'method' => 'PUT', 'files' => true)) }}
     <!-- Artwork and Videos -->
     <div class="col-md-4">
       <div class="well">
         <legend>Artwork and Videos</legend>
         <div class="thumbnail">
-          <img src="{{ $artwork }}" id="vinyl-artwork">
+          <img src="{{ $vinyl->artwork }}" id="vinyl-artwork">
         </div>
         <div class="form-group">
           {{ Form::label('artwork', 'Artwork URL') }}
-          {{ Form::text('artwork', $artwork, array('class' => 'form-control', 'id' => 'vinyl-artwork-url', 'placeholder' => 'Paste Artwork URL')) }}
+          {{ Form::text('artwork', $vinyl->artwork, array('class' => 'form-control', 'id' => 'vinyl-artwork-url', 'placeholder' => 'Paste Artwork URL')) }}
         </div>
-        @if($video != null)
+        @if($vinyl->videos != null)
+          <?php
+            $videoId = substr($vinyl->videos, -11);
+          ?>
           <div class="thumbnail">
             <iframe width="300" height="169" src="//www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
           </div>
@@ -99,12 +34,11 @@
     <div class="col-md-4">
       <div class="well">
         <div class="form-wrapper">
-          <legend>Fetched Data</legend>
+          <legend>General Data</legend>
 
-          
             <div class="form-group">
               {{ Form::label('artist', 'Artist') }} <span style="color: red;">*</span>
-              {{ Form::text('artist', $artist, array('class' => 'form-control', 'placeholder' => 'Enter artist name' )); }}
+              {{ Form::text('artist', $vinyl->artist, array('class' => 'form-control', 'placeholder' => 'Enter artist name' )); }}
 
               @if($errors->has('artist'))
                 <div class="alert alert-danger">
@@ -115,7 +49,7 @@
 
             <div class="form-group">
               {{ Form::label('title', 'Title') }} <span style="color: red;">*</span>
-              {{ Form::text('title', $title, array('class' => 'form-control', 'placeholder' => 'Enter vinyl title')); }}
+              {{ Form::text('title', $vinyl->title, array('class' => 'form-control', 'placeholder' => 'Enter vinyl title')); }}
 
               @if($errors->has('title'))
                 <div class="alert alert-danger">
@@ -126,7 +60,7 @@
 
             <div class="form-group">
               {{ Form::label('label', 'Labels') }}
-              {{ Form::text('label', $label, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
+              {{ Form::text('label', $vinyl->label, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
 
               @if($errors->has('label'))
                 <div class="alert alert-danger">
@@ -137,7 +71,7 @@
 
             <div class="form-group">
               {{ Form::label('genre', 'Genres') }}
-              {{ Form::text('genre', $genres, array('class' => 'form-control', 'placeholder' => 'Columbia, Virgin, Universal')); }}
+              {{ Form::text('genre', $vinyl->genre, array('class' => 'form-control', 'placeholder' => 'Electronic; House')); }}
 
               @if($errors->has('genre'))
                 <div class="alert alert-danger">
@@ -148,7 +82,7 @@
 
             <div class="form-group">
               {{ Form::label('year', 'Release year') }}
-              {{ Form::text('year', $year, array('class' => 'form-control', 'placeholder' => 'Enter release year')); }}
+              {{ Form::text('year', $vinyl->year, array('class' => 'form-control', 'placeholder' => 'Enter release year')); }}
 
               @if($errors->has('year'))
                 <div class="alert alert-danger">
@@ -159,7 +93,7 @@
 
             <div class="form-group">
               {{ Form::label('country', 'Country') }}
-              {{ Form::text('country', $country, array('class' => 'form-control', 'placeholder' => 'Enter country')); }}
+              {{ Form::text('country', $vinyl->country, array('class' => 'form-control', 'placeholder' => 'Enter country')); }}
 
               @if($errors->has('country'))
                 <div class="alert alert-danger">
@@ -170,7 +104,7 @@
 
             <div class="form-group">
               {{ Form::label('tracklist', 'Tracklist') }}
-              {{ Form::text('tracklist', $tracklist, array('class' => 'form-control', 'placeholder' => 'Enter tracklist')); }}
+              {{ Form::text('tracklist', $vinyl->tracklist, array('class' => 'form-control', 'placeholder' => 'Enter tracklist')); }}
 
               @if($errors->has('tracklist'))
                 <div class="alert alert-danger">
@@ -179,8 +113,8 @@
               @endif
             </div>
             
-            {{ Form::hidden('videos', $video) }}
-            {{ Form::hidden('type', $type) }}
+            {{ Form::hidden('videos', $vinyl->video) }}
+            {{ Form::hidden('type', $vinyl->type) }}
             {{ Form::hidden('user_id', Auth::user()->id) }}
 
         </div>
@@ -194,7 +128,7 @@
 
         <div class="form-group">
           {{ Form::label('price', 'Price') }} <span style="color: red;">*</span>
-          {{ Form::text('price', Input::old('price'), array('class' => 'form-control', 'placeholder' => 'What did you pay?')); }}
+          {{ Form::text('price', round($vinyl->price, 2), array('class' => 'form-control', 'placeholder' => 'What did you pay?')); }}
 
           @if($errors->has('price'))
             <div class="alert alert-danger">
@@ -216,7 +150,7 @@
 
         <div class="form-group">
           {{ Form::label('size', 'Size') }}
-          {{ Form::select('size', array('7' => '7"', '10' => '10"', '12' => '12"'), '12', array('class' => 'form-control')); }}
+          {{ Form::select('size', array('7' => '7"', '10' => '10"', '12' => '12"'), $vinyl->size, array('class' => 'form-control')); }}
 
           @if($errors->has('size'))
             <div class="alert alert-danger">
@@ -227,7 +161,7 @@
 
         <div class="form-group">
           {{ Form::label('count', 'Count') }}
-          {{ Form::text('count', $count, array('class' => 'form-control', 'placeholder' => 'Quantity of vinyls')); }}
+          {{ Form::text('count', $vinyl->count, array('class' => 'form-control', 'placeholder' => 'Quantity of vinyls')); }}
 
           @if($errors->has('count'))
             <div class="alert alert-danger">
@@ -238,7 +172,7 @@
 
         <div class="form-group">
           {{ Form::label('notes', 'Notes') }}
-          {{ Form::text('notes', Input::old('notes'), array('class' => 'form-control', 'placeholder' => '140 characters')); }}
+          {{ Form::text('notes', $vinyl->notes, array('class' => 'form-control', 'placeholder' => '140 characters')); }}
 
           @if($errors->has('notes'))
             <div class="alert alert-danger">
@@ -252,7 +186,7 @@
   </div>
 
   <hr>
-  {{ Form::submit('Add Vinyl', array('class' => 'btn btn-primary pull-right')) }}
+  {{ Form::submit('Edit Vinyl', array('class' => 'btn btn-primary pull-right')) }}
   {{ Form::close() }}
 @stop
 

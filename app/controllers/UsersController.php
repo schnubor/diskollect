@@ -239,6 +239,7 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		$lvlFactor = 10; // bigger = slower leveling
+		$rank = ['1' => 'Beginner', '2' => 'Rookie', '3' => 'Ambitious', '4' => 'Advanced'];
 
 		// Ranks
 		$rank = ["1" => "Beginner", "2" => "Rookie", "3" => "Advanced Rookie", "4" => "Enthusiast", "5" => "Lover", "6" => "Expert", "7" => "Collector", "8" => "Master Collector", "9" => "Nerd", "10" => "Vinyl Guru"];
@@ -256,6 +257,7 @@ class UsersController extends \BaseController {
 			->with('user', $user)
 			->with('vinyls', $vinyls)
 			->with('level', $level)
+			->with('rank', $rank[$level])
 			->with('progress', $progress)
 			->with('nextLvlVinyls', $nextLvlVinyls)
 			->with('rank', $rank[$level]);

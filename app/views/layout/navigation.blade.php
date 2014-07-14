@@ -19,7 +19,7 @@
         <li><a href="{{ URL::route('get-all-users') }}"><i class="fa fa-users fa-fw"></i> Members</a></li>
         @if(Auth::check())
           <li><a href="{{ URL::route('get-collection', Auth::user()->id) }}"><i class="fa fa-database fa-fw"></i> Collection</a></li>
-          <li><a href="{{ URL::route('get-search') }}"><i class="fa fa-search fa-fw"></i> Search Vinyl</a></li>
+          <li><a href="{{ URL::route('get-search') }}"><i class="fa fa-search fa-fw"></i> New Vinyl</a></li>
         @endif
       </ul>
       <ul class="nav navbar-nav navbar-right">

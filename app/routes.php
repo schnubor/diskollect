@@ -78,14 +78,33 @@ Route::group(array('before' => 'auth'), function(){
   | Add Vinyl
   */
 
-  Route::get('search/vinyl', array(
+  Route::get('vinyl/create', array(
     'as' => 'get-create-vinyl',
+    'uses' => 'VinylsController@createVinyl'
+  ));
+
+  Route::get('search/vinyl', array(
+    'as' => 'get-create-vinyl-search',
     'uses' => 'VinylsController@createVinyl'
   ));
 
   Route::post('search/vinyl', array(
     'as' => 'post-create-vinyl',
     'uses' => 'VinylsController@storeVinyl'
+  ));
+
+  /*
+  | Edit Vinyl
+  */
+
+  Route::get('vinyl/{id}/edit', array(
+    'as' => 'get-edit-vinyl',
+    'uses' => 'VinylsController@editVinyl'
+  ));
+
+  Route::any('vinyl/{id}/update', array(
+    'as' => 'update-vinyl',
+    'uses' => 'VinylsController@updateVinyl'
   ));
 
   /*

@@ -7,7 +7,7 @@
       <th>Label</th>
       <!--<th>Genre</th>-->
       <th>Price</th>
-      <th>Actions</th>
+      <th style="text-align: right;">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -17,30 +17,27 @@
         $genres = explode(';',$vinyl->genre);
       ?>
       <tr>
-        <td><img src="{{ $vinyl->artwork }}" alt="cover" class="artwork"/></td>
-        <td>{{ $vinyl->artist }}</td>
-        <td>{{ $vinyl->title }}</td>
+        <td><a href="{{ URL::route('get-vinyl', $vinyl->id) }}"><img src="{{ $vinyl->artwork }}" alt="cover" class="artwork"/></a></td>
+        <td><a href="{{ URL::route('get-vinyl', $vinyl->id) }}">{{ $vinyl->artist }}</a></td>
+        <td><a href="{{ URL::route('get-vinyl', $vinyl->id) }}">{{ $vinyl->title }}</a></td>
         <td>
-          @foreach($labels as $label)
-            <span class="label-primary label">{{ $label }}</span>
-          @endforeach
+          <a href="{{ URL::route('get-vinyl', $vinyl->id) }}">
+            @foreach($labels as $label)
+              <span class="label-primary label">{{ $label }}</span>
+            @endforeach
+          </a>
         </td>
-        <!--<td>
-          @foreach($genres as $genre)
-            <span class="label-warning label">{{ $genre }}</span>
-          @endforeach
-        </td>-->
-        <td>{{ round($vinyl->price,2) }}</td>
+        <td><a href="{{ URL::route('get-vinyl', $vinyl->id) }}">{{ round($vinyl->price,2) }}</a></td>
         <td>
           @if(Auth::check())
             @if(Auth::user()->id == $vinyl->user_id)
               {{ Form::open(array('route' => array('delete-vinyl', $vinyl->id), 'class' => 'pull-right')) }}
                 {{ Form::hidden('_method', 'DELETE') }}
-                {{ Form::button('<i class="fa fa-trash-o fa-fw"></i>', array('class' => 'btn btn-sm btn-danger', 'style' => 'margin-left: 10px', 'type' => 'submit')) }}
+                {{ Form::button('<i class="fa fa-trash-o fa-fw"></i>', array('class' => 'btn btn-sm btn-default', 'style' => 'margin-left: 10px', 'type' => 'submit')) }}
               {{ Form::close() }}
             @endif
           @endif
-          <a href="{{ URL::route('get-vinyl', $vinyl->id) }}"><button class="btn btn-sm btn-success pull-right">Show</button></a>
+          <a href="{{ URL::route('get-edit-vinyl', $vinyl->id) }}" style="display: inline-block; float: right;"><button class="btn btn-sm btn-default pull-right"><i class="fa fa-pencil fa-fw"></i></button></a>
           
         </td>
       </tr>
