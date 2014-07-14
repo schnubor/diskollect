@@ -82,7 +82,7 @@
 
             <div class="form-group">
               {{ Form::label('year', 'Release year') }}
-              {{ Form::text('year', $vinyl->year, array('class' => 'form-control', 'placeholder' => 'Enter release year')); }}
+              {{ Form::text('year', $vinyl->releasedate, array('class' => 'form-control', 'placeholder' => 'Enter release year')); }}
 
               @if($errors->has('year'))
                 <div class="alert alert-danger">
