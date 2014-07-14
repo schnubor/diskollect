@@ -57,7 +57,7 @@
       <div class="row">
         <div class="col-xs-6 col-xs-offset-3 text-center well">
           <h2>Level {{ $level }}</h2>
-          <div class="profile-user-rank">Beginner</div>
+          <div class="profile-user-rank">{{ $rank }}</div>
         </div>
       </div>
       <div class="row">
