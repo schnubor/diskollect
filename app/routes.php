@@ -94,6 +94,20 @@ Route::group(array('before' => 'auth'), function(){
   ));
 
   /*
+  | Edit Vinyl
+  */
+
+  Route::get('vinyl/{id}/edit', array(
+    'as' => 'get-edit-vinyl',
+    'uses' => 'VinylsController@editVinyl'
+  ));
+
+  Route::any('vinyl/{id}/update', array(
+    'as' => 'update-vinyl',
+    'uses' => 'VinylsController@updateVinyl'
+  ));
+
+  /*
   | Delete Vinyl
   */
 
