@@ -7,7 +7,11 @@
       <th>Label</th>
       <!--<th>Genre</th>-->
       <th>Price</th>
-      <th style="text-align: right;">Actions</th>
+      @if(Auth::check())
+        @if(Auth::user()->id == $user->id)
+          <th style="text-align: right;">Actions</th>
+        @endif
+      @endif
     </tr>
   </thead>
   <tbody>
@@ -27,19 +31,19 @@
             @endforeach
           </a>
         </td>
-        <td><a href="{{ URL::route('get-vinyl', $vinyl->id) }}">{{ round($vinyl->price,2) }}</a></td>
-        <td>
-          @if(Auth::check())
-            @if(Auth::user()->id == $vinyl->user_id)
+        <td><a href="{{ URL::route('get-vinyl', $vinyl->id) }}">{{ round($vinyl->price,2) }} {{ $user->currency }}</a></td>
+        @if(Auth::check())
+          @if(Auth::user()->id == $user->id)
+            <td>
               {{ Form::open(array('route' => array('delete-vinyl', $vinyl->id), 'class' => 'pull-right')) }}
                 {{ Form::hidden('_method', 'DELETE') }}
                 {{ Form::button('<i class="fa fa-trash-o fa-fw"></i>', array('class' => 'btn btn-sm btn-default', 'style' => 'margin-left: 10px', 'type' => 'submit')) }}
               {{ Form::close() }}
-            @endif
+
+              <a href="{{ URL::route('get-edit-vinyl', $vinyl->id) }}" style="display: inline-block; float: right;"><button class="btn btn-sm btn-default pull-right"><i class="fa fa-pencil fa-fw"></i></button></a>
+            </td>
           @endif
-          <a href="{{ URL::route('get-edit-vinyl', $vinyl->id) }}" style="display: inline-block; float: right;"><button class="btn btn-sm btn-default pull-right"><i class="fa fa-pencil fa-fw"></i></button></a>
-          
-        </td>
+        @endif
       </tr>
     @endforeach
   </tbody>

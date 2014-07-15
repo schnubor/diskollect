@@ -155,8 +155,10 @@ class VinylsController extends \BaseController {
 	public function createVinyl()
 	{
 		$vinyl = Input::all();
+    $user = User::find(Auth::user()->id);
 		return View::make('vinyls.create')
-			->with('vinyl', $vinyl);
+			->with('vinyl', $vinyl)
+      ->with('user', $user);
 	}
 
   /*

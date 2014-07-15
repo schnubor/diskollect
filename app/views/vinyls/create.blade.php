@@ -21,7 +21,7 @@
         $release = $service->getRelease($service->getMaster($id)->getMainRelease());
       }
 
-      // --- get release data ------------------ 
+      // --- get release data ------------------
 
       $artist = $release->getArtists()[0]->getName();
       $title = $release->getTitle();
@@ -101,7 +101,7 @@
         <div class="form-wrapper">
           <legend>Fetched Data</legend>
 
-          
+
             <div class="form-group">
               {{ Form::label('artist', 'Artist') }} <span style="color: red;">*</span>
               {{ Form::text('artist', $artist, array('class' => 'form-control', 'placeholder' => 'Enter artist name' )); }}
@@ -178,7 +178,7 @@
                 </div>
               @endif
             </div>
-            
+
             {{ Form::hidden('videos', $video) }}
             {{ Form::hidden('type', $type) }}
             {{ Form::hidden('user_id', Auth::user()->id) }}
@@ -193,7 +193,7 @@
         <legend>Your Data</legend>
 
         <div class="form-group">
-          {{ Form::label('price', 'Price') }} <span style="color: red;">*</span>
+          {{ Form::label('price', 'Price in '.$user->currency) }} <span style="color: red;">*</span>
           {{ Form::text('price', Input::old('price'), array('class' => 'form-control', 'placeholder' => 'What did you pay?')); }}
 
           @if($errors->has('price'))

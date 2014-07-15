@@ -83,11 +83,6 @@
 
       <hr>
 
-      @if($vinyls->count() == 0)
-        <small>This user doesn't have any vinyls yet.</small>
-      @else
-        @include('vinyls.table')
-      @endif
     </div>
 
   </div>
