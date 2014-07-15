@@ -3,7 +3,7 @@
 // Author: Brian Grinstead
 // License: MIT
 
-(function (window, $, undefined) {
+;(function (window, $, undefined) {
     var defaultOpts = {
 
         // Callbacks

@@ -1,4 +1,6 @@
 $(function(){
+  console.log('DOM ready');
+
   // Init Colorpicker
   $('#colorpicker').spectrum();
 

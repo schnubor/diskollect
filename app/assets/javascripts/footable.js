@@ -1,4 +1,4 @@
-﻿/*
+﻿/*!
  * FooTable - Awesome Responsive Tables
  * Version : 2.0.1.4
  * http://fooplugins.com/plugins/footable-jquery/
@@ -11,7 +11,7 @@
  *
  * Date: 16 Feb 2014
  */
-(function ($, w, undefined) {
+;(function ($, w, undefined) {
     w.footable = {
         options: {
             delay: 100, // The number of millseconds to wait before triggering the react event
