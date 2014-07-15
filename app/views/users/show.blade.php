@@ -82,19 +82,26 @@
       </div>
 
       <hr>
-
-      <div class="row">
-        <div class="col-xs-4">
-          {{ $vinyls->sum('price').' '.$user->currency }}
+      
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Whats it worth?</h3>
         </div>
-        <div class="col-xs-4">
-          {{ $vinyls->avg('price').' '.$user->currency }}
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4 text-center">
+              <p class="h3" style="margin-top: 10px;"><small class="h3">SUM</small> {{ round($vinyls->sum('price'), 2).' '.$user->currency }}</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <p class="h3" style="margin-top: 10px;"><small class="h3">AVG</small> {{ round($vinyls->avg('price'), 2).' '.$user->currency }}</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <p class="h3" style="margin-top: 10px;"><small class="h3">MAX</small> {{ round($vinyls->max('price'), 2).' '.$user->currency }}</p>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-4">
-          {{ $vinyls->max('price').' '.$user->currency }}
-        </div>
-
       </div>
+      
 
     </div>
 
