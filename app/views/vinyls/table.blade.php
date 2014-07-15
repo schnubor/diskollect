@@ -1,12 +1,12 @@
 <table class="footable table table-hover">
   <thead>
     <tr>
-      <th>Artwork</th>
-      <th>Artist</th>
+      <th data-hide="phone">Artwork</th>
+      <th data-toggle="true">Artist</th>
       <th>Title</th>
-      <th>Label</th>
+      <th data-hide="phone,tablet">Label</th>
       <!--<th>Genre</th>-->
-      <th>Price</th>
+      <th data-hide="phone,tablet">Price</th>
       @if(Auth::check())
         @if(Auth::user()->id == $user->id)
           <th style="text-align: right;">Actions</th>

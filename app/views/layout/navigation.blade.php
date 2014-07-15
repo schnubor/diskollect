@@ -16,26 +16,33 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="{{ URL::route('get-all-users') }}"><i class="fa fa-users fa-fw"></i> Members</a></li>
         @if(Auth::check())
+          <li><a href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-bar-chart-o fa-fw"></i> Your Stats</a></li>
           <li><a href="{{ URL::route('get-collection', Auth::user()->id) }}"><i class="fa fa-database fa-fw"></i> Collection</a></li>
           <li><a href="{{ URL::route('get-search') }}"><i class="fa fa-search fa-fw"></i> New Vinyl</a></li>
+        @else
+          <li><a href="{{ URL::route('get-all-users') }}"><i class="fa fa-users fa-fw"></i> Members</a></li>
         @endif
       </ul>
       <ul class="nav navbar-nav navbar-right">
 
         @if(Auth::check())
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->username }}<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i> {{ Auth::user()->username }}<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i> Your Profile</a></li>
-              <li><a href="{{ URL::route('get-edit-user') }}"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
+              <li><a href="{{ URL::route('get-edit-user') }}"><i class="fa fa-pencil fa-fw"></i> Edit Profile</a></li>
               <li><a href="{{ URL::route('get-change-password') }}"><i class="fa fa-lock fa-fw"></i> Change password</a></li>
               <li class="divider"></li>
               <li><a href="{{ URL::route('get-signout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
             </ul>
           </li>
-          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ URL::route('get-all-users') }}"><i class="fa fa-users fa-fw"></i> Members</a></li>
+              <li><a href="#"><i class="fa fa-info fa-fw"></i> Impressum</a></li>
+            </ul>
+          </li>
         @else
           <li><a href="{{ URL::route('get-signin') }}"><i class="fa fa-sign-in"></i> Login</a></li>
           <li><a href="{{ URL::route('get-user-create') }}"><i class="fa fa-edit"></i> Register</a></li>
