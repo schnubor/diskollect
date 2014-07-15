@@ -74,7 +74,7 @@
           <strong>Lvl {{ $level }}</strong>
         </div>
         <div class="col-xs-4 text-center">
-          <span class="progress-count">{{ $user->vinyls->count() }}/{{ $nextLvlVinyls }} Vinyls</span>
+          <span class="progress-count">{{ $vinyls->count() }}/{{ $nextLvlVinyls }} Vinyls</span>
         </div>
         <div class="col-xs-4">
           <strong class="pull-right">Lvl {{ $level+1 }}</strong>
@@ -82,6 +82,19 @@
       </div>
 
       <hr>
+
+      <div class="row">
+        <div class="col-xs-4">
+          {{ $vinyls->sum('price').' '.$user->currency }}
+        </div>
+        <div class="col-xs-4">
+          {{ $vinyls->avg('price').' '.$user->currency }}
+        </div>
+        <div class="col-xs-4">
+          {{ $vinyls->max('price').' '.$user->currency }}
+        </div>
+
+      </div>
 
     </div>
 

@@ -7,4 +7,5 @@ class Vinyl extends \Eloquent {
   {
     return $this->belongsTo('User');
   }
+
 }

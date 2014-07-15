@@ -32,6 +32,7 @@ class UsersController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+
 	public function store()
 	{
 		$validator = Validator::make(Input::all(), array(
@@ -245,7 +246,7 @@ class UsersController extends \BaseController {
 		$rank = ["1" => "Beginner", "2" => "Rookie", "3" => "Advanced Rookie", "4" => "Enthusiast", "5" => "Lover", "6" => "Expert", "7" => "Collector", "8" => "Master Collector", "9" => "Nerd", "10" => "Vinyl Guru"];
 
 		$user = User::find($id);
-		$vinyls = $user->vinyls;
+		$vinyls = Vinyl::where('user_id', '=', $id);
 		$level = floor(($lvlFactor+sqrt($lvlFactor*$lvlFactor+4*$lvlFactor*$vinyls->count()))/(2*$lvlFactor));
 
 		$currentLvlVinyls = $lvlFactor*$level*$level-$lvlFactor*$level;
