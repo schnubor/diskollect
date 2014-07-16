@@ -5,7 +5,10 @@
 @stop
 
 @section('body')
-  {{ Form::open(array('url' => 'users/change-password')) }}
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 well">
+      <legend>Change Password</legend>
+  {{ Form::open(array('route' => 'post-change-password')) }}
 
     <div class="form-group">
       {{ Form::label('old_password', 'Old password') }}
@@ -43,4 +46,6 @@
     {{ Form::submit('Change password', array('class' => 'btn btn-primary')) }}
 
   {{ Form::close() }}
+    </div>
+  </div>
 @stop

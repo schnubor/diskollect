@@ -138,7 +138,7 @@ Route::group(array('before' => 'guest'), function(){
   Route::when('*', 'csrf', array('post', 'put', 'delete'));
 
   /*
-  | User routes (order is important!)
+  | User routes
   */
   Route::get('register', array(
     'as' => 'get-user-create',
@@ -163,6 +163,16 @@ Route::group(array('before' => 'guest'), function(){
   Route::get('activate/{code}', array(
     'as' => 'account-activate',
     'uses' => 'UsersController@activate'
+  ));
+
+  Route::get('recover', array(
+    'as' => 'get-forgot-password',
+    'uses' => 'UsersController@getRecover'
+  ));
+
+  Route::post('recover', array(
+    'as' => 'post-forgot-password',
+    'uses' => 'UsersController@postRecover'
   ));
 
 });

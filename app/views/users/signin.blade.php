@@ -29,6 +29,7 @@
         <div class="form-group">
           {{ Form::label('password', 'Password') }}
           {{ Form::password('password', array('class' => 'form-control')); }}
+          <small class="pull-right"><a href="{{ URL::route('get-forgot-password') }}">Forgot Password?</a></small><br>
 
           @if($errors->has('password'))
             <div class="alert alert-danger">

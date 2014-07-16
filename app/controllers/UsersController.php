@@ -231,6 +231,56 @@ class UsersController extends \BaseController {
 	}
 
 	/**
+	 * Recover Account / Password
+	 * GET /recover
+	 *
+	 * @return Response
+	 */
+
+	public function getRecover(){
+		return View::make('users.recover');
+	}
+
+	/**
+	 * Recover Account / Password
+	 * POST /recover
+	 *
+	 * @return Response
+	 */
+
+	public function postRecover(){
+		$validator = Validator::make(Input::all(), array(
+				'email' =>'required|email'
+		));
+
+		if($validator->fails()){
+			return Redirect::route('get-forgot-password')
+				->withInput()
+				->withErrors($validator);
+		}
+		else{
+			$user = User::where('email', '=', Input::get('email'));
+
+			if($user->count()){
+				$user = $user->first();
+
+				$code = str_random(60);
+				$password = str_random(60);
+
+				$user->code = $code;
+				$user->password_temp = Hash::make($password);
+
+				if($user->save()){
+					
+				}
+			}
+		}
+
+		return Redirect::route('get-forgot-password')
+			->with('danger-alert', 'Unknown error! Could not reset your password.');
+	}
+
+	/**
 	 * Display the specified resource.
 	 * GET /users/{id}
 	 *
