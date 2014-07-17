@@ -10,8 +10,8 @@
       <div class="col-md-4 col-md-offset-4 well">
         <legend>Recover Password</legend>
         <div class="form-group">
-          {{ Form::label('email', 'Enter your Email adress') }}
-          {{ Form::email('email', Input::old('email'), array('class' => 'form-control', 'placeholder' => 'Enter your old password')); }}
+          {{ Form::label('email', 'Email') }}
+          {{ Form::email('email', Input::old('email'), array('class' => 'form-control', 'placeholder' => 'Enter your email')); }}
 
           @if($errors->has('email'))
             <div class="alert alert-danger">

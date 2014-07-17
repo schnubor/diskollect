@@ -165,14 +165,19 @@ Route::group(array('before' => 'guest'), function(){
     'uses' => 'UsersController@activate'
   ));
 
-  Route::get('recover', array(
+  Route::get('forgot-password', array(
     'as' => 'get-forgot-password',
-    'uses' => 'UsersController@getRecover'
+    'uses' => 'UsersController@getForgotPassword'
   ));
 
-  Route::post('recover', array(
+  Route::post('forgot-password', array(
     'as' => 'post-forgot-password',
-    'uses' => 'UsersController@postRecover'
+    'uses' => 'UsersController@postForgotPassword'
+  ));
+
+  Route::get('recover/{code}', array(
+    'as' => 'get-recover',
+    'uses' => 'UsersController@getRecover'
   ));
 
 });
@@ -196,7 +201,7 @@ Route::get('users/{id}', array(
 */
 Route::get('users/{id}/collection', array(
   'as' => 'get-collection',
-  'uses' => 'VinylsController@showCollection'  
+  'uses' => 'VinylsController@showCollection'
 ));
 
 /*
@@ -204,6 +209,6 @@ Route::get('users/{id}/collection', array(
 */
 Route::get('vinyls/{id}', array(
   'as' => 'get-vinyl',
-  'uses' => 'VinylsController@showVinyl'  
+  'uses' => 'VinylsController@showVinyl'
 ));
 

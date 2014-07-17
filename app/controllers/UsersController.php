@@ -232,23 +232,51 @@ class UsersController extends \BaseController {
 
 	/**
 	 * Recover Account / Password
-	 * GET /recover
+	 * GET /forgot-password
 	 *
 	 * @return Response
 	 */
 
-	public function getRecover(){
+	public function getForgotPassword(){
 		return View::make('users.recover');
 	}
 
 	/**
 	 * Recover Account / Password
-	 * POST /recover
+	 * GET /recover/{id}
 	 *
 	 * @return Response
 	 */
 
-	public function postRecover(){
+	public function getRecover($code){
+		$user =  User::where('code', '=', $code)
+							->where('password_temp', '!=', '');
+
+		if($user->count()){
+			$user = $user->first();
+
+			$user->password = $user->password_temp;
+			$user->password_temp = '';
+			$user->code = '';
+
+			if($user->save()){
+				return Redirect::route('get-signin')
+					->with('success-alert', 'Success! You may now use your new password that we sent to you by email.');
+			}
+		}
+
+		return Redirect::route('get-signin')
+			->with('danger-alert', 'Unknown error! Something went wrong while setting your new password.');
+	}
+
+	/**
+	 * Recover Account / Password
+	 * POST /forgot-possword
+	 *
+	 * @return Response
+	 */
+
+	public function postForgotPassword(){
 		$validator = Validator::make(Input::all(), array(
 				'email' =>'required|email'
 		));
@@ -265,13 +293,18 @@ class UsersController extends \BaseController {
 				$user = $user->first();
 
 				$code = str_random(60);
-				$password = str_random(60);
+				$password = str_random(10);
 
 				$user->code = $code;
 				$user->password_temp = Hash::make($password);
 
 				if($user->save()){
-					
+					Mail::send('emails.auth.recover', array('link' => URL::route('get-recover', $code), 'username' => $user->username, 'password' => $password), function($message) use ($user){
+						$message->to($user->email, $user->username)->subject('Your new password');
+					});
+
+					return Redirect::route('get-signin')
+						->with('success-alert', 'We have sent you an email containing your new password.');
 				}
 			}
 		}
