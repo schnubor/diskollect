@@ -61,7 +61,7 @@ class UsersController extends \BaseController {
 
 			$user = User::create(array(
 				'email' => $email,
-				'username' => $username,
+				'username' => e($username),
 				'currency' => $currency,
 				'password' => Hash::make($password),
 				'code' => $code,
@@ -74,7 +74,7 @@ class UsersController extends \BaseController {
 				});
 
 				return Redirect::to('/')
-					->with('success-alert', 'Your account hast been created! We have sent you an email.' . $currency);
+					->with('success-alert', 'Your account hast been created! We have sent you an email.');
 			}
 
 		}

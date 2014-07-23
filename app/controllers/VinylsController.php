@@ -224,7 +224,7 @@ class VinylsController extends \BaseController {
     $validator = Validator::make(Input::all(), array(
       'artist' => 'required',
       'title' => 'required',
-      'price' => 'required|numeric'
+      'price' => 'required'
     ));
 
     if($validator->fails()){
@@ -232,8 +232,20 @@ class VinylsController extends \BaseController {
         ->with('danger-alert', 'Oops! Artist, Title and Price are required.');
     }
     else{
-      // Create vinyl
 
+      // Check if price contains comma
+      $price = e(Input::get('price'));
+      if(!is_numeric($price)){
+        $price = str_replace(',','.',$price);
+      }
+
+      if(!is_numeric($price)){
+        return Redirect::route('get-create-vinyl-search')
+          ->withInput()
+          ->with('danger-alert', 'Oops! Price needs to be a valid number.');
+      } 
+
+      // Create vinyl
       $vinyl = Vinyl::create(array(
         'user_id' => input::get('user_id'),
         'artwork' => input::get('artwork'),
@@ -241,7 +253,7 @@ class VinylsController extends \BaseController {
         'title' => Input::get('title'),
         'label' => input::get('label'),
         'genre' => input::get('genre'),
-        'price' => input::get('price'),
+        'price' => $price,
         'videos' => input::get('videos'),
         'tracklist' => input::get('tracklist'),
         'country' => input::get('country'),
