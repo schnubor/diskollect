@@ -24,7 +24,6 @@
         @if($user->name)
         <li class="list-group-item text-left">{{ $user->name }}</li>
         @endif
-        <li class="list-group-item text-left">{{ $user->email }}</li>
         @if($user->location)
         <li class="list-group-item text-left">{{ $user->location }}</li>
         @endif
