@@ -5,6 +5,7 @@
 @stop
 
 @section('body')
+<div class="container">
   <div class="page-header">
     <h1>All {{ $users->count() }} users</h1>
   </div>
@@ -42,4 +43,5 @@
       @endforeach
     </tbody>
   </table>
+</div>
 @stop

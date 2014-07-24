@@ -4,7 +4,7 @@
   Home
 @stop
 
-@section('outer-body')
+@section('body')
   <div class="main-header">
     <div class="container">
       <div class="message">

@@ -5,6 +5,7 @@
 @stop
 
 @section('body')
+<div class="container">
   <div class="row">
     <div class="col-lg-offset-3 col-md-6 well">
       <legend>Registration</legend>
@@ -80,5 +81,6 @@
       </div>
     </div>
   </div>
+</div>
 @stop
 

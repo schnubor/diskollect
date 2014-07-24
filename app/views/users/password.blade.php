@@ -5,6 +5,7 @@
 @stop
 
 @section('body')
+<div class="container">
   <div class="row">
     <div class="col-md-4 col-md-offset-4 well">
       <legend>Change Password</legend>
@@ -48,4 +49,5 @@
   {{ Form::close() }}
     </div>
   </div>
+</div>
 @stop

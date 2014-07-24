@@ -5,6 +5,7 @@
 @stop
 
 @section('body')
+<div class="container">
   {{ Form::open(array('route' => 'post-forgot-password')) }}
     <div class="row">
       <div class="col-md-4 col-md-offset-4 well">
@@ -25,4 +26,5 @@
     </div>
 
   {{ Form::close() }}
+</div>
 @stop

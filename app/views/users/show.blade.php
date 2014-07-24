@@ -5,7 +5,7 @@
 @stop
 
 @section('body')
-
+<div class="container">
   <div class="row profile">
 		<div class="col-md-3"><!--left col-->
 
@@ -87,7 +87,7 @@
           </div>
         </div>
       </div><!-- end of progress -->
-      
+
       <div class="panel panel-success">
         <div class="panel-heading">
           <h3 class="panel-title">Collection Value</h3>
@@ -106,10 +106,10 @@
           </div>
         </div>
       </div>
-      
+
 
     </div>
 
   </div>
-
+</div>
 @stop
