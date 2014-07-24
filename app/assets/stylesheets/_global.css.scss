@@ -4,6 +4,7 @@ $red: #DD4223;
 body{
   padding-top: 70px;
   padding-bottom: 20px;
+  background-color: #DDD;
 }
 
 .table>tbody>tr>td{
@@ -26,6 +27,11 @@ body{
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
   -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.notifications{
+  position: absolute;
+  width: 100%;
 }
 
 // Helpers

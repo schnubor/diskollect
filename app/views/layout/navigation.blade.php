@@ -20,8 +20,6 @@
           <li><a href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-bar-chart-o fa-fw"></i> Your Stats</a></li>
           <li><a href="{{ URL::route('get-collection', Auth::user()->id) }}"><i class="fa fa-database fa-fw"></i> Collection</a></li>
           <li><a href="{{ URL::route('get-search') }}"><i class="fa fa-plus-circle fa-fw"></i> New Vinyl</a></li>
-        @else
-          <li><a href="{{ URL::route('get-all-users') }}"><i class="fa fa-users fa-fw"></i> Members</a></li>
         @endif
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -44,6 +42,7 @@
             </ul>
           </li>
         @else
+          <li><a href="{{ URL::route('get-all-users') }}"><i class="fa fa-users fa-fw"></i> Members</a></li>
           <li><a href="{{ URL::route('get-signin') }}"><i class="fa fa-sign-in"></i> Login</a></li>
           <li><a href="{{ URL::route('get-user-create') }}"><i class="fa fa-edit"></i> Register</a></li>
         @endif
