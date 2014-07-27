@@ -5,7 +5,7 @@
 @stop
 
 @section('body')
-  <div class="container">
+  <div class="container vinyl-detail">
     <?php
       $labels = explode(';',$vinyl->label);
       $genres = explode(';',$vinyl->genre);
@@ -25,7 +25,7 @@
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <div class="thumbnail">
-              <img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist . ' - ' . $vinyl->title }}">
+              <img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist . ' - ' . $vinyl->title }}" class="vinyl-artwork">
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
 
     <div class="row">
       <div class="col-md-12 text-center">
-        <h1 class="vinyl-detail vinyl-title">{{ $vinyl->artist }} - {{ $vinyl->title }}</h1>
+        <h1 class="vinyl-title">{{ $vinyl->artist }} - {{ $vinyl->title }}</h1>
       </div>
       <div class="col-md-12 text-center">
         @foreach($labels as $label)
@@ -54,7 +54,7 @@
     <div class="row">
       <div class="col-md-12">
         @if($vinyl->notes)
-          <span class="vinyl-detail notes">"{{ $vinyl->notes }}", </span>
+          <span class="notes">"{{ $vinyl->notes }}", </span>
         @endif
         <span>added {{ $vinyl->created_at }}</span>
       </div>

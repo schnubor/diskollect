@@ -1,9 +1,13 @@
 .vinyl-detail{
-  &.vinyl-title{
+  .vinyl-artwork{
+    width: 100%;
+  }
+
+  .vinyl-title{
     margin-top: 0;
   }
 
-  &.notes{
+  .notes{
     font-style: italic;
   }
 }

@@ -5,7 +5,7 @@
 @stop
 
 @section('body')
-  <div class="container">
+  <div class="container create-vinyl">
     <div class="row">
       {{ Form::model($vinyl, array('route' => array('update-vinyl', $vinyl->id), 'method' => 'PUT', 'files' => true)) }}
       <!-- Artwork and Videos -->
@@ -13,10 +13,15 @@
         <div class="well">
           <legend>Artwork and Videos</legend>
           <div class="thumbnail">
-            <img src="{{ $vinyl->artwork }}" id="vinyl-artwork">
+            @if(@getimagesize($vinyl->artwork))
+              <img src="{{ $vinyl->artwork }}" id="vinyl-artwork" alt="{{ $vinyl->artist }} - {{ $vinyl->title }}">
+            @else
+              <img src="{{ VINYL_PH_PATH }}" id="vinyl-artwork" alt="placeholder">
+              <?php $vinyl->artwork = VINYL_PH_PATH; ?>
+            @endif
           </div>
           <div class="form-group">
-            {{ Form::label('artwork', 'Artwork URL') }}
+            {{ Form::label('artwork', 'Paste Artwork URL') }}
             {{ Form::text('artwork', $vinyl->artwork, array('class' => 'form-control', 'id' => 'vinyl-artwork-url', 'placeholder' => 'Paste Artwork URL')) }}
           </div>
           @if($vinyl->videos != null)

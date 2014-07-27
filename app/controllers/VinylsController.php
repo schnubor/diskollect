@@ -266,7 +266,7 @@ class VinylsController extends \BaseController {
       ));
 
       if($vinyl){
-        return Redirect::route('get-user', Auth::user()->id )
+        return Redirect::route('get-vinyl', $vinyl->id )
           ->with('success-alert', 'Success! <strong>' . Input::get('artist') . ' - ' . Input::get('title') . '</strong> is now in your collection.');
       }
     }

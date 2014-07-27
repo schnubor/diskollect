@@ -5,7 +5,7 @@
 @stop
 
 @section('body')
-  <div class="container">
+  <div class="container create-vinyl">
     <?php
 
       if($data = Input::all()){
@@ -82,10 +82,15 @@
         <div class="well">
           <legend>Artwork and Videos</legend>
           <div class="thumbnail">
-            <img src="{{ $artwork }}" id="vinyl-artwork">
+            @if(@getimagesize($artwork))
+              <img src="{{ $artwork }}" id="vinyl-artwork" alt="{{ $artist }} - {{ $title }}">
+            @else
+              <img src="{{ VINYL_PH_PATH }}" id="vinyl-artwork" alt="placeholder">
+              <?php $artwork = VINYL_PH_PATH; ?>
+            @endif
           </div>
           <div class="form-group">
-            {{ Form::label('artwork', 'Artwork URL') }}
+            {{ Form::label('artwork', 'Paste Artwork URL') }}
             {{ Form::text('artwork', $artwork, array('class' => 'form-control', 'id' => 'vinyl-artwork-url', 'placeholder' => 'Paste Artwork URL')) }}
           </div>
           @if($video != null)
