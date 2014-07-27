@@ -19,7 +19,7 @@
         @if(Auth::check())
           <li><a href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-bar-chart-o fa-fw"></i> Your Stats</a></li>
           <li><a href="{{ URL::route('get-collection', Auth::user()->id) }}"><i class="fa fa-database fa-fw"></i> Collection</a></li>
-          <li><a href="{{ URL::route('get-search') }}"><i class="fa fa-plus-circle fa-fw"></i> New Vinyl</a></li>
+          <li><a href="{{ URL::route('get-search') }}"><i class="fa fa-plus-circle fa-fw"></i> Add Vinyl</a></li>
         @endif
       </ul>
       <ul class="nav navbar-nav navbar-right">
