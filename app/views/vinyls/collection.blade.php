@@ -5,8 +5,11 @@
 @stop
 
 @section('body')
-  <div class="container">
-    <div class="page-header">
+  <div class="container user-collection">
+    <div class="collection-header">
+      <div class="user-portrait">
+        <img src="{{ $user->image }}" alt="{{ $user->username }}">
+      </div>
       @if(Auth::check())
         @if($user->id == Auth::user()->id)
           <h1>Your Collection</h1>
@@ -19,9 +22,21 @@
     </div>
 
     @if($user->vinyls->count() != 0)
-
-      @include('vinyls.table')
-
+      <ul class="vinyl-list">
+      @foreach($user->vinyls as $vinyl)
+        <li>
+          <div class="vinyl-cover">
+          <a href="{{ URL::route('get-vinyl', $vinyl->id) }}"><img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist.' - '.$vinyl->title }}"></a>
+          </div>
+          <div class="vinyl-artist">
+            <span>{{ $vinyl->artist }}</span>
+          </div>
+          <div class="vinyl-title">
+            <span>{{ $vinyl->title }}</span>
+          </div>
+        </li>
+      @endforeach
+      </ul>
     @else
 
       @if(Auth::check())
