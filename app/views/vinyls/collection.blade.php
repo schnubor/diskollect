@@ -8,7 +8,7 @@
   <div class="container user-collection">
     <div class="collection-header">
       <div class="user-portrait">
-        <img src="{{ $user->image }}" alt="{{ $user->username }}">
+      <a href="{{ URL::route('get-user', $user->id) }}"><img src="{{ $user->image }}" alt="{{ $user->username }}"></a>
       </div>
       @if(Auth::check())
         @if($user->id == Auth::user()->id)
