@@ -28,7 +28,21 @@
         <div class="col-sm-3 vinyl">
           <div class="vinyl-cover">
             <div class="content">
-              <a href="{{ URL::route('get-vinyl', $vinyl->id) }}"><img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist.' - '.$vinyl->title }}"></a>
+              <div class="overlay">
+                <a href="{{ URL::route('get-vinyl', $vinyl->id) }}">
+                  <div class="view-vinyl">
+                  </div>
+                </a>
+                <a href="{{ URL::route('get-edit-vinyl', $vinyl->id) }}" class="btn btn-default edit-vinyl"><i class="fa fa-pencil"></i></a>
+                {{ Form::open(array('route' => array('delete-vinyl', $vinyl->id))) }}
+                  {{ Form::hidden('_method', 'DELETE') }}
+                  {{ Form::button('<i class="fa fa-trash-o"></i>', array('class' => 'btn btn-default delete-vinyl', 'type' => 'submit')) }}
+                {{ Form::close() }}
+              </div>
+              
+              <a href="{{ URL::route('get-vinyl', $vinyl->id) }}">
+                <img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist.' - '.$vinyl->title }}">
+              </a>
             </div>
           </div>
           <div class="vinyl-info">

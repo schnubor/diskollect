@@ -1,3 +1,11 @@
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+
 .user-collection{
 
   .collection-header{
@@ -49,6 +57,42 @@
           left: 0;
           bottom: 0;
           right: 0;
+
+          &:hover{
+            .overlay{
+              opacity: 1;
+            }
+          }
+
+          .overlay{
+            position: absolute;
+            opacity: 0;
+            background-color: rgba(0,0,0,.4);
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            @include transition(all, .4s, ease);
+
+            .view-vinyl{
+              width: 100%;
+              height: 100%;
+              font-size: 62px;
+              color: white;
+              text-align: center;
+            }
+
+            .edit-vinyl{
+              position: absolute;
+              bottom: 10px;
+              right: 10px;
+            }
+
+            .delete-vinyl{
+              position: absolute;
+              bottom: 10px;
+              right: 58px;
+            }
+          }
 
           img{
             width: 100%;
