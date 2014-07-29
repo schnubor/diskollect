@@ -19,12 +19,13 @@
       @else
         <h1>{{ $user->username }}´s Collection</h1>
       @endif
+      <small>{{ $user->vinyls->count() }} Vinyls</small>
     </div>
 
     @if($user->vinyls->count() != 0)
-      <ul class="vinyl-list">
+      <div class="row vinyl-list">
       @foreach($user->vinyls as $vinyl)
-        <li>
+        <div class="col-sm-3 vinyl">
           <div class="vinyl-cover">
           <a href="{{ URL::route('get-vinyl', $vinyl->id) }}"><img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist.' - '.$vinyl->title }}"></a>
           </div>
@@ -34,9 +35,9 @@
           <div class="vinyl-title">
             <span>{{ $vinyl->title }}</span>
           </div>
-        </li>
+        </div>
       @endforeach
-      </ul>
+      </div>
     @else
 
       @if(Auth::check())
