@@ -27,7 +27,9 @@
       @foreach($user->vinyls as $vinyl)
         <div class="col-sm-3 vinyl">
           <div class="vinyl-cover">
-          <a href="{{ URL::route('get-vinyl', $vinyl->id) }}"><img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist.' - '.$vinyl->title }}"></a>
+            <div class="content">
+              <a href="{{ URL::route('get-vinyl', $vinyl->id) }}"><img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist.' - '.$vinyl->title }}"></a>
+            </div>
           </div>
           <div class="vinyl-artist">
             <span>{{ $vinyl->artist }}</span>
