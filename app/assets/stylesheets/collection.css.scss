@@ -27,8 +27,6 @@
     }
   }
 
-
-
   .vinyl-list{
 
     padding-top: 50px;
@@ -58,15 +56,20 @@
         }
       }
 
-      .vinyl-artist{
-        text-align: center;
-        font-weight: 600;
-        margin-top: 8px;
-      }
+      .vinyl-info{
 
-      .vinyl-title{
-        text-align: center;
-        padding-bottom: 20px;
+        height: 100px;
+        overflow: hidden;
+
+        .vinyl-artist{
+          text-align: center;
+          font-weight: 600;
+          margin-top: 8px;
+        }
+
+        .vinyl-title{
+          text-align: center;
+        }
       }
     }
   }

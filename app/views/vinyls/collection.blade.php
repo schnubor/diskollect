@@ -31,11 +31,13 @@
               <a href="{{ URL::route('get-vinyl', $vinyl->id) }}"><img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist.' - '.$vinyl->title }}"></a>
             </div>
           </div>
-          <div class="vinyl-artist">
-            <span>{{ $vinyl->artist }}</span>
-          </div>
-          <div class="vinyl-title">
-            <span>{{ $vinyl->title }}</span>
+          <div class="vinyl-info">
+            <div class="vinyl-artist">
+              <span>{{ $vinyl->artist }}</span>
+            </div>
+            <div class="vinyl-title">
+              <span>{{ $vinyl->title }}</span>
+            </div>
           </div>
         </div>
       @endforeach
