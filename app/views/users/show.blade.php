@@ -5,52 +5,48 @@
 @stop
 
 @section('body')
-<div class="container">
-  <div class="row profile">
-		<div class="col-md-3"><!--left col-->
+<div class="container profile">
 
-      <ul class="list-group">
-        <li class="list-group-item text-muted">
-          @if($user->image)
-            <img src="{{ $user->image }}" alt="{{ $user->username }}" class="img-responsive profile-pic">
-          @else
-            <img src="/assets/PH_user_large.png" alt="{{ $user->username }}" class="img-responsive profile-pic">
-          @endif
-          @if(Auth::check() && Auth::user()->id == $user->id)
-            <a href="{{ URL::to('users/edit') }}" class="btn btn-default btn-sm edit-button" role="button"><i class="fa fa-gear fa-fw"></i> Edit Profile</a>
-          @endif
-        </li>
-        <li class="list-group-item text-left"><strong>{{ $user->username }}</strong></li>
-        @if($user->name)
-        <li class="list-group-item text-left">{{ $user->name }}</li>
-        @endif
-        @if($user->location)
-        <li class="list-group-item text-left">{{ $user->location }}</li>
-        @endif
-      </ul>
-
-      <a href="{{ URL::route('get-collection', $user->id) }}" class="btn btn-lg btn-primary" style="width: 100%; margin-bottom: 20px;"><i class="fa fa-fw fa-database"></i> View Collection</a>
-
-      @if($user->website)
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Website <i class="fa fa-link fa-1x"></i></h3>
-          </div>
-          <div class="panel-body"><a href="{{ $user->website }}" target="_blank">{{ $user->website }}</a></div>
-        </div>
-      @endif
-
-      @if($user->description)
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Description</h3>
-        </div>
-        <div class="panel-body">{{ $user->description }}</div>
-      </div>
+  <header>
+    <div class="profile-image">
+      @if($user->image)
+        <img src="{{ $user->image }}" alt="{{ $user->username }}" class="img-responsive profile-pic">
+      @else
+        <img src="/assets/PH_user_large.png" alt="{{ $user->username }}" class="img-responsive profile-pic">
       @endif
     </div>
 
-    <div class="col-md-9">
+    <div class="profile-info">
+      <div class="username">
+        {{ $user->username }}
+      </div>
+      <div class="additional-info">
+        @if($user->name)
+          <span>{{ $user->name }}</span>
+        @endif
+        @if($user->location)
+          <span>, {{ $user->location }}</span>
+        @endif
+        @if($user->website)
+          <span>, <a href="{{ $user->website }}" target="_blank">{{ $user->website }}</a></span>
+        @endif
+      </div>
+      @if($user->description)
+        <div class="user-description">
+          {{ $user->description }}
+        </div>
+      @endif
+    </div>
+
+    @if(Auth::check() && Auth::user()->id == $user->id)
+      <a href="{{ URL::to('users/edit') }}" class="btn btn-default btn-sm edit-button" role="button"><i class="fa fa-gear fa-fw"></i> Edit Profile</a>
+    @endif
+    <a href="{{ URL::route('get-collection', $user->id) }}" class="btn btn-lg btn-primary" style="width: 100%; margin-bottom: 20px;"><i class="fa fa-fw fa-database"></i> View Collection</a>
+
+  </header>
+
+  <div class="row">
+    <div class="col-md-12">
 
       <div class="panel panel-default">
         <div class="panel-heading">
