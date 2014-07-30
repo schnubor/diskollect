@@ -12,7 +12,7 @@
       @if($user->image)
         <img src="{{ $user->image }}" alt="{{ $user->username }}" class="img-responsive profile-pic">
       @else
-        <img src="/assets/PH_user_large.png" alt="{{ $user->username }}" class="img-responsive profile-pic">
+        <img src="{{ USER_PH_PATH }}" alt="{{ $user->username }}" class="img-responsive profile-pic">
       @endif
     </div>
 
@@ -22,13 +22,13 @@
       </div>
       <div class="additional-info">
         @if($user->name)
-          <span>{{ $user->name }}</span>
+          <span>{{ $user->name }},</span>
         @endif
         @if($user->location)
-          <span>, {{ $user->location }}</span>
+          <span>{{ $user->location }},</span>
         @endif
         @if($user->website)
-          <span>, <a href="{{ $user->website }}" target="_blank">{{ $user->website }}</a></span>
+          <span><a href="{{ $user->website }}" target="_blank">{{ $user->website }}</a></span>
         @endif
       </div>
       @if($user->description)
@@ -87,20 +87,20 @@
     </div>
 
     <div class="col-md-6">
-      <div class="panel panel-success">
+      <div class="panel panel-success collection-value">
         <div class="panel-heading">
           <h3 class="panel-title">Collection Value</h3>
         </div>
         <div class="panel-body">
           <div class="row">
             <div class="col-md-4 text-center">
-              <p class="h3" style="margin-top: 10px;"><small class="h3">SUM</small> {{ round($vinyls->sum('price'), 2).' '.$user->currency }}</p>
+              <p class="h3" style="margin-top: 10px;"><small class="h3">SUM</small><br>{{ round($vinyls->sum('price'), 2).' '.$user->currency }}</p>
             </div>
             <div class="col-md-4 text-center">
-              <p class="h3" style="margin-top: 10px;"><small class="h3">AVG</small> {{ round($vinyls->avg('price'), 2).' '.$user->currency }}</p>
+              <p class="h3" style="margin-top: 10px;"><small class="h3">AVG</small><br>{{ round($vinyls->avg('price'), 2).' '.$user->currency }}</p>
             </div>
             <div class="col-md-4 text-center">
-              <p class="h3" style="margin-top: 10px;"><small class="h3">MAX</small> {{ round($vinyls->max('price'), 2).' '.$user->currency }}</p>
+              <p class="h3" style="margin-top: 10px;"><small class="h3">MAX</small><br>{{ round($vinyls->max('price'), 2).' '.$user->currency }}</p>
             </div>
           </div>
         </div>
