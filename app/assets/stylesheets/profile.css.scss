@@ -1,20 +1,29 @@
 .profile{
-  .profile-user-name{
-    h2{
-      margin-top: 15px;
+  header{
+    text-align: center;
+  }
+
+  .profile-image{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .profile-info{
+    .username{
+      letter-spacing: 2px;
     }
-    margin-top: 0;
+  }
+
+  .actions{
+    margin: 40px 0;
   }
 
   .profile-user-rank{
     color: grey;
     margin-bottom: 20px;
-  }
-
-  .edit-button{
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
   }
 }
 

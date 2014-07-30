@@ -18,7 +18,7 @@
 
     <div class="profile-info">
       <div class="username">
-        {{ $user->username }}
+        <h1>{{ $user->username }}</h1>
       </div>
       <div class="additional-info">
         @if($user->name)
@@ -33,21 +33,22 @@
       </div>
       @if($user->description)
         <div class="user-description">
-          {{ $user->description }}
+          <em>{{ $user->description }}</em>
         </div>
       @endif
     </div>
-
-    @if(Auth::check() && Auth::user()->id == $user->id)
-      <a href="{{ URL::to('users/edit') }}" class="btn btn-default btn-sm edit-button" role="button"><i class="fa fa-gear fa-fw"></i> Edit Profile</a>
-    @endif
-    <a href="{{ URL::route('get-collection', $user->id) }}" class="btn btn-lg btn-primary" style="width: 100%; margin-bottom: 20px;"><i class="fa fa-fw fa-database"></i> View Collection</a>
+    
+    <div class="actions">
+      @if(Auth::check() && Auth::user()->id == $user->id)
+        <a href="{{ URL::to('users/edit') }}" class="btn btn-default btn-lg edit-button" role="button"><i class="fa fa-gear fa-fw"></i> Edit Profile</a>
+      @endif
+      <a href="{{ URL::route('get-collection', $user->id) }}" class="btn btn-lg btn-primary" ><i class="fa fa-fw fa-database"></i> View Collection</a>
+    </div>
 
   </header>
 
   <div class="row">
-    <div class="col-md-12">
-
+    <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Vinyl Count</h3>
@@ -82,8 +83,10 @@
             </div>
           </div>
         </div>
-      </div><!-- end of progress -->
+      </div>
+    </div>
 
+    <div class="col-md-6">
       <div class="panel panel-success">
         <div class="panel-heading">
           <h3 class="panel-title">Collection Value</h3>
@@ -102,8 +105,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
 
   </div>
