@@ -2,9 +2,10 @@
 
 class ApiController extends BaseController {
 
-  public function deliverUser($id)
+  public function deliverUser($username)
   {
-    $user = User::find($id);
+    //$user = User::find(1);
+    $user = User::where('username', '=', $username)->first();
     //$count = $user->vinyls->count();
  
     return Response::json(array(
