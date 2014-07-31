@@ -35,9 +35,11 @@
       </div>
     </div>
 
-    <div class="container welcome-content">
-      <a class="btn btn-primary" role="button" href="{{ URL::route('get-collection', Auth::user()->id ) }}"><i class="fa fa-fw fa-database"></i> Collection</a>
-      <a class="btn btn-primary" role="button" href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-fw fa-user"></i> Profile</a>
-    </div>
+    @if(Auth::check())
+      <div class="container welcome-content">
+        <a class="btn btn-primary" role="button" href="{{ URL::route('get-collection', Auth::user()->id ) }}"><i class="fa fa-fw fa-database"></i> Collection</a>
+        <a class="btn btn-primary" role="button" href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-fw fa-user"></i> Profile</a>
+      </div>
+    @endif
   </div>
 @stop
