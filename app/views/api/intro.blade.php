@@ -21,6 +21,11 @@
       <div class="panel-body">
         <code>GET api/user/&lt;username&gt;</code>
       </div>
+      <!-- List group -->
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Example</strong> <br> <kbd>curl -i http://beta.diskollect.com/api/user/schnubor</kbd></li>
+        <li class="list-group-item"><strong>Response</strong> <br> <code>JSON</code></li>
+      </ul>
     </div>
 
     <!-- Collection -->
@@ -31,6 +36,11 @@
       <div class="panel-body">
         <code>GET api/collection/&lt;user_id&gt;</code>
       </div>
+      <!-- List group -->
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Example</strong> <br> <kbd>curl -i http://beta.diskollect.com/api/collection/1</kbd></li>
+        <li class="list-group-item"><strong>Response</strong> <br> <code>JSON</code></li>
+      </ul>
     </div>
 
     <!-- Vinyl -->
@@ -41,6 +51,11 @@
       <div class="panel-body">
         <code>GET api/vinyl/&lt;id&gt;</code>
       </div>
+      <!-- List group -->
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Example</strong> <br> <kbd>curl -i http://beta.diskollect.com/api/vinyl/1</kbd></li>
+        <li class="list-group-item"><strong>Response</strong> <br> <code>JSON</code></li>
+      </ul>
     </div>
   </div>
 @stop
