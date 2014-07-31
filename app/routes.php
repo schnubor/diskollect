@@ -216,6 +216,11 @@ Route::get('vinyls/{id}', array(
 | API
 */
 
+Route::get('developer', array(
+  'as' => 'api-get-intro',
+  'uses' => 'ApiController@intro'
+));
+
 Route::get('api/user/{username}', array(
   'as' => 'api-get-user',
   'uses' => 'ApiController@deliverUser'
