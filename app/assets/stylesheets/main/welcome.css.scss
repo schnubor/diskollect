@@ -1,6 +1,9 @@
+@import '_variables';
+
 #welcome{
   .welcome-header{
     background-image: url('/assets/header-image.jpg');
+    background-color: $red;
     background-size: cover;
     width: 100%;
     height: auto;

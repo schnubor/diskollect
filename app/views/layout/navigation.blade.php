@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="{{ URL::to('/') }}" style="font-weight: bold;">
-        <img src="/assets/logo.png" alt="Logo" class="logo"> Diskollect
+        <img src="/assets/logo.png" alt="Logo" class="logo">
       </a>
     </div>
 

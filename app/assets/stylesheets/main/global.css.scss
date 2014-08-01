@@ -1,0 +1,20 @@
+body{
+  padding-top: 70px;
+  padding-bottom: 20px;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+}
+
+.table>tbody>tr>td{
+  vertical-align: middle;
+}
+
+.notifications{
+  position: relative;
+  z-index: 1;
+}
+
+// Helpers
+
+.full-width{
+  width: 100%;
+}

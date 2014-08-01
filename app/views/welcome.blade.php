@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('title')
-  Home
+  Welcome
 @stop
 
 @section('body')
