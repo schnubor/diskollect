@@ -154,8 +154,7 @@ class UsersController extends \BaseController {
 
 			if($auth){
 				//Redirect to intended page
-				return Redirect::intended('/')
-					->with('success-alert', 'Welcome! You have been signed in.');
+				return Redirect::intended('/');
 			}
 			else{
 				return Redirect::to('/signin')

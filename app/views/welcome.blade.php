@@ -21,25 +21,25 @@
           </div>
         @else
           <div class="welcome-message">
-            <img class="logo" src="/assets/logo.png" alt="Logo">
-            <h2>Start sharing your vinyl collection today.</h2>
-            <div class="buttons">
-              <div class="btn-group btn-group-md">
-                <a class="btn btn-primary" role="button" href="{{ URL::route('get-user-create') }}"><i class="fa fa-fw fa-edit"></i>Register</a>
-                <a class="btn btn-default" role="button" href="{{ URL::route('get-signin') }}"><i class="fa fa-fw fa-sign-in"></i>Login</a>
-              </div>
-            </div>
+            <h1>DISKOLLECT</h1>
+            <h2>Vinyl Collection Management Done Right.</h2>
           </div>
         @endif
-
       </div>
     </div>
 
-    @if(Auth::check())
-      <div class="container welcome-content">
-        <a class="btn btn-primary" role="button" href="{{ URL::route('get-collection', Auth::user()->id ) }}"><i class="fa fa-fw fa-database"></i> Collection</a>
-        <a class="btn btn-primary" role="button" href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-fw fa-user"></i> Profile</a>
+    <div class="welcome-actions">
+      <div class="container">
+        @if(Auth::check())
+          <div class="container welcome-content">
+            <a class="btn btn-primary" role="button" href="{{ URL::route('get-collection', Auth::user()->id ) }}"><i class="fa fa-fw fa-database"></i> Collection</a>
+            <a class="btn btn-primary" role="button" href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-fw fa-user"></i> Profile</a>
+          </div>
+        @else
+            <a class="btn btn-primary btn-lg" role="button" href="{{ URL::route('get-signin') }}"><i class="fa fa-fw fa-sign-in"></i>Login</a>
+            <a class="btn btn-default btn-lg" role="button" href="{{ URL::route('get-user-create') }}"><i class="fa fa-fw fa-edit"></i>Register</a>
+        @endif
       </div>
-    @endif
+    </div>
   </div>
 @stop
