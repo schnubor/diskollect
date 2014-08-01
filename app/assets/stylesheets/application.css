@@ -10,6 +10,5 @@
  * but before any files alphabetically greater than 'application.css' 
  *
  *= require_directory vendor
- *= depend_on main/_variables
- *= require main
+ *= require_directory page
  */
