@@ -77,11 +77,3 @@
   </div>
 @stop
 
-@section('scripts')
-  <script type="text/javascript">
-    $(function () {
-      $('.footable').footable();
-    });
-  </script>
-@stop
-
