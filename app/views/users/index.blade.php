@@ -7,7 +7,7 @@
 @section('body')
   <div class="container members">
     <div class="page-header">
-      <h1>All {{ $users->count() }} users</h1>
+      <h1>Collectors</h1>
     </div>
 
     <table class="table table-striped table-responsive footable">
@@ -45,6 +45,11 @@
         @endforeach
       </tbody>
     </table>
+    
+    <div class="pagination-container">
+      {{ $users->links() }}
+    </div>
+
   </div>
 @stop
 
