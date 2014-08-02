@@ -55,13 +55,13 @@
       h1{
         font-size: 72px;
         font-weight: bold;
-        text-shadow: 0 6px 0 black;
+        text-shadow: 0 6px 0 #202020;
       }
 
       h2{
         text-transform: uppercase;
         font-weight: 300;
-        text-shadow: 0 2px 0px black;
+        text-shadow: 0 2px 0px #202020;
       }
     }
   }
@@ -78,5 +78,24 @@
   .welcome-content{
     position: relative;
     top: 365px;
+  }
+}
+
+@media screen and (max-width: 578px){
+  #welcome{
+    .welcome-header{
+
+      padding: 50px 0;
+
+      .welcome-message{
+        h1{
+          font-size: 32px;
+        }
+
+        h2{
+          font-size: 20px;
+        }
+      }
+    }
   }
 }
