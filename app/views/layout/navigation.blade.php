@@ -26,7 +26,7 @@
 
         @if(Auth::check())
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i> {{ Auth::user()->username }}<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><div class="profile-image" style="background-image: url('{{ Auth::user()->image }}'); background-size: cover;"></div> {{ Auth::user()->username }}<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="{{ URL::route('get-edit-user') }}"><i class="fa fa-pencil fa-fw"></i> Edit Profile</a></li>
               <li><a href="{{ URL::route('get-change-password') }}"><i class="fa fa-lock fa-fw"></i> Change password</a></li>
@@ -43,8 +43,6 @@
             </ul>
           </li>
         @else
-          <li><a href="{{ URL::route('get-signin') }}"><i class="fa fa-sign-in"></i> Login</a></li>
-          <li><a href="{{ URL::route('get-user-create') }}"><i class="fa fa-edit"></i> Register</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
             <ul class="dropdown-menu">

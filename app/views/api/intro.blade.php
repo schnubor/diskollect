@@ -5,10 +5,10 @@
 @stop
 
 @section('body')
-  <div class="jumbotron">
+  <div class="jumbotron" style="margin-top: -20px;">
     <div class="container">
       <h1>API Introduction</h1>
-      <p>This is a quick introdution to the RESTful Diskollect API. The basic response format is JSON.<br>
+      <p>This is a quick introduction to the RESTful Diskollect API. The basic response format is JSON.<br>
       Check the examples below for more insights.</p>
     </div>
   </div>
