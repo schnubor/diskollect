@@ -24,7 +24,7 @@
 
     @if($user->vinyls->count() != 0)
       <div class="row vinyl-list">
-      @foreach($user->vinyls as $vinyl)
+      @foreach($vinyls as $vinyl)
         <div class="col-sm-3 vinyl">
           <div class="vinyl-cover">
             <div class="content">
@@ -56,8 +56,12 @@
         </div>
       @endforeach
       </div>
-    @else
 
+      <div class="pagination-container">
+        {{ $vinyls->links() }}
+      </div>
+    @else
+      <!-- Vinyl Count is 0 -->
       @if(Auth::check())
         @if($user->id == Auth::user()->id)
           <p>You don't have any vinyls in your collection yet. Go add some!</p>

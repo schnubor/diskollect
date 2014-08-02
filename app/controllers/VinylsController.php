@@ -131,7 +131,7 @@ class VinylsController extends \BaseController {
 	*/
 	public function showCollection($id)
 	{
-		$vinyls = User::find($id)->vinyls;
+		$vinyls = User::find($id)->vinyls()->paginate(32);
 		$user = User::find($id);
 
 		$data = array('user' => $user, 'vinyls' => $vinyls);
