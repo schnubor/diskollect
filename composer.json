@@ -6,9 +6,9 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"ricbra/php-discogs-api": "0.6",
+    "codesleeve/asset-pipeline": "dev-master",
     "schnubor/phpclasses-sasl": "dev-master",
 		"schnubor/phpclasses-httpclient": "dev-master",
-    "codesleeve/asset-pipeline": "dev-master",
 		"schnubor/phpclasses-oauth-api": "dev-master"
 	},
 	"require-dev": {
