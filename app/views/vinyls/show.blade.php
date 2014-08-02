@@ -15,7 +15,6 @@
       <a class="btn btn-default btn-sm" role="button" href="{{ URL::to('users') }}/{{ Auth::user()->id }}/collection"><i class="fa fa-angle-double-left"></i> Back to collection</a>
       @if($vinyl->user_id == Auth::user()->id)
         <div class="btn btn-success pull-right disabled">{{ round($vinyl->price, 2) }} EUR</div>
-        <a href="{{ URL::route('get-edit-vinyl', $vinyl->id) }}" class="btn btn-default pull-right" style="margin-right: 10px;"><i class="fa fa-fw fa-gear"></i>Edit Vinyl</a>
       @endif
       <hr>
     @endif
@@ -31,6 +30,14 @@
         </div>
       </div>
     </div>
+
+    @if($vinyl->user_id == Auth::user()->id)
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p><a href="{{ URL::route('get-edit-vinyl', $vinyl->id) }}" class="btn btn-md btn-default" style="margin-right: 10px;"><i class="fa fa-fw fa-gear"></i>Edit Vinyl</a></p>
+        </div>
+      </div>
+    @endif
 
     <div class="row">
       <div class="col-md-12 text-center">
