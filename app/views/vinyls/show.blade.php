@@ -31,12 +31,14 @@
       </div>
     </div>
 
-    @if($vinyl->user_id == Auth::user()->id)
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <p><a href="{{ URL::route('get-edit-vinyl', $vinyl->id) }}" class="btn btn-md btn-default" style="margin-right: 10px;"><i class="fa fa-fw fa-gear"></i>Edit Vinyl</a></p>
+    @if(Auth::check())
+      @if($vinyl->user_id == Auth::user()->id)
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p><a href="{{ URL::route('get-edit-vinyl', $vinyl->id) }}" class="btn btn-md btn-default" style="margin-right: 10px;"><i class="fa fa-fw fa-gear"></i>Edit Vinyl</a></p>
+          </div>
         </div>
-      </div>
+      @endif
     @endif
 
     <div class="row">
