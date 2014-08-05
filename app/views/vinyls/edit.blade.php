@@ -132,7 +132,7 @@
           <legend>Your Data</legend>
 
           <div class="form-group">
-            {{ Form::label('price', 'Price') }} <span style="color: red;">*</span>
+            {{ Form::label('price', 'Price in '.Auth::user()->currency) }} <span style="color: red;">*</span>
             {{ Form::text('price', round($vinyl->price, 2), array('class' => 'form-control', 'placeholder' => 'What did you pay?')); }}
 
             @if($errors->has('price'))
