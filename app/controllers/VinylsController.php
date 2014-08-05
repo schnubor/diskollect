@@ -103,17 +103,36 @@ class VinylsController extends \BaseController {
 			$title = Input::get('title');
 
 			// Discogs
-			$service = new \Discogs\Service();
+			$client = Discogs\ClientFactory::factory([
+        'defaults' => [
+            'headers' => ['User-Agent' => 'diskollect/0.1 +http://beta.diskollect.com'],
+        ]
+      ]);
 
-			$resultset = $service->search(array(
-		    'artist' 	=> $artist,
-		    'title' 	=> $title,
-		    'format' 	=> 'Vinyl'
-			));
+      $user = Auth::user();
 
-			$count = $resultset->count();
+      $oauth = new GuzzleHttp\Subscriber\Oauth\Oauth1([
+        'consumer_key'    => $_ENV['DC_CONSUMER_KEY'], // from Discogs developer page
+        'consumer_secret' => $_ENV['DC_CONSUMER_SECRET'], // from Discogs developer page
+        'token'           => $user->discogs_access_token, // get this using a OAuth library
+        'token_secret'    => $user->discogs_access_token_secret // get this using a OAuth library
+      ]);
+      $client->getHttpClient()->getEmitter()->attach($oauth);
+
+			$resultset = $client->search([
+        'artist' => $artist,
+        'title' => $title,
+        'format' => 'vinyl'
+      ]);
+
+      dd($resultset);
+
+			/*$count = $resultset->count();
 			$page = $resultset->getPagination();
-			$results = $resultset->getResults();
+			$results = $resultset->getResults();*/
+      $results = null;
+      $count = null;
+      $page = null;
 
 			return View::make('vinyls.results')
 				->with('artist', $artist)
