@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"ricbra/php-discogs-api": "dev-master",
+		"ricbra/php-discogs-api": "~1.0.0",
     "codesleeve/asset-pipeline": "dev-master",
     "schnubor/phpclasses-sasl": "dev-master",
 		"schnubor/phpclasses-httpclient": "dev-master",
