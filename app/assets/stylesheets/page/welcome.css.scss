@@ -8,7 +8,7 @@
     height: auto;
     color: white;
     margin-top: -20px;
-    padding: 70px;
+    padding: 70px 0;
 
     .welcome-message{
       margin: 0 auto;
@@ -31,7 +31,6 @@
       }
 
       h2{
-        text-transform: uppercase;
         font-weight: 300;
         text-shadow: 0 0 5px rgb(83, 70, 49);
       }

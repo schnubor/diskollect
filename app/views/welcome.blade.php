@@ -12,11 +12,11 @@
         @if(Auth::check())
           <div class="welcome-message">
               <h1>{{ Auth::user()->username }}</h1>
-              <h2>You got <strong>{{ Auth::user()->vinyls->count() }} Vinyls</strong> worth <strong>{{ Auth::user()->vinyls->sum('price') }} {{ Auth::user()->currency }}</strong></h2>
+              <h2>You got <strong>{{ Auth::user()->vinyls->count() }} Vinyls</strong> worth <strong>{{ round(Auth::user()->vinyls->sum('price'), 2) }} {{ Auth::user()->currency }}</strong></h2>
           </div>
         @else
           <div class="welcome-message">
-            <h1>DISKOLLECT</h1>
+            <h1>Diskollect</h1>
             <h2>Vinyl Collection Management Done Right.</h2>
           </div>
         @endif
