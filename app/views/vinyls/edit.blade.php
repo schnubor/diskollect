@@ -191,7 +191,7 @@
     </div>
 
     <hr>
-    {{ Form::submit('Edit Vinyl', array('class' => 'btn btn-primary pull-right')) }}
+    {{ Form::submit('Edit Vinyl', array('class' => 'btn btn-primary btn-lg pull-right')) }}
     {{ Form::close() }}
   </div>
 @stop

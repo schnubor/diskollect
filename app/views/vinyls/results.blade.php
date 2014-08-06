@@ -6,9 +6,6 @@
 
 @section('body')
   <div class="container">
-    <?php
-      $service = new \Discogs\Service();
-    ?>
 
     <div class="page-header">
       <h1>Search Vinyl</h1>
@@ -60,18 +57,17 @@
           <tbody>
             @foreach($results as $result)
               <?php
-                $url = str_replace('api.discogs.com/image/R-90','s.pixogs.com/image/R-150',$result->getThumb());
-
-                $title = $result->getTitle();
-                list($artist, $vinylTitle) = explode(' - ', $title);
+                $url = str_replace('api.discogs.com/image/R-150','s.pixogs.com/image/R-150',$result['thumb']);
+                $artist = $result['artists'][0]['name'];
+                $title = $result['title'];
               ?>
 
               <tr>
                 <td><img src="{{ $url }}" alt="cover" class="artwork"/></td>
                 <td>{{ $artist }}</td>
-                <td>{{ $vinylTitle }}</td>
+                <td>{{ $title }}</td>
                 <td>
-                  <a href="{{ URL::route('get-create-vinyl-search') }}?id={{ $result->getId() }}&type={{ $result->getType() }}"><button class="btn btn-sm btn-success">Add</button></a>
+                  <a href="{{ URL::route('get-create-vinyl-search') }}?id={{ $result['id'] }}&type={{ $result['type'] }}"><button class="btn btn-sm btn-success">Add</button></a>
                 </td>
               </tr>
             @endforeach

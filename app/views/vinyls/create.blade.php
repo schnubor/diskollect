@@ -7,59 +7,32 @@
 @section('body')
   <div class="container create-vinyl">
     <?php
-
-      if($data = Input::all()){
-        // --- get release from Discogs ----------
-        $service = new \Discogs\Service();
-
-        $id = $data['id'];
-        $type = $data['type'];
-
-        if($type == 'release'){
-          $release = $service->getRelease($id);
-        }
-        else{
-          $release = $service->getRelease($service->getMaster($id)->getMainRelease());
-        }
-
-        // --- get release data ------------------
-
-        $artist = $release->getArtists()[0]->getName();
-        $title = $release->getTitle();
-
-        $artwork = str_replace('api.discogs.com/image/R-','s.pixogs.com/image/R-',$release->getImages()[0]->getUri());
-        if($release->getVideos()[0]){
-          $video = $release->getVideos()[0]->getUri();
+      if($search){
+        $type = $vinyl['type'];
+        $artist = $vinyl['artists'][0]['name'];
+        $title = $vinyl['title'];
+        $artwork = str_replace('api.discogs.com/image/R-','s.pixogs.com/image/R-',$vinyl['images'][0]['uri']);
+        if($vinyl['videos'][0]['uri']){
+          $video = $vinyl['videos'][0]['uri'];
           $videoId = substr($video, -11);
         }
         else{
           $video = null;
         }
-
-        // fetch ALL labels
-
-        /*$labelsObj = $release->getLabels();
-        $tmp_labels = [];
-        foreach ($labelsObj as $label) {
-          array_push($tmp_labels, $label->getName());
-        }
-        $labels = implode(';', $tmp_labels);*/
-
-        $label = $release->getLabels()[0]->getName();
-        $genres = implode(';', $release->getGenres());
-        $year = $release->getReleased();
-        $country = $release->getCountry();
-        $count = $release->getFormats()[0]->qty;
-        $tracklistItems = $release->getTracklist();
+        $label = $vinyl['labels'][0]['name'];
+        $genres = implode(';', $vinyl['genres']);
+        $year = $vinyl['released_formatted'];
+        $country = $vinyl['country'];
+        $count = $vinyl['formats'][0]['qty'];
+        $tracklistItems = $vinyl['tracklist'];
         $tmp_tracklist = [];
         foreach ($tracklistItems as $item) {
-          array_push($tmp_tracklist, $item->getPosition() . ' ' . $item->getTitle() . ' ' . $item->getDuration());
+          array_push($tmp_tracklist, $item['position'] . ' ' . $item['title'] . ' ' . $item['duration']);
         }
         $tracklist = implode(';', $tmp_tracklist);
       }
       else{
-        $id = null;
-        $type = null;
+        $type = 'release';
         $artist = null;
         $title = null;
         $artwork = null;
@@ -72,7 +45,6 @@
         $count = null;
         $tracklist = null;
       }
-
     ?>
 
     <div class="row">
@@ -106,7 +78,6 @@
         <div class="well">
           <div class="form-wrapper">
             <legend>Fetched Data</legend>
-
 
               <div class="form-group">
                 {{ Form::label('artist', 'Artist') }} <span style="color: red;">*</span>
@@ -258,7 +229,7 @@
     </div>
 
     <hr>
-    {{ Form::submit('Add Vinyl', array('class' => 'btn btn-primary pull-right')) }}
+    {{ Form::submit('Add Vinyl', array('class' => 'btn btn-primary btn-lg pull-right')) }}
     {{ Form::close() }}
   </div>
 @stop

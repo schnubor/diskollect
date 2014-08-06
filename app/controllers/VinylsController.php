@@ -119,27 +119,35 @@ class VinylsController extends \BaseController {
       ]);
       $client->getHttpClient()->getEmitter()->attach($oauth);
 
-			$resultset = $client->search([
+			$response = $client->search([
         'artist' => $artist,
         'title' => $title,
         'format' => 'vinyl'
       ]);
 
-      dd($resultset);
+      $results = [];
 
-			/*$count = $resultset->count();
-			$page = $resultset->getPagination();
-			$results = $resultset->getResults();*/
-      $results = null;
-      $count = null;
-      $page = null;
+      foreach($response['results'] as $result){
+        if($result['type'] == 'release'){
+          $release = $client->getRelease([
+            'id' => $result['id']
+          ]);
+          $release['type'] = 'release';
+          array_push($results, $release);
+        }
+        else{ // Master
+          $master = $client->getMaster([
+            'id' => $result['id']
+          ]);
+          $master['type'] = 'master';
+          array_push($results, $master);
+        }
+      }
 
 			return View::make('vinyls.results')
 				->with('artist', $artist)
 				->with('title', $title)
-				->with('results', $results)
-				->with('count', $count)
-				->with('page', $page);
+				->with('results', $results);
 		}
 
 		return Redirect::to('search')->with('danger-alert', 'Oops! Something went wrong the search was posted.');
@@ -173,11 +181,48 @@ class VinylsController extends \BaseController {
 	*/
 	public function createVinyl()
 	{
-		$vinyl = Input::all();
-    $user = User::find(Auth::user()->id);
-		return View::make('vinyls.create')
-			->with('vinyl', $vinyl)
-      ->with('user', $user);
+		$result = Input::all();
+    $user = Auth::user();
+
+    if($result){
+      // Discogs
+      $client = Discogs\ClientFactory::factory([
+        'defaults' => [
+            'headers' => ['User-Agent' => 'diskollect/0.1 +http://beta.diskollect.com'],
+        ]
+      ]);
+
+      $oauth = new GuzzleHttp\Subscriber\Oauth\Oauth1([
+        'consumer_key'    => $_ENV['DC_CONSUMER_KEY'], // from Discogs developer page
+        'consumer_secret' => $_ENV['DC_CONSUMER_SECRET'], // from Discogs developer page
+        'token'           => $user->discogs_access_token, // get this using a OAuth library
+        'token_secret'    => $user->discogs_access_token_secret // get this using a OAuth library
+      ]);
+      $client->getHttpClient()->getEmitter()->attach($oauth);
+
+      if($result['type'] == 'release'){
+        $vinyl = $client->getRelease([
+          'id' => $result['id']
+        ]);
+      }
+      else{
+        $vinyl = $client->getMaster([
+          'id' => $result['id']
+        ]);
+      }
+
+      $vinyl['type'] = $result['type'];
+
+  		return View::make('vinyls.create') // create from search
+  			->with('vinyl', $vinyl)
+        ->with('user', $user)
+        ->with('search', true);
+    }
+    else{
+      return View::make('vinyls.create') // create manually
+        ->with('user', $user)
+        ->with('search', false);
+    }
 	}
 
   /*
