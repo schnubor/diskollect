@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "237464ca3e84c411b3d1a5e7119a4b3b",
+    "hash": "4529fad4bfdc069a16abf80d7a74402a",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -275,30 +275,67 @@
             "time": "2013-12-04 14:19:30"
         },
         {
-            "name": "guzzlehttp/command",
-            "version": "0.5.0",
+            "name": "guzzle/guzzle",
+            "version": "v3.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/command.git",
-                "reference": "01d96f9344571e73ec1e29d5a305e4bb484cd29a"
+                "url": "https://github.com/guzzle/guzzle3.git",
+                "reference": "92d9934f2fca1da15178c91239576ae26e505e60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/command/zipball/01d96f9344571e73ec1e29d5a305e4bb484cd29a",
-                "reference": "01d96f9344571e73ec1e29d5a305e4bb484cd29a",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/92d9934f2fca1da15178c91239576ae26e505e60",
+                "reference": "92d9934f2fca1da15178c91239576ae26e505e60",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "~4.0",
-                "php": ">=5.4.0"
+                "ext-curl": "*",
+                "php": ">=5.3.3",
+                "symfony/event-dispatcher": "~2.1"
+            },
+            "replace": {
+                "guzzle/batch": "self.version",
+                "guzzle/cache": "self.version",
+                "guzzle/common": "self.version",
+                "guzzle/http": "self.version",
+                "guzzle/inflection": "self.version",
+                "guzzle/iterator": "self.version",
+                "guzzle/log": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/plugin": "self.version",
+                "guzzle/plugin-async": "self.version",
+                "guzzle/plugin-backoff": "self.version",
+                "guzzle/plugin-cache": "self.version",
+                "guzzle/plugin-cookie": "self.version",
+                "guzzle/plugin-curlauth": "self.version",
+                "guzzle/plugin-error-response": "self.version",
+                "guzzle/plugin-history": "self.version",
+                "guzzle/plugin-log": "self.version",
+                "guzzle/plugin-md5": "self.version",
+                "guzzle/plugin-mock": "self.version",
+                "guzzle/plugin-oauth": "self.version",
+                "guzzle/service": "self.version",
+                "guzzle/stream": "self.version"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "doctrine/cache": "~1.3",
+                "monolog/monolog": "~1.0",
+                "phpunit/phpunit": "3.7.*",
+                "psr/log": "~1.0",
+                "symfony/class-loader": "~2.1",
+                "zendframework/zend-cache": "2.*,<2.3",
+                "zendframework/zend-log": "2.*,<2.3"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.8-dev"
+                }
+            },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Command\\": "src/"
+                "psr-0": {
+                    "Guzzle": "src/",
+                    "Guzzle\\Tests": "tests/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -310,10 +347,24 @@
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Guzzle Community",
+                    "homepage": "https://github.com/guzzle/guzzle/contributors"
                 }
             ],
-            "description": "Provides the foundation for building command based web service clients",
-            "time": "2014-08-01 17:54:53"
+            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2014-05-07 17:04:22"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -379,47 +430,6 @@
                 "web service"
             ],
             "time": "2014-08-03 20:38:45"
-        },
-        {
-            "name": "guzzlehttp/guzzle-services",
-            "version": "0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/guzzle-services.git",
-                "reference": "689dfa73b65e2c0a74184a5fb8c5a6ef0b160911"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle-services/zipball/689dfa73b65e2c0a74184a5fb8c5a6ef0b160911",
-                "reference": "689dfa73b65e2c0a74184a5fb8c5a6ef0b160911",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/command": "~0.2",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Command\\Guzzle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Provides an implementation of the Guzzle Command library that uses Guzzle service descriptions to describe web services, serialize requests, and parse responses into easy to use model structures.",
-            "time": "2014-06-01 20:00:25"
         },
         {
             "name": "guzzlehttp/oauth-subscriber",
@@ -883,6 +893,65 @@
             "time": "2013-12-23 23:28:02"
         },
         {
+            "name": "league/oauth1-client",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth1-client.git",
+                "reference": "f1db4b8f97605cd6e88cf2a4e164b5cf5e5b68e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth1-client/zipball/f1db4b8f97605cd6e88cf2a4e164b5cf5e5b68e8",
+                "reference": "f1db4b8f97605cd6e88cf2a4e164b5cf5e5b68e8",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/guzzle": "3.*",
+                "php": ">=5.3.0",
+                "symfony/http-foundation": "~2"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.7.2",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth1\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Corlett",
+                    "email": "bencorlett@me.com",
+                    "homepage": "http://www.webcomm.com.au",
+                    "role": "Developer"
+                }
+            ],
+            "description": "OAuth 1.0 Client Library",
+            "keywords": [
+                "Authentication",
+                "SSO",
+                "authorization",
+                "identity",
+                "idp",
+                "oauth",
+                "oauth1",
+                "single sign on"
+            ],
+            "time": "2014-01-31 23:08:45"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.10.0",
             "source": {
@@ -1332,57 +1401,6 @@
             "time": "2012-12-21 11:40:51"
         },
         {
-            "name": "ricbra/php-discogs-api",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ricbra/php-discogs-api.git",
-                "reference": "114e69f2ad5fd737adb6bdccf2110865995bd4d8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ricbra/php-discogs-api/zipball/114e69f2ad5fd737adb6bdccf2110865995bd4d8",
-                "reference": "114e69f2ad5fd737adb6bdccf2110865995bd4d8",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "~4.0",
-                "guzzlehttp/guzzle-services": "~0.3.0",
-                "guzzlehttp/oauth-subscriber": "~0.1.2",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Discogs": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Richard van den Brand",
-                    "email": "richard@vandenbrand.org"
-                }
-            ],
-            "description": "The Discogs API makes it easy for developers to communicate with the Discogs platform",
-            "keywords": [
-                "api",
-                "discogs"
-            ],
-            "time": "2014-08-06 17:42:47"
-        },
-        {
             "name": "richthegeek/phpsass",
             "version": "2014-03-20",
             "source": {
@@ -1432,116 +1450,6 @@
             "description": "PHPSass is a PHP compiler for SASS, a popular CSS pre-processor language.",
             "homepage": "http://phpsass.com",
             "time": "2014-03-20 17:07:47"
-        },
-        {
-            "name": "schnubor/phpclasses-httpclient",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/schnubor/phpclasses-httpclient.git",
-                "reference": "9e7c60414edb89a31e601d8b62495bd615e33915"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/schnubor/phpclasses-httpclient/zipball/9e7c60414edb89a31e601d8b62495bd615e33915",
-                "reference": "9e7c60414edb89a31e601d8b62495bd615e33915",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "schnubor\\phpclasses-httpclient": "httpclient"
-                },
-                "classmap": [
-                    "httpclient/http.php",
-                    "httpclient/yahoo_user.php"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Helper library to oauth to Discogs.",
-            "support": {
-                "source": "https://github.com/schnubor/phpclasses-httpclient/tree/master",
-                "issues": "https://github.com/schnubor/phpclasses-httpclient/issues"
-            },
-            "time": "2014-07-05 08:19:29"
-        },
-        {
-            "name": "schnubor/phpclasses-oauth-api",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/schnubor/phpclasses-oauth-api.git",
-                "reference": "da1cf86979dc862f5e672f80bdeb936f59d6ca84"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/schnubor/phpclasses-oauth-api/zipball/da1cf86979dc862f5e672f80bdeb936f59d6ca84",
-                "reference": "da1cf86979dc862f5e672f80bdeb936f59d6ca84",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "schnubor\\phpclasses-oauth-api": "oauth-api"
-                },
-                "classmap": [
-                    "oauth-api/oauth_client.php",
-                    "oauth-api/mysqli_oauth_client.php",
-                    "oauth-api/mysqli_offline_access_to_google.php",
-                    "oauth-api/database_oauth_client.php",
-                    "oauth-api/cookie_oauth_client.php"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Library to oauth to Discogs.",
-            "support": {
-                "source": "https://github.com/schnubor/phpclasses-oauth-api/tree/master",
-                "issues": "https://github.com/schnubor/phpclasses-oauth-api/issues"
-            },
-            "time": "2014-07-05 08:19:40"
-        },
-        {
-            "name": "schnubor/phpclasses-sasl",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/schnubor/phpclasses-sasl.git",
-                "reference": "375833d79dee9c4c2c4730739813eec55b27e7b6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/schnubor/phpclasses-sasl/zipball/375833d79dee9c4c2c4730739813eec55b27e7b6",
-                "reference": "375833d79dee9c4c2c4730739813eec55b27e7b6",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "schnubor\\phpclasses-sasl": "sasl"
-                },
-                "classmap": [
-                    "sasl/sasl.php",
-                    "sasl/plain_sasl_client.php",
-                    "sasl/login_sasl_client.php",
-                    "sasl/cram_md5_sasl_client.php",
-                    "sasl/ntlm_sasl_client.php",
-                    "sasl/basic_sasl_client.php",
-                    "sasl/digest_sasl_client.php"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Helper library to oauth to Discogs.",
-            "support": {
-                "source": "https://github.com/schnubor/phpclasses-sasl/tree/master",
-                "issues": "https://github.com/schnubor/phpclasses-sasl/issues"
-            },
-            "time": "2014-07-05 08:13:24"
         },
         {
             "name": "stack/builder",
@@ -1855,12 +1763,14 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
                 }
             ],
             "description": "Symfony Debug Component",
@@ -2492,15 +2402,18 @@
             "time": "2014-05-27 14:21:26"
         }
     ],
-    "aliases": [],
+    "aliases": [
+
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "codesleeve/asset-pipeline": 20,
-        "schnubor/phpclasses-sasl": 20,
-        "schnubor/phpclasses-httpclient": 20,
-        "schnubor/phpclasses-oauth-api": 20
+        "codesleeve/asset-pipeline": 20
     },
     "prefer-stable": false,
-    "platform": [],
-    "platform-dev": []
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
 }
