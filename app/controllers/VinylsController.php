@@ -101,6 +101,7 @@ class VinylsController extends \BaseController {
 
 			$artist = Input::get('artist');
 			$title = Input::get('title');
+      $user = Auth::user();
 
 			// Discogs
 			$client = Discogs\ClientFactory::factory([
@@ -109,8 +110,6 @@ class VinylsController extends \BaseController {
         ]
       ]);
 
-      $user = Auth::user();
-
       $oauth = new GuzzleHttp\Subscriber\Oauth\Oauth1([
         'consumer_key'    => $_ENV['DC_CONSUMER_KEY'], // from Discogs developer page
         'consumer_secret' => $_ENV['DC_CONSUMER_SECRET'], // from Discogs developer page
@@ -118,6 +117,8 @@ class VinylsController extends \BaseController {
         'token_secret'    => $user->discogs_access_token_secret // get this using a OAuth library
       ]);
       $client->getHttpClient()->getEmitter()->attach($oauth);
+
+      //$identity = $client->getOAuthIdentity(['auth' => 'oauth']);
 
 			$response = $client->search([
         'artist' => $artist,
@@ -204,6 +205,10 @@ class VinylsController extends \BaseController {
         $vinyl = $client->getRelease([
           'id' => $result['id']
         ]);
+        $price = $client->getPriceSuggestion([
+          'release_id' => $result['id']
+        ]);
+        dd($price);
       }
       else{
         $vinyl = $client->getMaster([
