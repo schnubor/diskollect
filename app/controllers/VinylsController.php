@@ -23,64 +23,59 @@ class VinylsController extends \BaseController {
 	*/
 	public function oAuthDiscogs(){
 		// oAuth to Discogs to enable search
-		$client = new oauth_client_class;
-		$client->debug = true;
-    $client->debug_http = true;
-    $client->server = 'Discogs';
-    $client->redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].
-        dirname(strtok($_SERVER['REQUEST_URI'],'?')).'/discogs';
+    $userAgent = 'Diskollect/1.0, +http://diskollect.com';  // specify recognizable user-agent
 
-    $client->client_id = 'iLHTUYXHgeToxDaAWpAX'; $application_line = __LINE__;
-    $client->client_secret = 'dPaSaHBIyyNgNqZuPFPpBTCentqzPxPj';
+    $server = new \League\OAuth1\Client\Server\Discogs([
+      'identifier'   => $_ENV['DC_CONSUMER_KEY'],
+      'secret'       => $_ENV['DC_CONSUMER_SECRET'],
+      'callback_uri' => 'http://'.$_SERVER['HTTP_HOST'].dirname(strtok($_SERVER['REQUEST_URI'],'?')).'/discogs'
+    ], null, $userAgent);
 
-    if(strlen($client->client_id) == 0
-    || strlen($client->client_secret) == 0)
-        die('Please go to Discogs Developers page http://www.discogs.com/applications/edit , '.
-            'create an application, and in the line '.$application_line.
-            ' set the client_id to Consumer key and client_secret with Consumer secret. '.
-            'The Callback URL must be '.$client->redirect_uri);
+    // no temporary token? redirect then
+    if ( !isset($_GET['oauth_token']) ) {
+      $tempCredentials = $server->getTemporaryCredentials();
+      Session::put('tempCredentials', serialize($tempCredentials));
+      Session::save();
+      header('Location: '.$server->getAuthorizationUrl($tempCredentials));
+      $server->authorize($tempCredentials);
+    }
 
-    if(($success = $client->Initialize()))
-    {
-      if(($success = $client->Process()))
-      {
-        if(strlen($client->access_token))
-        {
+    // ok got temporary token
+    // nb: you may save it in db
+    $token = $server->getTokenCredentials(
+      unserialize(Session::get('tempCredentials')), 
+      Input::get('oauth_token'),
+      Input::get('oauth_verifier')
+    );
 
-          if($success = $client->CallAPI(
-            'http://api.discogs.com/oauth/identity',
-            'GET', array(), array('FailOnAccessError'=>true), $DiscogsUser))
-          {
-	          $user = User::find(Auth::user()->id); // Find current user
-	          $user->discogs_access_token = $client->access_token;
-	          $user->discogs_access_token_secret = $client->access_token_secret;
-	          $user->discogs_uri = $DiscogsUser->resource_url;
+    // Discogs TEST
+    $client = Discogs\ClientFactory::factory([]);
 
-	          if(!$user->save()){
-	          	return Redirect::to('/search')
-	          		->with('danger-alert','Oops! Something went wrong while writing oAuth Data to the database.');
-	          }
-	        }
-	        else{
-	        	return Redirect::to('/search')
-	        		->with('danger-alert','Oops! Discogs API call failed.');
-	        }
-        }
-      }
-      $success = $client->Finalize($success);
+    $oauth = new GuzzleHttp\Subscriber\Oauth\Oauth1([
+      'consumer_key'    => $_ENV['DC_CONSUMER_KEY'], // from Discogs developer page
+      'consumer_secret' => $_ENV['DC_CONSUMER_SECRET'], // from Discogs developer page
+      'token'           => $token->getIdentifier(), // get this using a OAuth library
+      'token_secret'    => $token->getSecret() // get this using a OAuth library
+    ]);
+    $client->getHttpClient()->getEmitter()->attach($oauth);
+    $identity = $client->getOAuthIdentity();
+
+    $user = Auth::user(); // Current user
+    $user->discogs_access_token = $token->getIdentifier();
+    $user->discogs_access_token_secret = $token->getSecret();
+    $user->discogs_uri = $identity['resource_url'];
+
+    if($user->save()){
+    	return Redirect::to('/search')
+      ->with('success-alert','Succesfully authenticated with Discogs as <a href="'.$identity['resource_url'].'" target="_blank">'.$identity['username'].'</a>.');
     }
     else{
-      dd($client->error);
+    	return Redirect::to('/search')
+    		->with('danger-alert','Oops! Could not save tokens to database.');
     }
 
-    if($client->exit)
-       exit;
-
-    if($success)
-    {
-			return Redirect::to('/search')
-				->with('success-alert', 'Success! You have successfully authenticated with Discogs and may now use the search.');
-		}
+    return Redirect::to('/search')
+      ->with('danger-alert','Oops! Discogs Authentication failed.');
 	}
 
 	/*
@@ -113,18 +108,6 @@ class VinylsController extends \BaseController {
         'token_secret'    => $user->discogs_access_token_secret // get this using a OAuth library
       ]);
       $client->getHttpClient()->getEmitter()->attach($oauth);
-
-      // Discogs TEST
-      $identity = $client->getOAuthIdentity();
-      //dd($identity);
-      /*$price = $client->getPriceSuggestion([
-        'release_id' => '1'
-      ]);
-      dd($price);
-      /*$image = $client->getImage([
-        'filename' => 'R-1302658-1207881569.jpeg'
-      ]);
-      dd(base_convert($image, 10, 2));*/
         
 			$response = $client->search([
         'artist' => $artist,

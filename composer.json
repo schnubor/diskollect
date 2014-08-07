@@ -6,10 +6,8 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"ricbra/php-discogs-api": "~1.0.0",
-    "codesleeve/asset-pipeline": "dev-master",
-    "schnubor/phpclasses-sasl": "dev-master",
-		"schnubor/phpclasses-httpclient": "dev-master",
-		"schnubor/phpclasses-oauth-api": "dev-master"
+    "league/oauth1-client": "~1.0",
+    "codesleeve/asset-pipeline": "dev-master"
 	},
 	"require-dev": {
 		"way/generators": "2.*"
@@ -21,7 +19,8 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
-			"app/tests/TestCase.php"
+			"app/tests/TestCase.php",
+      "app/libraries"
 		]
 	},
 	"scripts": {
@@ -40,20 +39,5 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable",
-	"repositories":
-  [
-    {
-      "type": "vcs",
-      "url": "https://github.com/schnubor/phpclasses-oauth-api.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/schnubor/phpclasses-httpclient.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/schnubor/phpclasses-sasl.git"
-    }
-  ]
+	"minimum-stability": "stable"
 }
