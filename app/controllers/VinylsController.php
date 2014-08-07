@@ -23,25 +23,30 @@ class VinylsController extends \BaseController {
 	*/
 	public function oAuthDiscogs(){
 		// oAuth to Discogs to enable authenticated requests
+    $userAgent = 'Diskollect/1.0 +http://diskollect.com';  // specify recognizable user-agent
+
     $server = new \League\OAuth1\Client\Server\Discogs([
       'identifier'   => $_ENV['DC_CONSUMER_KEY'],
       'secret'       => $_ENV['DC_CONSUMER_SECRET'],
       'callback_uri' => 'http://'.$_SERVER['HTTP_HOST'].dirname(strtok($_SERVER['REQUEST_URI'],'?')).'/discogs'
-    ]);
+    ], null, $userAgent);
 
+    $oauth_token = Input::get('oauth_token');
     // no temporary token? redirect then
-    if ( !isset($_GET['oauth_token']) ) {
+    if ( !isset($oauth_token) ) {
       $tempCredentials = $server->getTemporaryCredentials();
-      $_SESSION['tempCredentials'] = serialize($tempCredentials);
+      Session::put('tempCredentials', serialize($tempCredentials));
+      Session::save();
       header('Location: '.$server->getAuthorizationUrl($tempCredentials));
+      $server->authorize($tempCredentials);
     }
 
     // ok got temporary token
     // nb: you may save it in db
     $token = $server->getTokenCredentials(
-      unserialize($_SESSION['tempCredentials']), 
-      $_GET['oauth_token'],
-      $_GET['oauth_verifier']
+      unserialize(Session::get('tempCredentials')), 
+      Input::get('oauth_token'),
+      Input::get('oauth_verifier')
     );
 
     //store in DB

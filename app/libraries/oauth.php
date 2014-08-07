@@ -3,9 +3,26 @@
 namespace League\OAuth1\Client\Server;
 
 use League\OAuth1\Client\Credentials\TokenCredentials;
+use Guzzle\Service\Client as GuzzleClient;
 
 class Discogs extends Server
 {
+
+    protected $userAgent;
+
+    public function __construct($clientCredentials, SignatureInterface $signature = null, $userAgent = null)
+    {
+        $this->userAgent = $userAgent;
+        parent::__construct($clientCredentials, $signature);
+    }
+
+    public function createHttpClient()
+    {
+        $client = new GuzzleClient();
+        $this->userAgent and $client->setUserAgent($this->userAgent);
+
+        return $client;
+    }
 
     public function urlTemporaryCredentials()
     {

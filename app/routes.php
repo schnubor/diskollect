@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('/oauth', array(
+  'as' => 'oauth',
+  'uses' => 'HomeController@oauthTest'
+));
+
 Route::get('/', array(
   'as' => 'welcome',
   'uses' => 'HomeController@showWelcome'
