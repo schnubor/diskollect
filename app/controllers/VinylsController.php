@@ -104,11 +104,7 @@ class VinylsController extends \BaseController {
       $user = Auth::user();
 
 			// Discogs
-			$client = Discogs\ClientFactory::factory([
-        'defaults' => [
-            'headers' => ['User-Agent' => 'diskollect/0.1 +http://beta.diskollect.com'],
-        ]
-      ]);
+			$client = Discogs\ClientFactory::factory([]);
 
       $oauth = new GuzzleHttp\Subscriber\Oauth\Oauth1([
         'consumer_key'    => $_ENV['DC_CONSUMER_KEY'], // from Discogs developer page
@@ -118,7 +114,8 @@ class VinylsController extends \BaseController {
       ]);
       $client->getHttpClient()->getEmitter()->attach($oauth);
 
-      //$identity = $client->getOAuthIdentity(['auth' => 'oauth']);
+      $identity = $client->getOAuthIdentity();
+      //dd($identity);
 
 			$response = $client->search([
         'artist' => $artist,
@@ -187,11 +184,7 @@ class VinylsController extends \BaseController {
 
     if($result){
       // Discogs
-      $client = Discogs\ClientFactory::factory([
-        'defaults' => [
-            'headers' => ['User-Agent' => 'diskollect/0.1 +http://beta.diskollect.com'],
-        ]
-      ]);
+      $client = Discogs\ClientFactory::factory([]);
 
       $oauth = new GuzzleHttp\Subscriber\Oauth\Oauth1([
         'consumer_key'    => $_ENV['DC_CONSUMER_KEY'], // from Discogs developer page
@@ -205,10 +198,10 @@ class VinylsController extends \BaseController {
         $vinyl = $client->getRelease([
           'id' => $result['id']
         ]);
-        $price = $client->getPriceSuggestion([
-          'release_id' => $result['id']
+        /*$price = $client->getPriceSuggestion([
+          'release_id' => 1
         ]);
-        dd($price);
+        dd($price);*/
       }
       else{
         $vinyl = $client->getMaster([
@@ -265,7 +258,7 @@ class VinylsController extends \BaseController {
         return Redirect::route('get-edit-vinyl')
           ->withInput()
           ->with('danger-alert', 'Oops! Price needs to be a valid number.');
-      } 
+      }
 
       // Update vinyl
       $vinyl = Vinyl::find($id);
@@ -324,7 +317,7 @@ class VinylsController extends \BaseController {
         return Redirect::route('get-create-vinyl-search')
           ->withInput()
           ->with('danger-alert', 'Oops! Price needs to be a valid number.');
-      } 
+      }
 
       // Create vinyl
       $vinyl = Vinyl::create(array(
