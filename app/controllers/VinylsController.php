@@ -114,9 +114,18 @@ class VinylsController extends \BaseController {
       ]);
       $client->getHttpClient()->getEmitter()->attach($oauth);
 
+      // Discogs TEST
       $identity = $client->getOAuthIdentity();
       //dd($identity);
-
+      /*$price = $client->getPriceSuggestion([
+        'release_id' => '1'
+      ]);
+      dd($price);
+      /*$image = $client->getImage([
+        'filename' => 'R-1302658-1207881569.jpeg'
+      ]);
+      dd(base_convert($image, 10, 2));*/
+        
 			$response = $client->search([
         'artist' => $artist,
         'title' => $title,
@@ -198,10 +207,6 @@ class VinylsController extends \BaseController {
         $vinyl = $client->getRelease([
           'id' => $result['id']
         ]);
-        /*$price = $client->getPriceSuggestion([
-          'release_id' => 1
-        ]);
-        dd($price);*/
       }
       else{
         $vinyl = $client->getMaster([
