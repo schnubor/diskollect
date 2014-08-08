@@ -44,7 +44,10 @@
           {{ Form::label('remember', 'Remember me') }}
         </div>
 
-        {{ Form::submit('Sign in', array('class' => 'btn btn-primary')) }}
+        {{ Form::submit('Sign in', array('class' => 'btn btn-lg btn-primary full-width')) }}
+        <p style="margin-top: 10px; text-align: center;">
+        Don't have an account yet? <a href="{{ URL::route('get-user-create') }}">Sign up here!</a>
+        </p>
 
       {{ Form::close() }}
     </div>
