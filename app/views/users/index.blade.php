@@ -26,7 +26,13 @@
         @foreach($users as $user)
         <tr>
           <td>{{ $user->id }}</td>
-          <td><div class="profile-pic"><img src="{{ $user->image }}" alt="{{ $user->username }}"></div></td>
+          <td><div class="profile-pic">
+          @if($user->image)
+            <img src="{{ $user->image }}" alt="{{ $user->username }}">
+          @else
+            <img src="{{ USER_PH_PATH }}" alt="{{ $user->username }}">
+          @endif
+          </div></td>
           <td><a href="{{ URL::to('users') }}/{{ $user->id }}">{{ $user->username }}</a></td>
           <td><a href="{{ URL::to('users') }}/{{ $user->id }}/collection">{{ $user->vinyls()->count() }} Vinyls</a></td>
           <td>{{ $user->created_at }}</td>
