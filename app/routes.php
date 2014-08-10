@@ -185,7 +185,6 @@ Route::group(array('before' => 'guest'), function(){
 /*
 | Everyone
 */
-
 Route::get('users', array(
   'as' => 'get-all-users',
   'uses' => 'UsersController@index'

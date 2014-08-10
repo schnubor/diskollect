@@ -44,13 +44,12 @@ class UsersController extends \BaseController {
 		));
 
 		if($validator->fails()){
-			return Redirect::to('users/create')
+			return Redirect::route('get-user-create')
 				->withErrors($validator)
 				->withInput(Input::except('password'));
 		}
 		else{
 			// Create account
-
 			$email 		= Input::get('email');
 			$username = Input::get('username');
 			$password = Input::get('password');
@@ -62,6 +61,7 @@ class UsersController extends \BaseController {
 			$user = User::create(array(
 				'email' => $email,
 				'username' => e($username),
+				'image' => e(USER_PH_PATH),
 				'currency' => $currency,
 				'password' => Hash::make($password),
 				'code' => $code,
@@ -73,7 +73,7 @@ class UsersController extends \BaseController {
 					$message->to($user->email, $user->username)->subject('Diskollect Account Activation');
 				});
 
-				return Redirect::to('/')
+				return Redirect::route('get-signin')
 					->with('success-alert', 'Your account hast been created! We have sent you an email.');
 			}
 
@@ -100,12 +100,12 @@ class UsersController extends \BaseController {
 			$user->code = '';
 
 			if($user->save()){
-				return Redirect::to('/')
+				return Redirect::route('get-signin')
 					->with('success-alert', 'Success! Your account has been activated and you may now sign in.');
 			}
 		}
 
-		return Redirect::to('/')
+		return Redirect::route('get-user-create')
 			->with('danger-alert', 'We could not activate your account. Please try again later.');
 
 	}
