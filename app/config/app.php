@@ -121,6 +121,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
+		'Adavkay\Soundcloud\SoundcloudServiceProvider',
 	),
 
 	/*
@@ -186,7 +187,6 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-
 	),
 
 );

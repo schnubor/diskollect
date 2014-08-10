@@ -63,7 +63,13 @@
               ?>
 
               <tr>
-                <td><img src="{{ $url }}" alt="cover" class="artwork"/></td>
+                <td>
+                  @if(@getimagesize($url))
+                    <img src="{{ $url }}" alt="cover" class="artwork"/>
+                  @else
+                    <img src="{{ VINYL_PH_PATH }}" alt="cover" class="artwork"/>
+                  @endif
+                </td>
                 <td>{{ $artist }}</td>
                 <td>{{ $title }}</td>
                 <td>

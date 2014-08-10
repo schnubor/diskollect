@@ -161,7 +161,7 @@ class VinylsController extends \BaseController {
 	public function showVinyl($id)
 	{
 		$vinyl = Vinyl::find($id);
-
+    
 		return View::make('vinyls.show')
 			->with('vinyl', $vinyl);
 	}

@@ -4,8 +4,57 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d3c36629f4b8a88d617617fba611c611",
+    "hash": "03c819648e025732f2090b095b2e7e05",
     "packages": [
+        {
+            "name": "adavkay/laravel-soundcloud",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adavkay/laravel-soundcloud.git",
+                "reference": "62f2fbf8234c9508bc49659cf7913de805bc3558"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adavkay/laravel-soundcloud/zipball/62f2fbf8234c9508bc49659cf7913de805bc3558",
+                "reference": "62f2fbf8234c9508bc49659cf7913de805bc3558",
+                "shasum": ""
+            },
+            "require": {
+                "ise/php-soundcloud": "3.*",
+                "laravel/framework": ">=4.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "component": "package",
+                "frameworks": [
+                    "Laravel 4"
+                ]
+            },
+            "autoload": {
+                "psr-0": {
+                    "Adavkay": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "adavkay",
+                    "email": "adavkay@gmail.com"
+                }
+            ],
+            "description": "A Soundcloud Service Provider for Laravel 4",
+            "keywords": [
+                "Laravel 4",
+                "laravel",
+                "soundcloud"
+            ],
+            "time": "2014-06-19 16:13:25"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "1.0.2",
@@ -97,7 +146,7 @@
             ],
             "authors": [
                 {
-                    "name": "Kelt Dockins",
+                    "name": "Kelt",
                     "email": "kelt@dockins.org",
                     "homepage": "http://www.keltdockins.com",
                     "role": "Developer"
@@ -139,7 +188,7 @@
             ],
             "authors": [
                 {
-                    "name": "Kelt Dockins",
+                    "name": "Kelt",
                     "email": "kelt@codesleeve.com"
                 }
             ],
@@ -368,16 +417,16 @@
         },
         {
             "name": "guzzlehttp/command",
-            "version": "0.5.0",
+            "version": "0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/command.git",
-                "reference": "01d96f9344571e73ec1e29d5a305e4bb484cd29a"
+                "reference": "e2004b2ef217f14380f46bea9ebe8ecce3cecf7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/command/zipball/01d96f9344571e73ec1e29d5a305e4bb484cd29a",
-                "reference": "01d96f9344571e73ec1e29d5a305e4bb484cd29a",
+                "url": "https://api.github.com/repos/guzzle/command/zipball/e2004b2ef217f14380f46bea9ebe8ecce3cecf7a",
+                "reference": "e2004b2ef217f14380f46bea9ebe8ecce3cecf7a",
                 "shasum": ""
             },
             "require": {
@@ -388,6 +437,11 @@
                 "phpunit/phpunit": "~4.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.6-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "GuzzleHttp\\Command\\": "src/"
@@ -405,7 +459,7 @@
                 }
             ],
             "description": "Provides the foundation for building command based web service clients",
-            "time": "2014-08-01 17:54:53"
+            "time": "2014-08-08 16:41:48"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -650,6 +704,54 @@
                 "password"
             ],
             "time": "2013-04-30 19:58:08"
+        },
+        {
+            "name": "ise/php-soundcloud",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/internalsystemerror/php-soundcloud.git",
+                "reference": "ac3ff2dce2a6e6d34636c58e66fd316d722c31df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/internalsystemerror/php-soundcloud/zipball/ac3ff2dce2a6e6d34636c58e66fd316d722c31df",
+                "reference": "ac3ff2dce2a6e6d34636c58e66fd316d722c31df",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Soundcloud\\": "src/",
+                    "SoundcloudTest\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Lindqvist",
+                    "email": "anton@qvister.se",
+                    "homepage": "http://qvister.se/",
+                    "role": "developer"
+                },
+                {
+                    "name": "Gary Lockett",
+                    "email": "ise@garylockett.com",
+                    "homepage": "http://www.garylockett.com/"
+                }
+            ],
+            "description": "API Wrapper for SoundCloud written in PHP with support for authentication using OAuth 2.0 by Anton Lindqvist (mptre), composer support added by Gary Lockett (ise)",
+            "homepage": "https://github.com/internalsystemerror/php-soundcloud",
+            "keywords": [
+                "soundcloud"
+            ],
+            "time": "2014-02-03 15:49:00"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -1484,16 +1586,16 @@
         },
         {
             "name": "ricbra/php-discogs-api",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ricbra/php-discogs-api.git",
-                "reference": "114e69f2ad5fd737adb6bdccf2110865995bd4d8"
+                "reference": "75969407017c65717e11c817b15c5a380bae1fd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ricbra/php-discogs-api/zipball/114e69f2ad5fd737adb6bdccf2110865995bd4d8",
-                "reference": "114e69f2ad5fd737adb6bdccf2110865995bd4d8",
+                "url": "https://api.github.com/repos/ricbra/php-discogs-api/zipball/75969407017c65717e11c817b15c5a380bae1fd0",
+                "reference": "75969407017c65717e11c817b15c5a380bae1fd0",
                 "shasum": ""
             },
             "require": {
@@ -1504,6 +1606,9 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "~4"
+            },
+            "suggest": {
+                "ricbra/discogs-bundle": "For integrating Discogs into Symfony2"
             },
             "type": "library",
             "extra": {
@@ -1531,7 +1636,7 @@
                 "api",
                 "discogs"
             ],
-            "time": "2014-08-06 17:42:47"
+            "time": "2014-08-08 19:58:12"
         },
         {
             "name": "richthegeek/phpsass",
@@ -1859,13 +1964,13 @@
             "target-dir": "Symfony/Component/Debug",
             "source": {
                 "type": "git",
-                "url": "git@github.com:symfony/Debug.git",
-                "reference": "395690aa209b7f7b654416559952893f86eef9c7"
+                "url": "https://github.com/symfony/Debug.git",
+                "reference": "c9532f402136fcaab781791bb2897a0d674456ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/395690aa209b7f7b654416559952893f86eef9c7",
-                "reference": "395690aa209b7f7b654416559952893f86eef9c7",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/c9532f402136fcaab781791bb2897a0d674456ee",
+                "reference": "c9532f402136fcaab781791bb2897a0d674456ee",
                 "shasum": ""
             },
             "require": {
@@ -1896,12 +2001,14 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
                 }
             ],
             "description": "Symfony Debug Component",
@@ -2538,7 +2645,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "codesleeve/asset-pipeline": 20
+        "codesleeve/asset-pipeline": 20,
+        "adavkay/laravel-soundcloud": 20
     },
     "prefer-stable": false,
     "platform": [

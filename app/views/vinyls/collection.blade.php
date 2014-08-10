@@ -32,7 +32,7 @@
       {{ Form::open(array('route' => array('get-collection', $user->id), 'method' => 'get', 'class' => 'form-inline')) }}
       <div class="col-md-6">
         {{ Form::text('filter', Input::old('filter'), array('class' => 'form-control')) }}
-        {{ Form::submit('Filter', array('class' => 'btn btn-default')) }}
+        {{ Form::submit('Filter', array('class' => 'btn btn-info')) }}
       </div>
       {{ Form::close() }}
       <div class="col-md-6">
