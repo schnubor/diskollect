@@ -24,10 +24,6 @@
       }
     }
 
-    h1{
-      letter-spacing: 5px;
-    }
-
     small{
       font-size: 18px;
       color: #808080;
@@ -35,9 +31,12 @@
     }
   }
 
-  .vinyl-list{
-
+  .collection-controls{
     padding-top: 50px;
+  }
+
+  .vinyl-list{
+    padding-top: 20px;
 
     .vinyl{
       .vinyl-cover{

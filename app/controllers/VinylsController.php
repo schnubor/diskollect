@@ -146,12 +146,12 @@ class VinylsController extends \BaseController {
 	/*
 	| GET Collection
 	*/
-	public function showCollection($id)
+	public function showCollection($id, $grid = 'grid', $sort = 'alphabetical')
 	{
 		$vinyls = User::find($id)->vinyls()->paginate(32);
 		$user = User::find($id);
 
-		$data = array('user' => $user, 'vinyls' => $vinyls);
+		$data = array('user' => $user, 'vinyls' => $vinyls, 'grid' => $grid);
 		return View::make('vinyls.collection', $data);
 	}
 

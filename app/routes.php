@@ -198,7 +198,7 @@ Route::get('users/{id}', array(
 /*
 | Show Collection
 */
-Route::get('users/{id}/collection', array(
+Route::get('users/{id}/collection/{view?}/{sort?}', array(
   'as' => 'get-collection',
   'uses' => 'VinylsController@showCollection'
 ));
