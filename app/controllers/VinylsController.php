@@ -162,7 +162,7 @@ class VinylsController extends \BaseController {
 	{
 		$vinyl = Vinyl::find($id);
 
-    $tracks = json_decode(Soundcloud::get('tracks', array('q' => $vinyl->artist.' '.$vinyl->title, 'license' => 'cc-by-sa')));
+    $tracks = json_decode(Soundcloud::get('tracks', array('q' => $vinyl->artist, 'title' => $vinyl->title, 'limit' => 3)));
 
 		return View::make('vinyls.show')
 			->with('vinyl', $vinyl)
