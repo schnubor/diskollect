@@ -43,7 +43,7 @@ class VinylsController extends \BaseController {
     // ok got temporary token
     // nb: you may save it in db
     $token = $server->getTokenCredentials(
-      unserialize(Session::get('tempCredentials')), 
+      unserialize(Session::get('tempCredentials')),
       Input::get('oauth_token'),
       Input::get('oauth_verifier')
     );
@@ -108,7 +108,7 @@ class VinylsController extends \BaseController {
         'token_secret'    => $user->discogs_access_token_secret // get this using a OAuth library
       ]);
       $client->getHttpClient()->getEmitter()->attach($oauth);
-        
+
 			$response = $client->search([
         'artist' => $artist,
         'title' => $title,
@@ -161,9 +161,12 @@ class VinylsController extends \BaseController {
 	public function showVinyl($id)
 	{
 		$vinyl = Vinyl::find($id);
-    
+
+    $tracks = json_decode(Soundcloud::get('tracks', array('q' => $vinyl->artist.' '.$vinyl->title, 'license' => 'cc-by-sa')));
+
 		return View::make('vinyls.show')
-			->with('vinyl', $vinyl);
+			->with('vinyl', $vinyl)
+      ->with('tracks', $tracks);
 	}
 
 	/*
