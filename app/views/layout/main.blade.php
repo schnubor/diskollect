@@ -2,6 +2,9 @@
 <html lang="en">
   @include('layout.head')
 <body>
+  <!-- Tracking -->
+  @include('tracking.google')
+
   <!-- Navigation -->
   @include('layout.navigation')
 
