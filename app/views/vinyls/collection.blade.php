@@ -28,23 +28,33 @@
       <small>{{ $user->vinyls->count() }} Vinyls</small>
     </div>
 
-    <div class="collection-controls row">
+    <div class="collection-controls cold-md-12">
       {{ Form::open(array('route' => array('get-collection', $user->id), 'method' => 'get', 'class' => 'form-inline')) }}
-      <div class="col-md-6">
         {{ Form::text('filter', Input::old('filter'), array('class' => 'form-control')) }}
         {{ Form::submit('Filter', array('class' => 'btn btn-info')) }}
-      </div>
       {{ Form::close() }}
-      <div class="col-md-6">
-        <div class="btn-group pull-right">
-        @if($grid == 'grid')
-          <a href="{{ URL::route('get-collection', array($user->id, 'grid')) }}" class="btn btn-default active"><i class="fa fa-fw fa-th"></i></a>
-          <a href="{{ URL::route('get-collection', array($user->id, 'table')) }}" class="btn btn-default"><i class="fa fa-fw fa-align-justify"></i></a>
-        @else
-          <a href="{{ URL::route('get-collection', array($user->id, 'grid')) }}" class="btn btn-default"><i class="fa fa-fw fa-th"></i></a>
-          <a href="{{ URL::route('get-collection', array($user->id, 'table')) }}" class="btn btn-default active"><i class="fa fa-fw fa-align-justify"></i></a>
-        @endif
-        </div>
+      <!-- Split button -->
+      <div class="btn-group">
+        <button type="button" class="btn btn-default">Sort by</button>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Artist</a></li>
+          <li><a href="#">Title</a></li>
+          <li><a href="#">Price</a></li>
+          <li><a href="#">Date added</a></li>
+        </ul>
+      </div>
+      <div class="btn-group pull-right">
+      @if($grid == 'grid')
+        <a href="{{ URL::route('get-collection', array($user->id, 'grid')) }}" class="btn btn-default active"><i class="fa fa-fw fa-th"></i></a>
+        <a href="{{ URL::route('get-collection', array($user->id, 'table')) }}" class="btn btn-default"><i class="fa fa-fw fa-align-justify"></i></a>
+      @else
+        <a href="{{ URL::route('get-collection', array($user->id, 'grid')) }}" class="btn btn-default"><i class="fa fa-fw fa-th"></i></a>
+        <a href="{{ URL::route('get-collection', array($user->id, 'table')) }}" class="btn btn-default active"><i class="fa fa-fw fa-align-justify"></i></a>
+      @endif
       </div>
     </div>
 
@@ -58,7 +68,7 @@
                 <div class="overlay">
                   <a href="{{ URL::route('get-vinyl', $vinyl->id) }}">
                     <div class="view-vinyl">
-                      {{ round($vinyl->price,2).' '.$user->currency }}
+                      <span class="price">{{ round($vinyl->price,2).' '.$user->currency }}</span>
                     </div>
                   </a>
                   @if(Auth::check())
