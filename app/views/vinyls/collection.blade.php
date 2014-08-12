@@ -68,7 +68,7 @@
                 <div class="overlay">
                   <a href="{{ URL::route('get-vinyl', $vinyl->id) }}">
                     <div class="view-vinyl">
-                      <span class="price">{{ round($vinyl->price,2).' '.$user->currency }}</span>
+                      <span class="price">{{ number_format(round($vinyl->price,2),2).' '.$user->currency }}</span>
                     </div>
                   </a>
                   @if(Auth::check())
@@ -141,7 +141,7 @@
                     @endforeach
                   </a>
                 </td>
-                <td><a href="{{ URL::route('get-vinyl', $vinyl->id) }}">{{ round($vinyl->price,2) }} {{ $user->currency }}</a></td>
+                <td><a href="{{ URL::route('get-vinyl', $vinyl->id) }}">{{ number_format(round($vinyl->price,2),2) }} {{ $user->currency }}</a></td>
                 @if(Auth::check())
                   @if(Auth::user()->id == $user->id)
                     <td>
