@@ -58,6 +58,7 @@
                 <div class="overlay">
                   <a href="{{ URL::route('get-vinyl', $vinyl->id) }}">
                     <div class="view-vinyl">
+                      {{ round($vinyl->price,2).' '.$user->currency }}
                     </div>
                   </a>
                   @if(Auth::check())
@@ -65,12 +66,12 @@
                       <a href="{{ URL::route('get-edit-vinyl', $vinyl->id) }}" class="btn btn-default edit-vinyl"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('route' => array('delete-vinyl', $vinyl->id))) }}
                         {{ Form::hidden('_method', 'DELETE') }}
-                        {{ Form::button('<i class="fa fa-trash-o"></i>', array('class' => 'btn btn-default delete-vinyl', 'type' => 'submit')) }}
+                        {{ Form::button('<i class="fa fa-trash-o"></i>', array('class' => 'btn btn-danger delete-vinyl', 'type' => 'submit')) }}
                       {{ Form::close() }}
                     @endif
                   @endif
                 </div>
-                
+
                 <a href="{{ URL::route('get-vinyl', $vinyl->id) }}">
                 @if(@getimagesize($vinyl->artwork))
                   <img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist.' - '.$vinyl->title }}">

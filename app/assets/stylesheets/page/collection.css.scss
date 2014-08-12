@@ -72,10 +72,17 @@
             height: 100%;
             @include transition(all, .4s, ease);
 
+            a{
+              text-decoration: none;
+            }
+
             .view-vinyl{
               width: 100%;
               height: 100%;
-              font-size: 62px;
+              font-size: 32px;
+              line-height: 263px;
+              font-weight: bold;
+              text-decoration: none;
               color: white;
               text-align: center;
             }
