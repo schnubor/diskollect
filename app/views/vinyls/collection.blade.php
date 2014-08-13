@@ -28,7 +28,7 @@
       <small>{{ $user->vinyls->count() }} Vinyls</small>
     </div>
 
-    <div class="collection-controls cold-md-12">
+    <div class="collection-controls">
       {{ Form::open(array('route' => array('get-collection', $user->id), 'method' => 'get', 'class' => 'form-inline')) }}
         {{ Form::text('filter', Input::old('filter'), array('class' => 'form-control')) }}
         {{ Form::submit('Filter', array('class' => 'btn btn-info')) }}
