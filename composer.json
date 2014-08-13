@@ -8,7 +8,8 @@
 		"ricbra/php-discogs-api": "~1.0.0",
     "league/oauth1-client": "~1.0",
     "codesleeve/asset-pipeline": "dev-master",
-    "adavkay/laravel-soundcloud": "dev-master"
+    "adavkay/laravel-soundcloud": "dev-master",
+		"madcoda/php-youtube-api": "dev-master"
 	},
 	"require-dev": {
 		"way/generators": "2.*"
