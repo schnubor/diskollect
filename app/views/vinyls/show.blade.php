@@ -45,31 +45,17 @@
       <div class="col-md-12 text-center">
         <h1 class="vinyl-title">{{ $vinyl->artist }} - {{ $vinyl->title }}</h1>
       </div>
-      <div class="col-md-12 text-center">
-        @foreach($labels as $label)
-          <span class="label-primary label">{{ $label }}</span>
-        @endforeach
-        @foreach($genres as $genre)
-          <span class="label-warning label">{{ $genre }}</span>
-        @endforeach
-        <span class="label-success label">{{ $vinyl->country }}</span>
-        <span class="label-default label">{{ $vinyl->count . 'x ' . $vinyl->size . '"'}}</span>
-        <span class="label-default label">{{ $vinyl->releasedate }}</span>
-      </div>
     </div>
 
     <hr>
-
-    <div class="row">
-      <div class="col-md-12">
-        @if($vinyl->notes)
+    @if($vinyl->notes)
+      <div class="row">
+        <div class="col-md-12">
           <span class="notes">"{{ $vinyl->notes }}", </span>
-        @endif
-        <span>added {{ $vinyl->created_at }}</span>
+        </div>
       </div>
-    </div>
-
-    <hr>
+      <hr>
+    @endif
 
     <div class="row">
       <!-- User -->
@@ -106,7 +92,30 @@
             <h3 class="panel-title">General Infos</h3>
           </div>
           <div class="panel-body">
-            
+            <dl class="dl-horizontal">
+              <dt>Labels</dt>
+              <dd>
+                @foreach($labels as $label)
+                  {{ $label.' ' }}
+                @endforeach
+              </dd>
+              <dt>Genres</dt>
+              <dd>
+                @foreach($genres as $genre)
+                  {{ $genre.' ' }}
+                @endforeach
+              </dd>
+              <dt>Country</dt>
+              <dd>{{ $vinyl->country }}</dd>
+              <dt>Size</dt>
+              <dd>{{ $vinyl->size.'"' }}</dd>
+              <dt>Quantity</dt>
+              <dd>{{ $vinyl->count }}</dd>
+              <dt>Released</dt>
+              <dd>{{ $vinyl->releasedate }}</dd>
+              <dt>Date added</dt>
+              <dd>{{ $vinyl->created_at }}</dd>
+            </dl>
           </div>
         </div>
       </div>
