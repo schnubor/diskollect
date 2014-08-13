@@ -12,7 +12,7 @@
         @if(Auth::check())
           <div class="welcome-message">
               <h1>{{ Auth::user()->username }}</h1>
-              <h2>You got <strong>{{ Auth::user()->vinyls->count() }} Vinyls</strong> worth <strong>{{ round(Auth::user()->vinyls->sum('price'), 2) }} {{ Auth::user()->currency }}</strong></h2>
+              <h2>You got <strong>{{ Auth::user()->vinyls->count() }} Vinyls</strong> worth <strong>{{ number_format(round(Auth::user()->vinyls->sum('price'), 2),2) }} {{ Auth::user()->currency }}</strong></h2>
           </div>
         @else
           <div class="welcome-message">
@@ -26,9 +26,15 @@
     <div class="welcome-actions">
       <div class="container">
         @if(Auth::check())
-            <a class="btn btn-lg btn-primary" role="button" href="{{ URL::route('get-search') }}"><i class="fa fa-fw fa-plus-circle"></i> Add Vinyl</a>
-            <a class="btn btn-lg btn-primary" role="button" href="{{ URL::route('get-collection', Auth::user()->id ) }}"><i class="fa fa-fw fa-database"></i> Collection</a>
-            <a class="btn btn-lg btn-primary" role="button" href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-fw fa-bar-chart-o"></i> Statistics</a>
+          <div class="col-md-2 col-md-offset-3">
+            <a class="btn btn-lg btn-primary btn-block" role="button" href="{{ URL::route('get-search') }}"><i class="fa fa-fw fa-plus-circle"></i> Add Vinyl</a>
+          </div>
+          <div class="col-md-2">
+            <a class="btn btn-lg btn-primary btn-block" role="button" href="{{ URL::route('get-collection', Auth::user()->id ) }}"><i class="fa fa-fw fa-database"></i> Collection</a>
+          </div>
+          <div class="col-md-2">
+            <a class="btn btn-lg btn-primary btn-block" role="button" href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-fw fa-bar-chart-o"></i> Statistics</a>
+          </div>
         @else
           <div class="col-md-3 col-md-offset-3">
             <a class="btn btn-primary btn-lg btn-block" role="button" href="{{ URL::route('get-signin') }}"><i class="fa fa-fw fa-sign-in"></i>Login</a>
