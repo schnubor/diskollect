@@ -5,6 +5,9 @@
 @stop
 
 @section('body')
+
+  <div class="bg-image" style="background-image: url('{{ $vinyl->artwork }}')"></div>
+  <div class="bg-image-overlay"></div>
   <div class="container vinyl-detail">
     <?php
       $labels = explode(';',$vinyl->label);
@@ -12,11 +15,11 @@
     ?>
 
     @if(Auth::check())
-      <a class="btn btn-default btn-sm" role="button" href="{{ URL::to('users') }}/{{ Auth::user()->id }}/collection"><i class="fa fa-angle-double-left"></i> Back to collection</a>
+      <a class="btn btn-default btn-sm" role="button" href="{{ URL::to('users') }}/{{ Auth::user()->id }}/collection" style="position: relative;"><i class="fa fa-angle-double-left"></i> Back to collection</a>
       @if($vinyl->user_id == Auth::user()->id)
         <div class="btn btn-success pull-right disabled">{{ number_format(round($vinyl->price, 2),2) }} EUR</div>
       @endif
-      <hr>
+      <hr style="position: relative;">
     @endif
 
     <div class="row">
@@ -47,7 +50,7 @@
       </div>
     </div>
 
-    <hr>
+    <hr style="position: relative;">
     @if($vinyl->notes)
       <div class="row">
         <div class="col-md-12">
