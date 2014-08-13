@@ -19,7 +19,6 @@
       @if($vinyl->user_id == Auth::user()->id)
         <div class="btn btn-success pull-right disabled">{{ number_format(round($vinyl->price, 2),2) }} EUR</div>
       @endif
-      <hr style="position: relative;">
     @endif
 
     <div class="row">
@@ -54,10 +53,10 @@
     @if($vinyl->notes)
       <div class="row">
         <div class="col-md-12">
-          <span class="notes">"{{ $vinyl->notes }}", </span>
+          <p class="notes">"{{ $vinyl->notes }}"</p>
         </div>
       </div>
-      <hr>
+      <hr style="position: relative;">
     @endif
 
     <div class="row">
