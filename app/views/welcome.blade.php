@@ -17,7 +17,7 @@
         @else
           <div class="welcome-message">
             <h1>Diskollect</h1>
-            <h2>Vinyl Collection Management Done Right.</h2>
+            <h2>Vinyl Collection Management done right.</h2>
           </div>
         @endif
       </div>
@@ -30,8 +30,12 @@
             <a class="btn btn-lg btn-primary" role="button" href="{{ URL::route('get-collection', Auth::user()->id ) }}"><i class="fa fa-fw fa-database"></i> Collection</a>
             <a class="btn btn-lg btn-primary" role="button" href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-fw fa-bar-chart-o"></i> Statistics</a>
         @else
-            <a class="btn btn-primary btn-lg" role="button" href="{{ URL::route('get-signin') }}"><i class="fa fa-fw fa-sign-in"></i>Login</a>
-            <a class="btn btn-default btn-lg" role="button" href="{{ URL::route('get-user-create') }}"><i class="fa fa-fw fa-edit"></i>Register</a>
+          <div class="col-md-3 col-md-offset-3">
+            <a class="btn btn-primary btn-lg btn-block" role="button" href="{{ URL::route('get-signin') }}"><i class="fa fa-fw fa-sign-in"></i>Login</a>
+          </div>
+          <div class="col-md-3">
+            <a class="btn btn-info btn-lg btn-block" role="button" href="{{ URL::route('get-user-create') }}"><i class="fa fa-fw fa-edit"></i>Register</a>
+          </div>
         @endif
       </div>
     </div>

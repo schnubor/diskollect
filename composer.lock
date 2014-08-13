@@ -1964,13 +1964,13 @@
             "target-dir": "Symfony/Component/Debug",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Debug.git",
-                "reference": "c9532f402136fcaab781791bb2897a0d674456ee"
+                "url": "git@github.com:symfony/Debug.git",
+                "reference": "395690aa209b7f7b654416559952893f86eef9c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/c9532f402136fcaab781791bb2897a0d674456ee",
-                "reference": "c9532f402136fcaab781791bb2897a0d674456ee",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/395690aa209b7f7b654416559952893f86eef9c7",
+                "reference": "395690aa209b7f7b654416559952893f86eef9c7",
                 "shasum": ""
             },
             "require": {
@@ -2638,13 +2638,19 @@
             "time": "2014-05-27 14:21:26"
         }
     ],
-    "aliases": [],
+    "aliases": [
+
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "codesleeve/asset-pipeline": 20,
         "adavkay/laravel-soundcloud": 20
     },
     "prefer-stable": false,
-    "platform": [],
-    "platform-dev": []
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
 }
