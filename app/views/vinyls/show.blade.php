@@ -21,7 +21,7 @@
       @endif
     @endif
 
-    <div class="row">
+    <div class="row" style="padding-top: 20px;">
       <div class="col-md-4 col-md-offset-4">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
