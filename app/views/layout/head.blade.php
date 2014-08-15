@@ -15,7 +15,7 @@
   <meta property="og:title" content="Diskollect | @yield('title')" /> 
   <meta property="og:type" content="website" /> 
   <meta property="og:url" content="http://beta.diskollect.com/" />
-  <meta property="og:image" content=" http://beta.diskollect.com/assets/header-image.jpg" />
+  <meta property="og:image" content=" http://beta.diskollect.com/assets/fb-image.jpg" />
   <meta property="og:description" content="Diskollect.com is a plattform for vinyl lovers. Build up, manage and rediscover your personal vinyl collection now." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
