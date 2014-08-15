@@ -17,7 +17,7 @@
         @else
           <div class="welcome-message">
             <h1>Diskollect</h1>
-            <h2>Vinyl Collection Management done right.</h2>
+            <h2>Tracking <strong>{{ $vinyls }}</strong> vinyls of <strong>{{ $users }}</strong> collectors.</h2>
           </div>
         @endif
       </div>

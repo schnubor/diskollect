@@ -17,7 +17,12 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('welcome');
+		$users = User::all()->count();
+		$vinyls = Vinyl::all()->count();
+
+		return View::make('welcome')
+			->with('users', $users)
+			->with('vinyls', $vinyls);
   }
 
 }

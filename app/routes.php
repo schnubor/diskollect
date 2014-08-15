@@ -225,3 +225,14 @@ Route::get('api/user/{username}', array(
   'uses' => 'ApiController@deliverUser'
 ));
 
+/*
+| Pages
+*/
+
+Route::get('imprint', function(){
+  return View::make('pages.imprint');
+});
+
+Route::get('survey', function(){
+  return View::make('pages.survey');
+});
