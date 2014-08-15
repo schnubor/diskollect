@@ -20,6 +20,10 @@
           <li><a href="{{ URL::route('get-user', Auth::user()->id) }}"><i class="fa fa-bar-chart-o fa-fw"></i> Your Stats</a></li>
           <li><a href="{{ URL::route('get-collection', Auth::user()->id) }}"><i class="fa fa-database fa-fw"></i> Collection</a></li>
           <li><a href="{{ URL::route('get-search') }}"><i class="fa fa-plus-circle fa-fw"></i> Add Vinyl</a></li>
+          <li><a href="{{ URL::route('get-survey') }}"><i class="fa fa-check-square-o fa-fw"></i> Survey</a></li>
+        @else
+          <li><a href="{{ URL::route('get-signin') }}"><i class="fa fa-sign-in fa-fw"></i> Login</a></li>
+          <li><a href="{{ URL::route('get-user-create') }}"><i class="fa fa-edit fa-fw"></i> Register</a></li>
         @endif
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -38,11 +42,13 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="{{ URL::route('get-all-users') }}"><i class="fa fa-users fa-fw"></i> Members</a></li>
+              <li><a href="{{ URL::route('get-survey') }}"><i class="fa fa-check-square-o fa-fw"></i> Survey</a></li>
               <li><a href="{{ URL::route('api-get-intro') }}"><i class="fa fa-fw fa-code"></i> Developer</a></li>
-              <li><a href="#"><i class="fa fa-info fa-fw"></i> Impressum</a></li>
+              <li><a href="{{ URL::route('get-imprint') }}"><i class="fa fa-info fa-fw"></i> Impressum</a></li>
             </ul>
           </li>
         @else
+          <li><a href="{{ URL::route('get-survey') }}"><i class="fa fa-check-square-o fa-fw"></i> Survey</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
             <ul class="dropdown-menu">

@@ -229,10 +229,14 @@ Route::get('api/user/{username}', array(
 | Pages
 */
 
-Route::get('imprint', function(){
-  return View::make('pages.imprint');
-});
+Route::get('imprint', array(
+  'as' => 'get-imprint', 
+  function(){
+    return View::make('pages.imprint');
+  }));
 
-Route::get('survey', function(){
-  return View::make('pages.survey');
-});
+Route::get('survey', array(
+  'as' => 'get-survey', 
+  function(){
+    return View::make('pages.survey');
+}));
