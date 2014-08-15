@@ -240,3 +240,15 @@ Route::get('survey', array(
   function(){
     return View::make('pages.survey');
 }));
+
+Route::get('survey/de', array(
+  'as' => 'get-survey-de', 
+  function(){
+    return View::make('pages.survey_de');
+}));
+
+Route::get('survey/en', array(
+  'as' => 'get-survey-en', 
+  function(){
+    return View::make('pages.survey_en');
+}));

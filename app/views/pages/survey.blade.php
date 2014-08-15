@@ -5,7 +5,15 @@
 @stop
 
 @section('body')
-  <div class="container">
-    <iframe src="https://docs.google.com/forms/d/1neHPKCv5ucF8nnhjWFLOR1jPFgaEJJSybO1woOZ4Zp8/viewform?embedded=true" width="100%" height="800px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+  <div class="jumbotron" style="margin-top: -20px;">
+    <div class="container">
+      <h1 style="text-align: center; margin-bottom: 60px;">Choose your language</h1>
+      <div class="col-md-3 col-md-offset-3">
+        <a href="{{ URL::route('get-survey-de') }}" class="btn btn-block btn-lg btn-info">Deutsch</a>
+      </div>
+      <div class="col-md-3">
+        <a href="{{ URL::route('get-survey-en') }}" class="btn btn-block btn-lg btn-info">English</a>
+      </div>
+    </div>
   </div>
 @stop
