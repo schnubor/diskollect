@@ -9,6 +9,14 @@
   <title>
     Diskollect | @yield('title')
   </title>
+  <meta name="description" content="Diskollect.com is a plattform for vinyl lovers. Build up, manage and rediscover your personal vinyl collection now." />
+
+  <!-- Open Graph data --> 
+  <meta property="og:title" content="@yield('title')" /> 
+  <meta property="og:type" content="article" /> 
+  <meta property="og:url" content=" http://www.example.com/" />
+  <meta property="og:image" content=" http://example.com/assets/header-image.jpg" />
+  <meta property="og:description" content="Diskollect.com is a plattform for vinyl lovers. Build up, manage and rediscover your personal vinyl collection now." />
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
