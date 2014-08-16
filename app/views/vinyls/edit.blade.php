@@ -108,6 +108,28 @@
               </div>
 
               <div class="form-group">
+                {{ Form::label('weight', 'Estimated weight') }}
+                {{ Form::text('weight', $vinyl->weight, array('class' => 'form-control', 'placeholder' => 'Enter estimated weight')); }}
+
+                @if($errors->has('weight'))
+                  <div class="alert alert-danger">
+                    {{ $errors->first('weight') }}
+                  </div>
+                @endif
+              </div>
+
+              <div class="form-group">
+                {{ Form::label('catno', 'Catalog number') }}
+                {{ Form::text('catno', $vinyl->catno, array('class' => 'form-control', 'placeholder' => 'Enter catalog number')); }}
+
+                @if($errors->has('catno'))
+                  <div class="alert alert-danger">
+                    {{ $errors->first('catno') }}
+                  </div>
+                @endif
+              </div>
+
+              <div class="form-group">
                 {{ Form::label('tracklist', 'Tracklist') }}
                 {{ Form::text('tracklist', $vinyl->tracklist, array('class' => 'form-control', 'placeholder' => 'Enter tracklist')); }}
 
@@ -171,6 +193,17 @@
             @if($errors->has('count'))
               <div class="alert alert-danger">
                 {{ $errors->first('count') }}
+              </div>
+            @endif
+          </div>
+
+          <div class="form-group">
+            {{ Form::label('releasetype', 'Release type') }}
+            {{ Form::select('releasetype', array('EP' => 'EP', 'LP' => 'LP', 'RE' => 'RE', 'Single' => 'Single'), $vinyl->releasetype, array('class' => 'form-control')); }}
+
+            @if($errors->has('releasetype'))
+              <div class="alert alert-danger">
+                {{ $errors->first('releasetype') }}
               </div>
             @endif
           </div>

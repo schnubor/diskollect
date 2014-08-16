@@ -241,7 +241,7 @@
 
           <div class="form-group">
             {{ Form::label('releasetype', 'Release type') }}
-            {{ Form::select('releastype', array('EP' => 'EP', 'LP' => 'LP', 'RE' => 'RE', 'Single' => 'Single'), 'EP', array('class' => 'form-control')); }}
+            {{ Form::select('releasetype', array('EP' => 'EP', 'LP' => 'LP', 'RE' => 'RE', 'Single' => 'Single'), 'EP', array('class' => 'form-control')); }}
 
             @if($errors->has('notes'))
               <div class="alert alert-danger">

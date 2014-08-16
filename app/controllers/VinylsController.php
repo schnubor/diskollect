@@ -278,6 +278,9 @@ class VinylsController extends \BaseController {
       $vinyl->color = input::get('color');
       $vinyl->type = input::get('type');
       $vinyl->releasedate = input::get('year');
+      $vinyl->releasetype = input::get('releasetype');
+      $vinyl->weight = input::get('weight');
+      $vinyl->catno = input::get('catno');
       $vinyl->notes = input::get('notes');
 
       if($vinyl->save()){
