@@ -20,6 +20,7 @@
           $video = null;
         }
         $label = $vinyl['labels'][0]['name'];
+        $catno = $vinyl['labels'][0]['catno'];
         $genres = implode(';', $vinyl['genres']);
         $year = $vinyl['released_formatted'];
         $country = $vinyl['country'];
@@ -30,6 +31,7 @@
           array_push($tmp_tracklist, $item['position'] . ' ' . $item['title'] . ' ' . $item['duration']);
         }
         $tracklist = implode(';', $tmp_tracklist);
+        $weight = $vinyl['estimated_weight'];
       }
       else{
         $type = 'release';
@@ -44,6 +46,8 @@
         $country = null;
         $count = null;
         $tracklist = null;
+        $weight = null;
+        $catno = null;
       }
     ?>
 
@@ -77,7 +81,7 @@
       <div class="col-md-4">
         <div class="well">
           <div class="form-wrapper">
-            <legend>Fetched Data</legend>
+            <legend>General Data</legend>
 
               <div class="form-group">
                 {{ Form::label('artist', 'Artist') }} <span style="color: red;">*</span>
@@ -146,6 +150,28 @@
               </div>
 
               <div class="form-group">
+                {{ Form::label('weight', 'Estimated Weight') }}
+                {{ Form::text('weight', $weight, array('class' => 'form-control', 'placeholder' => 'Enter estimated weight')); }}
+
+                @if($errors->has('weight'))
+                  <div class="alert alert-danger">
+                    {{ $errors->first('weight') }}
+                  </div>
+                @endif
+              </div>
+
+              <div class="form-group">
+                {{ Form::label('catno', 'Catalog Number') }}
+                {{ Form::text('catno', $catno, array('class' => 'form-control', 'placeholder' => 'Enter catalog number')); }}
+
+                @if($errors->has('catno'))
+                  <div class="alert alert-danger">
+                    {{ $errors->first('catno') }}
+                  </div>
+                @endif
+              </div>
+
+              <div class="form-group">
                 {{ Form::label('tracklist', 'Tracklist') }}
                 {{ Form::text('tracklist', $tracklist, array('class' => 'form-control', 'placeholder' => 'Enter tracklist')); }}
 
@@ -167,7 +193,7 @@
       <!-- User Data -->
       <div class="col-md-4">
         <div class="well">
-          <legend>Your Data</legend>
+          <legend>Release Data</legend>
 
           <div class="form-group">
             {{ Form::label('price', 'Price in '.$user->currency) }} <span style="color: red;">*</span>
@@ -209,6 +235,17 @@
             @if($errors->has('count'))
               <div class="alert alert-danger">
                 {{ $errors->first('count') }}
+              </div>
+            @endif
+          </div>
+
+          <div class="form-group">
+            {{ Form::label('releasetype', 'Release type') }}
+            {{ Form::select('releastype', array('EP' => 'EP', 'LP' => 'LP', 'RE' => 'RE', 'Single' => 'Single'), 'EP', array('class' => 'form-control')); }}
+
+            @if($errors->has('notes'))
+              <div class="alert alert-danger">
+                {{ $errors->first('notes') }}
               </div>
             @endif
           </div>

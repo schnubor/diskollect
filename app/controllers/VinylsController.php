@@ -337,7 +337,10 @@ class VinylsController extends \BaseController {
         'color' => input::get('color'),
         'type' => input::get('type'),
         'releasedate' => input::get('year'),
-        'notes' => input::get('notes')
+        'notes' => input::get('notes'),
+        'weight' => input::get('weight'),
+        'catno' => input::get('catno'),
+        'releasetype' => input::get('releasetype')
       ));
 
       if($vinyl){
