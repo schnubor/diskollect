@@ -107,12 +107,18 @@
                   {{ $genre.' ' }}
                 @endforeach
               </dd>
+              <dt>Catalog number</dt>
+              <dd>{{ $vinyl->catno }}</dd>
               <dt>Country</dt>
               <dd>{{ $vinyl->country }}</dd>
+              <dt>Release</dt>
+              <dd>{{ $vinyl->releasetype }}</dd>
               <dt>Size</dt>
               <dd>{{ $vinyl->size.'"' }}</dd>
               <dt>Quantity</dt>
               <dd>{{ $vinyl->count }}</dd>
+              <dt>Weight</dt>
+              <dd>{{ $vinyl->weight }} grams</dd>
               <dt>Released</dt>
               <dd>{{ $vinyl->releasedate }}</dd>
               <dt>Date added</dt>
