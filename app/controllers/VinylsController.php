@@ -7,15 +7,7 @@ class VinylsController extends \BaseController {
 	*/
 	public function getSearch()
 	{
-		$user = User::find(Auth::user()->id);
-		// Check if user already obtained Discogs Access Token
-
-		if($user->discogs_access_token){
 			return View::make('vinyls.search');
-		}
-		else{
-			return View::make('vinyls.discogs');
-		}
 	}
 
 	/*
@@ -117,12 +109,17 @@ class VinylsController extends \BaseController {
 
       $results = [];
 
+      $identity = $client->getOAuthIdentity();
+
       foreach($response['results'] as $result){
-        if($result['type'] == 'release'){
+        if($result['type'] == 'release'){ // Release
           $release = $client->getRelease([
             'id' => $result['id']
           ]);
           $release['type'] = 'release';
+          $release['price'] = $client->getPriceSuggestions([
+            'release_id' => $result['id']
+          ]);
           array_push($results, $release);
         }
         else{ // Master
