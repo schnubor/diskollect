@@ -70,8 +70,8 @@
             {{ Form::text('artwork', $artwork, array('class' => 'form-control', 'id' => 'vinyl-artwork-url', 'placeholder' => 'Paste Artwork URL')) }}
           </div>
           @if($video != null)
-            <div class="thumbnail">
-              <iframe width="300" height="169" src="//www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
+            <div class="embed-responsive">
+              <iframe width="100%" height="169" src="//www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
             </div>
           @endif
         </div>
