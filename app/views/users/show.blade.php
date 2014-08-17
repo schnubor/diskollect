@@ -130,14 +130,15 @@
 </div>
 @stop
 
+<?php
+  $genres = [];
+  foreach($user->vinyls as $vinyl){
+    $vinylGenre = explode(';',$vinyl->genre);
+    array_push($genres, $vinylGenre);
+  }
+?>
+
 @section('scripts')
-  <?php
-    $genres = []
-    foreach($vinyls as $vinyl){
-
-    }
-  ?>
-
   <script>
     var data = [
       {
