@@ -146,7 +146,7 @@
             ],
             "authors": [
                 {
-                    "name": "Kelt Dockins",
+                    "name": "Kelt",
                     "email": "kelt@dockins.org",
                     "homepage": "http://www.keltdockins.com",
                     "role": "Developer"
@@ -188,7 +188,7 @@
             ],
             "authors": [
                 {
-                    "name": "Kelt Dockins",
+                    "name": "Kelt",
                     "email": "kelt@codesleeve.com"
                 }
             ],
@@ -463,16 +463,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "4.1.7",
+            "version": "4.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "448f2c2076cf0fb756230611491c4f7ecb735a29"
+                "reference": "e196b8f44f9492a11261ea8f7b9724613a198daf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/448f2c2076cf0fb756230611491c4f7ecb735a29",
-                "reference": "448f2c2076cf0fb756230611491c4f7ecb735a29",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/e196b8f44f9492a11261ea8f7b9724613a198daf",
+                "reference": "e196b8f44f9492a11261ea8f7b9724613a198daf",
                 "shasum": ""
             },
             "require": {
@@ -524,7 +524,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-08-08 01:30:43"
+            "time": "2014-08-14 20:29:51"
         },
         {
             "name": "guzzlehttp/guzzle-services",
@@ -2009,13 +2009,13 @@
             "target-dir": "Symfony/Component/Debug",
             "source": {
                 "type": "git",
-                "url": "git@github.com:symfony/Debug.git",
-                "reference": "395690aa209b7f7b654416559952893f86eef9c7"
+                "url": "https://github.com/symfony/Debug.git",
+                "reference": "c9532f402136fcaab781791bb2897a0d674456ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/395690aa209b7f7b654416559952893f86eef9c7",
-                "reference": "395690aa209b7f7b654416559952893f86eef9c7",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/c9532f402136fcaab781791bb2897a0d674456ee",
+                "reference": "c9532f402136fcaab781791bb2897a0d674456ee",
                 "shasum": ""
             },
             "require": {
@@ -2046,12 +2046,14 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
                 }
             ],
             "description": "Symfony Debug Component",

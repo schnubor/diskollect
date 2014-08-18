@@ -10,4 +10,5 @@ $(function(){
     console.log(value);
     $('#vinyl-artwork').attr('src', value);
   });
+
 });
