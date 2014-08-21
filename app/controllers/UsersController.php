@@ -313,7 +313,7 @@ class UsersController extends \BaseController {
 	}
 
 	/**
-	 * Display the specified resource.
+	 * Display the specified user.
 	 * GET /users/{id}
 	 *
 	 * @param  int  $id
@@ -330,13 +330,21 @@ class UsersController extends \BaseController {
 		$user = User::find($id);
 		$vinyls = $user->vinyls();
 
-		//Level
+		// Level
 		$level = floor(($lvlFactor+sqrt($lvlFactor*$lvlFactor+4*$lvlFactor*$vinyls->count()))/(2*$lvlFactor));
 
 		$currentLvlVinyls = $lvlFactor*$level*$level-$lvlFactor*$level;
 		$nextLvlVinyls = $lvlFactor*($level+1)*($level+1)-$lvlFactor*($level+1);
 
 		$progress = floor(($vinyls->count()-$currentLvlVinyls) / (($nextLvlVinyls - $currentLvlVinyls) / 100));
+
+		// Fav artist
+		$favArtist = 	DB::table('vinyls')
+														->select(DB::raw('count(*) as artist_count, artist'))
+														->where('user_id', '=', $id)
+														->groupBy('artist')
+														->orderBy('artist_count','DESC')
+														->first();
 
 		return View::make('users.show')
 			->with('user', $user)
@@ -345,7 +353,8 @@ class UsersController extends \BaseController {
 			->with('rank', $rank[$level])
 			->with('progress', $progress)
 			->with('nextLvlVinyls', $nextLvlVinyls)
-			->with('rank', $rank[$level]);
+			->with('rank', $rank[$level])
+			->with('favArtist', $favArtist);
 	}
 
 	/**

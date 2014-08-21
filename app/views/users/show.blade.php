@@ -86,6 +86,21 @@
               </div>
             </div>
           </div>
+
+          <div class="col-md-12 favourites">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Favourites</h3>
+              </div>
+              <div class="panel-body">
+                <p class="h2" style="margin-top: 0;">
+                  <small>Artist</small><br>
+                  {{ $favArtist->artist }}
+                </p>
+              </div>
+            </div>
+            
+          </div>
         </div>
       </div> <!-- end of left area -->
 
@@ -147,8 +162,8 @@
       @foreach($genres as $key => $value)
         {
           value: {{ $value }},
-          color:"#F7464A",
-          highlight: "#FF5A5E",
+          color:"#DD4223",
+          highlight: "#ff4a27",
           label: "{{ $key }}"
         },
       @endforeach
