@@ -117,9 +117,6 @@ class VinylsController extends \BaseController {
             'id' => $result['id']
           ]);
           $release['type'] = 'release';
-          $release['price'] = $client->getPriceSuggestions([
-            'release_id' => $result['id']
-          ]);
           array_push($results, $release);
         }
         else{ // Master
