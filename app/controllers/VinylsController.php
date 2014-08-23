@@ -144,8 +144,11 @@ class VinylsController extends \BaseController {
 	{
 		$vinyls = User::find($id)->vinyls()->paginate(32);
 		$user = User::find($id);
+    $weight = $vinyls->sum('weight');
+    $value = number_format(round($vinyls->sum('price'),2),2);
 
-		$data = array('user' => $user, 'vinyls' => $vinyls, 'grid' => $grid);
+		$data = array('user' => $user, 'vinyls' => $vinyls, 'grid' => $grid, 'weight' => $weight, 'value' => $value);
+
 		return View::make('vinyls.collection', $data);
 	}
 

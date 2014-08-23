@@ -6,30 +6,37 @@
   transition: $transition-property $transition-time $method;
 }
 
-.user-collection{
+.collection-header{
 
-  .collection-header{
+  margin-top: -20px;
+  padding: 30px;
 
-    text-align: center;
+  h1{
+    font-size: 42px;
+    margin-top: 0;
+  }
 
-    .user-portrait{
-      width: 100px;
-      height: 100px;
-      border-radius: 50px;
-      overflow: hidden;
-      margin: 0 auto;
+  .user-image{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    overflow: hidden;
+    margin: 0 auto;
 
-      img{
-        width: 100%;
-      }
-    }
-
-    small{
-      font-size: 18px;
-      color: #808080;
-      letter-spacing: 2px;
+    img{
+      width: 100%;
+      min-height: 100%;
     }
   }
+
+  small{
+    font-size: 18px;
+    color: #808080;
+    letter-spacing: 2px;
+  }
+}
+
+.user-collection{
 
   .collection-controls{
     padding-top: 50px;
@@ -136,6 +143,14 @@
 
 /* Media Queries */
 @media screen and (max-width: 768px){
+  .collection-header{
+    text-align: center;
+
+    h1{
+      margin-top: 20px;
+    }
+  }
+
   .user-collection{
     .collection-controls{
       .form-inline{

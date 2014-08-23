@@ -9,7 +9,7 @@
   <div class="jumbotron header">
     <div class="container">
       <div class="col-md-3" style="text-align: center;">
-        <div class="profile-image">
+        <div class="user-image">
           @if($user->image)
             <img src="{{ $user->image }}" alt="{{ $user->username }}" class="img-responsive profile-pic">
           @else

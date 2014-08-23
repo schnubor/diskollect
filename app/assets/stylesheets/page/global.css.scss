@@ -9,8 +9,14 @@ body{
 }
 
 .notifications{
-  position: relative;
-  z-index: 1;
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  right: 0;
+
+  .alert{
+    margin-right: 20px
+  }
 }
 
 .pagination-container{

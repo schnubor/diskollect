@@ -5,29 +5,46 @@
 @stop
 
 @section('body')
-  <div class="container user-collection">
-    <div class="collection-header">
-      <div class="user-portrait">
-      <a href="{{ URL::route('get-user', $user->id) }}">
-        @if($user->image)
-          <img src="{{ $user->image }}" alt="{{ $user->username }}">
-        @else
-          <img src="{{ USER_PH_PATH }}" alt="{{ $user->username }}">
-        @endif
-      </a>
+  <div class="jumbotron collection-header">
+    <div class="container">
+      <div class="col-md-2">
+        <div class="user-image">
+        <a href="{{ URL::route('get-user', $user->id) }}">
+          @if($user->image)
+            <img src="{{ $user->image }}" alt="{{ $user->username }}">
+          @else
+            <img src="{{ USER_PH_PATH }}" alt="{{ $user->username }}">
+          @endif
+        </a>
+        </div>
       </div>
-      @if(Auth::check())
-        @if($user->id == Auth::user()->id)
-          <h1>Your Collection</h1>
-        @else
-          <h1>{{ $user->username }}s Collection</h1>
-        @endif
-      @else
-        <h1>{{ $user->username }}´s Collection</h1>
-      @endif
-      <small>{{ $user->vinyls->count() }} Vinyls</small>
-    </div>
+      <div class="col-md-10">
+        <div class="profile-info">
+          <div class="username">
+            @if(Auth::check())
+              @if($user->id == Auth::user()->id)
+                <h1>Your Collection</h1>
+              @else
+                <h1>{{ $user->username }}s Collection</h1>
+              @endif
+            @else
+              <h1>{{ $user->username }}´s Collection</h1>
+            @endif
+          </div>
+          <p class="additional-info">
+            {{ $user->vinyls->count() }} Vinyls worth {{ $value }} {{ $user->currency }} and {{ number_format(round(($weight/1000), 2),2) }} kg in weight
+          </p>
+        </div>
 
+        <div class="actions">
+          <a href="{{ URL::route('get-user', $user->id) }}" class="btn btn-md btn-primary" ><i class="fa fa-fw fa-bar-chart-o"></i> View Statistics</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container user-collection">
     <div class="collection-controls">
       {{ Form::open(array('route' => array('get-collection', $user->id), 'method' => 'get', 'class' => 'form-inline')) }}
         {{ Form::text('filter', Input::old('filter'), array('class' => 'form-control')) }}
@@ -74,7 +91,7 @@
                   @if(Auth::check())
                     @if(Auth::user()->id == $user->id)
                       <a href="{{ URL::route('get-edit-vinyl', $vinyl->id) }}" class="btn btn-default edit-vinyl"><i class="fa fa-pencil"></i></a>
-                      {{ Form::open(array('route' => array('delete-vinyl', $vinyl->id))) }}
+                      {{ Form::open(array('route' => array('delete-vinyl', $vinyl->id),'onsubmit' => 'return confirm(\'Are you sure you want to delete this vinyl?\');')) }}
                         {{ Form::hidden('_method', 'DELETE') }}
                         {{ Form::button('<i class="fa fa-trash-o"></i>', array('class' => 'btn btn-danger delete-vinyl', 'type' => 'submit')) }}
                       {{ Form::close() }}
@@ -145,7 +162,7 @@
                 @if(Auth::check())
                   @if(Auth::user()->id == $user->id)
                     <td>
-                      {{ Form::open(array('route' => array('delete-vinyl', $vinyl->id), 'class' => 'pull-right')) }}
+                      {{ Form::open(array('route' => array('delete-vinyl', $vinyl->id), 'class' => 'pull-right', ,'onsubmit' => 'return confirm(\'Are you sure you want to delete this vinyl?\');')) }}
                         {{ Form::hidden('_method', 'DELETE') }}
                         {{ Form::button('<i class="fa fa-trash-o fa-fw"></i>', array('class' => 'btn btn-sm btn-default', 'style' => 'margin-left: 10px', 'type' => 'submit')) }}
                       {{ Form::close() }}
