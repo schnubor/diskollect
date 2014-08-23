@@ -162,7 +162,7 @@
                 @if(Auth::check())
                   @if(Auth::user()->id == $user->id)
                     <td>
-                      {{ Form::open(array('route' => array('delete-vinyl', $vinyl->id), 'class' => 'pull-right', ,'onsubmit' => 'return confirm(\'Are you sure you want to delete this vinyl?\');')) }}
+                      {{ Form::open(array('route' => array('delete-vinyl', $vinyl->id), 'class' => 'pull-right', 'onsubmit' => 'return confirm(\'Are you sure you want to delete this vinyl?\');')) }}
                         {{ Form::hidden('_method', 'DELETE') }}
                         {{ Form::button('<i class="fa fa-trash-o fa-fw"></i>', array('class' => 'btn btn-sm btn-default', 'style' => 'margin-left: 10px', 'type' => 'submit')) }}
                       {{ Form::close() }}
