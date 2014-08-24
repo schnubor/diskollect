@@ -8,4 +8,9 @@ class Vinyl extends \Eloquent {
     return $this->belongsTo('User');
   }
 
+  public function tracks()
+  {
+      return $this->hasMany('Track');
+  }
+
 }

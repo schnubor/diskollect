@@ -11,8 +11,12 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$this->call('UsersTableSeeder');
+		Vinyl::truncate();
+		Track::truncate();
+
+		//$this->call('UsersTableSeeder');
 		$this->call('VinylsTableSeeder');
+		$this->call('TracksTableSeeder');
 	}
 
 }

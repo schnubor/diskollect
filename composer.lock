@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bdb29add1dc63dec57603b59d76b5d66",
+    "hash": "61afab917fb77c37d50a6695d25961e3",
     "packages": [
         {
             "name": "adavkay/laravel-soundcloud",
@@ -146,7 +146,7 @@
             ],
             "authors": [
                 {
-                    "name": "Kelt",
+                    "name": "Kelt Dockins",
                     "email": "kelt@dockins.org",
                     "homepage": "http://www.keltdockins.com",
                     "role": "Developer"
@@ -188,7 +188,7 @@
             ],
             "authors": [
                 {
-                    "name": "Kelt",
+                    "name": "Kelt Dockins",
                     "email": "kelt@codesleeve.com"
                 }
             ],
@@ -1141,12 +1141,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/madcoda/php-youtube-api.git",
-                "reference": "a84c029a68a948c78fbc914784b4893f3a8f34ad"
+                "reference": "84bb90f9d073d84de30ca3e2af7d9a8391835a7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/madcoda/php-youtube-api/zipball/a84c029a68a948c78fbc914784b4893f3a8f34ad",
-                "reference": "a84c029a68a948c78fbc914784b4893f3a8f34ad",
+                "url": "https://api.github.com/repos/madcoda/php-youtube-api/zipball/84bb90f9d073d84de30ca3e2af7d9a8391835a7e",
+                "reference": "84bb90f9d073d84de30ca3e2af7d9a8391835a7e",
                 "shasum": ""
             },
             "require": {
@@ -1178,7 +1178,7 @@
                 "video",
                 "youtube"
             ],
-            "time": "2014-07-25 09:44:41"
+            "time": "2014-08-21 10:34:05"
         },
         {
             "name": "monolog/monolog",
@@ -2009,13 +2009,13 @@
             "target-dir": "Symfony/Component/Debug",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Debug.git",
-                "reference": "c9532f402136fcaab781791bb2897a0d674456ee"
+                "url": "git@github.com:symfony/Debug.git",
+                "reference": "395690aa209b7f7b654416559952893f86eef9c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/c9532f402136fcaab781791bb2897a0d674456ee",
-                "reference": "c9532f402136fcaab781791bb2897a0d674456ee",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/395690aa209b7f7b654416559952893f86eef9c7",
+                "reference": "395690aa209b7f7b654416559952893f86eef9c7",
                 "shasum": ""
             },
             "require": {
@@ -2046,14 +2046,12 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Symfony Debug Component",
@@ -2636,6 +2634,56 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "010c7efedd88bf31141a02719f51fb44c732d5a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/010c7efedd88bf31141a02719f51fb44c732d5a0",
+                "reference": "010c7efedd88bf31141a02719f51fb44c732d5a0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": [
+
+                ]
+            },
+            "autoload": {
+                "psr-0": {
+                    "Faker": "src/",
+                    "Faker\\PHPUnit": "test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2014-06-04 14:43:02"
+        },
         {
             "name": "way/generators",
             "version": "2.6.1",
