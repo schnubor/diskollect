@@ -333,8 +333,6 @@ class VinylsController extends \BaseController {
         'label' => input::get('label'),
         'genre' => input::get('genre'),
         'price' => $price,
-        'videos' => input::get('videos'),
-        'tracklist' => input::get('tracklist'),
         'country' => input::get('country'),
         'size' => input::get('size'),
         'count' => input::get('count'),
@@ -348,6 +346,19 @@ class VinylsController extends \BaseController {
       ));
 
       if($vinyl){
+        // Save tracks
+        $tracklistItems = input::get('tracklist_length');
+        for($i = 0; $i < $tracklistItems; $i++){
+          Track::create(array(
+            'vinyl_id' => $vinyl->id,
+            'artist_id' => 1,
+            'artist' => $vinyl->artist,
+            'title' => input::get('track_'.$i.'_title'),
+            'number' => input::get('track_'.$i.'_pos'),
+            'duration' => input::get('track_'.$i.'_duration'),
+          ));
+        }
+
         return Redirect::route('get-vinyl', $vinyl->id )
           ->with('success-alert', 'Success! <strong>' . Input::get('artist') . ' - ' . Input::get('title') . '</strong> is now in your collection.');
       }

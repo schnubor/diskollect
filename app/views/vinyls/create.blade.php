@@ -12,13 +12,6 @@
         $artist = $vinyl['artists'][0]['name'];
         $title = $vinyl['title'];
         $artwork = str_replace('api.discogs.com/image/R-','s.pixogs.com/image/R-',$vinyl['images'][0]['uri']);
-        if($vinyl['videos'][0]['uri']){
-          $video = $vinyl['videos'][0]['uri'];
-          $videoId = substr($video, -11);
-        }
-        else{
-          $video = null;
-        }
         $label = $vinyl['labels'][0]['name'];
         $catno = $vinyl['labels'][0]['catno'];
         $genres = implode(';', $vinyl['genres']);
@@ -26,11 +19,6 @@
         $country = $vinyl['country'];
         $count = $vinyl['formats'][0]['qty'];
         $tracklistItems = $vinyl['tracklist'];
-        $tmp_tracklist = [];
-        foreach ($tracklistItems as $item) {
-          array_push($tmp_tracklist, $item['position'] . ' ' . $item['title'] . ' ' . $item['duration']);
-        }
-        $tracklist = implode(';', $tmp_tracklist);
         $weight = $vinyl['estimated_weight'];
       }
       else{
@@ -38,14 +26,12 @@
         $artist = null;
         $title = null;
         $artwork = null;
-        $video = null;
         $videoId = null;
         $label = null;
         $genres = null;
         $year = null;
         $country = null;
         $count = null;
-        $tracklist = null;
         $weight = null;
         $catno = null;
       }
@@ -56,7 +42,7 @@
       <!-- Artwork and Videos -->
       <div class="col-md-4">
         <div class="well">
-          <legend>Artwork and Videos</legend>
+          <legend>Artwork</legend>
           <div class="thumbnail">
             @if(@getimagesize($artwork))
               <img src="{{ $artwork }}" id="vinyl-artwork" alt="{{ $artist }} - {{ $title }}">
@@ -69,11 +55,7 @@
             {{ Form::label('artwork', 'Paste Artwork URL') }}
             {{ Form::text('artwork', $artwork, array('class' => 'form-control', 'id' => 'vinyl-artwork-url', 'placeholder' => 'Paste Artwork URL')) }}
           </div>
-          @if($video != null)
-            <div class="embed-responsive">
-              <iframe width="100%" height="169" src="//www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
-            </div>
-          @endif
+          
         </div>
       </div>
 
@@ -171,18 +153,6 @@
                 @endif
               </div>
 
-              <div class="form-group">
-                {{ Form::label('tracklist', 'Tracklist') }}
-                {{ Form::text('tracklist', $tracklist, array('class' => 'form-control', 'placeholder' => 'Enter tracklist')); }}
-
-                @if($errors->has('tracklist'))
-                  <div class="alert alert-danger">
-                    {{ $errors->first('tracklist') }}
-                  </div>
-                @endif
-              </div>
-
-              {{ Form::hidden('videos', $video) }}
               {{ Form::hidden('type', $type) }}
               {{ Form::hidden('user_id', Auth::user()->id) }}
 
@@ -263,6 +233,31 @@
 
         </div>
       </div>
+
+      <div class="col-md-12">
+        <!-- Tracklist -->
+        <div class="well">
+          <legend>Tracklist</legend>
+          <table class="table table-hover">
+            <thead>
+              <th width="80px">Pos.</th>
+              <th>Title</th>
+              <th width="100px">Duration</th>
+            </thead>
+            <tbody>
+              @foreach($tracklistItems as $index=>$track)
+                <tr>
+                  <td>{{ Form::text('track_'.$index.'_pos', $track['position'], array('class' => 'form-control' )); }}</td>
+                  <td>{{ Form::text('track_'.$index.'_title', $track['title'], array('class' => 'form-control' )); }}</td>
+                  <td>{{ Form::text('track_'.$index.'_duration', $track['duration'], array('class' => 'form-control' )); }}</td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      {{ Form::hidden('tracklist_length', count($tracklistItems)) }}
     </div>
 
     <hr>
