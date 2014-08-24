@@ -38,6 +38,7 @@
 
         <div class="actions">
           <a href="{{ URL::route('get-user', $user->id) }}" class="btn btn-md btn-primary" ><i class="fa fa-fw fa-bar-chart-o"></i> View Statistics</a>
+          <a href="{{ URL::route('get-search') }}" class="btn btn-md btn-success" ><i class="fa fa-fw fa-plus"></i> Add Vinyl</a>
         </div>
 
       </div>

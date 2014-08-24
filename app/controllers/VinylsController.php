@@ -7,7 +7,7 @@ class VinylsController extends \BaseController {
 	*/
 	public function getSearch()
 	{
-			return View::make('vinyls.search');
+		return View::make('vinyls.search');
 	}
 
 	/*
