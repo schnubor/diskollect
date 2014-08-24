@@ -206,7 +206,7 @@
         <!-- Tracklist -->
         <div class="well">
           <legend>Tracklist</legend>
-          <table class="table table-hover">
+          <table class="table table-hover js-track-table">
             <thead>
               <th width="80px">Pos.</th>
               <th>Title</th>
@@ -223,8 +223,10 @@
               @endforeach
             </tbody>
           </table>
+          <div class="btn btn-info btn-md add-track"><i class="fa fa-fw fa-plus"></i> Add track</div>
         </div>
         {{ Form::hidden('tracklist_length', $tracks->count(), array('class' => 'tracklist_length')) }}
+        {{ Form::hidden('tracklist_length_new', 0, array('class' => 'tracklist_length_new')) }}
       </div>
     </div>
 
@@ -232,5 +234,18 @@
     {{ Form::submit('Edit Vinyl', array('class' => 'btn btn-primary btn-lg pull-right')) }}
     {{ Form::close() }}
   </div>
+@stop
+
+@section('scripts')
+  <script>
+    var count = $('.tracklist_length').val();
+    var new_tracks = 0;
+    $('.add-track').click(function(){
+      $('.js-track-table tbody').append('<tr><td><input class="form-control" name="track_'+count+'_pos" type="text" value="A1"></td><td><input class="form-control" name="track_'+count+'_title" type="text" value="Example title"></td><td><input class="form-control" name="track_'+count+'_duration" type="text" value="1:23"></td></tr>');
+      count++;
+      new_tracks++;
+      $('.tracklist_length_new').val(new_tracks);
+    });
+  </script>
 @stop
 

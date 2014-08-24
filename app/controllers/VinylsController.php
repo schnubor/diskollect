@@ -288,12 +288,25 @@ class VinylsController extends \BaseController {
       if($vinyl->save()){
         // Update Tracks
         $tracklistItems = input::get('tracklist_length');
+        $newTracklistItems = input::get('tracklist_length_new');
+
         for($i = 0; $i < $tracklistItems; $i++){
           $track = Track::find(input::get('track_'.$i.'_id'));
           $track->number = input::get('track_'.$i.'_pos');
           $track->title = input::get('track_'.$i.'_title');
           $track->duration = input::get('track_'.$i.'_duration');
           $track->save();
+        }
+
+        for($i = 0; $i < $newTracklistItems; $i++){
+          Track::create(array(
+            'vinyl_id' => $id,
+            'artist_id' => 1,
+            'artist' => $vinyl->artist,
+            'title' => input::get('track_'.($i+$tracklistItems).'_title'),
+            'number' => input::get('track_'.($i+$tracklistItems).'_pos'),
+            'duration' => input::get('track_'.($i+$tracklistItems).'_duration'),
+          ));
         }
 
         return Redirect::route('get-vinyl', $vinyl->id )
