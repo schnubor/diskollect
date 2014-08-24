@@ -127,43 +127,12 @@
       </div>
       
     </div>
+          
+    <!--<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=$track->uri&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>-->
+  
 
-    <div class="page-header">
-      <h2>Samples</h2>
-    </div>
+    <!--<iframe width="100%" height="315" src="//www.youtube.com/embed/$track['videoId']?list=$track['playlistId']" frameborder="0" allowfullscreen></iframe>-->
 
-    <div class="row">
-      <!-- Soundcloud -->
-      <div class="col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Soundcloud</h3>
-          </div>
-          <div class="panel-body">
-            <div class="embed-responsive">
-              
-                <!--<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=$track->uri&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>-->
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Youtube -->
-      <div class="col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Youtube</h3>
-          </div>
-          <div class="panel-body">
-            <div class="embed-responsive embed-responsive-16by9">
-              
-                <!--<iframe width="100%" height="315" src="//www.youtube.com/embed/$track['videoId']?list=$track['playlistId']" frameborder="0" allowfullscreen></iframe>-->
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 @stop
 

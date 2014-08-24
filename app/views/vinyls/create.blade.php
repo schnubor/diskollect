@@ -238,24 +238,31 @@
         <!-- Tracklist -->
         <div class="well">
           <legend>Tracklist</legend>
-          <table class="table table-hover">
+          <table class="table table-hover js-track-table">
             <thead>
               <th width="80px">Pos.</th>
               <th>Title</th>
               <th width="100px">Duration</th>
             </thead>
             <tbody>
-              @foreach($tracklistItems as $index=>$track)
-                <tr>
-                  <td>{{ Form::text('track_'.$index.'_pos', $track['position'], array('class' => 'form-control' )); }}</td>
-                  <td>{{ Form::text('track_'.$index.'_title', $track['title'], array('class' => 'form-control' )); }}</td>
-                  <td>{{ Form::text('track_'.$index.'_duration', $track['duration'], array('class' => 'form-control' )); }}</td>
-                </tr>
-              @endforeach
+              @if($search)
+                {{ Form::hidden('tracklist_length', count($tracklistItems)) }}
+                @foreach($tracklistItems as $index=>$track)
+                  <tr>
+                    <td>{{ Form::text('track_'.$index.'_pos', $track['position'], array('class' => 'form-control' )); }}</td>
+                    <td>{{ Form::text('track_'.$index.'_title', $track['title'], array('class' => 'form-control' )); }}</td>
+                    <td>{{ Form::text('track_'.$index.'_duration', $track['duration'], array('class' => 'form-control' )); }}</td>
+                  </tr>
+                @endforeach
+              @else
+                {{ Form::hidden('tracklist_length', 0, array('class' => 'tracklist_length')) }}
+              @endif
             </tbody>
           </table>
+          @if(!$search)
+            <div class="btn btn-info btn-md add-track"><i class="fa fa-fw fa-plus"></i> Add track</div>
+          @endif
         </div>
-        {{ Form::hidden('tracklist_length', count($tracklistItems)) }}
       </div>
       
     </div>
@@ -265,4 +272,17 @@
     {{ Form::close() }}
   </div>
 @stop
+
+@if(!$search)
+  @section('scripts')
+    <script>
+      var count = 0;
+      $('.add-track').click(function(){
+        $('.js-track-table tbody').append('<tr><td><input class="form-control" name="track_'+count+'_pos" type="text" value="A1"></td><td><input class="form-control" name="track_'+count+'_title" type="text" value="Example title"></td><td><input class="form-control" name="track_'+count+'_duration" type="text" value="1:23"></td></tr>');
+        count++;
+        $('.tracklist_length').val(count);
+      });
+    </script>
+  @stop
+@endif
 
