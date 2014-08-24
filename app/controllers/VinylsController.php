@@ -230,9 +230,11 @@ class VinylsController extends \BaseController {
   */
   public function editVinyl($id){
     $vinyl = Vinyl::find($id);
+    $tracks = Vinyl::find($id)->tracks;
 
     return View::make('vinyls.edit')
-      ->with('vinyl', $vinyl);
+      ->with('vinyl', $vinyl)
+      ->with('tracks', $tracks);
   }
 
   /*
@@ -262,8 +264,9 @@ class VinylsController extends \BaseController {
           ->with('danger-alert', 'Oops! Price needs to be a valid number.');
       }
 
-      // Update vinyl
+      // Update vinyl & tracks
       $vinyl = Vinyl::find($id);
+      $tracks = Vinyl::find($id)->tracks;
 
       $vinyl->artwork = input::get('artwork');
       $vinyl->artist = Input::get('artist');
@@ -271,8 +274,6 @@ class VinylsController extends \BaseController {
       $vinyl->label = input::get('label');
       $vinyl->genre = input::get('genre');
       $vinyl->price = $price;
-      $vinyl->videos = input::get('videos');
-      $vinyl->tracklist = input::get('tracklist');
       $vinyl->country = input::get('country');
       $vinyl->size = input::get('size');
       $vinyl->count = input::get('count');
@@ -285,7 +286,17 @@ class VinylsController extends \BaseController {
       $vinyl->notes = input::get('notes');
 
       if($vinyl->save()){
-        return Redirect::route('get-collection', Auth::user()->id )
+        // Update Tracks
+        $tracklistItems = input::get('tracklist_length');
+        for($i = 0; $i < $tracklistItems; $i++){
+          $track = Track::find(input::get('track_'.$i.'_id'));
+          $track->number = input::get('track_'.$i.'_pos');
+          $track->title = input::get('track_'.$i.'_title');
+          $track->duration = input::get('track_'.$i.'_duration');
+          $track->save();
+        }
+
+        return Redirect::route('get-vinyl', $vinyl->id )
           ->with('success-alert', 'Success! <strong>' . Input::get('artist') . ' - ' . Input::get('title') . '</strong> was updated.');
       }
     }

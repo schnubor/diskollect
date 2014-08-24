@@ -255,9 +255,9 @@
             </tbody>
           </table>
         </div>
-
+        {{ Form::hidden('tracklist_length', count($tracklistItems)) }}
       </div>
-      {{ Form::hidden('tracklist_length', count($tracklistItems)) }}
+      
     </div>
 
     <hr>

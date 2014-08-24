@@ -24,14 +24,6 @@
             {{ Form::label('artwork', 'Paste Artwork URL') }}
             {{ Form::text('artwork', $vinyl->artwork, array('class' => 'form-control', 'id' => 'vinyl-artwork-url', 'placeholder' => 'Paste Artwork URL')) }}
           </div>
-          @if($vinyl->videos != null)
-            <?php
-              $videoId = substr($vinyl->videos, -11);
-            ?>
-            <div class="thumbnail">
-              <iframe width="300" height="169" src="//www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
-            </div>
-          @endif
         </div>
       </div>
 
@@ -129,18 +121,6 @@
                 @endif
               </div>
 
-              <div class="form-group">
-                {{ Form::label('tracklist', 'Tracklist') }}
-                {{ Form::text('tracklist', $vinyl->tracklist, array('class' => 'form-control', 'placeholder' => 'Enter tracklist')); }}
-
-                @if($errors->has('tracklist'))
-                  <div class="alert alert-danger">
-                    {{ $errors->first('tracklist') }}
-                  </div>
-                @endif
-              </div>
-
-              {{ Form::hidden('videos', $vinyl->video) }}
               {{ Form::hidden('type', $vinyl->type) }}
               {{ Form::hidden('user_id', Auth::user()->id) }}
 
@@ -220,6 +200,31 @@
           </div>
 
         </div>
+      </div>
+
+      <div class="col-md-12">
+        <!-- Tracklist -->
+        <div class="well">
+          <legend>Tracklist</legend>
+          <table class="table table-hover">
+            <thead>
+              <th width="80px">Pos.</th>
+              <th>Title</th>
+              <th width="100px">Duration</th>
+            </thead>
+            <tbody>
+              @foreach($tracks as $index=>$track)
+                <tr>
+                  {{ Form::hidden('track_'.$index.'_id', $track->id) }}
+                  <td>{{ Form::text('track_'.$index.'_pos', $track->number, array('class' => 'form-control' )); }}</td>
+                  <td>{{ Form::text('track_'.$index.'_title', $track->title, array('class' => 'form-control' )); }}</td>
+                  <td>{{ Form::text('track_'.$index.'_duration', $track->duration, array('class' => 'form-control' )); }}</td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+        {{ Form::hidden('tracklist_length', $tracks->count(), array('class' => 'tracklist_length')) }}
       </div>
     </div>
 
