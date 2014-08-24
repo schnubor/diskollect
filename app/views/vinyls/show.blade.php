@@ -60,41 +60,20 @@
     @endif
 
     <div class="row">
-      <!-- User -->
-      <div class="col-md-3">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Owned by</h3>
-          </div>
-
-          <img width="100%" src="{{ User::find($vinyl->user_id)->image }}" alt="{{ User::find($vinyl->user_id)->username }}">
-
-          <div class="panel-body">
-            <a href="{{ URL::route('get-user', $vinyl->user_id) }}" class="h4">{{ User::find($vinyl->user_id)->username }}</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tracklist -->
-      <div class="col-md-4">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Tracklist</h3>
-          </div>
-          <div class="panel-body">
-            {{ str_replace(';','<br/>',$vinyl->tracklist) }}
-          </div>
-        </div>
-      </div>
-
+     
       <!-- General -->
-      <div class="col-md-5">
+      <div class="col-md-3">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">General Infos</h3>
           </div>
           <div class="panel-body">
-            <dl class="dl-horizontal">
+            <div class="user-image">
+              <img width="100%" src="{{ User::find($vinyl->user_id)->image }}" alt="{{ User::find($vinyl->user_id)->username }}">
+            </div>
+            <dl>
+              <dt>Owner</dt>
+              <dd><a href="{{ URL::route('get-user', $vinyl->user_id) }}" class="h4">{{ User::find($vinyl->user_id)->username }}</a></dd>
               <dt>Labels</dt>
               <dd>
                 @foreach($labels as $label)
@@ -109,24 +88,44 @@
               </dd>
               <dt>Catalog number</dt>
               <dd>{{ $vinyl->catno }}</dd>
-              <dt>Country</dt>
-              <dd>{{ $vinyl->country }}</dd>
-              <dt>Release</dt>
-              <dd>{{ $vinyl->releasetype }}</dd>
-              <dt>Size</dt>
-              <dd>{{ $vinyl->size.'"' }}</dd>
-              <dt>Quantity</dt>
-              <dd>{{ $vinyl->count }}</dd>
-              <dt>Weight</dt>
-              <dd>{{ $vinyl->weight }} grams</dd>
+              <dt>Format</dt>
+              <dd>{{ $vinyl->releasetype }}, {{ $vinyl->count }}x {{ $vinyl->size.'"' }} Vinyl, {{ $vinyl->weight }} grams</dd>
               <dt>Released</dt>
-              <dd>{{ $vinyl->releasedate }}</dd>
+              <dd>{{ $vinyl->releasedate }} in {{ $vinyl->country }}</dd>
               <dt>Date added</dt>
               <dd>{{ $vinyl->created_at }}</dd>
             </dl>
           </div>
         </div>
       </div>
+
+      <!-- Tracklist -->
+      <div class="col-md-9">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Tracklist</h3>
+          </div>
+          <div class="panel-body">
+            <table class="table table-hoverfootable">
+              <thead>
+                <th>Pos.</th>
+                <th>Title</th>
+                <th>Duration</th>
+              </thead>
+              <tbody>
+                @foreach($tracks as $track)
+                  <tr>
+                    <td>{{ $track->number }}</td>
+                    <td>{{ $track->title }}</td>
+                    <td>{{ $track->duration }}</td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
     </div>
 
     <div class="page-header">
@@ -142,9 +141,9 @@
           </div>
           <div class="panel-body">
             <div class="embed-responsive">
-              @foreach($soundcloud as $track)
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url={{ $track->uri }}&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-              @endforeach
+              
+                <!--<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=$track->uri&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>-->
+              
             </div>
           </div>
         </div>
@@ -157,9 +156,9 @@
           </div>
           <div class="panel-body">
             <div class="embed-responsive embed-responsive-16by9">
-              @foreach($youtube as $track)
-                <iframe width="100%" height="315" src="//www.youtube.com/embed/{{ $track['videoId'] }}?list={{ $track['playlistId'] }}" frameborder="0" allowfullscreen></iframe>
-              @endforeach
+              
+                <!--<iframe width="100%" height="315" src="//www.youtube.com/embed/$track['videoId']?list=$track['playlistId']" frameborder="0" allowfullscreen></iframe>-->
+              
             </div>
           </div>
         </div>

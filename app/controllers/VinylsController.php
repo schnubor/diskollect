@@ -158,20 +158,24 @@ class VinylsController extends \BaseController {
 	public function showVinyl($id)
 	{
 		$vinyl = Vinyl::find($id);
+    $tracks = Vinyl::find($id)->tracks;
 
     $youtube = new Youtube(array('key' => 'AIzaSyBRwXTDmN989t-MU0luj2P6dQT8PPOQNMY'));
     $sc_results = json_decode(Soundcloud::get('tracks', array('q' => $vinyl->artist, 'title' => $vinyl->title, 'limit' => 3)));
     $search_results = $youtube->search($vinyl->artist.' '.$vinyl->title);
     //dd($search_results[0]->id);
     $yt_results = [];
-    foreach($search_results as $result){
-      if($result->id->kind == 'youtube#playlist'){
-        array_push($yt_results, array('playlistId' => $result->id->playlistId, 'videoId' => $youtube->getPlaylistItemsByPlaylistId($result->id->playlistId)[0]->contentDetails->videoId ));
+    if($search_results){
+      foreach($search_results as $result){
+        if($result->id->kind == 'youtube#playlist'){
+          array_push($yt_results, array('playlistId' => $result->id->playlistId, 'videoId' => $youtube->getPlaylistItemsByPlaylistId($result->id->playlistId)[0]->contentDetails->videoId ));
+        }
       }
     }
 
 		return View::make('vinyls.show')
 			->with('vinyl', $vinyl)
+      ->with('tracks', $tracks)
       ->with('soundcloud', $sc_results)
       ->with('youtube', $yt_results);
 	}
