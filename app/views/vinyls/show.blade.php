@@ -106,18 +106,26 @@
             <h3 class="panel-title">Tracklist</h3>
           </div>
           <div class="panel-body">
-            <table class="table table-hoverfootable">
+            <table class="table table-hoverfootable footable">
               <thead>
                 <th>Pos.</th>
                 <th>Title</th>
                 <th>Duration</th>
+                <th data-toggle="true">Listen</th>
+                <th data-hide="all">Samples</th>
               </thead>
               <tbody>
-                @foreach($tracks as $track)
+                @foreach($tracks as $index=>$track)
                   <tr>
                     <td>{{ $track->number }}</td>
                     <td>{{ $track->title }}</td>
                     <td>{{ $track->duration }}</td>
+                    <td></td>
+                    <td>
+                      <div class="embed-responsive embed-responsive-16by9">
+                        <iframe src="//www.youtube.com/embed/{{ $youtube[$index][0]->id->videoId }}" frameborder="0" allowfullscreen></iframe>
+                      </div>
+                    </td>
                   </tr>
                 @endforeach
               </tbody>
@@ -134,5 +142,13 @@
     <!--<iframe width="100%" height="315" src="//www.youtube.com/embed/$track['videoId']?list=$track['playlistId']" frameborder="0" allowfullscreen></iframe>-->
 
   </div>
+@stop
+
+@section('scripts')
+  <script type="text/javascript">
+    $(function () {
+      $('.footable').footable();
+    });
+  </script>
 @stop
 
