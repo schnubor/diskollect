@@ -122,9 +122,13 @@
                     <td>{{ $track->duration }}</td>
                     <td></td>
                     <td>
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <iframe src="//www.youtube.com/embed/{{ $youtube[$index][0]->id->videoId }}" frameborder="0" allowfullscreen></iframe>
-                      </div>
+                      @if($youtube[$index][0]->id->videoId)
+                        <div class="embed-responsive embed-responsive-16by9">
+                          <iframe src="//www.youtube.com/embed/{{ $youtube[$index][0]->id->videoId }}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                      @else
+                        Sorry, no samples found.
+                      @endif
                     </td>
                   </tr>
                 @endforeach
