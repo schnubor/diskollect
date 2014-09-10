@@ -95,7 +95,11 @@
               <div class="panel-body">
                 <p class="h2" style="margin-top: 0;">
                   <small>Artist</small><br>
-                  {{ $favArtist->artist }}
+                  @if(isset($favArtist))
+                    {{ $favArtist->artist }}
+                  @else
+                    Not enough vinyls yet.
+                  @endif
                 </p>
               </div>
             </div>
