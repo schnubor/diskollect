@@ -32,4 +32,24 @@ class ApiController extends BaseController {
     ));
   }
 
+  /**
+   * Return Vinyl info as JSON
+   * GET api/vinyl/{id}
+   *
+   * @return Response
+   */
+  public function deliverVinyl($id)
+  {
+    //$user = User::find(1);
+    $vinyl = Vinyl::where('id', '=', $id)->first();
+    //$count = $user->vinyls->count();
+ 
+    return Response::json(array(
+      'error' => false,
+      'message' => 200,
+      'vinyl' => $vinyl->toArray(),
+      'tracks' => $vinyl->tracks->toArray()
+    ));
+  }
+
 }

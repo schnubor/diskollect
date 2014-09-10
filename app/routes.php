@@ -225,6 +225,11 @@ Route::get('api/user/{username}', array(
   'uses' => 'ApiController@deliverUser'
 ));
 
+Route::get('api/vinyl/{id}', array(
+  'as' => 'api-get-vinyl',
+  'uses' => 'ApiController@deliverVinyl'
+));
+
 /*
 | Pages
 */
