@@ -225,9 +225,24 @@ Route::get('api/user/{username}', array(
   'uses' => 'ApiController@deliverUser'
 ));
 
+Route::get('api/user_id/{id}', array(
+  'as' => 'api-get-user-by-id',
+  'uses' => 'ApiController@deliverUserById'
+));
+
+Route::get('api/collection/{user_id}', array(
+  'as' => 'api-get-collection',
+  'uses' => 'ApiController@deliverCollection'
+));
+
 Route::get('api/vinyl/{id}', array(
   'as' => 'api-get-vinyl',
   'uses' => 'ApiController@deliverVinyl'
+));
+
+Route::get('api/track/{id}', array(
+  'as' => 'api-get-track',
+  'uses' => 'ApiController@deliverTrack'
 ));
 
 /*
