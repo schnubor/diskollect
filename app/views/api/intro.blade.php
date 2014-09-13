@@ -32,20 +32,19 @@ Cache-Control: no-cache
 {
   "error":false,
   "message":200,
-  "user": {
-    "id":1,
+  "user":{
+    "id":"2",
     "email":"schnuppser@gmail.com",
     "username":"schnubor",
     "name":"Christian Kornd\u00f6rfer",
-    "website":"http:\/\/www.diskollect.com",
+    "website":"http:\/\/www.chko.org",
     "location":"Berlin, Germany",
-    "image":"https:\/\/scontent-b.xx.fbcdn.net\/hphotos-xfa1\/t1.0-9\/319966_539177582772097_855047788_n.jpg",
-    "description":
-    "Berlin, 27",
-    "active":1,
-    "discogs_uri":"",
-    "created_at":"-0001-11-30 00:00:00",
-    "updated_at":"2014-08-17 10:47:59",
+    "image":"\/images\/users\/user_2_leme_crop.jpg",
+    "description":"have fun :)",
+    "active":"1",
+    "discogs_uri":"http:\/\/api.discogs.com\/users\/schnubor",
+    "created_at":"2014-07-05 11:00:22",
+    updated_at":"2014-08-24 22:31:34",
     "currency":"EUR"
   }
 }
@@ -64,7 +63,7 @@ Cache-Control: no-cache
       <!-- List group -->
       <ul class="list-group">
         <li class="list-group-item"><strong>Endpoint</strong> <br> <code>GET api/collection/&lt;user_id&gt;</code></li>
-        <li class="list-group-item"><strong>Example</strong> <br> <kbd>curl -i http://beta.diskollect.com/api/collection/1</kbd></li>
+        <li class="list-group-item"><strong>Example</strong> <br> <kbd>curl -i http://beta.diskollect.com/api/collection/2</kbd></li>
         <li class="list-group-item"><strong>Response</strong> <br> <pre><code class="json">HTTP/1.1 200 OK
 Content-Type: application/json
 Cache-Control: no-cache
@@ -74,48 +73,48 @@ Cache-Control: no-cache
   "message":200,
   "collection":[
     {
-      "id":3,
-      "user_id":1,
-      "artwork":"http:\/\/lorempixel.com\/600\/600\/cats\/",
-      "artist":"Kira Carter",
-      "title":"Maiores modi architecto.",
-      "label":"exercitationem",
-      "genre":"Jazz",
-      "price":8.4700002670288,
-      "country":"IE",
-      "size":7,
-      "count":1,
-      "color":"#576f90",
+      "id":"70",
+      "user_id":"2",
+      "artwork":"http:\/\/s.pixogs.com\/image\/R-4570366-1368696285-3832.jpeg",
+      "artist":"Daft Punk",
+      "title":"Random Access Memories",
+      "label":"Columbia",
+      "genre":"Electronic;Funk \/ Soul;Pop",
+      "price":"19.95",
+      "country":"UK, Europe & US",
+      "size":"12",
+      "count":"2",
+      "color":"#000000",
       "type":"release",
-      "notes":"Blanditiis rerum non sunt aut quasi.",
-      "created_at":"2014-08-24 12:10:10",
-      "updated_at":"2014-08-24 12:10:10",
-      "releasedate":"1985-08-09",
-      "releasetype":"RE",
-      "catno":"fm 0387",
-      "weight":"436"
+      "notes":"Best record ever",
+      "created_at":"2014-08-24 21:53:02",
+      "updated_at":"2014-09-11 13:41:37",
+      "releasedate":"17 May 2013",
+      "releasetype":"EP",
+      "catno":"88883716861",
+      "weight":"460"
     },
     {
-      "id":4,
-      "user_id":1,
-      "artwork":"http:\/\/lorempixel.com\/600\/600\/cats\/",
-      "artist":"Mr. Camden Kuhlman IV",
-      "title":"Illo dolore eaque.",
-      "label":"neque",
-      "genre":"Hip Hop",
-      "price":9.3100004196167,
-      "country":"FR",
-      "size":10,
-      "count":2,
-      "color":"#c6caa3",
+      "id":"71",
+      "user_id":"2",
+      "artwork":"http:\/\/s.pixogs.com\/image\/R-5363966-1391651135-9901.jpeg",
+      "artist":"Grandbrothers",
+      "title":"Ezra EP",
+      "label":"Film",
+      "genre":"Electronic",
+      "price":"20.95",
+      "country":"Germany",
+      "size":"12",
+      "count":"1",
+      "color":"#000000",
       "type":"release",
-      "notes":"Inventore aut est quia fugiat quasi autem.",
-      "created_at":"2014-08-24 12:10:10",
-      "updated_at":"2014-08-24 12:10:10",
-      "releasedate":"1975-09-04",
-      "releasetype":"RE",
-      "catno":"og 7474",
-      "weight":"187"
+      "notes":"",
+      "created_at":"2014-08-24 21:53:53",
+      "updated_at":"2014-08-24 21:53:53",
+      "releasedate":"03 Feb 2014",
+      "releasetype":"EP",
+      "catno":"FILM001",
+      "weight":"230"
     }
   ]
 }
@@ -290,15 +289,15 @@ Cache-Control: no-cache
   "error":false,
   "message":200,
   "track":{
-    "id":1,
-    "vinyl_id":23,
-    "artist_id":14,
-    "number":"11",
-    "artist":"Ida Grant",
-    "title":"Eum error.",
-    "duration":"28:33",
-    "created_at":"2014-08-24 12:10:10",
-    "updated_at":"2014-08-24 12:10:10"
+    "id":"1",
+    "vinyl_id":"70",
+    "artist_id":"1",
+    "number":"A1",
+    "artist":"Daft Punk",
+    "title":"Give Life Back To Music",
+    "duration":"4:35",
+    "created_at":"2014-08-24 21:53:02",
+    "updated_at":"2014-08-24 21:53:02"
   }
 }
 </code></pre></li>
