@@ -2,7 +2,7 @@
 
 #welcome{
   .welcome-header{
-    background-image: url('/assets/header-image.jpg');
+    background-image: url('/assets/header-image-sw.jpg');
     background-size: cover;
     background-position: center center;
     width: 100%;
@@ -52,8 +52,23 @@
   }
 
   .welcome-content{
-    position: relative;
-    top: 365px;
+    background-image: url('/assets/collection-bg-sw.jpg');
+    background-size: cover;
+    background-position: center center;
+    padding: 50px 0;
+
+    h2{
+      text-align: center;
+      margin-bottom: 50px;
+      color: white;
+    }
+
+    .vinyl-info{
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+    }
   }
 
   .welcome-footer{

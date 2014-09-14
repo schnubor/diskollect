@@ -46,6 +46,28 @@
       </div>
     </div>
 
+    <div class="welcome-content">
+      <div class="container">
+        @if(Auth::check())
+          @if(Auth::user()->vinyls->count())
+            <h2>Why not listen to...</h2>
+            <?php
+              $randomVinyl = Auth::user()->vinyls()->orderBy(DB::raw('RAND()'))->first();
+            ?>
+            <div class="col-md-4 col-md-offset-4">
+              <img src="{{ $randomVinyl->artwork }}" alt="{{ $randomVinyl->artist.' - '.$randomVinyl->title }}" width="100%">
+              <p class="vinyl-info">
+                <strong>{{ $randomVinyl->artist }}</strong><br>
+                <span>{{ $randomVinyl->title }}</span>
+              </p>
+            </div>
+          @endif
+        @else
+
+        @endif
+      </div>
+    </div>
+
     <div class="welcome-footer">
       <div class="container">
         <p>
