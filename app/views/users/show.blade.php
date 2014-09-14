@@ -162,14 +162,58 @@
 
 @section('scripts')
   <script>
+    <?php
+      class Color {
+        public $color;
+        public $highlight;
+      }
+
+      $color1 = new Color();
+      $color1->color = "#F7464A";
+      $color1->highlight = "#FF5A5E";
+
+      $color2 = new Color();
+      $color2->color = "#46BFBD";
+      $color2->highlight = "#5AD3D1";
+
+      $color3 = new Color();
+      $color3->color = "#FDB45C";
+      $color3->highlight = "#FFC870";
+
+      $color4 = new Color();
+      $color4->color = "#949FB1";
+      $color4->highlight = "#A8B3C5";
+
+      $color5 = new Color();
+      $color5->color = "#4D5360";
+      $color5->highlight = "#616774";
+
+      $color6 = new Color();
+      $color6->color = "#46BFBD";
+      $color6->highlight = "#5AD3D1";
+
+      $color7 = new Color();
+      $color7->color = "#46BFBD";
+      $color7->highlight = "#5AD3D1";
+
+      $color8 = new Color();
+      $color8->color = "#46BFBD";
+      $color8->highlight = "#5AD3D1";
+
+      $colors = array($color1, $color2, $color3, $color4, $color5, $color6, $color7, $color8);
+
+      $index = 0;
+    ?>
+
     var data = [
       @foreach($genres as $key => $value)
         {
           value: {{ $value }},
-          color:"#DD4223",
-          highlight: "#ff4a27",
+          color: "{{ $colors[$index]->color }}",
+          highlight: "{{ $colors[$index]->highlight }}",
           label: "{{ $key }}"
         },
+        <?php $index++; ?>
       @endforeach
     ];
     var options = {
