@@ -35,6 +35,15 @@
         font-weight: 300;
         text-shadow: 0 0 5px rgb(83, 70, 49);
       }
+
+      a{
+        color: white;
+        text-decoration: none;
+
+        &:hover{
+          text-decoration: underline;
+        }
+      }
     }
   }
 

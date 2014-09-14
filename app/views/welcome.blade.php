@@ -11,8 +11,8 @@
         
         @if(Auth::check())
           <div class="welcome-message">
-              <h1>{{ Auth::user()->username }}</h1>
-              <h2>You got <strong>{{ Auth::user()->vinyls->count() }} Vinyls</strong> worth <strong>{{ number_format(round(Auth::user()->vinyls->sum('price'), 2),2) }} {{ Auth::user()->currency }}</strong></h2>
+              <h1><a href="{{ URL::route('get-user', Auth::user()->id ) }}">{{ Auth::user()->username }}</a></h1>
+              <h2>You got <a href="{{ URL::route('get-collection', Auth::user()->id ) }}"><strong>{{ Auth::user()->vinyls->count() }} Vinyls</strong></a> worth <a href="{{ URL::route('get-user', Auth::user()->id ) }}"><strong>{{ number_format(round(Auth::user()->vinyls->sum('price'), 2),2) }} {{ Auth::user()->currency }}</strong></a></h2>
           </div>
         @else
           <div class="welcome-message">
@@ -55,7 +55,7 @@
               $randomVinyl = Auth::user()->vinyls()->orderBy(DB::raw('RAND()'))->first();
             ?>
             <div class="col-md-4 col-md-offset-4">
-              <img src="{{ $randomVinyl->artwork }}" alt="{{ $randomVinyl->artist.' - '.$randomVinyl->title }}" width="100%">
+              <a href="{{ URL::route('get-vinyl', $randomVinyl->id) }}"><img src="{{ $randomVinyl->artwork }}" class="img-thumbnail" alt="{{ $randomVinyl->artist.' - '.$randomVinyl->title }}" width="100%"></a>
               <p class="vinyl-info">
                 <strong>{{ $randomVinyl->artist }}</strong><br>
                 <span>{{ $randomVinyl->title }}</span>
