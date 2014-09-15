@@ -173,8 +173,8 @@
       $color1->highlight = "#FF5A5E";
 
       $color2 = new Color();
-      $color2->color = "#46BFBD";
-      $color2->highlight = "#5AD3D1";
+      $color2->color = "#1E7FFF";
+      $color2->highlight = "#1EC0FF";
 
       $color3 = new Color();
       $color3->color = "#FDB45C";
@@ -189,16 +189,16 @@
       $color5->highlight = "#616774";
 
       $color6 = new Color();
-      $color6->color = "#46BFBD";
-      $color6->highlight = "#5AD3D1";
+      $color6->color = "#D304FF";
+      $color6->highlight = "#D360FF";
 
       $color7 = new Color();
       $color7->color = "#46BFBD";
       $color7->highlight = "#5AD3D1";
 
       $color8 = new Color();
-      $color8->color = "#46BFBD";
-      $color8->highlight = "#5AD3D1";
+      $color8->color = "#2DB51F";
+      $color8->highlight = "#58F348";
 
       $colors = array($color1, $color2, $color3, $color4, $color5, $color6, $color7, $color8);
 
@@ -213,7 +213,14 @@
           highlight: "{{ $colors[$index]->highlight }}",
           label: "{{ $key }}"
         },
-        <?php $index++; ?>
+        <?php 
+          if($index < 7){
+            $index++;
+          }
+          else{
+            $index = 0;
+          } 
+        ?>
       @endforeach
     ];
     var options = {
