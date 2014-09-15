@@ -87,4 +87,29 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+	/** Mixpanel events */
+
+	public static function boot()
+  {
+    parent::boot();
+
+		User::created(function($user)
+	  {
+	    $mixpanel = App::make('mixpanel');
+	    $mixpanel->track("User Created");
+	  }); 
+
+	  User::updated(function($user)
+	  {
+	    $mixpanel = App::make('mixpanel');
+	    $mixpanel->track("User Updated");
+	  });
+
+	  User::deleted(function($user)
+	  {
+	    $mixpanel = App::make('mixpanel');
+	    $mixpanel->track("User Deleted");
+	  });
+	}
+
 }

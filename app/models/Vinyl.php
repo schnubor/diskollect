@@ -13,4 +13,29 @@ class Vinyl extends \Eloquent {
       return $this->hasMany('Track');
   }
 
+  /** Mixpanel events */
+
+  public static function boot()
+  {
+    parent::boot();
+
+    Vinyl::created(function($user)
+    {
+      $mixpanel = App::make('mixpanel');
+      $mixpanel->track("Vinyl Created");
+    }); 
+
+    Vinyl::updated(function($user)
+    {
+      $mixpanel = App::make('mixpanel');
+      $mixpanel->track("Vinyl Updated");
+    });
+
+    Vinyl::deleted(function($user)
+    {
+      $mixpanel = App::make('mixpanel');
+      $mixpanel->track("Vinyl Deleted");
+    });
+  }
+
 }

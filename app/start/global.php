@@ -97,3 +97,14 @@ Form::macro('color', function(){
   return '<input type="color" name="color" class="form-control" id="colorpicker">';
 });
 
+/*
+|--------------------------------------------------------------------------
+| Mixpanel
+|--------------------------------------------------------------------------
+*/
+
+App::singleton('mixpanel', function()
+{
+  return Mixpanel::getInstance("6106698a9e906ba93f7736d2d7f1a2b7");;
+});
+
