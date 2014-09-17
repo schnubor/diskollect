@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "217605f7fe92fb2fd540335e426bdad7",
+    "hash": "8beb64856ae32f971c4677cb81e7c19d",
     "packages": [
         {
             "name": "adavkay/laravel-soundcloud",
@@ -146,7 +146,7 @@
             ],
             "authors": [
                 {
-                    "name": "Kelt",
+                    "name": "Kelt Dockins",
                     "email": "kelt@dockins.org",
                     "homepage": "http://www.keltdockins.com",
                     "role": "Developer"
@@ -188,7 +188,7 @@
             ],
             "authors": [
                 {
-                    "name": "Kelt",
+                    "name": "Kelt Dockins",
                     "email": "kelt@codesleeve.com"
                 }
             ],
@@ -325,22 +325,22 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "v3.9.2",
+            "version": "v3.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "54991459675c1a2924122afbb0e5609ade581155"
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "938e2075f4870857f24dc3b206235dd3e0f969ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/54991459675c1a2924122afbb0e5609ade581155",
-                "reference": "54991459675c1a2924122afbb0e5609ade581155",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/938e2075f4870857f24dc3b206235dd3e0f969ae",
+                "reference": "938e2075f4870857f24dc3b206235dd3e0f969ae",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "php": ">=5.3.3",
-                "symfony/event-dispatcher": "~2.1"
+                "php": ">=5.3.2",
+                "symfony/event-dispatcher": ">=2.1"
             },
             "replace": {
                 "guzzle/batch": "self.version",
@@ -367,24 +367,26 @@
                 "guzzle/stream": "self.version"
             },
             "require-dev": {
-                "doctrine/cache": "~1.3",
-                "monolog/monolog": "~1.0",
+                "doctrine/cache": "*",
+                "monolog/monolog": "1.*",
                 "phpunit/phpunit": "3.7.*",
-                "psr/log": "~1.0",
-                "symfony/class-loader": "~2.1",
-                "zendframework/zend-cache": "2.*,<2.3",
-                "zendframework/zend-log": "2.*,<2.3"
+                "psr/log": "1.0.*",
+                "symfony/class-loader": "*",
+                "zend/zend-cache1": "1.12",
+                "zend/zend-log1": "1.12",
+                "zendframework/zend-cache": "2.0.*",
+                "zendframework/zend-log": "2.0.*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.9-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
-                    "Guzzle": "src/",
-                    "Guzzle\\Tests": "tests/"
+                    "Guzzle\\Tests": "tests/",
+                    "Guzzle": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -413,7 +415,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-08-11 04:32:36"
+            "time": "2013-04-16 20:56:26"
         },
         {
             "name": "guzzlehttp/command",
@@ -1177,6 +1179,116 @@
                 "youtube"
             ],
             "time": "2014-09-07 14:15:21"
+        },
+        {
+            "name": "mikealmond/coverartarchive",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mikealmond/CoverArtArchive.git",
+                "reference": "35e7196eecce2ab61a50ada7e4a0bcceb88c0db6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mikealmond/CoverArtArchive/zipball/35e7196eecce2ab61a50ada7e4a0bcceb88c0db6",
+                "reference": "35e7196eecce2ab61a50ada7e4a0bcceb88c0db6",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/guzzle": "3.4.1",
+                "php": ">=5.3.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "CoverArtArchive": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Almond",
+                    "email": "mike.almond@gmail.com",
+                    "homepage": "http://mikealmond.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP library for accessing the CoverArtArchive API",
+            "homepage": "https://github.com/mikealmond/CoverArtArchive",
+            "keywords": [
+                "api",
+                "coverart",
+                "library",
+                "musicbrainz",
+                "php"
+            ],
+            "time": "2013-07-26 12:47:02"
+        },
+        {
+            "name": "mikealmond/musicbrainz",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mikealmond/MusicBrainz.git",
+                "reference": "36ca9ea8ea53d139077f48ea6a22f4c27c54d5ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mikealmond/MusicBrainz/zipball/36ca9ea8ea53d139077f48ea6a22f4c27c54d5ce",
+                "reference": "36ca9ea8ea53d139077f48ea6a22f4c27c54d5ce",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.8"
+            },
+            "require-dev": {
+                "guzzle/guzzle": "~3.8.0",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "suggest": {
+                "guzzle/guzzle": "Allows you to use the GuzzleHttpAdapter. You must install one of the supported adapters.",
+                "rmccue/requests": "Allows you to use the RequestsHttpAdapter. You must install one of the supported adapters."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "MusicBrainz": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Almond",
+                    "email": "mike.almond@gmail.com",
+                    "homepage": "http://mikealmond.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP library for accessing the MusicBrainz API",
+            "homepage": "https://github.com/mikealmond/musicbrainz",
+            "keywords": [
+                "api",
+                "library",
+                "musicbrainz",
+                "php"
+            ],
+            "time": "2014-02-19 19:45:48"
         },
         {
             "name": "mixpanel/mixpanel-php",
@@ -2761,7 +2873,9 @@
     "stability-flags": {
         "codesleeve/asset-pipeline": 20,
         "adavkay/laravel-soundcloud": 20,
-        "madcoda/php-youtube-api": 20
+        "madcoda/php-youtube-api": 20,
+        "mikealmond/musicbrainz": 20,
+        "mikealmond/coverartarchive": 20
     },
     "prefer-stable": false,
     "platform": [
