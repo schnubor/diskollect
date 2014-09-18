@@ -11,8 +11,7 @@
     "adavkay/laravel-soundcloud": "dev-master",
 		"madcoda/php-youtube-api": "dev-master",
 		"mixpanel/mixpanel-php" : "2.*",
-		"mikealmond/musicbrainz" : "dev-master",
-		"mikealmond/coverartarchive" : "dev-master"
+		"vinelab/itunes": "dev-master"
 	},
 	"require-dev": {
 		"way/generators": "2.*",

@@ -109,6 +109,7 @@ class VinylsController extends \BaseController {
 
       $results = [];
 
+      // check if discogs tokens are valid
       $identity = $client->getOAuthIdentity();
 
       foreach($response['results'] as $result){
@@ -128,10 +129,20 @@ class VinylsController extends \BaseController {
         }
       }
 
+      // iTunes data
+      $iTunesData = [];
+
+      foreach($results as $result){
+        $iTunesResult = ITunes::search($result['artists'][0]['name'].' '.$result['title'], array('limit' => 1));
+        $iTunesResult = json_decode($iTunesResult);
+        array_push($iTunesData, $iTunesResult);
+      }
+
 			return View::make('vinyls.results')
 				->with('artist', $artist)
 				->with('title', $title)
-				->with('results', $results);
+				->with('results', $results)
+        ->with('iTunesData', $iTunesData);
 		}
 
 		return Redirect::to('search')->with('danger-alert', 'Oops! Something went wrong the search was posted.');

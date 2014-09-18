@@ -122,6 +122,7 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
 		'Adavkay\Soundcloud\SoundcloudServiceProvider',
+		'Vinelab\ITunes\ITunesServiceProvider',
 	),
 
 	/*

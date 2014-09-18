@@ -59,9 +59,20 @@
         </tr>
       </thead>
       <tbody>
+        <?php
+          $index = 0;
+        ?>
         @foreach($results as $result)
           <?php
-            $url = str_replace('api.discogs.com/image/R-150','s.pixogs.com/image/R-150',$result['thumb']);
+            if(isset($iTunesData[$index]->results[0]->artworkUrl100)){
+              //dd($iTunesData[$index]->results[0]->artworkUrl100);
+              $url = $iTunesData[$index]->results[0]->artworkUrl100;
+            }
+            else{
+              $url = VINYL_PH_PATH;
+            }
+            $index++;
+
             $artist = $result['artists'][0]['name'];
             $title = $result['title'];
             $label = $result['labels'][0]['name'];
