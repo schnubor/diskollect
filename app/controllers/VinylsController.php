@@ -235,9 +235,11 @@ class VinylsController extends \BaseController {
       }
 
       $vinyl['type'] = $result['type'];
+      $artwork = $result['artwork'];
 
   		return View::make('vinyls.create') // create from search
   			->with('vinyl', $vinyl)
+        ->with('artwork', $artwork)
         ->with('user', $user)
         ->with('search', true);
     }

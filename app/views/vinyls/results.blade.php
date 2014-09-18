@@ -92,7 +92,7 @@
             <td>{{ $label }}</td>
             <td>{{ $catno }}</td>
             <td>
-              <a href="{{ URL::route('get-create-vinyl-search') }}?id={{ $result['id'] }}&type={{ $result['type'] }}"><button class="btn btn-sm btn-success btn-block">Add</button></a>
+              <a href="{{ URL::route('get-create-vinyl-search') }}?id={{ $result['id'] }}&type={{ $result['type'] }}&artwork={{ $url }}"><button class="btn btn-sm btn-success btn-block">Add</button></a>
             </td>
           </tr>
         @endforeach

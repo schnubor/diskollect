@@ -11,7 +11,7 @@
         $type = $vinyl['type'];
         $artist = $vinyl['artists'][0]['name'];
         $title = $vinyl['title'];
-        $artwork = str_replace('api.discogs.com/image/R-','s.pixogs.com/image/R-',$vinyl['images'][0]['uri']);
+        $artwork = str_replace('100x100','600x600',$artwork);
         $label = $vinyl['labels'][0]['name'];
         $catno = $vinyl['labels'][0]['catno'];
         $genres = implode(';', $vinyl['genres']);
