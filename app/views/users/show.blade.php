@@ -132,23 +132,6 @@
           </div>
 
           <div class="col-md-12">
-            <div class="panel panel-warning value-vinyl">
-              <div class="panel-heading">
-                <h3 class="panel-title">
-                  Most valuable vinyl
-                </h3>
-              </div>
-              <div class="panel-body">
-                <img src="{{ $valueVinyl->artwork }}" alt="{{ $valueVinyl->artist.' - '.$valueVinyl->title }}" width="100%">
-                <p>
-                  <strong>{{ $valueVinyl->artist }}</strong><br>
-                  <span>{{ $valueVinyl->title }}</span>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-12">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">Genres</h3>
