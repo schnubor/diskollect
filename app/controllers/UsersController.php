@@ -329,6 +329,13 @@ class UsersController extends \BaseController {
 
 		$user = User::find($id);
 		$vinyls = $user->vinyls();
+		
+		// Prices
+		$prices = array(
+			'price_sum' => number_format(round($vinyls->sum('price'),2),2),
+			'price_avg' => number_format(round($vinyls->avg('price'),2),2),
+			'price_max' => number_format(round($vinyls->max('price'),2),2)
+		);
 
 		// Level
 		$level = floor(($lvlFactor+sqrt($lvlFactor*$lvlFactor+4*$lvlFactor*$vinyls->count()))/(2*$lvlFactor));
@@ -367,7 +374,8 @@ class UsersController extends \BaseController {
 			->with('nextLvlVinyls', $nextLvlVinyls)
 			->with('rank', $rank[$level])
 			->with('favArtist', $favArtist)
-			->with('valueVinyl', $valueVinyl);
+			->with('valueVinyl', $valueVinyl)
+			->with('prices', $prices);
 	}
 
 	/**

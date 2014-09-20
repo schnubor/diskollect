@@ -118,13 +118,13 @@
               <div class="panel-body">
                 <div class="row">
                   <div class="col-md-4 text-center">
-                    <p class="h3" style="margin-top: 10px;"><small>SUM</small><br>{{ round($vinyls->sum('price'), 2).' '.$user->currency }}</p>
+                    <p class="h3" style="margin-top: 10px;"><small>SUM</small><br>{{ $prices['price_sum'].' '.$user->currency }}</p>
                   </div>
                   <div class="col-md-4 text-center">
-                    <p class="h3" style="margin-top: 10px;"><small>AVG</small><br>{{ round($vinyls->avg('price'), 2).' '.$user->currency }}</p>
+                    <p class="h3" style="margin-top: 10px;"><small>AVG</small><br>{{ $prices['price_avg'].' '.$user->currency }}</p>
                   </div>
                   <div class="col-md-4 text-center">
-                    <p class="h3" style="margin-top: 10px;"><small>MAX</small><br>{{ round($vinyls->max('price'), 2).' '.$user->currency }}</p>
+                    <p class="h3" style="margin-top: 10px;"><small>MAX</small><br>{{ $prices['price_max'].' '.$user->currency }}</p>
                   </div>
                 </div>
               </div>
