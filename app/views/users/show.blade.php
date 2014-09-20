@@ -139,7 +139,7 @@
                 </h3>
               </div>
               <div class="panel-body">
-                <img src="{{ $valueVinyl->artwork }}" alt="{{ $valueVinyl->artist.' - '.$valueVinyl->title }}" width="100%">
+                <a href="{{ URL::route('get-vinyl', $valueVinyl->id) }}"><img src="{{ $valueVinyl->artwork }}" alt="{{ $valueVinyl->artist.' - '.$valueVinyl->title }}" width="100%"></a>
                 <p>
                   <strong>{{ $valueVinyl->artist }}</strong><br>
                   <span>{{ $valueVinyl->title }}</span>
