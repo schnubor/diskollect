@@ -77,7 +77,7 @@
                     <strong>Lvl {{ $level }}</strong>
                   </div>
                   <div class="col-xs-4 text-center">
-                    <span class="progress-count">{{ $vinyls->count() }}/{{ $nextLvlVinyls }} Vinyls</span>
+                    <span class="progress-count">{{ $user->vinyls->count() }}/{{ $nextLvlVinyls }} Vinyls</span>
                   </div>
                   <div class="col-xs-4">
                     <strong class="pull-right">Lvl {{ $level+1 }}</strong>
