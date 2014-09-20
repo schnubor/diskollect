@@ -329,9 +329,6 @@ class UsersController extends \BaseController {
 
 		$user = User::find($id);
 		$vinyls = $user->vinyls();
-		//$maxPrice = round($vinyls->max('price'), 2);
-		//$maxPrice = $vinyls->max('price');
-		//dd($maxPrice);
 
 		// Level
 		$level = floor(($lvlFactor+sqrt($lvlFactor*$lvlFactor+4*$lvlFactor*$vinyls->count()))/(2*$lvlFactor));
@@ -350,7 +347,15 @@ class UsersController extends \BaseController {
 														->first();
 
 		// Most valuable vinyl
-		//$valueVinyl = $vinyls->where('price', '=', DB::raw('(select max(`price`) from vinyls)'))->first();
+		$valueVinylQuery = DB::table('vinyls')
+														->select(DB::raw('id, max(`price`)'))
+														->where('user_id', '=', $id)
+														->groupBy('id')
+														->orderBy('price','DESC')
+														->first();
+
+		$valueVinyl = $vinyls->find($valueVinylQuery->id);								
+
 		//dd($valueVinyl);
 
 		return View::make('users.show')
@@ -361,7 +366,8 @@ class UsersController extends \BaseController {
 			->with('progress', $progress)
 			->with('nextLvlVinyls', $nextLvlVinyls)
 			->with('rank', $rank[$level])
-			->with('favArtist', $favArtist);
+			->with('favArtist', $favArtist)
+			->with('valueVinyl', $valueVinyl);
 	}
 
 	/**
