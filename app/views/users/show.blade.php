@@ -52,7 +52,9 @@
           <div class="col-md-12">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title">Vinyl Count</h3>
+                <h3 class="panel-title">
+                  <i class="fa fa-fw">#</i> Vinyl Count
+                </h3>
               </div>
               <div class="panel-body">
                 <div class="row">
@@ -90,7 +92,9 @@
           <div class="col-md-12 favourites">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title">Favourites</h3>
+                <h3 class="panel-title">
+                  <i class="fa fa-fw fa-heart-o"></i> Favourites
+                </h3>
               </div>
               <div class="panel-body">
                 <p class="h2" style="margin-top: 0;">
@@ -113,7 +117,9 @@
           <div class="col-md-12">
             <div class="panel panel-success collection-value">
               <div class="panel-heading">
-                <h3 class="panel-title">Collection Value</h3>
+                <h3 class="panel-title">
+                  <i class="fa fa-fw fa-money"></i> Collection Value
+                </h3>
               </div>
               <div class="panel-body">
                 <div class="row">
@@ -135,7 +141,7 @@
             <div class="panel panel-warning value-vinyl">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  Most valuable vinyl
+                  <i class="fa fa-fw fa-star-o"></i> Most valuable vinyl
                 </h3>
               </div>
               <div class="panel-body">
@@ -151,7 +157,9 @@
           <div class="col-md-12">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title">Genres</h3>
+                <h3 class="panel-title">
+                  <i class="fa fa-fw fa-music"></i> Genres
+                </h3>
               </div>
               <div class="panel-body" style="padding: 15px 0;">
                 <canvas id="genreChart" width="100%" height="100%"></canvas>
