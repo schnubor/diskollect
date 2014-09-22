@@ -79,7 +79,7 @@
             <div class="col-md-4">
               <div class="text-center"><i class="fa fa-fw fa-line-chart"></i></div>
               <p>
-                Dive into the numbers and keep track. We will create personlized statistics of your collection.
+                Dive into the numbers and keep track. We will create personlized statistics for your collection.
               </p>
             </div>
             <div class="col-md-4">
