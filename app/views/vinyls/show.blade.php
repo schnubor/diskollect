@@ -6,8 +6,6 @@
 
 @section('body')
 
-  <div class="bg-image" style="background-image: url('{{ $vinyl->artwork }}')"></div>
-  <div class="bg-image-overlay"></div>
   <div class="container vinyl-detail">
     <?php
       $labels = explode(';',$vinyl->label);
@@ -19,10 +17,11 @@
       @if($vinyl->user_id == Auth::user()->id)
         <div class="btn btn-success pull-right disabled">{{ number_format(round($vinyl->price, 2),2) }} EUR</div>
       @endif
+      <hr>
     @endif
 
     <div class="row" style="padding-top: 20px;">
-      <div class="col-md-4 col-md-offset-4">
+      <div class="col-md-6 col-md-offset-3">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <div class="thumbnail">

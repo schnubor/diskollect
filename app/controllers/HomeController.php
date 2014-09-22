@@ -19,10 +19,12 @@ class HomeController extends BaseController {
 	{
 		$users = User::all()->count();
 		$vinyls = Vinyl::all()->count();
+		$latestVinyls = Vinyl::orderBy('created_at', 'DESC')->take(6)->get();
 
 		return View::make('welcome')
 			->with('users', $users)
-			->with('vinyls', $vinyls);
+			->with('vinyls', $vinyls)
+			->with('latestVinyls', $latestVinyls);
   }
 
 }
