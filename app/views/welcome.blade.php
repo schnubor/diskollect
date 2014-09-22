@@ -29,13 +29,13 @@
           <div class="welcome-message">
             <h1>Diskollect</h1>
             <h2>Tracking <strong>{{ $vinyls }}</strong> vinyls of <strong>{{ $users }}</strong> collectors.</h2>
-          </div>
-          <div class="welcome-actions">
-            <div class="col-md-2 col-md-offset-4">
-              <a class="btn btn-primary btn-lg btn-block" role="button" href="{{ URL::route('get-signin') }}"><i class="fa fa-fw fa-sign-in"></i>Login</a>
-            </div>
-            <div class="col-md-2">
-              <a class="btn btn-default btn-lg btn-block" role="button" href="{{ URL::route('get-user-create') }}"><i class="fa fa-fw fa-edit"></i>Register</a>
+            <div class="welcome-actions">
+              <div class="col-md-2 col-md-offset-4">
+                <a class="btn btn-primary btn-lg btn-block" role="button" href="{{ URL::route('get-signin') }}"><i class="fa fa-fw fa-sign-in"></i>Login</a>
+              </div>
+              <div class="col-md-2">
+                <a class="btn btn-default btn-lg btn-block" role="button" href="{{ URL::route('get-user-create') }}"><i class="fa fa-fw fa-edit"></i>Register</a>
+              </div>
             </div>
           </div>
         @endif
@@ -75,7 +75,26 @@
             </div>
           @endif
         @else
-
+          <div class="intro">
+            <div class="col-md-4">
+              <div class="text-center"><i class="fa fa-fw fa-line-chart"></i></div>
+              <p>
+                Dive into the numbers and keep track. We will create personlized statistics of your collection.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <div class="text-center"><i class="fa fa-fw fa-cubes"></i></div>
+              <p>
+                Diskollect integrates with different APIs like Discogs or iTunes to get all the data you need.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <div class="text-center"><i class="fa fa-fw fa-refresh"></i></div>
+              <p>
+                Easy to use. Build, manage and share your collection at home or on the go.
+              </p>
+            </div>
+          </div>
         @endif
       </div>
     </div>
