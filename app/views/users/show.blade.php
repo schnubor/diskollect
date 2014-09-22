@@ -120,6 +120,14 @@
                     Not enough vinyls yet.
                   @endif
                 </p>
+                <p class="h2" style="margin-top: 0;">
+                  <small>Label</small><br>
+                  @if(isset($favLabel))
+                    {{ $favLabel->label }}
+                  @else
+                    Not enough vinyls yet.
+                  @endif
+                </p>
               </div>
             </div>
             

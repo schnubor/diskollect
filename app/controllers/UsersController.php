@@ -346,11 +346,19 @@ class UsersController extends \BaseController {
 		$progress = floor(($vinyls->count()-$currentLvlVinyls) / (($nextLvlVinyls - $currentLvlVinyls) / 100));
 
 		// Fav artist
-		$favArtist = 	DB::table('vinyls')
+		$favArtist = DB::table('vinyls')
 														->select(DB::raw('count(*) as artist_count, artist'))
 														->where('user_id', '=', $id)
 														->groupBy('artist')
 														->orderBy('artist_count','DESC')
+														->first();
+
+		// Fav Label
+		$favLabel = DB::table('vinyls')
+														->select(DB::raw('count(*) as label_count, label'))
+														->where('user_id', '=', $id)
+														->groupBy('label')
+														->orderBy('label_count','DESC')
 														->first();
 
 		// Most valuable vinyl
@@ -374,6 +382,7 @@ class UsersController extends \BaseController {
 			->with('nextLvlVinyls', $nextLvlVinyls)
 			->with('rank', $rank[$level])
 			->with('favArtist', $favArtist)
+			->with('favLabel', $favLabel)
 			->with('valueVinyl', $valueVinyl)
 			->with('prices', $prices);
 	}
