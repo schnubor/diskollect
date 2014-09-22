@@ -47,6 +47,21 @@
 
   <div class="container">
     <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="fa fa-fw fa-music"></i> Genres
+            </h3>
+          </div>
+          <div class="panel-body" style="padding: 15px 0;">
+            <canvas id="genreChart" width="100%" height="220"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-md-6">
         <div class="row">
           <div class="col-md-12">
@@ -158,14 +173,15 @@
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  <i class="fa fa-fw fa-music"></i> Genres
+                  <i class="fa fa-fw fa-pie-chart"></i> Sizes
                 </h3>
               </div>
               <div class="panel-body" style="padding: 15px 0;">
-                <canvas id="genreChart" width="100%" height="100%"></canvas>
+                <canvas id="sizeChart" width="100%" height="100%"></canvas>
               </div>
             </div>
           </div>
+
         </div>
       </div><!-- end of right area -->
 
@@ -176,83 +192,68 @@
 
 <?php
   $vinylGenres = [];
+  $vinylSizes = [];
   foreach($user->vinyls as $vinyl){
     $genres = explode(';',$vinyl->genre);
     foreach($genres as $genre){
       array_push($vinylGenres, $genre);
     }
+    array_push($vinylSizes, $vinyl->size);
   }
+
+  $sizes = array_count_values($vinylSizes);
   $genres = array_count_values($vinylGenres);
 ?>
 
 @section('scripts')
   <script>
-    <?php
-      class Color {
-        public $color;
-        public $highlight;
-      }
-
-      $color1 = new Color();
-      $color1->color = "#F7464A";
-      $color1->highlight = "#FF5A5E";
-
-      $color2 = new Color();
-      $color2->color = "#1E7FFF";
-      $color2->highlight = "#1EC0FF";
-
-      $color3 = new Color();
-      $color3->color = "#FDB45C";
-      $color3->highlight = "#FFC870";
-
-      $color4 = new Color();
-      $color4->color = "#949FB1";
-      $color4->highlight = "#A8B3C5";
-
-      $color5 = new Color();
-      $color5->color = "#4D5360";
-      $color5->highlight = "#616774";
-
-      $color6 = new Color();
-      $color6->color = "#D304FF";
-      $color6->highlight = "#D360FF";
-
-      $color7 = new Color();
-      $color7->color = "#46BFBD";
-      $color7->highlight = "#5AD3D1";
-
-      $color8 = new Color();
-      $color8->color = "#2DB51F";
-      $color8->highlight = "#58F348";
-
-      $colors = array($color1, $color2, $color3, $color4, $color5, $color6, $color7, $color8);
-
-      $index = 0;
-    ?>
-
-    var data = [
-      @foreach($genres as $key => $value)
+    var sizes = [
+      @foreach($sizes as $key => $value)
         {
           value: {{ $value }},
-          color: "{{ $colors[$index]->color }}",
-          highlight: "{{ $colors[$index]->highlight }}",
+          color: "#202020",
+          highlight: "#606060",
           label: "{{ $key }}"
         },
-        <?php 
-          if($index < 7){
-            $index++;
-          }
-          else{
-            $index = 0;
-          } 
-        ?>
       @endforeach
     ];
-    var options = {
-      responsive: 'true'
+
+    var genres = {
+      labels: [
+        @foreach($genres as $key => $value)
+          "{{ $key }}",
+        @endforeach
+        ],
+      datasets: [
+        {
+            label: "My First dataset",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: [
+              @foreach($genres as $key => $value)
+               {{ $value }},
+              @endforeach
+            ]
+        }
+      ]
     }
+
+    var genreOptions = {
+      responsive: 'true',
+      maintainAspectRatio: false
+    }
+
+    var sizeOptions = {
+      responsive: 'true',
+    }
+
     var ctx = document.getElementById("genreChart").getContext("2d");
-    var genreChart = new Chart(ctx).PolarArea(data, options);
+    var dtx = document.getElementById("sizeChart").getContext("2d");
+    
+    var genreChart = new Chart(ctx).Bar(genres, genreOptions);
+    var sizeChart = new Chart(dtx).PolarArea(sizes, sizeOptions);
   </script>
 @stop
 
