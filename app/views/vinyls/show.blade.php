@@ -6,7 +6,7 @@
 
 @section('body')
 
-  <div class="container vinyl-detail">
+  <div class="container vinyl-detail" itemscope itemtype="http://schema.org/CreativeWork">
     <?php
       $labels = explode(';',$vinyl->label);
       $genres = explode(';',$vinyl->genre);
@@ -25,7 +25,7 @@
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <div class="thumbnail">
-              <img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist . ' - ' . $vinyl->title }}" class="vinyl-artwork">
+              <img itemprop="image" src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist . ' - ' . $vinyl->title }}" class="vinyl-artwork">
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@
 
     <div class="row">
       <div class="col-md-12 text-center">
-        <h1 class="vinyl-title">{{ $vinyl->artist }} - {{ $vinyl->title }}</h1>
+      <h1 class="vinyl-title"><span itemprop="MusicGroup">{{ $vinyl->artist }}</span> - {{ $vinyl->title }}</h1>
       </div>
     </div>
 
@@ -92,7 +92,7 @@
               <dt>Released</dt>
               <dd>{{ $vinyl->releasedate }} in {{ $vinyl->country }}</dd>
               <dt>Date added</dt>
-              <dd>{{ $vinyl->created_at }}</dd>
+              <dd itemprop="dateCreated">{{ $vinyl->created_at }}</dd>
             </dl>
           </div>
         </div>
@@ -138,11 +138,6 @@
       </div>
       
     </div>
-          
-    <!--<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=$track->uri&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>-->
-  
-
-    <!--<iframe width="100%" height="315" src="//www.youtube.com/embed/$track['videoId']?list=$track['playlistId']" frameborder="0" allowfullscreen></iframe>-->
 
   </div>
 @stop
