@@ -55,7 +55,11 @@
             </h3>
           </div>
           <div class="panel-body" style="padding: 15px 0;">
-            <canvas id="genreChart" width="100%" height="220"></canvas>
+            @if($user->vinyls->count() != 0)
+              <canvas id="genreChart" width="100%" height="220"></canvas>
+            @else
+              <p style="text-align: center">Not enough vinyls yet.</p>
+            @endif
           </div>
         </div>
       </div>
@@ -168,11 +172,15 @@
                 </h3>
               </div>
               <div class="panel-body">
-                <a href="{{ URL::route('get-vinyl', $valueVinyl->id) }}"><img src="{{ $valueVinyl->artwork }}" alt="{{ $valueVinyl->artist.' - '.$valueVinyl->title }}" width="100%"></a>
-                <p>
-                  <strong>{{ $valueVinyl->artist }}</strong><br>
-                  <span>{{ $valueVinyl->title }}</span>
-                </p>
+                @if(isset($valueVinyl))
+                  <a href="{{ URL::route('get-vinyl', $valueVinyl->id) }}"><img src="{{ $valueVinyl->artwork }}" alt="{{ $valueVinyl->artist.' - '.$valueVinyl->title }}" width="100%"></a>
+                  <p>
+                    <strong>{{ $valueVinyl->artist }}</strong><br>
+                    <span>{{ $valueVinyl->title }}</span>
+                  </p>
+                @else
+                  <p>Not enough vinyls yet.</p>
+                @endif
               </div>
             </div>
           </div>
@@ -185,7 +193,11 @@
                 </h3>
               </div>
               <div class="panel-body" style="padding: 15px 0;">
-                <canvas id="sizeChart" width="100%" height="100%"></canvas>
+                @if($user->vinyls->count() != 0)
+                  <canvas id="sizeChart" width="100%" height="100%"></canvas>
+                @else
+                  <p style="text-align: center">Not enough vinyls yet.</p>
+                @endif
               </div>
             </div>
           </div>

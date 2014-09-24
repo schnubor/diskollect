@@ -369,7 +369,13 @@ class UsersController extends \BaseController {
 														->orderBy('price','DESC')
 														->first();
 
-		$valueVinyl = $vinyls->find($valueVinylQuery->id);								
+		if(isset($valueVinylQuery)){
+			$valueVinyl = $vinyls->find($valueVinylQuery->id);
+		}
+		else{
+			$valueVinyl = NULL;
+		}
+
 
 		//dd($valueVinyl);
 
