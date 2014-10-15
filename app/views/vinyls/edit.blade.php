@@ -211,6 +211,7 @@
               <th width="80px">Pos.</th>
               <th>Title</th>
               <th width="100px">Duration</th>
+              <th width="30px">Action</th>
             </thead>
             <tbody>
               @foreach($tracks as $index=>$track)
@@ -219,11 +220,14 @@
                   <td>{{ Form::text('track_'.$index.'_pos', $track->number, array('class' => 'form-control' )); }}</td>
                   <td>{{ Form::text('track_'.$index.'_title', $track->title, array('class' => 'form-control' )); }}</td>
                   <td>{{ Form::text('track_'.$index.'_duration', $track->duration, array('class' => 'form-control' )); }}</td>
+                  <td><div class="btn btn-danger form-control js-delete-track"><i class="fa fa-trash"></i></div></td>
                 </tr>
               @endforeach
             </tbody>
           </table>
-          <div class="btn btn-info btn-md add-track"><i class="fa fa-fw fa-plus"></i> Add track</div>
+          <div class="text-center">
+            <div class="btn btn-info btn-md js-add-track"><i class="fa fa-fw fa-plus"></i> Add track</div>
+          </div>
         </div>
         {{ Form::hidden('tracklist_length', $tracks->count(), array('class' => 'tracklist_length')) }}
         {{ Form::hidden('tracklist_length_new', 0, array('class' => 'tracklist_length_new')) }}
@@ -240,11 +244,21 @@
   <script>
     var count = $('.tracklist_length').val();
     var new_tracks = 0;
-    $('.add-track').click(function(){
-      $('.js-track-table tbody').append('<tr><td><input class="form-control" name="track_'+count+'_pos" type="text" value="A1"></td><td><input class="form-control" name="track_'+count+'_title" type="text" value="Example title"></td><td><input class="form-control" name="track_'+count+'_duration" type="text" value="1:23"></td></tr>');
+    var delete_tracks = 0;
+
+    $('.js-add-track').click(function(){
+      $('.js-track-table tbody').append('<tr><td><input class="form-control" name="track_'+count+'_pos" type="text" value="A1"></td><td><input class="form-control" name="track_'+count+'_title" type="text" value="Example title"></td><td><input class="form-control" name="track_'+count+'_duration" type="text" value="1:23"></td><td><div class="btn btn-danger form-control js-delete-track"><i class="fa fa-trash"></i></div></td></tr>');
       count++;
       new_tracks++;
       $('.tracklist_length_new').val(new_tracks);
+    });
+
+    $('.js-track-table tbody').on('click', '.js-delete-track', function(){
+      $(this).parent().parent().remove();
+      if(new_track > 0){
+        new_tracks--;
+        $('.tracklist_length_new').val(new_tracks);
+      }
     });
   </script>
 @stop
