@@ -21,8 +21,8 @@
 
     <address>
       <abbr title="Phone">P:</abbr> +49 160 96 41 78 89 <br>
-      <abbr title="Email">E:</abbr><a href="mailto:info@chko.org">info@chko.org</a><br>
-      <abbr title="Website">W:</abbr><a href="http://www.chko.org" target="_blank">http://www.chko.org</a>
+      <abbr title="Email">E:</abbr> <a href="mailto:info@chko.org">info@chko.org</a><br>
+      <abbr title="Website">W:</abbr> <a href="http://www.chko.org" target="_blank">http://www.chko.org</a>
     </address>
 
     <hr>
