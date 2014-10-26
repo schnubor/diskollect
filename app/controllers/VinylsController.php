@@ -257,9 +257,14 @@ class VinylsController extends \BaseController {
     $vinyl = Vinyl::find($id);
     $tracks = Vinyl::find($id)->tracks;
 
-    return View::make('vinyls.edit')
+    if(Auth::user()->id == $vinyl->user_id){
+      return View::make('vinyls.edit')
       ->with('vinyl', $vinyl)
       ->with('tracks', $tracks);
+    }
+    else{
+      return Redirect::route('get-vinyl',$id);
+    }
   }
 
   /*

@@ -110,10 +110,17 @@ Route::group(array('before' => 'auth'), function(){
   /*
   | Delete Vinyl
   */
-
   Route::delete('vinyl/{id}', array(
     'as' => 'delete-vinyl',
     'uses' => 'VinylsController@deleteVinyl'
+  ));
+
+  /*
+  | Delete Track
+  */
+  Route::delete('track/{id}', array(
+    'as' => 'delete-track',
+    'uses' => 'TracksController@destroy'
   ));
 
   /*
