@@ -96,6 +96,27 @@
             </div>
           </div>
         @endif
+
+        <div class="welcome-members col-md-12">
+          <p class="h2">Latest Collectors</p>
+          <hr>
+          @foreach($latestMembers as $member)
+            <div class="member col-md-2">
+              <div class="portrait">
+                <a href="{{ URL::route('get-user', $member->id) }}" title="{{ $member->username }}">
+                  @if($member->image)
+                    <img src="{{ $member->image }}" alt="{{ $member->username }}">
+                  @else
+                    <img src="{{ USER_PH_PATH }}" alt="{{ $member->username }}">
+                  @endif
+                </a>
+              </div>
+              <div class="username">
+                {{ $member->username }}
+              </div>
+            </div>
+          @endforeach
+        </div>
       </div>
     </div>
 
