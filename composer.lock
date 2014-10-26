@@ -691,7 +691,7 @@
             "authors": [
                 {
                     "name": "Anthony Ferrara",
-                    "email": "ircmaxell@php.net",
+                    "email": "ircmaxell@ircmaxell.com",
                     "homepage": "http://blog.ircmaxell.com"
                 }
             ],
@@ -2150,17 +2150,30 @@
         },
         {
             "name": "symfony/event-dispatcher",
+<<<<<<< HEAD
             "version": "v2.5.6",
+=======
+            "version": "v2.5.5",
+>>>>>>> 8fe42444fffa61bf468c07b7c4a2b59aa48ecd80
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
+<<<<<<< HEAD
                 "reference": "804eb28dbbfba9ffdab21fe2066744906cea2212"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/804eb28dbbfba9ffdab21fe2066744906cea2212",
                 "reference": "804eb28dbbfba9ffdab21fe2066744906cea2212",
+=======
+                "reference": "f6281337bf5f985f585d1db6a83adb05ce531f46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/f6281337bf5f985f585d1db6a83adb05ce531f46",
+                "reference": "f6281337bf5f985f585d1db6a83adb05ce531f46",
+>>>>>>> 8fe42444fffa61bf468c07b7c4a2b59aa48ecd80
                 "shasum": ""
             },
             "require": {
@@ -2203,11 +2216,19 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
+<<<<<<< HEAD
             "time": "2014-10-01 15:43:05"
         },
         {
             "name": "symfony/filesystem",
             "version": "v2.5.6",
+=======
+            "time": "2014-09-28 15:56:11"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v2.5.5",
+>>>>>>> 8fe42444fffa61bf468c07b7c4a2b59aa48ecd80
             "target-dir": "Symfony/Component/Filesystem",
             "source": {
                 "type": "git",
