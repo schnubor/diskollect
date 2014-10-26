@@ -244,18 +244,19 @@
   <script>
     var count = $('.tracklist_length').val();
     var new_tracks = 0;
-    var delete_tracks = 0;
 
+    // Add track
     $('.js-add-track').click(function(){
-      $('.js-track-table tbody').append('<tr><td><input class="form-control" name="track_'+count+'_pos" type="text" value="A1"></td><td><input class="form-control" name="track_'+count+'_title" type="text" value="Example title"></td><td><input class="form-control" name="track_'+count+'_duration" type="text" value="1:23"></td><td><div class="btn btn-danger form-control js-delete-track"><i class="fa fa-trash"></i></div></td></tr>');
+      $('.js-track-table tbody').append('<tr><td><input class="form-control" name="track_'+count+'_pos" type="text" value="A1"></td><td><input class="form-control" name="track_'+count+'_title" type="text" value="Example title"></td><td><input class="form-control" name="track_'+count+'_duration" type="text" value="1:23"></td><td><div class="btn btn-danger form-control js-delete-track js-new-track"><i class="fa fa-trash"></i></div></td></tr>');
       count++;
       new_tracks++;
       $('.tracklist_length_new').val(new_tracks);
     });
 
+    // Delete Track
     $('.js-track-table tbody').on('click', '.js-delete-track', function(){
       $(this).parent().parent().remove();
-      if(new_track > 0){
+      if($(this).hasClass('js-new-track')){
         new_tracks--;
         $('.tracklist_length_new').val(new_tracks);
       }
