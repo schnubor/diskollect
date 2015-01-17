@@ -44,28 +44,30 @@
 
     <div class="welcome-content">
       <div class="container">
-
-        <!-- Intro -->
-        <div class="intro row">
-          <div class="col-md-4">
-            <div class="text-center"><i class="fa fa-fw fa-line-chart"></i></div>
-            <p>
-              Dive into the numbers and keep track. We will create personlized statistics for your collection.
-            </p>
+        
+        @if(!Auth::check())
+          <!-- Intro -->
+          <div class="intro row">
+            <div class="col-md-4">
+              <div class="text-center"><i class="fa fa-fw fa-line-chart"></i></div>
+              <p>
+                Dive into the numbers and keep track. We will create personlized statistics for your collection.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <div class="text-center"><i class="fa fa-fw fa-cubes"></i></div>
+              <p>
+                Diskollect integrates with different APIs like Discogs or iTunes to get all the data you need.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <div class="text-center"><i class="fa fa-fw fa-refresh"></i></div>
+              <p>
+                Easy to use. Build, manage and share your collection at home or on the go.
+              </p>
+            </div>
           </div>
-          <div class="col-md-4">
-            <div class="text-center"><i class="fa fa-fw fa-cubes"></i></div>
-            <p>
-              Diskollect integrates with different APIs like Discogs or iTunes to get all the data you need.
-            </p>
-          </div>
-          <div class="col-md-4">
-            <div class="text-center"><i class="fa fa-fw fa-refresh"></i></div>
-            <p>
-              Easy to use. Build, manage and share your collection at home or on the go.
-            </p>
-          </div>
-        </div>
+        @endif
 
         <!-- Latest Vinyls -->
         <div class="row">
@@ -75,7 +77,13 @@
             <div class="row">
               @foreach($latestVinyls as $vinyl)
                 <div class="col-md-4 latest-vinyl">
-                  <a href="{{ URL::route('get-vinyl', $vinyl->id) }}"><img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist.' - '.$vinyl->title }}" width="100%" class="img-thumbnail"></a>
+                  <a href="{{ URL::route('get-vinyl', $vinyl->id) }}">
+                    @if(@getimagesize($vinyl->artwork))
+                      <img src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist.' - '.$vinyl->title }}" width="100%" class="img-thumbnail">
+                    @else
+                      <img src="{{ VINYL_PH_PATH }}" alt="{{ $vinyl->artist.' - '.$vinyl->title }}" width="100%" class="img-thumbnail">
+                    @endif
+                  </a>
                   <p>
                     <strong>{{ $vinyl->artist }}</strong><br>
                     <span>{{ $vinyl->title }}</span>
@@ -87,7 +95,13 @@
           <div class="col-md-4">
             <p class="h2">Vinyl of the moment</p>
             <hr>
-            <a href="{{ URL::route('get-vinyl', $randomVinyl->id) }}"><img src="{{ $randomVinyl->artwork }}" class="img-thumbnail" alt="{{ $randomVinyl->artist.' - '.$randomVinyl->title }}" width="100%"></a>
+            <a href="{{ URL::route('get-vinyl', $randomVinyl->id) }}">
+              @if(@getimagesize($randomVinyl->artwork))
+                <img src="{{ $randomVinyl->artwork }}" class="img-thumbnail" alt="{{ $randomVinyl->artist.' - '.$randomVinyl->title }}" width="100%">
+              @else
+                <img src="{{ VINYL_PH_PATH }}" class="img-thumbnail" alt="{{ $randomVinyl->artist.' - '.$randomVinyl->title }}" width="100%">
+              @endif
+            </a>
             <p class="vinyl-info">
               <strong>{{ $randomVinyl->artist }}</strong><br>
               <span>{{ $randomVinyl->title }}</span>
@@ -103,7 +117,7 @@
             <div class="member col-md-2">
               <div class="portrait">
                 <a href="{{ URL::route('get-user', $member->id) }}" title="{{ $member->username }}">
-                  @if($member->image)
+                  @if(@getimagesize($member->image))
                     <img src="{{ $member->image }}" alt="{{ $member->username }}">
                   @else
                     <img src="{{ USER_PH_PATH }}" alt="{{ $member->username }}">

@@ -10,7 +10,7 @@
       <div class="col-md-2">
         <div class="user-image">
         <a href="{{ URL::route('get-user', $user->id) }}">
-          @if($user->image)
+          @if(@getimagesize($user->image))
             <img src="{{ $user->image }}" alt="{{ $user->username }}">
           @else
             <img src="{{ USER_PH_PATH }}" alt="{{ $user->username }}">

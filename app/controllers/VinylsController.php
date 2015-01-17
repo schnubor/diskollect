@@ -153,7 +153,7 @@ class VinylsController extends \BaseController {
 	*/
 	public function showCollection($id, $grid = 'grid', $sort = 'alphabetical')
 	{
-		$vinyls = User::find($id)->vinyls()->paginate(32);
+		$vinyls = User::find($id)->vinyls()->orderBy('created_at', 'DESC')->paginate(32);
 		$user = User::find($id);
     $weight = $vinyls->sum('weight');
     $value = number_format(round($vinyls->sum('price'),2),2);
