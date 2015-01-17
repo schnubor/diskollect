@@ -19,6 +19,7 @@ class HomeController extends BaseController {
 	{
 		$users = User::all()->count();
 		$vinyls = Vinyl::all()->count();
+		$randomVinyl = Vinyl::orderBy(DB::raw('RAND()'))->first();
 		$latestVinyls = Vinyl::orderBy('created_at', 'DESC')->take(6)->get();
 		$latestMembers = User::orderBy('created_at', 'DESC')->take(6)->get();
 
@@ -26,7 +27,8 @@ class HomeController extends BaseController {
 			->with('users', $users)
 			->with('vinyls', $vinyls)
 			->with('latestVinyls', $latestVinyls)
-			->with('latestMembers', $latestMembers);
+			->with('latestMembers', $latestMembers)
+			->with('randomVinyl', $randomVinyl);
   }
 
 }
