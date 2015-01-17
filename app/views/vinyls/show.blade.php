@@ -25,7 +25,11 @@
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <div class="thumbnail">
-              <img itemprop="image" src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist . ' - ' . $vinyl->title }}" class="vinyl-artwork">
+              @if(@getimagesize($vinyl->artwork))
+                <img itemprop="image" src="{{ $vinyl->artwork }}" alt="{{ $vinyl->artist . ' - ' . $vinyl->title }}" class="vinyl-artwork">
+              @else
+                <img itemprop="image" src="{{ VINYL_PH_PATH }}" alt="{{ $vinyl->artist . ' - ' . $vinyl->title }}" class="vinyl-artwork">
+              @endif
             </div>
           </div>
         </div>
@@ -68,7 +72,11 @@
           </div>
           <div class="panel-body">
             <div class="user-image">
-              <img width="100%" src="{{ User::find($vinyl->user_id)->image }}" alt="{{ User::find($vinyl->user_id)->username }}">
+              @if(User::find($vinyl->user_id)->image)
+                <img width="100%" src="{{ User::find($vinyl->user_id)->image }}" alt="{{ User::find($vinyl->user_id)->username }}">
+              @else
+                <img width="100%" src="{{ USER_PH_PATH }}" alt="{{ User::find($vinyl->user_id)->username }}">
+              @endif
             </div>
             <dl>
               <dt>Owner</dt>
